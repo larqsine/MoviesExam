@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="jdbc connection">
-      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +56,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Rdwn/AppData/Local/SceneBuilder/SceneBuilder.exe",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -88,6 +89,7 @@
       <option name="presentableId" value="Default" />
       <updated>1704364407563</updated>
       <workItem from="1704364408696" duration="1235000" />
+      <workItem from="1704375044231" duration="2711000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <option name="closed" value="true" />
