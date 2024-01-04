@@ -6,7 +6,7 @@ public class Movies {
     private int id;
     private String name;
     private Double rating;
-    private String filelink;
+    private String fileLink;
     private Date lastView;
 
     public Movies(int id, String name, Double rating, String filelink, Date lastView) {
