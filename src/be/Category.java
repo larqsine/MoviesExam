@@ -5,7 +5,7 @@ import java.util.List;
 public class Category {
     private int id;
     private String name;
-    private  List<Movie> movies;
+    private List<Movie> movies;
 
     public Category(int id, String name) {
         this.id = id;
@@ -16,6 +16,7 @@ public class Category {
         this.name = name;
         this.movies = movies;
     }
+
 
     public Category(int id, String name, List<Movie> movies) {
         this.id = id;
@@ -37,5 +38,10 @@ public class Category {
 
     public void setMovies(List<Movie> movies) {
         this.movies = movies;
+    }
+
+    @Override
+    public String toString() {
+        return id + name;
     }
 }
