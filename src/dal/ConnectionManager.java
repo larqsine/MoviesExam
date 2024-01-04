@@ -7,6 +7,7 @@ import utility.ExceptionsMessages;
 
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 public class ConnectionManager {
     private final SQLServerDataSource ds;
@@ -21,8 +22,11 @@ public class ConnectionManager {
     public Connection getConnection() throws MoviesException {
         try {
             return ds.getConnection();
+
         } catch (SQLServerException e) {
             throw new MoviesException(ExceptionsMessages.NO_DATABASE_CONNECTION,e.getCause());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 }

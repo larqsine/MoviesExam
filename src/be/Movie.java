@@ -1,5 +1,6 @@
 package be;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -9,23 +10,34 @@ public class Movie {
     private Double rating;
     private String fileLink;
     private Date lastView;
+    private Double personalRating;
     private List<Category> categories;
 
-    public Movie(int id, String name, Double rating, String fileLink, Date lastView, List<Category> categories) {
+    public Movie(int id, String name, Double rating, String fileLink, Date lastView, Double personalRating,List<Category> categories) {
         this.id = id;
         this.name = name;
         this.rating = rating;
         this.fileLink = fileLink;
         this.lastView = lastView;
-        this.categories = categories;
+        this.personalRating=personalRating;
+        intializeCategories(categories);
     }
 
-    public Movie(String name, Double rating, String fileLink, Date lastView, List<Category> categories) {
+    private void intializeCategories(List<Category> categories) {
+        if (categories == null) {
+            this.categories = new ArrayList<>();
+        } else {
+            this.categories = categories;
+        }
+    }
+
+    public Movie(String name, Double rating, String fileLink, Date lastView, Double personalRating, List<Category> categories) {
         this.name = name;
         this.rating = rating;
         this.fileLink = fileLink;
         this.lastView = lastView;
-        this.categories = categories;
+        this.personalRating=personalRating;
+    intializeCategories(categories);
     }
 
 
@@ -74,5 +86,16 @@ public class Movie {
         this.categories = categories;
     }
 
-
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", rating=" + rating +
+                ", fileLink='" + fileLink + '\'' +
+                ", lastView=" + lastView +
+                ", personalRating=" + personalRating +
+                ", categories=" + categories +
+                '}';
+    }
 }
