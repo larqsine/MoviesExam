@@ -3,33 +3,33 @@ package exceptions;
 
 import utility.ExceptionsMessages;
 
-public class MyTunesException extends Exception {
+public class MoviesException extends Exception {
     private ExceptionsMessages exceptionsMessages;
-    public MyTunesException() {
+    public MoviesException() {
     }
 
-    public MyTunesException(String message) {
+    public MoviesException(String message) {
         super(message);
     }
-    public MyTunesException(ExceptionsMessages message){
+    public MoviesException(ExceptionsMessages message){
         super(message.getValue());
         this.exceptionsMessages=message;
     }
 
-    public MyTunesException(ExceptionsMessages message, Throwable cause){
+    public MoviesException(ExceptionsMessages message, Throwable cause){
         super(message.getValue(),cause);
         this.exceptionsMessages=message;
     }
 
-    public MyTunesException(String message, Throwable cause) {
+    public MoviesException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public MyTunesException(Throwable cause) {
+    public MoviesException(Throwable cause) {
         super(cause);
     }
 
-    public MyTunesException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+    public MoviesException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
 

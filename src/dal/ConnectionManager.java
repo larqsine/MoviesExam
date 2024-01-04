@@ -2,7 +2,7 @@ package dal;
 
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
-import exceptions.MyTunesException;
+import exceptions.MoviesException;
 import utility.ExceptionsMessages;
 
 
@@ -18,11 +18,11 @@ public class ConnectionManager {
         ds.setServerName("EASV-DB4");
         ds.setTrustServerCertificate(true);
     }
-    public Connection getConnection() throws MyTunesException {
+    public Connection getConnection() throws MoviesException {
         try {
             return ds.getConnection();
         } catch (SQLServerException e) {
-            throw new MyTunesException(ExceptionsMessages.NO_DATABASE_CONNECTION,e.getCause());
+            throw new MoviesException(ExceptionsMessages.NO_DATABASE_CONNECTION,e.getCause());
         }
     }
 }

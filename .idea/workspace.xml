@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="start project">
-      <change afterPath="$PROJECT_DIR$/src/dal/ConnectionManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/exceptions/MyTunesException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="jdbc connection" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,6 +44,7 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "D:/computer_science/sco/MediPlayer/MoviesExam/src",
@@ -69,6 +66,7 @@
       <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="utility" />
       <recent name="dal" />
     </key>
   </component>
@@ -80,7 +78,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1704364407563</updated>
-      <workItem from="1704364408696" duration="1025000" />
+      <workItem from="1704364408696" duration="1235000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <option name="closed" value="true" />
@@ -90,7 +88,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704364745587</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="jdbc connection">
+      <option name="closed" value="true" />
+      <created>1704366816455</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1704366816455</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -98,7 +104,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="start project" />
-    <option name="LAST_COMMIT_MESSAGE" value="start project" />
+    <MESSAGE value="jdbc connection" />
+    <option name="LAST_COMMIT_MESSAGE" value="jdbc connection" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
