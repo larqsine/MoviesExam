@@ -40,8 +40,12 @@ public class Category {
         this.movies = movies;
     }
 
+    public int getId() {
+        return id;
+    }
+
     @Override
     public String toString() {
-        return id + name;
+        return name;
     }
 }
