@@ -1,7 +1,10 @@
 package dal;
+import be.Movie;
+import exceptions.MoviesException;
 
-import java.util.Map;
+import java.util.List;
 
 public interface IMovieDao {
-    Map<String,String> getMovies();
+    List<Movie> getMovies() throws MoviesException;
+    void testConnection();
 }

@@ -7,6 +7,11 @@ public class Category {
     private String name;
     private  List<Movie> movies;
 
+    public Category(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public Category(String name, List<Movie> movies) {
         this.name = name;
         this.movies = movies;
