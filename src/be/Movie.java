@@ -20,13 +20,19 @@ public class Movie {
         this.categories = categories;
     }
 
+    public Movie(String name, Double rating, String fileLink, Date lastView, List<Category> categories) {
+        this.name = name;
+        this.rating = rating;
+        this.fileLink = fileLink;
+        this.lastView = lastView;
+        this.categories = categories;
+    }
+
+
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -68,11 +74,5 @@ public class Movie {
         this.categories = categories;
     }
 
-    public Movie(String name, Double rating, String fileLink, Date lastView, List<Category> categories) {
-        this.name = name;
-        this.rating = rating;
-        this.fileLink = fileLink;
-        this.lastView = lastView;
-        this.categories = categories;
-    }
+
 }
