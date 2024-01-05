@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="added Categoryes view">
-      <change afterPath="$PROJECT_DIR$/src/gui/components/category/CategorySelectionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/components/category/CategoryView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/components/category/TitleCell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/components/listeners/CategorySelection.java" afterDir="false" />
+    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="changed list view with a custom implementation">
+      <change afterPath="$PROJECT_DIR$/src/utility/ExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,8 +79,8 @@
       <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="gui.components.Category" />
       <recent name="utility" />
+      <recent name="gui.components.Category" />
       <recent name="dal" />
     </key>
   </component>
@@ -159,7 +156,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704400013952</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="changed list view with a custom implementation">
+      <option name="closed" value="true" />
+      <created>1704402725489</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1704402725489</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,6 +188,7 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
     <MESSAGE value="categories displayed in view" />
     <MESSAGE value="added Categoryes view" />
-    <option name="LAST_COMMIT_MESSAGE" value="added Categoryes view" />
+    <MESSAGE value="changed list view with a custom implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed list view with a custom implementation" />
   </component>
 </project>
