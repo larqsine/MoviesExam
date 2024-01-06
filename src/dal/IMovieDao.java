@@ -4,6 +4,6 @@ import exceptions.MoviesException;
 import java.util.Map;
 
 public interface IMovieDao {
-    Map<Integer,Movie> getMovies() throws MoviesException;
+    Map<Integer,Movie> getMovies(int categoryId) throws MoviesException;
     void testConnection();
 }

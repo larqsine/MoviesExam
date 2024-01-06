@@ -31,7 +31,7 @@ public class MainViewController implements Initializable {
         try {
             model = MainModel.getInstance();
             //initialize the category list view
-            categoryContainer.getChildren().add(new CategoryView(new CategorySelectionHandler(), model.getCategories()));
+            categoryContainer.getChildren().add(new CategoryView(new CategorySelectionHandler(model), model.getCategories()));
         //initialize moviesTable
             moviesView.getChildren().add(new MoviesTable(new MovieSelectionHandler(),model.getMovies()));
         } catch (MoviesException me) {
