@@ -1,11 +1,15 @@
 package gui.components.movies;
 
+import be.Category;
 import be.Movie;
 import gui.components.listeners.MovieSelectionListener;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+
+import java.util.Date;
+import java.util.List;
 
 public class MoviesTable extends TableView<Movie> {
     private MovieSelectionListener movieSelectionListener;
@@ -34,10 +38,10 @@ public class MoviesTable extends TableView<Movie> {
                 new DoubleCell(50, null));
 
 
-        TableColumn<Movie, String> lastView = new TableColumn<>("LastView");
+        TableColumn<Movie, Date> lastView = new TableColumn<>("LastView");
         lastView.setCellValueFactory(new PropertyValueFactory<>("lastView"));
         lastView.setPrefWidth(48);
-        lastView.setCellFactory(column -> new TitleCell(48, null));
+        lastView.setCellFactory(column -> new DateCell(48, null));
 
 
         TableColumn<Movie, Double> personalRating = new TableColumn<>("Personal Rating");
@@ -45,10 +49,10 @@ public class MoviesTable extends TableView<Movie> {
         personalRating.setPrefWidth(48);
         personalRating.setCellFactory(column ->  new DoubleCell(48, null));
 
-        TableColumn<Movie, String> categories = new TableColumn<>("Genre");
+        TableColumn<Movie, List<Category>> categories = new TableColumn<>("Genre");
         categories.setCellValueFactory(new PropertyValueFactory<>("categories"));
         categories.setPrefWidth(95);
-        categories.setCellFactory(column -> new TitleCell(95, null));
+        categories.setCellFactory(column -> new ListCell(95, null));
 
         this.getColumns().addAll(titleColumn, imdbRating, lastView, personalRating, categories);
         this.setPlaceholder(new Label("No movies to display"));

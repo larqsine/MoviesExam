@@ -11,6 +11,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.util.Collections;
+import java.util.Map;
 
 public class MainModel {
     private final CategoryLogicAPI categoryLogic;
@@ -18,6 +19,7 @@ public class MainModel {
     private static MainModel instance;
     private final ObservableList<Category> categories;
     private final ObservableList<Movie>movies;
+    private Map<Integer,Movie> movieObjects ;
 
 
 
@@ -49,6 +51,14 @@ public class MainModel {
 
     public ObservableList<Movie> getMovies() {
         return this.movies;
+    }
+
+    public void retrieveMovies(int id) throws MoviesException {
+        setMovieObservableList(id);
+    }
+    private void setMovieObservableList(int categoryId) throws MoviesException {
+         movieObjects= movieLogic.getMovies(categoryId);
+         this.movies.setAll(movieObjects.keySet().stream().map(elem->movieObjects.get(elem)).toList());
     }
 
 //    public void applyFilter(String filter) {

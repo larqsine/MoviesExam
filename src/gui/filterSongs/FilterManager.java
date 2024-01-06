@@ -27,35 +27,35 @@ public class FilterManager {
     }
 
 
-    public void applyFilter(ActionEvent event) {
-        String filter = searchValue.getText();
-        if (searchButton.getGraphic().getId().equals(GraphicIdValues.SEARCH.getValue())) {
-            if (!filter.isEmpty()) {
-                applySearchFilter(filter);
-            } else {
-                showInfoMessage(InformationalMessages.FILTER_EMPTY.getValue());
-            }
-        }
-        else {
-            clearSearchFilter();
-        }
-    }
-
-    private void applySearchFilter(String filter) {
-        searchGraphic = new UndoGraphic();
-        model.applyFilter(filter);
-        infoLabel.setVisible(false);
-        searchButton.setGraphic(searchGraphic.getGraphic());
-        searchValue.setText("");
-        searchValue.setEditable(false);
-    }
-
-    private void clearSearchFilter() {
-        searchGraphic = new SearchGraphic();
-        searchButton.setGraphic(searchGraphic.getGraphic());
-        searchValue.setEditable(true);
-        model.resetFilter();
-    }
+//    public void applyFilter(ActionEvent event) {
+//        String filter = searchValue.getText();
+//        if (searchButton.getGraphic().getId().equals(GraphicIdValues.SEARCH.getValue())) {
+//            if (!filter.isEmpty()) {
+//                applySearchFilter(filter);
+//            } else {
+//                showInfoMessage(InformationalMessages.FILTER_EMPTY.getValue());
+//            }
+//        }
+//        else {
+//            clearSearchFilter();
+//        }
+//    }
+//
+//    private void applySearchFilter(String filter) {
+//        searchGraphic = new UndoGraphic();
+//        model.applyFilter(filter);
+//        infoLabel.setVisible(false);
+//        searchButton.setGraphic(searchGraphic.getGraphic());
+//        searchValue.setText("");
+//        searchValue.setEditable(false);
+//    }
+//
+//    private void clearSearchFilter() {
+//        searchGraphic = new SearchGraphic();
+//        searchButton.setGraphic(searchGraphic.getGraphic());
+//        searchValue.setEditable(true);
+//        model.resetFilter();
+//    }
 
     private void showInfoMessage(String message) {
         infoLabel.setVisible(true);
