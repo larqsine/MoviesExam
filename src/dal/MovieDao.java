@@ -11,7 +11,6 @@ import java.util.Date;
 
 public class MovieDao implements IMovieDao {
     private final ConnectionManager CONNECTION_MANAGER = new ConnectionManager();
-
     /**
      * retrieves the movie data from the database
      */

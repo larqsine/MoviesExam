@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="category custom component" />
+    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="movies filter container added">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dal/MovieDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/MovieDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/category/CategorySelectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/category/CategorySelectionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/filterSongs/FilterManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/filterSongs/FilterManager.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -103,6 +108,7 @@
       <option name="presentableId" value="Default" />
       <updated>1704364407563</updated>
       <workItem from="1704364408696" duration="1235000" />
+      <workItem from="1704566550963" duration="1426000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <option name="closed" value="true" />
@@ -200,7 +206,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704563459326</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="movies filter container added">
+      <option name="closed" value="true" />
+      <created>1704564646927</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1704564646927</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,6 +242,7 @@
     <MESSAGE value="exception handling" />
     <MESSAGE value="category custom component" />
     <MESSAGE value="filter functionality started" />
-    <option name="LAST_COMMIT_MESSAGE" value="filter functionality started" />
+    <MESSAGE value="movies filter container added" />
+    <option name="LAST_COMMIT_MESSAGE" value="movies filter container added" />
   </component>
 </project>
