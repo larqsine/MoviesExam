@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="category custom component">
-      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/CategoryLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/CategoryLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dal/CategoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/CategoryDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dal/ICategoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/ICategoryDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/category/CategorySelectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/category/CategorySelectionHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +182,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704525166413</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="category custom component">
+      <option name="closed" value="true" />
+      <created>1704525934346</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1704525934346</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

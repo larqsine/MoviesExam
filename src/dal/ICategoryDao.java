@@ -4,7 +4,8 @@ import be.Category;
 import exceptions.MoviesException;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ICategoryDao {
-    List<Category> getCategories() throws MoviesException;
+    Map<Integer,Category> getCategories() throws MoviesException;
 }

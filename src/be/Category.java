@@ -12,11 +12,14 @@ public class Category {
         this.name = name;
     }
 
+    public Category(String name) {
+        this.name = name;
+    }
+
     public Category(String name, List<Movie> movies) {
         this.name = name;
         this.movies = movies;
     }
-
 
     public Category(int id, String name, List<Movie> movies) {
         this.id = id;
