@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="category custom component">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/CategoryLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/CategoryLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/CategoryLogicAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/CategoryLogicAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +75,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="gui.filterSongs" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src\gui\components\movies" />
       <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src" />

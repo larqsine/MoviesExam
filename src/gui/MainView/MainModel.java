@@ -19,6 +19,7 @@ public class MainModel {
 
 
 
+
     private MainModel() throws MoviesException  {
         this.categoryLogic=new CategoryLogic();
         this.categories = FXCollections.observableArrayList();
@@ -46,5 +47,10 @@ public class MainModel {
 
     public ObservableList<Movie> getMovies() {
         return this.movies;
+    }
+
+    public void applyFilter(String filter) {
+        this.movies.setAll(categoryLogic.applyFilter(filter, movies));
+
     }
 }
