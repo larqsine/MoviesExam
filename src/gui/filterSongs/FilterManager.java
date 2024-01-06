@@ -1,9 +1,10 @@
 package gui.filterSongs;
 
 import gui.MainView.MainModel;
-import gui.searchButton.IsearchGraphic;
+import gui.searchButton.ISearchGraphic;
 import gui.searchButton.SearchGraphic;
 import gui.searchButton.UndoGraphic;
+import utility.GraphicIdValues;
 import utility.InformationalMessages;
 
 import java.awt.*;
@@ -11,8 +12,8 @@ import java.awt.event.ActionEvent;
 
 public class FilterManager {
     private final MainModel model;
-    private final Object searchButton;
-    private IsearchGraphic searchGraphic;
+//    private final Object searchButton;
+    private ISearchGraphic searchGraphic;
     private Label infoLabel;
     private Button SearchButton;
     private TextField searchValue;
@@ -21,7 +22,7 @@ public class FilterManager {
         this.model = model;
         this.searchGraphic = searchGraphic;
         this.infoLabel = infoLabel;
-        this. searchButton = searchButton;
+//        this. searchButton = searchButton;
         this. searchValue = searchValue;
     }
 

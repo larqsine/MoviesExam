@@ -4,6 +4,8 @@ import be.Category;
 import be.Movie;
 import bll.CategoryLogic;
 import bll.CategoryLogicAPI;
+import bll.movieLogic.MovieLogic;
+import bll.movieLogic.MovieLogicAPI;
 import exceptions.MoviesException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,7 +14,7 @@ import java.util.Collections;
 
 public class MainModel {
     private final CategoryLogicAPI categoryLogic;
-
+    private final MovieLogicAPI movieLogic;
     private static MainModel instance;
     private final ObservableList<Category> categories;
     private final ObservableList<Movie>movies;
@@ -20,6 +22,7 @@ public class MainModel {
 
 
     private MainModel() throws MoviesException  {
+        this.movieLogic=new MovieLogic();
         this.categoryLogic=new CategoryLogic();
         this.categories = FXCollections.observableArrayList();
         this.movies= FXCollections.observableArrayList();
@@ -48,6 +51,10 @@ public class MainModel {
         return this.movies;
     }
 
-    public void applyFilter(String filter) {
-    }
+//    public void applyFilter(String filter) {
+//        this.movies.setAll(movieLogic.applyFilter);
+//    }
+//
+//    public void resetFilter() {
+//    }
 }
