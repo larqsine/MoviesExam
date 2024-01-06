@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 
 public class FilterManager {
     private final MainModel model;
+    private final Object searchButton;
     private IsearchGraphic searchGraphic;
     private Label infoLabel;
     private Button SearchButton;

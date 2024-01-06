@@ -47,4 +47,7 @@ public class MainModel {
     public ObservableList<Movie> getMovies() {
         return this.movies;
     }
+
+    public void applyFilter(String filter) {
+    }
 }

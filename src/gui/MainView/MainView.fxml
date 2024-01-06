@@ -69,7 +69,7 @@
             <HBox fx:id="filterContainer" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <TextField />
-                  <Button mnemonicParsing="false" text="Search" />
+                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#applyFilter" text="Search" />
                </children></HBox>
             <Pane fx:id="moviesView" prefHeight="513.0" prefWidth="487.0" />
             <HBox alignment="TOP_CENTER" prefHeight="170.0" prefWidth="260.0">
