@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.ListView;
 
 public class CategoryView extends ListView<Category> {
+    private int defaultHeight =513;
     public CategoryView(CategorySelection selectionListener,ObservableList<Category> items) {
         this.setItems(items);
         this.setCellFactory(cell -> {
@@ -12,6 +13,7 @@ public class CategoryView extends ListView<Category> {
             titleCell.setOnMouseClick(selectionListener);
             return titleCell;
         });
+        this.setHeight(defaultHeight);
     }
 
     public void setCategories(ObservableList<Category> songs) {

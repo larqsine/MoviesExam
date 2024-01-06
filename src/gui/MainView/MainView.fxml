@@ -6,19 +6,21 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainView.MainViewController">
    <children>
-      <VBox fx:id="categoryContainer" alignment="TOP_CENTER" prefHeight="755.0" prefWidth="324.0">
+      <VBox alignment="TOP_CENTER" prefHeight="755.0" prefWidth="324.0">
          <children>
             <Label prefHeight="34.0" prefWidth="58.0" text="Category">
                <font>
                   <Font size="13.0" />
                </font>
             </Label>
+            <Pane fx:id="categoryContainer" prefHeight="513.0" prefWidth="200.0" />
             <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Button mnemonicParsing="false" text="Add" />
