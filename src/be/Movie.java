@@ -11,15 +11,24 @@ public class Movie {
     private String fileLink;
     private Date lastView;
     private Double personalRating;
+
+    public void setPersonalRating(Double personalRating) {
+        this.personalRating = personalRating;
+    }
+
+    public Double getPersonalRating() {
+        return personalRating;
+    }
+
     private List<Category> categories;
 
-    public Movie(int id, String name, Double rating, String fileLink, Date lastView, Double personalRating,List<Category> categories) {
+    public Movie(int id, String name, Double rating, String fileLink, Date lastView, Double personalRating, List<Category> categories) {
         this.id = id;
         this.name = name;
         this.rating = rating;
         this.fileLink = fileLink;
         this.lastView = lastView;
-        this.personalRating=personalRating;
+        this.personalRating = personalRating;
         intializeCategories(categories);
     }
 
@@ -36,8 +45,8 @@ public class Movie {
         this.rating = rating;
         this.fileLink = fileLink;
         this.lastView = lastView;
-        this.personalRating=personalRating;
-    intializeCategories(categories);
+        this.personalRating = personalRating;
+        intializeCategories(categories);
     }
 
 

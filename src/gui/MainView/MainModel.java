@@ -1,6 +1,7 @@
 package gui.MainView;
 
 import be.Category;
+import be.Movie;
 import bll.CategoryLogic;
 import bll.CategoryLogicAPI;
 import exceptions.MoviesException;
@@ -11,14 +12,17 @@ import java.util.Collections;
 
 public class MainModel {
     private final CategoryLogicAPI categoryLogic;
+
     private static MainModel instance;
     private final ObservableList<Category> categories;
+    private final ObservableList<Movie>movies;
 
 
 
-    private MainModel() throws MoviesException {
+    private MainModel() throws MoviesException  {
         this.categoryLogic=new CategoryLogic();
         this.categories = FXCollections.observableArrayList();
+        this.movies= FXCollections.observableArrayList();
         initializeCategories();
     }
 
@@ -40,11 +44,7 @@ public class MainModel {
 
 
 
-
-
-
-
-
-
-
+    public ObservableList<Movie> getMovies() {
+        return this.movies;
+    }
 }
