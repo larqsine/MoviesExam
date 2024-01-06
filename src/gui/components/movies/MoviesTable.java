@@ -1,7 +1,6 @@
 package gui.components.movies;
 
 import be.Movie;
-import gui.components.listeners.DataSupplier;
 import gui.components.listeners.MovieSelectionListener;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;
@@ -26,30 +25,30 @@ public class MoviesTable extends TableView<Movie> {
         TableColumn<Movie, String> titleColumn = new TableColumn<>("Name");
         titleColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         titleColumn.setPrefWidth(95);
-        titleColumn.setCellFactory(column -> new TableCell<>(95, null));
+        titleColumn.setCellFactory(column -> new TitleCell(95, null));
 
-        TableColumn<Movie, String> imdbRating = new TableColumn<>("IMDB Rating");
+        TableColumn<Movie, Double> imdbRating = new TableColumn<>("IMDB Rating");
         imdbRating.setCellValueFactory(new PropertyValueFactory<>("rating"));
         imdbRating.setPrefWidth(50);
         imdbRating.setCellFactory(column ->
-                new TableCell<>(50, null));
+                new DoubleCell(50, null));
 
 
         TableColumn<Movie, String> lastView = new TableColumn<>("LastView");
         lastView.setCellValueFactory(new PropertyValueFactory<>("lastView"));
-        lastView.setPrefWidth(95);
-        lastView.setCellFactory(column -> new TableCell<>(95, null));
+        lastView.setPrefWidth(48);
+        lastView.setCellFactory(column -> new TitleCell(48, null));
 
 
-        TableColumn<Movie, String> personalRating = new TableColumn<>("Personal Rating");
+        TableColumn<Movie, Double> personalRating = new TableColumn<>("Personal Rating");
         personalRating.setCellValueFactory(new PropertyValueFactory<>("personalRating"));
         personalRating.setPrefWidth(48);
-        personalRating.setCellFactory(column -> new TableCell<>(48, null));
+        personalRating.setCellFactory(column ->  new DoubleCell(48, null));
 
         TableColumn<Movie, String> categories = new TableColumn<>("Genre");
         categories.setCellValueFactory(new PropertyValueFactory<>("categories"));
-        categories.setPrefWidth(48);
-        categories.setCellFactory(column -> new TableCell<>(95, null));
+        categories.setPrefWidth(95);
+        categories.setCellFactory(column -> new TitleCell(95, null));
 
         this.getColumns().addAll(titleColumn, imdbRating, lastView, personalRating, categories);
         this.setPlaceholder(new Label("No movies to display"));
@@ -60,7 +59,7 @@ public class MoviesTable extends TableView<Movie> {
             TableRow<Movie> row = new TableRow<>();
             row.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
                 if (!row.isEmpty() && event.getClickCount() == 2) {
-                    movieSelectionListener.playSelectedMovie(row.getItem().getName(), true);
+                    movieSelectionListener.playSelectedMovie(row.getItem().getId(), true);
                 } else if (!row.isEmpty() && event.getClickCount() == 1) {
 
                 }

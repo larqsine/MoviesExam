@@ -65,6 +65,7 @@
                   <Font size="13.0" />
                </font>
             </Label>
+            <HBox fx:id="filterContainer" prefHeight="100.0" prefWidth="200.0" />
             <Pane fx:id="moviesView" prefHeight="513.0" prefWidth="487.0" />
             <HBox alignment="TOP_CENTER" prefHeight="170.0" prefWidth="260.0">
                <children>
