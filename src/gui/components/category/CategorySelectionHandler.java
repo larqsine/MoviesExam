@@ -15,10 +15,10 @@ public class CategorySelectionHandler  implements CategorySelection {
     @Override
     public void categorySelectionHandler(int id) {
 //        try {
-////            model.retrieveMovies(id);
+//            model.retrieveMovies(id);
 //        } catch (MoviesException e) {
 //            ExceptionHandler eh = new ExceptionHandler();
 //            eh.displayErrorAlert(e.getMessage(),"Movies error");
 //        }
-   }
+    }
 }
