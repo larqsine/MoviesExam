@@ -33,7 +33,7 @@ public class MainViewController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         try {
             model = MainModel.getInstance();
-            categoryContainer.getChildren().add(new CategoryView(new CategorySelectionHandler(), model.getCategories()));
+            categoryContainer.getChildren().add(1,new CategoryView(new CategorySelectionHandler(), model.getCategories()));
         } catch (MoviesException me) {
             this.error=true;
             this.exceptionMessage=me.getMessage();
