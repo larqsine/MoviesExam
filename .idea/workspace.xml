@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="movies data displayed into the table">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dal/MovieDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/MovieDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +77,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src\gui\components\movies" />
       <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\computer_science\sco\MediPlayer\MoviesExam" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="utility" />
@@ -211,7 +215,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704573392768</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="movies data displayed into the table">
+      <option name="closed" value="true" />
+      <created>1704574606923</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1704574606923</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
