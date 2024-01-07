@@ -1,10 +1,8 @@
 package dal;
-
 import be.Category;
 import be.Movie;
 import exceptions.MoviesException;
 import utility.ExceptionsMessages;
-
 import java.sql.*;
 import java.util.*;
 import java.util.Date;
