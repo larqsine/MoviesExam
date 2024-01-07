@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
@@ -10,16 +12,19 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainView.MainViewController">
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainView.MainViewController">
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="715.0" prefWidth="200.0">
+      <VBox prefHeight="715.0" prefWidth="250.0">
          <children>
             <Label prefHeight="34.0" prefWidth="58.0" text="Category">
                <font>
                   <Font size="13.0" />
                </font>
             </Label>
-            <Pane fx:id="categoryContainer" prefHeight="513.0" prefWidth="200.0" />
+            <Pane fx:id="categoryContainer" prefHeight="514.0" prefWidth="166.0">
+               <VBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </VBox.margin></Pane>
             <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Button mnemonicParsing="false" text="Add" />
@@ -29,12 +34,19 @@
             </HBox>
          </children>
       </VBox>
-      <VBox prefHeight="715.0" prefWidth="397.0">
+      <VBox alignment="CENTER" prefHeight="715.0" prefWidth="460.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="538.0" prefWidth="489.0">
+            <HBox fx:id="mediaContainer" alignment="CENTER" prefHeight="330.0" prefWidth="486.0">
                <children>
-                  <MediaView fx:id="mediaViewPlayer" fitHeight="220.0" fitWidth="450.0" />
+                  <MediaView fx:id="mediaViewPlayer" fitHeight="330.0" fitWidth="400.0">
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </MediaView>
                </children>
+               <VBox.margin>
+                  <Insets top="150.0" />
+               </VBox.margin>
             </HBox>
             <HBox prefHeight="206.0" prefWidth="489.0">
                <children>
@@ -59,7 +71,7 @@
             </HBox>
          </children>
       </VBox>
-      <VBox alignment="TOP_CENTER" prefHeight="708.0" prefWidth="356.0">
+      <VBox alignment="TOP_CENTER" prefHeight="708.0" prefWidth="350.0">
          <children>
             <Label prefHeight="36.0" prefWidth="42.0" text="Movies">
                <font>
@@ -72,7 +84,7 @@
                   <Button fx:id="searchButton" mnemonicParsing="false" />
                </children></HBox>
             <Label fx:id="infoEmptyLabel" text="Filter is Empty!" visible="false" />
-            <Pane fx:id="moviesView" prefHeight="513.0" prefWidth="487.0" />
+            <Pane fx:id="moviesView" prefHeight="455.0" prefWidth="300.0" />
             <HBox alignment="TOP_CENTER" prefHeight="170.0" prefWidth="260.0">
                <children>
                   <Button mnemonicParsing="false" text="Add" />

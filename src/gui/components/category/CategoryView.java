@@ -6,6 +6,7 @@ import javafx.scene.control.ListView;
 
 public class CategoryView extends ListView<Category> {
     private int defaultHeight =513;
+    private int defaultWidth = 200;
     public CategoryView(CategorySelection selectionListener,ObservableList<Category> items) {
         this.setItems(items);
         this.setCellFactory(cell -> {
@@ -14,6 +15,7 @@ public class CategoryView extends ListView<Category> {
             return titleCell;
         });
         this.setHeight(defaultHeight);
+        this.setWidth(defaultWidth);
     }
 
     public void setCategories(ObservableList<Category> songs) {

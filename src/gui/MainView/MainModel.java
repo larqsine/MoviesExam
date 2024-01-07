@@ -27,7 +27,7 @@ public class MainModel {
     /**
      * holds the current volume off the appliation
      */
-    private DoubleProperty volumeLevel = new SimpleDoubleProperty();
+    private DoubleProperty volumeLevel = new SimpleDoubleProperty(100);
     /**
      * controls if the application  volume is mute
      */

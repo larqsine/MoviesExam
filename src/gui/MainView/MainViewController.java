@@ -47,11 +47,14 @@ public class MainViewController implements Initializable {
     private Pane categoryContainer;
     @FXML
     private Pane moviesView;
+    @FXML
+    private Pane mediaContainer;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         UIInitializer uiInitializer = new UIInitializer();
+
 
         try {
 
