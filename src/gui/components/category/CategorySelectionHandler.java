@@ -2,7 +2,6 @@ package gui.components.category;
 import exceptions.MoviesException;
 import gui.MainView.MainModel;
 import gui.components.listeners.CategorySelection;
-import gui.components.listeners.DataSupplier;
 import utility.ExceptionHandler;
 
 public class CategorySelectionHandler  implements CategorySelection {

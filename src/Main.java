@@ -23,8 +23,7 @@ public class Main extends Application {
             initializeStage(primaryStage, root);
         } else {
             initializeStage(primaryStage, root);
-            ExceptionHandler exceptionHandler = new ExceptionHandler();
-            exceptionHandler.displayErrorAndWait(mvC.getExceptionMessage(), InformationalMessages.INITIALIZING_ERROR.getValue());
+            ExceptionHandler.displayErrorAndWait(mvC.getExceptionMessage(), InformationalMessages.INITIALIZING_ERROR.getValue());
             primaryStage.close();
         }
 

@@ -8,7 +8,6 @@ import java.io.File;
 import java.net.URI;
 
 public class MovieReader implements IMovieReader {
-
     private Media readMedia(String path) throws MoviesException {
         URI mediaUri;
         try {
@@ -22,6 +21,13 @@ public class MovieReader implements IMovieReader {
     @Override
     public Media getMedia(String path) throws MoviesException {
         return this.readMedia(path);
+    }
+
+    @Override
+    public Media getInitialMedia() throws MoviesException {
+        String path= "D:\\computer_science\\sco\\MediPlayer\\MoviesExam\\data\\pexels-adem-albayrak-19212044 (Original).mp4";
+
+        return getMedia(path);
     }
 
 }

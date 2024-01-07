@@ -10,7 +10,7 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainView.MainViewController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainView.MainViewController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="715.0" prefWidth="200.0">
          <children>
@@ -33,7 +33,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="538.0" prefWidth="489.0">
                <children>
-                  <MediaView fitHeight="220.0" fitWidth="450.0" />
+                  <MediaView fx:id="mediaViewPlayer" fitHeight="220.0" fitWidth="450.0" />
                </children>
             </HBox>
             <HBox prefHeight="206.0" prefWidth="489.0">
@@ -46,7 +46,7 @@
                               <HBox alignment="CENTER" prefHeight="75.0" prefWidth="410.0">
                                  <children>
                                     <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="92.0" text="Button" />
-                                    <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="92.0" text=" &gt;" />
+                                    <Button fx:id="playButton" mnemonicParsing="false" prefHeight="58.0" prefWidth="92.0" text=" &gt;" />
                                     <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="92.0" text="Button" />
                                     <Slider orientation="VERTICAL" prefHeight="75.0" prefWidth="52.0" />
                                  </children>
