@@ -3,6 +3,7 @@ package gui.components.player;
 
 import exceptions.MoviesException;
 import gui.components.listeners.DataSupplier;
+import gui.components.listeners.MediaViewReloader;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.StringBinding;
 import javafx.beans.property.BooleanProperty;
@@ -21,20 +22,22 @@ public class Player implements PlayerControl {
     private static Player instance;
     private Media song;
     private DataSupplier dataSupplier;
+    private MediaViewReloader mediaViewReloader;
     private final StringProperty time = new SimpleStringProperty();
 
     private BooleanProperty isMute;
 
 
-    private Player(DataSupplier dataSupplier) throws MoviesException {
+    private Player(DataSupplier dataSupplier,MediaViewReloader mediaViewReloader) throws MoviesException {
         this.dataSupplier = dataSupplier;
+        this.mediaViewReloader = mediaViewReloader;
         checkMediaValid(dataSupplier.getMedia(Operations.GET_DEFAULT));
         playTrack(dataSupplier.isPlaying());
     }
 
-    public static Player useMediaPlayer(DataSupplier dataSupplier) throws MoviesException {
+    public static Player useMediaPlayer(DataSupplier dataSupplier,MediaViewReloader mediaViewReloader) throws MoviesException {
         if (instance == null) {
-            instance = new Player(dataSupplier);
+            instance = new Player(dataSupplier, mediaViewReloader);
         }
         return instance;
     }
@@ -54,11 +57,12 @@ public class Player implements PlayerControl {
         }
         Media media = this.song;
         mediaPlayer = new MediaPlayer(media);
+        mediaViewReloader.getUpdatedMedia(mediaPlayer);
         mediaPlayer.volumeProperty().bind(Bindings.when(dataSupplier.isMute())
                 .then(0.0)
                 .otherwise(dataSupplier.getVolumeObservable()));
         bindDurationToLabel(time);
-        mediaPlayer.setOnEndOfMedia(this::playContinuous);
+//        mediaPlayer.setOnEndOfMedia(this::playContinuous);
         if (play) {
             mediaPlayer.play();
         }
@@ -156,6 +160,4 @@ public class Player implements PlayerControl {
     public void bindMediaTimeToScreen(Label label) {
         label.textProperty().bind(time);
     }
-
-
 }

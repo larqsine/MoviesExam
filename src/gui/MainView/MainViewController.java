@@ -4,12 +4,10 @@ import exceptions.MoviesException;
 import gui.components.category.CategorySelectionHandler;
 import gui.components.category.CategoryView;
 import gui.components.listeners.DataSupplier;
+import gui.components.listeners.MediaViewReloader;
 import gui.components.movies.MovieSelectionHandler;
 import gui.components.movies.MoviesTable;
-import gui.components.player.DataHandler;
-import gui.components.player.Player;
-import gui.components.player.PlayerCommander;
-import gui.components.player.PlayerControl;
+import gui.components.player.*;
 import gui.playOperations.PlayOperations;
 import gui.playOperations.PlayOperationsHandler;
 import gui.searchButton.ISearchGraphic;
@@ -60,7 +58,8 @@ public class MainViewController implements Initializable {
             model = MainModel.getInstance();
             PlayOperations playOperations = PlayOperationsHandler.getInstance(model);
             DataSupplier dataHandler = DataHandler.getInstance(model,playOperations);
-            PlayerControl playerControl = Player.useMediaPlayer(dataHandler);
+            MediaViewReloader mediaViewReloader = new MediaViewUpdate(mediaViewPlayer);
+            PlayerControl playerControl = Player.useMediaPlayer(dataHandler,mediaViewReloader);
             PlayerCommander playerCommander= new PlayerCommander(dataHandler,playerControl);
             mediaViewPlayer.setMediaPlayer(playerControl.getMediaPlayer());
             //initialize the category list view

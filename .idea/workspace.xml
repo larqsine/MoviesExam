@@ -4,29 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="implemented MovieReader, for reading files from local storage">
-      <change afterPath="$PROJECT_DIR$/src/gui/components/player/DataHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/components/player/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/components/player/PlayerCommander.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/components/player/PlayerControl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/playOperations/PlayOperations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/playOperations/PlayOperationsHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utility/Operations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utility/PlayButtonGraphic.java" afterDir="false" />
+    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="player implemented, problems with the path i need to work more with">
+      <change afterPath="$PROJECT_DIR$/src/gui/components/listeners/MediaViewReloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/components/player/MediaViewUpdate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogicAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogicAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dal/IMovieReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/IMovieReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dal/MovieReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/MovieReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/category/CategorySelectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/category/CategorySelectionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/listeners/DataSupplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/listeners/DataSupplier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/listeners/MovieSelectionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/listeners/MovieSelectionListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/movies/MovieSelectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/movies/MovieSelectionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utility/ExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/ExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/player/DataHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/DataHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,7 +264,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704640016188</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="player implemented, problems with the path i need to work more with">
+      <option name="closed" value="true" />
+      <created>1704647634695</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1704647634695</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,6 +303,7 @@
     <MESSAGE value="movies data displayed into the table" />
     <MESSAGE value="movies data displayed into the table plus categorie per movie" />
     <MESSAGE value="implemented MovieReader, for reading files from local storage" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented MovieReader, for reading files from local storage" />
+    <MESSAGE value="player implemented, problems with the path i need to work more with" />
+    <option name="LAST_COMMIT_MESSAGE" value="player implemented, problems with the path i need to work more with" />
   </component>
 </project>

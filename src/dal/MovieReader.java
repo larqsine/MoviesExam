@@ -14,6 +14,7 @@ public class MovieReader implements IMovieReader {
             mediaUri = new File(path).toURI();
             return new Media(mediaUri.toString());
         } catch (NullPointerException | MediaException | IllegalArgumentException | UnsupportedOperationException e) {
+            System.out.println(e.getCause().toString());
             throw new MoviesException(ExceptionsMessages.READING_SONG_LOCAL, e.getCause());
         }
     }
@@ -25,9 +26,10 @@ public class MovieReader implements IMovieReader {
 
     @Override
     public Media getInitialMedia() throws MoviesException {
-        String path= "D:\\computer_science\\sco\\MediPlayer\\MoviesExam\\data\\pexels-adem-albayrak-19212044 (Original).mp4";
-
-        return getMedia(path);
+        String path= "D:\\computer_science\\sco\\MediPlayer\\MoviesExam\\data\\default.mp4";
+        Media media= getMedia(path);
+        System.out.println(media);
+        return media;
     }
 
 }

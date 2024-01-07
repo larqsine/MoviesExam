@@ -41,7 +41,6 @@ public class DataHandler implements DataSupplier {
      */
     @Override
     public boolean isPlaying() {
-
         return this.model.isPlayMusic();
     }
 

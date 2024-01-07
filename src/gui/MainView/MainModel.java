@@ -72,9 +72,7 @@ public class MainModel {
         this.movies.setAll(movieObjects.keySet().stream().map(elem -> movieObjects.get(elem)).toList());
     }
 
-    private void getMediaFromLocal(int movieId, Map<Integer, Movie> movies) throws MoviesException {
-        this.currentPlayingMedia = movieLogic.retrieveMedia(movieId, this.movieObjects);
-    }
+
     
     public void setPlayMovie(boolean play) {
         this.playMusic = play;
@@ -91,9 +89,11 @@ public class MainModel {
     public Media getPreviousMovie() {
     return null;
     }
-
+    private void getMediaFromLocal(int movieId, Map<Integer, Movie> movies) throws MoviesException {
+        this.currentPlayingMedia = movieLogic.retrieveMedia(movieId, this.movieObjects);
+    }
     public Media getCurrentMovieToBePlayed() throws MoviesException {
-        getMediaFromLocal(this.currentMovieSelected.get(),this.movieObjects);
+        getMediaFromLocal(this.currentMovieSelected.getValue(),this.movieObjects);
         return this.currentPlayingMedia;
     }
 
