@@ -27,4 +27,11 @@ public class CategoryModel {
         Category categoryCreated = new Category(categoryTitle);
         return categoryLogic.createCategory(categoryCreated);
     }
+
+    public static CategoryModel getInstance() throws MoviesException {
+        if (instance == null){
+            instance = new CategoryModel();
+        }
+        return instance;
+    }
 }
