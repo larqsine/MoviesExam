@@ -25,6 +25,6 @@ public class CategoryModel {
 
     public boolean createNewCategory(String categoryTitle) throws MoviesException {
         Category categoryCreated = new Category(categoryTitle);
-        return categoryCreated.createCategory(categoryCreated);
+        return categoryLogic.createCategory(categoryCreated);
     }
 }
