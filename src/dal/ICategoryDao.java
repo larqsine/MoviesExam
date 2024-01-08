@@ -9,5 +9,5 @@ import java.util.Map;
 public interface ICategoryDao {
     Map<Integer,Category> getCategories() throws MoviesException;
 
-    boolean createCategory(Category category);
+    boolean createCategory(String  categoryTitle) throws MoviesException;
 }

@@ -5,34 +5,39 @@ import javafx.event.ActionEvent;
 import utility.ExceptionHandler;
 
 public class NewCategoryController extends NewEditController {
-
-    /**
-     * Create a new category
-     */
-    public void saveCategory(ActionEvent event) {
-        String title = getCategoryTitle().getText();
-        if (isTitleEmpty(title)) {
-            showTitleError();
-            return;
-        }
-        if (createCategory(title)) {
-            getReloadable().reloadPlaylistsFromDb();
-        }
-        getCurrentStage(event).close();
+    public void savePlaylist(ActionEvent event) {
     }
 
-    private boolean isTitleEmpty(String title){
-        return getCategoryModel().checkTitle(title);
+    public void cancelPlaylist(ActionEvent event) {
     }
-    private boolean createCategory(String title){
-        try {
-            getCategoryModel().createNewCategory(title);
-            return true;
-        } catch (MoviesException e){
-            ExceptionHandler.displayErrorAlert(e.getMessage());
-            return false;
-        }
-    }
+
+//    /**
+//     * Create a new category
+//     */
+//    public void saveCategory(ActionEvent event) {
+//        String title = getCategoryTitle().getText();
+//        if (isTitleEmpty(title)) {
+//            showTitleError();
+//            return;
+//        }
+//        if (createCategory(title)) {
+//            getReloadable().reloadPlaylistsFromDb();
+//        }
+//        getCurrentStage(event).close();
+//    }
+//
+//    private boolean isTitleEmpty(String title){
+//        return getCategoryModel().checkTitle(title);
+//    }
+//    private boolean createCategory(String title){
+//        try {
+//            getCategoryModel().createNewCategory(title);
+//            return true;
+//        } catch (MoviesException e){
+//            ExceptionHandler.displayErrorAlert(e.getMessage());
+//            return false;
+//        }
+//    }
 
     /**
      * Cancel new category creation

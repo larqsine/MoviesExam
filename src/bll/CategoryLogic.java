@@ -6,7 +6,6 @@ import dal.CategoryDao;
 import dal.ICategoryDao;
 import exceptions.MoviesException;
 import javafx.collections.ObservableList;
-
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -30,8 +29,13 @@ public class CategoryLogic implements CategoryLogicAPI{
         return null;
     }
 
-    public boolean createCategory(Category category) throws MoviesException {
-        return this.categoryDao.createCategory(category);
+    public boolean createCategory(String  categoryTitle) throws MoviesException {
+        return this.categoryDao.createCategory(categoryTitle);
+    }
+
+    @Override
+    public boolean checkTitle(String title) {
+        return title.isEmpty();
     }
 
     public static CategoryLogic getInstance() throws MoviesException {
@@ -39,7 +43,6 @@ public class CategoryLogic implements CategoryLogicAPI{
             instance = new CategoryLogic();
         }
         return instance;
-
     }
 
 }

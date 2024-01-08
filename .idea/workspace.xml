@@ -4,12 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="player implemented, eroors solved,">
+    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="video playing on doubleclick implemented">
+      <change afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/CategoryReloadableHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/NewCategoryControllerRel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/NewCategoryView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utility/Titles.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utility/Utility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/CategoryLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/CategoryLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/CategoryLogicAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/CategoryLogicAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dal/CategoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/CategoryDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dal/ICategoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/ICategoryDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/category/CategoryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/category/CategoryView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/CategoryModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/CategoryModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/CategoryReloadable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/CategoryReloadable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/NewCategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/NewCategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/NewEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/NewEditController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/filterSongs/FilterManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/filterSongs/FilterManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +75,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/computer_science/sco/MediPlayer/MoviesExam/src/gui",
+    "last_opened_file_path": "D:/computer_science/sco/MediPlayer/MoviesExam/src/gui/components/newEditDeleteCategory",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -78,17 +91,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src\gui\components\newEditDeleteCategory" />
       <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src\gui" />
       <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src\gui\components" />
       <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src\dal" />
       <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src\gui\components\movies" />
-      <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\computer_science\sco\MediPlayer\MoviesExam" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="utility" />
+      <recent name="gui.components.newEditDeleteCategory" />
       <recent name="gui.components.Category" />
       <recent name="dal" />
     </key>
@@ -116,6 +130,7 @@
       <option name="presentableId" value="Default" />
       <updated>1704364407563</updated>
       <workItem from="1704364408696" duration="1235000" />
+      <workItem from="1704725461971" duration="4313000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <option name="closed" value="true" />
@@ -277,7 +292,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704653267026</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="video playing on doubleclick implemented">
+      <option name="closed" value="true" />
+      <created>1704657065268</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1704657065268</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,6 +333,7 @@
     <MESSAGE value="implemented MovieReader, for reading files from local storage" />
     <MESSAGE value="player implemented, problems with the path i need to work more with" />
     <MESSAGE value="player implemented, eroors solved," />
-    <option name="LAST_COMMIT_MESSAGE" value="player implemented, eroors solved," />
+    <MESSAGE value="video playing on doubleclick implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="video playing on doubleclick implemented" />
   </component>
 </project>

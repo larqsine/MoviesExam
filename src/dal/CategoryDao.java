@@ -4,13 +4,8 @@ import be.Category;
 import exceptions.MoviesException;
 import utility.ExceptionsMessages;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
+import java.sql.*;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class CategoryDao implements ICategoryDao {
@@ -43,7 +38,14 @@ public class CategoryDao implements ICategoryDao {
     }
 
     @Override
-    public boolean createCategory(Category category) {
-        return false;
+    public boolean createCategory(String  categoryTitle) throws MoviesException {
+        String sql = "INSERT INTO Category values (?)";
+        try(Connection conn = CONNECTION_MANAGER.getConnection()){
+            PreparedStatement psmt = conn.prepareStatement(sql);
+            psmt.setString(1,categoryTitle);
+             return psmt.execute();
+        } catch (SQLException e) {
+            throw new MoviesException(e.getMessage());
+        }
     }
 }

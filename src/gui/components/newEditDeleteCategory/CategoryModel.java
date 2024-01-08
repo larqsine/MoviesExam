@@ -3,11 +3,12 @@ package gui.components.newEditDeleteCategory;
 import be.Category;
 import be.Movie;
 import bll.CategoryLogic;
+import bll.CategoryLogicAPI;
 import exceptions.MoviesException;
 
 public class CategoryModel {
 
-    private CategoryLogic categoryLogic;
+    private CategoryLogicAPI categoryLogic;
     private static CategoryModel instance;
 
     /**
@@ -24,8 +25,7 @@ public class CategoryModel {
     }
 
     public boolean createNewCategory(String categoryTitle) throws MoviesException {
-        Category categoryCreated = new Category(categoryTitle);
-        return categoryLogic.createCategory(categoryCreated);
+        return categoryLogic.createCategory(categoryTitle);
     }
 
     public static CategoryModel getInstance() throws MoviesException {
@@ -33,5 +33,9 @@ public class CategoryModel {
             instance = new CategoryModel();
         }
         return instance;
+    }
+
+    public boolean checkTitle(String title) {
+        return categoryLogic.checkTitle(title);
     }
 }

@@ -118,18 +118,17 @@ public class MainModel {
         return this.initialDefaultMedia;
     }
 
-
-
-
-
-
-
-    public void applyFilter(String filter) {
-        this.movies.setAll(movieLogic.applyFilter(filter, movies));
-        if (!movies.isEmpty()) {
-            this.currentMovieSelected().set(0);
-        }
+    public void reloadSongsFromDB() throws MoviesException {
+        initializeCategories();
     }
+
+
+//    public void applyFilter(String filter) {
+//        this.movies.setAll(movieLogic.applyFilter(filter, movies));
+//        if (!movies.isEmpty()) {
+//            this.currentMovieSelected().set(0);
+//        }
+//    }
     }
 
 //    public void resetFilter() {
