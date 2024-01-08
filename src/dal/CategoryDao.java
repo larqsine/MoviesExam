@@ -41,4 +41,9 @@ public class CategoryDao implements ICategoryDao {
     public Map<Integer,Category> getCategories() throws MoviesException {
         return retrieveCategories();
     }
+
+    @Override
+    public boolean createCategory(Category category) {
+        return false;
+    }
 }

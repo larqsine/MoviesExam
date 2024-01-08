@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 public class CategoryLogic implements CategoryLogicAPI{
     private final ICategoryDao categoryDao;
+    private static CategoryLogic instance;
 
     public CategoryLogic() {
         this.categoryDao = new CategoryDao();
@@ -29,5 +30,16 @@ public class CategoryLogic implements CategoryLogicAPI{
         return null;
     }
 
+    public boolean createCategory(Category category) throws MoviesException {
+        return this.categoryDao.createCategory(category);
+    }
+
+    public static CategoryLogic getInstance() throws MoviesException {
+        if (instance == null){
+            instance = new CategoryLogic();
+        }
+        return instance;
+
+    }
 
 }
