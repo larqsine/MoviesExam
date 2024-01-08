@@ -124,10 +124,14 @@ public class MainModel {
 
 
 
-//    public void applyFilter(String filter) {
-//        this.movies.setAll(movieLogic.applyFilter);
-//    }
-//
+    public void applyFilter(String filter) {
+        this.movies.setAll(movieLogic.applyFilter(filter, movies));
+        if (!movies.isEmpty()) {
+            this.currentMovieSelected().set(0);
+        }
+    }
+    }
+
 //    public void resetFilter() {
 //    }
-}
+//}
