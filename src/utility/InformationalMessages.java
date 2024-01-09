@@ -7,7 +7,7 @@ public enum InformationalMessages implements Messages {
     NO_EMPTY_INPUT("Title and Location can not be empty"),
     NO_SONG_SELECTED("No song selected"),
     OPERATION_FAILED("Operation failed"),
-    NO_PLAYLIST_SELECTED("No playlist has been selected"),
+    NO_CATEGORY_SELECTED("No category has been selected"),
     PLAYLIST_IN_USE("The playlist that you are trying to delete is in use"),
     NO_SONG_AND_PLAYLIST("Please select a song and a playlist"),
     DELETE_SUCCEEDED("Deleted with success"),

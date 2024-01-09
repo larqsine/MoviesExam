@@ -10,6 +10,7 @@ import gui.components.movies.MovieSelectionHandler;
 import gui.components.movies.MoviesTable;
 import gui.components.newEditDeleteCategory.CategoryReloadable;
 import gui.components.newEditDeleteCategory.CategoryReloadableHandler;
+import gui.components.newEditDeleteCategory.EditCategoryController;
 import gui.components.newEditDeleteCategory.NewCategoryControllerRel;
 import gui.components.player.*;
 import gui.playOperations.PlayOperations;
@@ -59,6 +60,7 @@ public class MainViewController implements Initializable {
     private Pane moviesView;
     @FXML
     private Pane mediaContainer;
+    private CategoryReloadable categoryReloadable;
 
 
     @Override
@@ -107,17 +109,33 @@ public class MainViewController implements Initializable {
             newSongStage.show();
         } catch (IOException e) {
             ExceptionHandler.displayErrorAlert(InformationalMessages.FXML_MISSING,"Application error");
-        }
-
-       /** public void editCategory(ActionEvent event){
-            Category categoryToUpdate = getSelectedCategory();
-            if (categoryToUpdate == null){
-                ExceptionHandler.displayErrorAlert(InformationalMessages.NO_PLAYLIST_SELECTED);
-            }
-
-        }
-        */
-
-
+        }   
     }
+
+  /**  public void editCategory(ActionEvent actionEvent) {
+        Category categoryToUpdate = getSelectedCategory();
+        if (categoryToUpdate == null){
+            ExceptionHandler.displayErrorAlert(InformationalMessages.NO_CATEGORY_SELECTED);
+            return;
+        }
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../components/newEditDeleteCategory/NewCategoryView.fxml"));
+            EditCategoryController editController = new EditCategoryController();
+            loader.setController(editController);
+            Parent root = loader.load();
+            editController.setReloadable(categoryReloadable);
+            editController.setCategoryToEdit(categoryToUpdate);
+            Scene scene = new Scene(root);
+            Stage mainStage = Utility.getCurrentStage(actionEvent);
+            Stage newCategoryStage = Utility.createPopupStage(mainStage, scene, Titles.EDIT_PLAYLIST.getValue(),POPUP_WIDTH);
+            newCategoryStage.show();
+        } catch (IOException e){
+            ExceptionHandler.displayErrorAlert(InformationalMessages.FXML_MISSING);
+        }
+    }
+
+    private Category getSelectedCategory() {
+        return this.categoryContainer.getSelectionModel().getSelectedItem();
+    }
+   */
 }
