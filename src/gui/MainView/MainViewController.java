@@ -1,5 +1,6 @@
 package gui.MainView;
 
+import be.Category;
 import exceptions.MoviesException;
 import gui.components.category.CategorySelectionHandler;
 import gui.components.category.CategoryView;
@@ -107,6 +108,15 @@ public class MainViewController implements Initializable {
         } catch (IOException e) {
             ExceptionHandler.displayErrorAlert(InformationalMessages.FXML_MISSING,"Application error");
         }
+
+       /** public void editCategory(ActionEvent event){
+            Category categoryToUpdate = getSelectedCategory();
+            if (categoryToUpdate == null){
+                ExceptionHandler.displayErrorAlert(InformationalMessages.NO_PLAYLIST_SELECTED);
+            }
+
+        }
+        */
 
 
     }

@@ -17,9 +17,6 @@ import java.util.ResourceBundle;
 
 public abstract class NewEditController implements Initializable {
     private CategoryReloadable reloadable;
-
-
-
     private CategoryModel categoryModel;
     @FXML
     private TextField categoryTitle;

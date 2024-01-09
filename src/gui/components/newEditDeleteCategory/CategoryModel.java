@@ -38,4 +38,18 @@ public class CategoryModel {
     public boolean checkTitle(String title) {
         return categoryLogic.checkTitle(title);
     }
+
+    public boolean updateCategory(String newTitle) throws MoviesException {
+        boolean executed = this.categoryLogic.updateCategory(this.currentSelectedCategory.getId(), newTitle);
+        this.currentSelectedCategory = null;
+        return executed;
+    }
+
+    public void cancelUpdateCategory(){
+        this.currentSelectedCategory = null;
+    }
+
+    public void setCurrentSelectedCategory(Category currentSelectedCategory) {
+        this.currentSelectedCategory = currentSelectedCategory;
+    }
 }

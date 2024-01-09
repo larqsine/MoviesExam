@@ -68,4 +68,7 @@ public class ExceptionHandler {
         }
 
     }
+
+    public static void displayErrorAlert(String message) {
+    }
 }

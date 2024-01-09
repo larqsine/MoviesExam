@@ -10,4 +10,6 @@ public interface ICategoryDao {
     Map<Integer,Category> getCategories() throws MoviesException;
 
     boolean createCategory(String  categoryTitle) throws MoviesException;
+
+    boolean updateCategory(int categoryId, String newTitle) throws MoviesException;
 }
