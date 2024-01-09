@@ -131,8 +131,3 @@ public class MainModel {
     }
 }
 
-
-
-//    public void resetFilter() {
-//    }
-//}
