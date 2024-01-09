@@ -9,7 +9,7 @@ public class NewCategoryControllerRel extends NewEditController {
     /**
      * Create a new category
      */
-    public void savePlaylist(ActionEvent event) {
+    public void saveCategory(ActionEvent event) {
         String title = getCategoryTitle().getText();
         if (isTitleEmpty(title)) {
             showTitleError();
@@ -39,7 +39,7 @@ public class NewCategoryControllerRel extends NewEditController {
      * Cancel new category creation
      */
     @Override
-    public void cancelPlaylist(ActionEvent event) {
+    public void cancelCategory(ActionEvent event) {
         getCurrentStage(event).close();
     }
 }

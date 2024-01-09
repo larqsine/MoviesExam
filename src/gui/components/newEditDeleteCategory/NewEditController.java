@@ -49,14 +49,14 @@ public abstract class NewEditController implements Initializable {
      *
      * @param event The ActionEvent that triggered the cancellation.
      */
-    public abstract void cancelPlaylist(ActionEvent event);
+    public abstract void cancelCategory(ActionEvent event);
 
     /**
      * Abstract method to save/update a category.
      *
      * @param event The ActionEvent that triggered the save/update.
      */
-    public abstract void savePlaylist(ActionEvent event);
+    public abstract void saveCategory(ActionEvent event);
 
     public CategoryReloadable getReloadable() {
         return reloadable;

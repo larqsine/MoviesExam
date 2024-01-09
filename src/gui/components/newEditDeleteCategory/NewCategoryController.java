@@ -5,10 +5,10 @@ import javafx.event.ActionEvent;
 import utility.ExceptionHandler;
 
 public class NewCategoryController extends NewEditController {
-    public void savePlaylist(ActionEvent event) {
+    public void saveCategory(ActionEvent event) {
     }
 
-    public void cancelPlaylist(ActionEvent event) {
+    public void cancelCategory(ActionEvent event) {
     }
 
 //    /**

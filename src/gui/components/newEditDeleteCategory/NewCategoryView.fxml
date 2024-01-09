@@ -43,12 +43,12 @@
       </Label>
       <HBox alignment="CENTER" layoutX="10.0" layoutY="29.0" prefHeight="35.0" prefWidth="200.0">
          <children>
-            <Button fx:id="saveUpdateButton" alignment="CENTER" mnemonicParsing="false" onAction="#savePlaylist" prefWidth="60.0" style="-fx-background-color: a076f9;" text="Save">
+            <Button fx:id="saveUpdateButton" alignment="CENTER" mnemonicParsing="false" onAction="#saveCategory" prefWidth="60.0" style="-fx-background-color: a076f9;" text="Save">
                <HBox.margin>
                   <Insets left="134.0" right="5.0" />
                </HBox.margin>
             </Button>
-            <Button alignment="CENTER" layoutX="194.0" layoutY="15.0" mnemonicParsing="false" onAction="#cancelPlaylist" prefWidth="60.0" style="-fx-background-color: a076f9;" text="Cancel" />
+            <Button alignment="CENTER" layoutX="194.0" layoutY="15.0" mnemonicParsing="false" onAction="#cancelCategory" prefWidth="60.0" style="-fx-background-color: a076f9;" text="Cancel" />
          </children>
          <VBox.margin>
             <Insets top="20.0" />
