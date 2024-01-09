@@ -18,6 +18,7 @@ public class MovieSelectionHandler implements MovieSelectionListener {
     private Button button;
 
     public MovieSelectionHandler(MainModel model, PlayerCommander playerCommander, Button button) {
+
         this.model = model;
         this.playerCommander = playerCommander;
         this.button = button;

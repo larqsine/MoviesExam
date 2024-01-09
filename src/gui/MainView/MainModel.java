@@ -128,6 +128,12 @@ public class MainModel {
     }
 
     public void applyFilter(String filter) {
+        Map<Integer,Movie> filteredMovies = movieLogic.applyFilter(filter,movieObjects);
+        this.movies.setAll(filteredMovies.keySet().stream().map(elem -> movieObjects.get(elem)).toList());
     }
-}
+    }
+
+
+
+
 

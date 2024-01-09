@@ -5,6 +5,7 @@ import javafx.scene.media.Media;
 import java.util.Map;
 
 public interface MovieLogicAPI {
+     Map<Integer,Movie> applyFilter(String filter, Map<Integer,Movie> movies);
     Map<Integer, Movie> getMovies(int categoryId) throws MoviesException;
 
 

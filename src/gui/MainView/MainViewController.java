@@ -92,8 +92,8 @@ public class MainViewController implements Initializable {
     public String getExceptionMessage() {
         return exceptionMessage;
     }
-
-    public void addNewCategory(ActionEvent event) {
+@FXML
+    private void addNewCategory(ActionEvent event) {
         CategoryReloadable categoryReloadable = CategoryReloadableHandler.getInstance(this.model);
         try{
             Stage mainStage = Utility.getCurrentStage(event);

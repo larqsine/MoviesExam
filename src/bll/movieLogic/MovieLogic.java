@@ -7,10 +7,9 @@ import dal.MovieDao;
 import dal.MovieReader;
 import exceptions.MoviesException;
 import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class MovieLogic implements MovieLogicAPI {
@@ -40,15 +39,21 @@ public class MovieLogic implements MovieLogicAPI {
         return this.movieReader.getInitialMedia();
     }
 
-    public List<Movie> applyFilter(String filter, List<Movie> toFilter) {
+    public Map<Integer, Movie> applyFilter(String filter, Map<Integer, Movie> toFilter) {
+        Map<Integer, Movie> moviesFiltered = new HashMap<>();
         if (filter == null || filter.isEmpty()) {
-            return new ArrayList<>(toFilter);
+            return toFilter;
         }
         String filterLower = filter.toLowerCase();
+        Set<Integer> keys = toFilter.keySet();
+        for (Integer key : keys) {
+            String name = toFilter.get(key).getName().toLowerCase();
+            if (name.contains(filterLower)) {
+                moviesFiltered.put(key, toFilter.get(key));
+            }
 
-        return toFilter.stream()
-                .filter(movie -> (movie.getName() != null && movie.getName().toLowerCase().contains(filterLower)))
-                .collect(Collectors.toList());
+        }
+        return moviesFiltered;
     }
 
     public Media getMediaFromLocal(String path) throws MoviesException {
