@@ -48,4 +48,18 @@ public class CategoryDao implements ICategoryDao {
             throw new MoviesException(e.getMessage());
         }
     }
+
+    @Override
+    public boolean updateCategory (int categoryId, String newTitle) throws MoviesException {
+        String sql = "UPDATE Category SET CategoryName=? WHERE CategoryId=?";
+        try (Connection connection = CONNECTION_MANAGER.getConnection()){
+            PreparedStatement psmt = connection.prepareStatement(sql);
+            psmt.setString(1, newTitle);
+            psmt.setInt(2, categoryId);
+            int rowsAffected = psmt.executeUpdate();
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            throw new MoviesException(ExceptionsMessages.DB_UNSUCCESFULL, e.getCause());
+        }
+    }
 }

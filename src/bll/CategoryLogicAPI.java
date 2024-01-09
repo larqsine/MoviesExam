@@ -14,6 +14,7 @@ public interface CategoryLogicAPI {
     boolean createCategory(String categoryTitle) throws MoviesException;
 
     boolean checkTitle(String title);
+    public boolean updateCategory(int categoryId, String newTitle) throws MoviesException;
 }
 
   

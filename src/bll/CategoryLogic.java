@@ -38,11 +38,23 @@ public class CategoryLogic implements CategoryLogicAPI{
         return title.isEmpty();
     }
 
+    @Override
+    public boolean updateCategory(int categoryId, String newTitle) throws MoviesException {
+        return false;
+    }
+
     public static CategoryLogic getInstance() throws MoviesException {
         if (instance == null){
             instance = new CategoryLogic();
         }
         return instance;
+    }
+
+    public boolean updateCategory(Category categoryToUpdate, String newTitle) throws MoviesException{
+        if (categoryToUpdate.getName().equals(newTitle)){
+            return false;
+        }
+       return this.categoryDao.updateCategory(categoryToUpdate.getId(),newTitle);
     }
 
 }
