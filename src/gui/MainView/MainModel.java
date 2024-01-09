@@ -33,7 +33,8 @@ public class MainModel {
      */
     private BooleanProperty isMute = new SimpleBooleanProperty();
     /**
-     * Initial default media */
+     * Initial default media
+     */
     private Media initialDefaultMedia;
 
     private MainModel() throws MoviesException {
@@ -73,13 +74,12 @@ public class MainModel {
     }
 
 
-    
     public void setPlayMovie(boolean play) {
         this.playMusic = play;
     }
 
-    public void setCurrentPlayingMovie(int movieId)  {
-       this.currentMovieSelected.set(movieId);
+    public void setCurrentPlayingMovie(int movieId) {
+        this.currentMovieSelected.set(movieId);
     }
 
     public Media getNextMovie() {
@@ -87,13 +87,15 @@ public class MainModel {
     }
 
     public Media getPreviousMovie() {
-    return null;
+        return null;
     }
+
     private void getMediaFromLocal(int movieId, Map<Integer, Movie> movies) throws MoviesException {
         this.currentPlayingMedia = movieLogic.retrieveMedia(movieId, this.movieObjects);
     }
+
     public Media getCurrentMovieToBePlayed() throws MoviesException {
-        getMediaFromLocal(this.currentMovieSelected.getValue(),this.movieObjects);
+        getMediaFromLocal(this.currentMovieSelected.getValue(), this.movieObjects);
         return this.currentPlayingMedia;
     }
 
@@ -110,7 +112,7 @@ public class MainModel {
     }
 
     private void initializeDefaultMedia() throws MoviesException {
-        this.initialDefaultMedia=this.movieLogic.retrieveInitialDefaultMedia();
+        this.initialDefaultMedia = this.movieLogic.retrieveInitialDefaultMedia();
     }
 
     public Media getInitialDefaultMedia() throws MoviesException {
@@ -122,14 +124,14 @@ public class MainModel {
         initializeCategories();
     }
 
-
-//    public void applyFilter(String filter) {
-//        this.movies.setAll(movieLogic.applyFilter(filter, movies));
-//        if (!movies.isEmpty()) {
-//            this.currentMovieSelected().set(0);
-//        }
-//    }
+    public void resetFilter() {
     }
+
+    public void applyFilter(String filter) {
+    }
+}
+
+
 
 //    public void resetFilter() {
 //    }
