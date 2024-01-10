@@ -28,6 +28,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
+import gui.filterSongs.FilterManager;
 import utility.*;
 
 
@@ -45,6 +46,8 @@ public class MainViewController implements Initializable {
     private TextField searchValue;
     @FXML
     private Button searchButton;
+    @FXML
+    private ISearchGraphic searchGraphic;
 
     @FXML
     private Label infoEmptyLabel;
@@ -62,6 +65,11 @@ public class MainViewController implements Initializable {
     private Pane mediaContainer;
     private CategoryReloadable categoryReloadable;
 
+    @FXML
+    private void applyFilter(ActionEvent event) {
+        FilterManager filterManager = new FilterManager(this.model, searchGraphic, infoEmptyLabel, searchButton, searchValue);
+        filterManager.applyFilter(event);
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

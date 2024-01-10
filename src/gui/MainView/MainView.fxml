@@ -81,7 +81,7 @@
             <HBox fx:id="filterContainer" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <TextField fx:id="searchValue" />
-                  <Button fx:id="searchButton" mnemonicParsing="false" />
+                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#applyFilter" />
                </children></HBox>
             <Label fx:id="infoEmptyLabel" text="Filter is Empty!" visible="false" />
             <Pane fx:id="moviesView" prefHeight="455.0" prefWidth="300.0" />
