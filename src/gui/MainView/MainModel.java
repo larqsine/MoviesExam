@@ -12,6 +12,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.media.Media;
 
+import java.awt.*;
 import java.util.Map;
 
 public class MainModel {
@@ -23,6 +24,7 @@ public class MainModel {
     private final ObservableList<Movie> movies;
     private Map<Integer, Movie> movieObjects;
     private Media currentPlayingMedia;
+    private TextField searchValue;
     private IntegerProperty currentMovieSelected = new SimpleIntegerProperty();
     /**
      * holds the current volume off the appliation
@@ -125,6 +127,7 @@ public class MainModel {
     }
 
     public void resetFilter() {
+        this.searchValue.setText("");
     }
 
     public void applyFilter(String filter) {

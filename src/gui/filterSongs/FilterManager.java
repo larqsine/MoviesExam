@@ -9,24 +9,21 @@ import utility.InformationalMessages;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-
-import java.awt.*;
-import java.awt.event.ActionEvent;
+import javafx.event.ActionEvent;
 
 public class FilterManager {
     private final MainModel model;
-//    private final Object searchButton;
     private ISearchGraphic searchGraphic;
     private Label infoLabel;
     private Button searchButton;
     private TextField searchValue;
 
-    public FilterManager(MainModel model) {
+    public FilterManager(MainModel model, ISearchGraphic searchGraphic, Label infoLabel, Button searchButton, TextField searchValue) {
         this.model = model;
         this.searchGraphic = searchGraphic;
         this.infoLabel = infoLabel;
-        this. searchButton = searchButton;
-        this. searchValue = searchValue;
+        this.searchButton = searchButton;
+        this.searchValue = searchValue;
     }
 
 
@@ -38,8 +35,7 @@ public class FilterManager {
             } else {
                 showInfoMessage(InformationalMessages.FILTER_EMPTY.getValue());
             }
-        }
-        else {
+        } else {
             clearSearchFilter();
         }
     }
@@ -58,7 +54,7 @@ public class FilterManager {
         searchButton.setGraphic(searchGraphic.getGraphic());
         searchValue.setEditable(true);
         model.resetFilter();
-  }
+    }
 
     private void showInfoMessage(String message) {
         infoLabel.setVisible(true);
