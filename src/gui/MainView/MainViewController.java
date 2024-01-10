@@ -59,6 +59,7 @@ public class MainViewController implements Initializable {
 
     @FXML
     private Pane categoryContainer;
+    private CategoryView categoryView;
     @FXML
     private Pane moviesView;
     @FXML
@@ -86,7 +87,8 @@ public class MainViewController implements Initializable {
             PlayerCommander playerCommander= new PlayerCommander(dataHandler,playerControl);
             mediaViewPlayer.setMediaPlayer(playerControl.getMediaPlayer());
             //initialize the category list view
-            categoryContainer.getChildren().add(new CategoryView(new CategorySelectionHandler(model), model.getCategories()));
+            categoryView = new CategoryView(new CategorySelectionHandler(model), model.getCategories());
+            categoryContainer.getChildren().add(categoryView);
             //initialize moviesTable data
             moviesView.getChildren().add(new MoviesTable(new MovieSelectionHandler(this.model,playerCommander,playButton),model.getMovies()));
             //initializes the filter view
@@ -113,37 +115,35 @@ public class MainViewController implements Initializable {
             NewCategoryControllerRel categoryControllerRel  = loader.getController();
             categoryControllerRel.setReloadable(categoryReloadable);
             Scene scene = new Scene(parent);
-            Stage newSongStage = Utility.createPopupStage(mainStage, scene, Titles.EDIT_SONG.getValue(), POPUP_WIDTH);
+            Stage newSongStage = Utility.createPopupStage(mainStage, scene, Titles.ADD_CATEGORY.getValue(), POPUP_WIDTH);
             newSongStage.show();
         } catch (IOException e) {
             ExceptionHandler.displayErrorAlert(InformationalMessages.FXML_MISSING,"Application error");
         }   
     }
 
-  /**  public void editCategory(ActionEvent actionEvent) {
+    public void editCategory(ActionEvent actionEvent) {
         Category categoryToUpdate = getSelectedCategory();
         if (categoryToUpdate == null){
-            ExceptionHandler.displayErrorAlert(InformationalMessages.NO_CATEGORY_SELECTED);
+            ExceptionHandler.displayErrorAlert(InformationalMessages.NO_CATEGORY_SELECTED, "No category has been selected");
             return;
         }
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../components/newEditDeleteCategory/NewCategoryView.fxml"));
-            EditCategoryController editController = new EditCategoryController();
-            loader.setController(editController);
             Parent root = loader.load();
-            editController.setReloadable(categoryReloadable);
-            editController.setCategoryToEdit(categoryToUpdate);
+            NewCategoryControllerRel categoryControllerRel  = loader.getController();
+            categoryControllerRel.setReloadable(categoryReloadable);
             Scene scene = new Scene(root);
             Stage mainStage = Utility.getCurrentStage(actionEvent);
-            Stage newCategoryStage = Utility.createPopupStage(mainStage, scene, Titles.EDIT_PLAYLIST.getValue(),POPUP_WIDTH);
+            Stage newCategoryStage = Utility.createPopupStage(mainStage, scene, Titles.EDIT_CATEGORY.getValue(),POPUP_WIDTH);
             newCategoryStage.show();
         } catch (IOException e){
-            ExceptionHandler.displayErrorAlert(InformationalMessages.FXML_MISSING);
+            ExceptionHandler.displayErrorAlert(InformationalMessages.FXML_MISSING, "Application error");
         }
     }
 
     private Category getSelectedCategory() {
-        return this.categoryContainer.getSelectionModel().getSelectedItem();
+        return this.categoryView.getSelectionModel().getSelectedItem();
     }
-   */
+
 }

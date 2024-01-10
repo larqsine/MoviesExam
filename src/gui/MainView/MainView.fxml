@@ -28,7 +28,7 @@
             <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#addNewCategory" text="Add" />
-                  <Button mnemonicParsing="false" text="Edit" />
+                  <Button mnemonicParsing="false" onAction="#editCategory" text="Edit" />
                   <Button mnemonicParsing="false" text="Delete" />
                </children>
             </HBox>
