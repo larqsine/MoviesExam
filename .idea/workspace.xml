@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="Filter logic implemented">
+    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="GenreOptions class">
+      <change afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/CheckBoxCell.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/GenreView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/AddMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/AddMovieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/NewMovieView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/NewMovieView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,11 +78,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src\gui\components\newEditDeleteMovies" />
       <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src\gui\components\newEditDeleteCategory" />
       <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src\gui" />
       <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src\gui\components" />
       <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src\dal" />
-      <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src\gui\components\movies" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\computer_science\sco\MediPlayer\MoviesExam" />
@@ -131,7 +131,7 @@
       <workItem from="1704822693532" duration="365000" />
       <workItem from="1704890077307" duration="4062000" />
       <workItem from="1704913688137" duration="504000" />
-      <workItem from="1704979662919" duration="703000" />
+      <workItem from="1704979662919" duration="1068000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <option name="closed" value="true" />
@@ -317,7 +317,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704979976931</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="GenreOptions class">
+      <option name="closed" value="true" />
+      <created>1704980461822</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1704980461822</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -352,6 +360,7 @@
     <MESSAGE value="player implemented, eroors solved," />
     <MESSAGE value="video playing on doubleclick implemented" />
     <MESSAGE value="Filter logic implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="Filter logic implemented" />
+    <MESSAGE value="GenreOptions class" />
+    <option name="LAST_COMMIT_MESSAGE" value="GenreOptions class" />
   </component>
 </project>
