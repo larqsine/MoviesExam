@@ -148,7 +148,6 @@ public class MainViewController implements Initializable {
     public void addNewMovie(ActionEvent event) {
         String resourcePath=  "../components/newEditDeleteMovies/NewMovieView.fxml";
     try {
-
         Scene scene = new Scene(getParent(resourcePath));
         Stage mainStage = Utility.getCurrentStage(event);
         Stage newCategoryStage = Utility.createPopupStage(mainStage, scene, Titles.EDIT_CATEGORY.getValue(),POPUP_WIDTH);

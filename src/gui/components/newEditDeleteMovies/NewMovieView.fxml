@@ -37,14 +37,14 @@
             <Insets />
          </VBox.margin>
       </HBox>
-      <HBox alignment="CENTER" layoutX="10.0" layoutY="57.0" prefHeight="35.0" prefWidth="200.0">
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="57.0" prefHeight="200.0" prefWidth="200.0">
          <children>
             <Label alignment="CENTER_RIGHT" prefWidth="60.0" text="Genre:">
                <HBox.margin>
                   <Insets right="5.0" />
                </HBox.margin>
             </Label>
-            <HBox fx:id="genresContainer" prefHeight="200.0" prefWidth="150.0">
+            <HBox fx:id="genresContainer" alignment="CENTER" prefHeight="250.0" prefWidth="150.0">
                <HBox.margin>
                   <Insets right="82.0" />
                </HBox.margin>
