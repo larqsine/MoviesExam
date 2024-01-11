@@ -19,6 +19,7 @@ public class AddMovieController implements Initializable {
     }
 
     public void addNewSong(ActionEvent event) {
+        genreList.getSelectedGenres().forEach(System.out::println);
     }
 
     public void cancelAddNewSong(ActionEvent event) {
