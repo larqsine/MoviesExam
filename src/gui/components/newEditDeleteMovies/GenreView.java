@@ -6,7 +6,7 @@ import javafx.scene.control.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GenreView extends ListView<String>  implements CheckListener{
+public class GenreView extends ListView<String> implements CheckListener {
 
 
     private final List<String> selectedGenres;
@@ -27,6 +27,12 @@ public class GenreView extends ListView<String>  implements CheckListener{
     public void getSelectedItem(String selected) {
         this.selectedGenres.add(selected);
     }
+
+    @Override
+    public void removeUnselectedItem(String selected) {
+        this.selectedGenres.remove(selected);
+    }
+
     public List<String> getSelectedGenres() {
         return selectedGenres;
     }
