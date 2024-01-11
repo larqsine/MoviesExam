@@ -4,18 +4,18 @@ import exceptions.MoviesException;
 import javafx.event.ActionEvent;
 import utility.ExceptionHandler;
 
-public class NewCategoryController extends NewEditController {
-    public void saveCategory(ActionEvent event) {
-    }
+ public class NewCategoryController extends NewEditController {
+  public void saveCategory(ActionEvent event) {
+  }
 
-    public void cancelCategory(ActionEvent event) {
-    }
+    //public void cancelCategory(ActionEvent event) {
+    //}
 
 //    /**
 //     * Create a new category
 //     */
-//    public void saveCategory(ActionEvent event) {
-//        String title = getCategoryTitle().getText();
+ //   public void saveCategory(ActionEvent event) {
+   //String title = getCategoryTitle().getText();
 //        if (isTitleEmpty(title)) {
 //            showTitleError();
 //            return;

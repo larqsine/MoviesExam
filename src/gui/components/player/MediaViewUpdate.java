@@ -13,4 +13,9 @@ public class MediaViewUpdate implements MediaViewReloader {
     public void getUpdatedMedia(MediaPlayer instance) {
         this.mediaView.setMediaPlayer(instance);
     }
+
+    @Override
+    public void reloadMovies() {
+
+    }
 }

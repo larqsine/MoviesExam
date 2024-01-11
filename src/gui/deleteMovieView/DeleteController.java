@@ -1,36 +1,38 @@
-package gui.components.newEditDeleteMovies;
+package gui.deleteMovieView;
 
 import be.Movie;
-import exceptions.MoviesException;
 import gui.components.confirmationWindow.ConfirmationWindow;
 import gui.components.listeners.ConfirmationController;
 import gui.components.listeners.MediaViewReloader;
+import gui.components.newEditDeleteMovies.MovieModel;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.HBox;
 import utility.ExceptionHandler;
-import utility.Titles;
 import utility.InformationalMessages;
-
+import utility.Titles;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class DeleteMovieController implements ConfirmationController, Initializable {
+public class DeleteController implements ConfirmationController, Initializable {
     private MovieModel movieModel;
     private HBox confirmationWindow;
     private Movie movieToDelete;
+    private MediaViewReloader mediaViewReloader;
 
     @Override
     public void confirmationEventHandler(boolean confirmation) {
-        boolean deleted;
         if (confirmation) {
-            deleted = movieModel.deleteMovie(this.movieToDelete);
+            boolean deleted = movieModel.deleteMovie(this.movieToDelete);
             if (deleted) {
+                String message = movieToDelete.getName() + " " + InformationalMessages.DELETE_SUCCEEDED.getValue();
                 Platform.runLater(() -> {
+                    ExceptionHandler.displayInformationAlert(message);
                 });
+                reloadMovies();
             }
         }
     }
@@ -38,9 +40,11 @@ public class DeleteMovieController implements ConfirmationController, Initializa
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         movieModel = MovieModel.getInstance();
-
         if (movieModel != null) {
             ConfirmationWindow confirmationView = new ConfirmationWindow();
+            if (confirmationView.getConfirmationWindow() == null) {
+                return;
+            }
             confirmationWindow = confirmationView.getConfirmationWindow();
             initializeConfirmationWindow(confirmationView, this);
         }
@@ -48,11 +52,11 @@ public class DeleteMovieController implements ConfirmationController, Initializa
 
     @FXML
     public void deleteSelectedMovie(ActionEvent event) {
-        boolean deleted;
-        deleted = movieModel.deleteMovie(this.movieToDelete);
+        boolean deleted = movieModel.deleteMovie(this.movieToDelete);
         if (deleted) {
             Platform.runLater(() -> {
             });
+            reloadMovies();
         }
     }
 
@@ -68,9 +72,16 @@ public class DeleteMovieController implements ConfirmationController, Initializa
     }
 
     public void setReloadable(MediaViewReloader mediaViewReloader) {
+        this.mediaViewReloader = mediaViewReloader;
     }
 
     public HBox getConfirmationWindow() {
         return confirmationWindow;
+    }
+
+    private void reloadMovies() {
+        if (mediaViewReloader != null) {
+            mediaViewReloader.reloadMovies();
+        }
     }
 }

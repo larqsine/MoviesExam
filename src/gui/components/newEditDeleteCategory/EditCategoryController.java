@@ -5,7 +5,9 @@ import exceptions.MoviesException;
 import javafx.event.ActionEvent;
 import utility.ExceptionHandler;
 
-public class EditCategoryController extends NewEditController{
+import static utility.Utility.getCurrentStage;
+
+public class EditCategoryController {
     @Override
     public void cancelCategory(ActionEvent event) {
         getCategoryModel().cancelUpdateCategory();

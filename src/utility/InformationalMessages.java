@@ -14,7 +14,7 @@ public enum InformationalMessages implements Messages {
     DELETE_QUESTION("Are you sure that you want to delete this song"),
     NO_FILE("No file, returned by your path!\nPlease check again"),
     ADD_QUESTION("Are you sure that you want to add "),
-    DELETE_PLAYLIST_QUESTION("Are you sure that you want to delete this playlist " + "\n"),
+    DELETE_MOVIE_QUESTION("Are you sure that you want to delete this movie " + "\n"),
     NO_EMPTY_TITLE("Title can not be empty!"),
     NO_DUPLICATE("Please chose another file, this song is already in the list"),
     DELETE_SONG_PLAYLIST("Are you sure that you want to delete this song from the playlist " + "\n"),
