@@ -10,7 +10,6 @@ import gui.components.movies.MovieSelectionHandler;
 import gui.components.movies.MoviesTable;
 import gui.components.newEditDeleteCategory.CategoryReloadable;
 import gui.components.newEditDeleteCategory.CategoryReloadableHandler;
-import gui.components.newEditDeleteCategory.EditCategoryController;
 import gui.components.newEditDeleteCategory.NewCategoryControllerRel;
 import gui.components.player.*;
 import gui.playOperations.PlayOperations;
@@ -146,4 +145,22 @@ public class MainViewController implements Initializable {
         return this.categoryView.getSelectionModel().getSelectedItem();
     }
 
+    public void addNewMovie(ActionEvent event) {
+        String resourcePath=  "../components/newEditDeleteMovies/NewMovieView.fxml";
+    try {
+
+        Scene scene = new Scene(getParent(resourcePath));
+        Stage mainStage = Utility.getCurrentStage(event);
+        Stage newCategoryStage = Utility.createPopupStage(mainStage, scene, Titles.EDIT_CATEGORY.getValue(),POPUP_WIDTH);
+        newCategoryStage.show();
+
+    } catch (IOException e) {
+        ExceptionHandler.displayErrorAlert(InformationalMessages.FXML_MISSING, "Application error");
+    }
+    }
+
+    private Parent getParent(String resourcePath) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(resourcePath));
+        return loader.load();
+    }
 }
