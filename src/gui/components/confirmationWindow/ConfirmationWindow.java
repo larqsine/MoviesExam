@@ -14,6 +14,12 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import javafx.scene.layout.VBox;
+import utility.ExceptionHandler;
+import utility.InformationalMessages;
+
+import javax.imageio.IIOException;
+import java.awt.*;
 
 public class ConfirmationWindow {
 
@@ -30,6 +36,8 @@ public class ConfirmationWindow {
 
     @FXML
     private Button cancelButton;
+    @FXML
+    private VBox container;
 
     public void show() {
         try {
@@ -81,7 +89,34 @@ public class ConfirmationWindow {
         stage.close();
     }
 
-    public HBox getConfirmationWindow() {
-        return null;
+
+   /** public ConfirmationWindow(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ConfirmationWindow.fxml"));
+        loader.setController(this);
+        try {
+            container = loader.load();
+        }catch (IIOException e){
+            ExceptionHandler.displayErrorAlert(InformationalMessages.FXML_MISSING, "Application error");
+        }
+        if (container != null){
+            initializeHandelers();
+        }
+
+        private void initializeHandelers(){
+            addConfirmHandeler();
+            addCancelHandeler();
+        }
     }
+
+    private void addConfirmHandeler(){
+        this.confirmButton.setOn
+    }
+    private void addCancelHandeler() {
+    }
+
+    public VBox getConfirmationWindow(){
+        return container;
+    }*/
+
+
 }

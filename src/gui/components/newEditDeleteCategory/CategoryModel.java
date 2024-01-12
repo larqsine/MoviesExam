@@ -52,4 +52,8 @@ public class CategoryModel {
     public void setCurrentSelectedCategory(Category currentSelectedCategory) {
         this.currentSelectedCategory = currentSelectedCategory;
     }
+
+    public boolean deleteCategory(Category categoryToDelete) throws MoviesException{
+        return this.categoryLogic.deleteCategory(categoryToDelete.getId());
+    }
 }
