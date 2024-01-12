@@ -9,7 +9,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import utility.ExceptionHandler;
 import utility.InformationalMessages;
 import utility.Titles;
@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
 
 public class DeleteController implements ConfirmationController, Initializable {
     private MovieModel movieModel;
-    private HBox confirmationWindow;
+    private VBox confirmationWindow;
     private Movie movieToDelete;
     private MediaViewReloader mediaViewReloader;
 
@@ -35,6 +35,11 @@ public class DeleteController implements ConfirmationController, Initializable {
                 reloadMovies();
             }
         }
+    }
+
+    @Override
+    public void confirmationEventHandeler(boolean confirmation) {
+
     }
 
     @Override
@@ -75,7 +80,7 @@ public class DeleteController implements ConfirmationController, Initializable {
         this.mediaViewReloader = mediaViewReloader;
     }
 
-    public HBox getConfirmationWindow() {
+    public VBox getConfirmationWindow() {
         return confirmationWindow;
     }
 

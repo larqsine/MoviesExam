@@ -1,7 +1,6 @@
 package gui.components.newEditDeleteMovies;
 
 import be.Movie;
-import exceptions.MoviesException;
 import gui.components.confirmationWindow.ConfirmationWindow;
 import gui.components.listeners.ConfirmationController;
 import gui.components.listeners.MediaViewReloader;
@@ -9,8 +8,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.HBox;
-import utility.ExceptionHandler;
+import javafx.scene.layout.VBox;
 import utility.Titles;
 import utility.InformationalMessages;
 
@@ -20,7 +18,7 @@ import java.util.ResourceBundle;
 
 public class DeleteMovieController implements ConfirmationController, Initializable {
     private MovieModel movieModel;
-    private HBox confirmationWindow;
+    private VBox confirmationWindow;
     private Movie movieToDelete;
 
     @Override
@@ -33,6 +31,11 @@ public class DeleteMovieController implements ConfirmationController, Initializa
                 });
             }
         }
+    }
+
+    @Override
+    public void confirmationEventHandeler(boolean confirmation) {
+
     }
 
     @Override
@@ -70,7 +73,7 @@ public class DeleteMovieController implements ConfirmationController, Initializa
     public void setReloadable(MediaViewReloader mediaViewReloader) {
     }
 
-    public HBox getConfirmationWindow() {
+    public VBox getConfirmationWindow() {
         return confirmationWindow;
     }
 }

@@ -7,14 +7,18 @@ import utility.ExceptionHandler;
 
 import static utility.Utility.getCurrentStage;
 
-public class EditCategoryController {
+public class EditCategoryController extends NewEditController{
+
     @Override
+    public void cancelUpdateMovie(ActionEvent event) {
+
+    }
+
     public void cancelCategory(ActionEvent event) {
         getCategoryModel().cancelUpdateCategory();
         getCurrentStage(event).close();
     }
 
-    @Override
     public void saveCategory(ActionEvent event) {
         if (!isValidTitle()){
             showTitleError();
@@ -51,5 +55,7 @@ public class EditCategoryController {
         getCategoryModel().setCurrentSelectedCategory(category);
         getCategoryTitle().setText(category.getName());
     }
+
+
 
 }

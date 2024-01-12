@@ -43,6 +43,11 @@ public class CategoryLogic implements CategoryLogicAPI{
         return false;
     }
 
+    @Override
+    public boolean deleteCategory(int id) {
+        return false;
+    }
+
     public static CategoryLogic getInstance() throws MoviesException {
         if (instance == null){
             instance = new CategoryLogic();

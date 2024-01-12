@@ -5,7 +5,8 @@ public enum Titles implements Messages {
     ADD_CATEGORY("Add Category"),
     DELETE_MOVIE("Delete Song"),
     CREATE_PLAYLIST("Create playlist"),
-    EDIT_CATEGORY("Edit Category"),;
+    EDIT_CATEGORY("Edit Category"),
+    DELETE_CATEGORY("Delete Category"),;
 
 
     private final String value;

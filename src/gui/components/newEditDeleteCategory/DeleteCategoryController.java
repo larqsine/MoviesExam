@@ -21,6 +21,11 @@ public class DeleteCategoryController implements ConfirmationController, Initial
     private Category categoryToDelete;
 
     @Override
+    public void confirmationEventHandler(boolean confirmation) {
+
+    }
+
+    @Override
     public void confirmationEventHandeler(boolean confirmation) {
         boolean deleted;
         if (confirmation){
@@ -38,7 +43,7 @@ public class DeleteCategoryController implements ConfirmationController, Initial
         }
     }
 
-    @Override
+  /**  @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
             categoryModel = CategoryModel.getInstance();
@@ -53,12 +58,17 @@ public class DeleteCategoryController implements ConfirmationController, Initial
             confirmationWindow = confirmationView.getConfirmationWindow();
             initializeConfirmationWindow(confirmationView, this);
         }
-    }
+    }*/
 
     private void initializeConfirmationWindow(ConfirmationWindow confirmationWindow, ConfirmationController confirmationController) {
         confirmationWindow.setConfirmationController(confirmationController);
         confirmationWindow.setOperationTitle(Titles.DELETE_CATEGORY.getValue());
         String category = "\"" + this.categoryToDelete.getName() + "\" ?";
         confirmationWindow.setOperationTitle(InformationalMessages.DELETE_CATEGORY_QUESTION.getValue() + category);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
     }
 }

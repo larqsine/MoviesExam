@@ -5,7 +5,17 @@ import javafx.event.ActionEvent;
 import utility.ExceptionHandler;
 
  public class NewCategoryController extends NewEditController {
-  public void saveCategory(ActionEvent event) {
+     @Override
+     public void cancelUpdateMovie(ActionEvent event) {
+
+     }
+
+     @Override
+     public void cancelCategory(ActionEvent event) {
+
+     }
+
+     public void saveCategory(ActionEvent event) {
   }
 
     //public void cancelCategory(ActionEvent event) {
