@@ -1,8 +1,11 @@
 package gui.components.newEditDeleteMovies;
 
 import be.Movie;
+import bll.genreLogic.GenreLogic;
+import bll.genreLogic.GenreLogicApi;
 import bll.movieLogic.MovieLogic;
 import bll.movieLogic.MovieLogicAPI;
+import exceptions.MoviesException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import utility.MovieGenre;
@@ -14,6 +17,7 @@ public class MovieModel {
 
     private final ObservableList<String> genres;
     private MovieLogicAPI movieLogic;
+    private GenreLogicApi genreLogic;
 
     public ObservableList<String> getGenres() {
         return genres;
@@ -21,22 +25,23 @@ public class MovieModel {
 
     private static MovieModel instance;
 
-    public static MovieModel getInstance() {
+    public static MovieModel getInstance() throws MoviesException {
         if (instance == null) {
             instance = new MovieModel();
         }
         return instance;
     }
 
-    private MovieModel() {
+    private MovieModel() throws MoviesException {
      this.movieLogic= new MovieLogic();
+     this.genreLogic =new GenreLogic();
      this.genres = FXCollections.observableArrayList();
         initializeGenres();
     }
 
-    private void initializeGenres() {
-        List<String> genres = Arrays.stream(MovieGenre.values()).map(MovieGenre::getDisplayName).toList();
-        this.genres.setAll(genres);
+    private void initializeGenres() throws MoviesException {
+
+        this.genres.setAll(genreLogic.getGenres());
     }
 
 

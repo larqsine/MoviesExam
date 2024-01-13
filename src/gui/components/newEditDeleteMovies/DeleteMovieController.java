@@ -1,6 +1,7 @@
 package gui.components.newEditDeleteMovies;
 
 import be.Movie;
+import exceptions.MoviesException;
 import gui.components.confirmationWindow.ConfirmationWindow;
 import gui.components.listeners.ConfirmationController;
 import gui.components.listeners.MediaViewReloader;
@@ -9,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.VBox;
+import utility.ExceptionHandler;
 import utility.Titles;
 import utility.InformationalMessages;
 
@@ -40,13 +42,18 @@ public class DeleteMovieController implements ConfirmationController, Initializa
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        movieModel = MovieModel.getInstance();
-
-        if (movieModel != null) {
-            ConfirmationWindow confirmationView = new ConfirmationWindow();
-            confirmationWindow = confirmationView.getConfirmationWindow();
-            initializeConfirmationWindow(confirmationView, this);
+        try {
+            movieModel = MovieModel.getInstance();
+            if (movieModel != null) {
+                ConfirmationWindow confirmationView = new ConfirmationWindow();
+                confirmationWindow = confirmationView.getConfirmationWindow();
+                initializeConfirmationWindow(confirmationView, this);
+            }
+        } catch (MoviesException e) {
+            ExceptionHandler.displayErrorAlert(e.getExceptionsMessages(),"Delete operation error");
         }
+
+
     }
 
     @FXML

@@ -1,5 +1,6 @@
 package gui.components.newEditDeleteMovies;
 
+import exceptions.MoviesException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import gui.components.listeners.MediaViewReloader;
+import utility.ExceptionHandler;
 import utility.InformationalMessages;
 
 import java.net.URL;
@@ -27,8 +29,13 @@ public class NewEditController implements Initializable, MediaViewReloader {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        movieModel = MovieModel.getInstance();
-        setOnChangeListener(getMovieTitle(), getInformation());
+        try {
+            movieModel = MovieModel.getInstance();
+            setOnChangeListener(getMovieTitle(), getInformation());
+        } catch (MoviesException e) {
+            ExceptionHandler.displayErrorAlert(e.getExceptionsMessages(),"Operation error");
+        }
+
     }
 
     @Override
@@ -52,7 +59,7 @@ public class NewEditController implements Initializable, MediaViewReloader {
         }
     }
 
-    private void closeCurrentStage(ActionEvent event) {
+    public void closeCurrentStage(ActionEvent event) {
     }
 
     @Override
@@ -78,7 +85,7 @@ public class NewEditController implements Initializable, MediaViewReloader {
         return (Stage) ((Node) event.getSource()).getScene().getWindow();
     }
 
-    public MovieModel getMovieModel() {
+    public MovieModel getMovieModel() throws MoviesException {
         return MovieModel.getInstance();
     }
 

@@ -10,11 +10,11 @@ public class DeleteModel {
     private MovieModel movieModel;
     private static DeleteModel instance;
 
-    private DeleteModel() {
+    private DeleteModel() throws MoviesException {
         movieModel = MovieModel.getInstance();
     }
 
-    public static DeleteModel getInstance() {
+    public static DeleteModel getInstance() throws MoviesException {
         if (instance == null) {
             instance = new DeleteModel();
         }

@@ -1,6 +1,7 @@
 package gui.deleteMovieView;
 
 import be.Movie;
+import exceptions.MoviesException;
 import gui.components.confirmationWindow.ConfirmationWindow;
 import gui.components.listeners.ConfirmationController;
 import gui.components.listeners.MediaViewReloader;
@@ -44,7 +45,11 @@ public class DeleteController implements ConfirmationController, Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        movieModel = MovieModel.getInstance();
+        try {
+            movieModel = MovieModel.getInstance();
+        } catch (MoviesException e) {
+            throw new RuntimeException(e);
+        }
         if (movieModel != null) {
             ConfirmationWindow confirmationView = new ConfirmationWindow();
             if (confirmationView.getConfirmationWindow() == null) {
