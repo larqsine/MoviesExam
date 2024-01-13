@@ -1,8 +1,6 @@
 package gui.components.newEditDeleteMovies;
 import exceptions.MoviesException;
-import gui.MainView.MainModel;
 import gui.components.newEditDeleteMovies.genreView.GenreView;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,6 +9,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import utility.ExceptionHandler;
+import utility.MovieFormat;
+import utility.Utility;
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -19,8 +20,10 @@ public class AddMovieController extends NewEditController implements Initializab
     private TextField movieTitle;
     @FXML
     private Button createButton;
+    @FXML
+    private TextField fileLocation;
+
     private MovieModel model;
-    private MainModel mainModel;
     @FXML
     private HBox genresContainer;
     @FXML
@@ -28,11 +31,11 @@ public class AddMovieController extends NewEditController implements Initializab
     @FXML
     private Stage currentStage;
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
             model = MovieModel.getInstance();
-            mainModel = MainModel.getInstance();
             genreList = new GenreView();
             genreList.setGenres(model.getGenres());
             genresContainer.getChildren().add(genreList);
@@ -44,20 +47,20 @@ public class AddMovieController extends NewEditController implements Initializab
     }
 
 
-
-private boolean checkIfCategorySelected(SimpleIntegerProperty catId){
-   return   catId.getValue()!=0;
-}
-
-private void disableButton(Button button,boolean isCategoryOpened){
-   button.setDisable(isCategoryOpened);
-}
-
-private void displayInfoMessage(boolean isCategorySelected){
-        if(!isCategorySelected){
-//            initiateInfoAlert();
-        }
-}
+//
+//private boolean checkIfCategorySelected(SimpleIntegerProperty catId){
+//   return   catId.getValue()!=0;
+//}
+//
+//private void disableButton(Button button,boolean isCategoryOpened){
+//   button.setDisable(isCategoryOpened);
+//}
+//
+//private void displayInfoMessage(boolean isCategorySelected){
+//        if(!isCategorySelected){
+////            initiateInfoAlert();
+//        }
+//}
 
 
 @Override
@@ -68,16 +71,34 @@ private void displayInfoMessage(boolean isCategorySelected){
 
 @Override
     public void saveAddEditMovie(ActionEvent event) {
-        System.out.println("asd");
+    String title =movieTitle.getText();
+    String path = fileLocation.getText();
+        if (validateInputs(title, path,this.model)) {
+        return;
+    }
     }
 
 
 @Override
     public void openFileChooser(ActionEvent event) {
-        System.out.println("asd");
+    Stage newSongStage = Utility.getCurrentStage(event);
+    File selectedFile = getFileChooser().showOpenDialog(newSongStage);
+    if (selectedFile != null) {
+        try {
+            MovieFormat movieformat = setMovieFormat(selectedFile);
+            this.fileLocation.setText(selectedFile.getPath());
+        } catch (MoviesException e) {
+           ExceptionHandler.displayErrorAndWait(e.getMessage(),"Format unsupported");
+        }
+    }
     }
 
-public void getStage(Stage stage){
-this.currentStage=stage;
-}
+
+    public void getCurrentOpenedCategory(int currentOpenedCategory) {
+        this.setOpenedCategory(currentOpenedCategory);
+    }
+
+    private MovieFormat setMovieFormat(File file) throws MoviesException {
+        return model.getFormat(file.getName());
+    }
 }

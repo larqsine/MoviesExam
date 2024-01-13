@@ -23,7 +23,7 @@
                   <Insets right="7.0" />
                </HBox.margin>
             </Label>
-            <TextField prefWidth="150.0">
+            <TextField fx:id="movieTitle" prefWidth="150.0">
                <HBox.margin>
                   <Insets right="82.0" top="5.0" />
                </HBox.margin>

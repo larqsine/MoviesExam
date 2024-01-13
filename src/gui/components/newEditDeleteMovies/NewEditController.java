@@ -20,11 +20,21 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public abstract class NewEditController  {
-    private final Alert alertWindowOperation = new Alert(Alert.AlertType.NONE);
+
     private  MediaViewReloader reloadable ;
     private final FileChooser fileChooser = new FileChooser();
+    private int openedCategory;
 
-
+    /**
+     * returns the current opened category*/
+    public int getOpenedCategory() {
+        return openedCategory;
+    }
+/**
+ * sets the current opened category*/
+    public void setOpenedCategory(int openedCategory) {
+        this.openedCategory = openedCategory;
+    }
 
     /**
      * Abstract method to cancel movie creation/editing.
@@ -65,35 +75,19 @@ public abstract class NewEditController  {
         return reloadable;
     }
 
-    public void initiateInfoAlert(Stage newMovieStage, String message) {
-        alertWindowOperation.setAlertType(Alert.AlertType.INFORMATION);
-        alertWindowOperation.setX(newMovieStage.getX());
-        alertWindowOperation.setY(newMovieStage.getY());
-        if (message == null) {
-            alertWindowOperation.setContentText(InformationalMessages.NO_EMPTY_INPUT.getValue());
-        } else {
-            alertWindowOperation.setContentText(message);
+
+
+
+
+    public boolean validateInputs(String title , String path,MovieModel movieModel) {
+        if (movieModel.areTitleOrPathEmpty(title, path)) {
+            ExceptionHandler.displayInformationAlert(InformationalMessages.NO_EMPTY_INPUT,"No empty input");
+            return true;
         }
-        alertWindowOperation.showAndWait();
-    }
-
-    public void initiateErrorAlert(MoviesException e, Stage newMovieStage) {
-        alertWindowOperation.setAlertType(Alert.AlertType.ERROR);
-        alertWindowOperation.setX(newMovieStage.getX());
-        alertWindowOperation.setY(newMovieStage.getY());
-        alertWindowOperation.setContentText(e.getMessage());
-        alertWindowOperation.showAndWait();
-    }
-
-    public boolean validateInputs(String title , String path, Stage stage, MovieModel movieModel) {
-//        if (movieModel.areTitleOrPathEmpty(title, path)) {
-//            initiateInfoAlert(stage, null);
-//            return true;
-//        }
-//        if (!movieModel.checkIfFileExists(path)) {
-//            initiateInfoAlert(stage, InformationalMessages.NO_FILE.getValue());
-//            return true;
-//        }
+        if (!movieModel.checkIfFileExists(path)) {
+            ExceptionHandler.displayInformationAlert(InformationalMessages.NO_FILE,"Nonexistent file");
+            return true;
+        }
         return false;
     }
 
@@ -107,6 +101,9 @@ public abstract class NewEditController  {
 
 
 //    Salma code
+
+
+
 //
 //    @Override
 //    public MediaViewReloader getReloadable() {
