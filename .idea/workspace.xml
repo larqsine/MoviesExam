@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="Movie Genres Window implemented with the unselected genres being removed from the list">
+    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="Added the genres to a separate table in the database">
+      <change afterPath="$PROJECT_DIR$/src/be/Genre.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dal/MovieDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/MovieDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -297,7 +297,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705127776116</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Added the genres to a separate table in the database">
+      <option name="closed" value="true" />
+      <created>1705131105930</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1705131105930</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,7 +340,8 @@
     <MESSAGE value="player implemented, eroors solved," />
     <MESSAGE value="video playing on doubleclick implemented" />
     <MESSAGE value="Movie Genres Window implemented with the unselected genres being removed from the list" />
-    <option name="LAST_COMMIT_MESSAGE" value="Movie Genres Window implemented with the unselected genres being removed from the list" />
+    <MESSAGE value="Added the genres to a separate table in the database" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the genres to a separate table in the database" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
