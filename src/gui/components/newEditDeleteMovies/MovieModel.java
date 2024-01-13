@@ -8,10 +8,6 @@ import bll.movieLogic.MovieLogicAPI;
 import exceptions.MoviesException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import utility.MovieGenre;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class MovieModel {
 
