@@ -87,10 +87,10 @@ public class MovieModel {
         return movieCreation.checkFilePath(path);
     }
 
-    public void saveMovie(String title, String path, List<String> genres, int categoryId) throws MoviesException {
+    public boolean saveMovie(String title, String path, List<String> genres, int categoryId) throws MoviesException {
      List<Genre> genreObjects  = genreLogic.convertStringsToGenre(this.genresObjects,genres);
      Movie movie =  new Movie(title,null,path,null,null,genreObjects);
-     movieCreation.saveMovie(movie,categoryId);
+     return movieCreation.saveMovie(movie,categoryId);
     }
 
     /*

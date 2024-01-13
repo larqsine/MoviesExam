@@ -25,8 +25,4 @@ public class CategoryReloadableHandler implements CategoryReloadable {
         }
     }
 
-    @Override
-    public void reloadMovies() {
-
-    }
 }

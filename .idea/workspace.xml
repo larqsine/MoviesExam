@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="check movie path an location">
+    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="movie creation bussines logic">
+      <change afterPath="$PROJECT_DIR$/src/utility/DateConversion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/Movie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/genreLogic/GenreLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/genreLogic/GenreLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/genreLogic/GenreLogicApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/genreLogic/GenreLogicApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dal/GenreDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/GenreDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dal/IGenreDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/IGenreDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieCreation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieCreation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dal/IMovieDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/IMovieDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dal/MovieDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/MovieDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/AddMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/AddMovieController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/MovieModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/MovieModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/NewEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/NewEditController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +131,7 @@
       <workItem from="1705056947896" duration="612000" />
       <workItem from="1705057932159" duration="2254000" />
       <workItem from="1705143377383" duration="84000" />
-      <workItem from="1705143472887" duration="13892000" />
+      <workItem from="1705143472887" duration="20283000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <option name="closed" value="true" />
@@ -390,7 +389,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705154354959</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="movie creation bussines logic">
+      <option name="closed" value="true" />
+      <created>1705158464103</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1705158464103</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,7 +439,8 @@
     <MESSAGE value="Add new movie view" />
     <MESSAGE value="Check if a category movies a re opened" />
     <MESSAGE value="check movie path an location" />
-    <option name="LAST_COMMIT_MESSAGE" value="check movie path an location" />
+    <MESSAGE value="movie creation bussines logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="movie creation bussines logic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -444,7 +452,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/bll/movieLogic/MovieCreation.java</url>
-          <line>17</line>
+          <line>26</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

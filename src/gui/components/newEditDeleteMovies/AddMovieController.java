@@ -73,7 +73,6 @@ public class AddMovieController extends NewEditController implements Initializab
         System.out.println("sads");
     }
 
-
     @Override
     public void saveAddEditMovie(ActionEvent event) {
         String title = movieTitle.getText();
@@ -82,11 +81,19 @@ public class AddMovieController extends NewEditController implements Initializab
             return;
         }
         List<String> genres = this.genreList.getSelectedGenres();
-       try{ model.saveMovie(title, path, genres,this.getOpenedCategory());}
-       catch (MoviesException e){
-           ExceptionHandler.displayErrorAlert(ExceptionsMessages.DB_UNSUCCESFULL.getValue(),"Unsuccessful operation");
-           closeStage(Utility.getCurrentStage(event));
-       }
+        try {
+            boolean isSuccess = model.saveMovie(title, path, genres, this.getOpenedCategory());
+            if (!isSuccess) {
+                // Show an error alert if the operation was unsuccessful
+                ExceptionHandler.displayErrorAlert(ExceptionsMessages.DB_UNSUCCESFULL.getValue(), "Unsuccessful operation");
+            }
+
+            closeStage(Utility.getCurrentStage(event));
+        } catch (MoviesException e) {
+            // Show an error alert if an exception occurs
+            ExceptionHandler.displayErrorAlert(ExceptionsMessages.DB_UNSUCCESFULL.getValue(), "Unsuccessful operation");
+            closeStage(Utility.getCurrentStage(event));
+        }
     }
 
 

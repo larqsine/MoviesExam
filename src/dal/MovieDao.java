@@ -1,16 +1,17 @@
 package dal;
 
-import be.Category;
 import be.Genre;
 import be.Movie;
 import exceptions.MoviesException;
 import javafx.beans.property.SimpleStringProperty;
+import utility.ExceptionHandler;
 import utility.ExceptionsMessages;
 
 import java.sql.*;
 import java.util.*;
-import java.util.Date;
 import java.util.stream.Collectors;
+import java.util.Date;
+
 
 public class MovieDao implements IMovieDao {
     private final ConnectionManager CONNECTION_MANAGER = new ConnectionManager();
@@ -114,10 +115,83 @@ public class MovieDao implements IMovieDao {
         }
     }
 
-    @Override
-    public void createMovie(Movie movie, int categoryId) {
 
+    @Override
+    public boolean createMovie(Movie movie, int categoryId) throws MoviesException {
+        System.out.println(movie);
+        String sql = "INSERT INTO Movie values(?,?,?,?,?)";
+        Connection conn = null;
+        try {
+            conn = CONNECTION_MANAGER.getConnection();
+            conn.setAutoCommit(false);
+            try (PreparedStatement psmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
+                psmt.setString(1, movie.getName());
+                psmt.setDouble(2, movie.getRating());
+                psmt.setString(3, movie.getFileLink());
+                java.sql.Date sqlDate = new java.sql.Date(movie.getLastView().getTime());
+                psmt.setDate(4, sqlDate);
+                psmt.setDouble(5, movie.getPersonalRating());
+                psmt.execute();
+                ResultSet rs = psmt.getGeneratedKeys();
+                if (rs.next()) {
+                    insertMovieCategory(categoryId, rs.getInt(1), conn);
+                    insertMovieGenres(rs.getInt(1), movie.getGenres(), conn);
+                }
+            }
+            conn.commit();
+            return true;
+        } catch (SQLException e) {
+            System.err.println("SQL Exception: " + e.getMessage()); // Log the exception
+            try {
+                conn.rollback();
+            } catch (SQLException ex) {
+                System.err.println("Rollback Exception: " + ex.getMessage()); // Log rollback exception
+                ExceptionHandler.displayErrorAndWait(ex.getMessage(), "Database operation error");
+            }
+            return false;
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    System.err.println("Close Connection Exception: " + ex.getMessage()); // Log close exception
+                    ExceptionHandler.displayErrorAndWait(ex.getMessage(), "Database operation error");
+                }
+            }
+        }
     }
+
+    private void insertMovieCategory(int categoryId, int movieId, Connection conn) throws MoviesException {
+        String sql = "INSERT INTO CatMovie VALUES (?,?)";
+        try {
+
+            try (PreparedStatement psmt = conn.prepareStatement(sql)) {
+                psmt.setInt(1, categoryId);
+                psmt.setInt(2, movieId);
+                psmt.execute();
+            }
+        } catch (SQLException e) {
+            throw new MoviesException(e);
+        }
+    }
+
+
+    private void insertMovieGenres(int movieId, List<Genre> genres, Connection conn) throws MoviesException {
+        String sql = "INSERT INTO GenreMovie values(?,?)";
+        try {
+            try (PreparedStatement psmt = conn.prepareStatement(sql)) {
+                psmt.setInt(1, movieId);
+                for (Genre genre : genres) {
+                    psmt.setInt(2, genre.getId());
+                    psmt.addBatch();
+                }
+                psmt.executeBatch();
+            }
+        } catch (SQLException e) {
+            throw new MoviesException(e);
+        }
+    }
+
 
 //used to insert genres into the database
 //    public void insertGenres(List<String> genres){

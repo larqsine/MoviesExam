@@ -9,7 +9,7 @@ public interface IMovieDao {
     Map<Integer,Movie> getMovies(int categoryId) throws MoviesException;
     void testConnection();
 
-    void createMovie(Movie movie, int categoryId);
+    boolean createMovie(Movie movie, int categoryId) throws MoviesException;
 //used to insert genres into the database
     //    void insertGenres(List<String> genres);
 }

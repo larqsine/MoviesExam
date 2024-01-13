@@ -105,7 +105,7 @@ public class Movie {
                 ", fileLink='" + fileLink + '\'' +
                 ", lastView=" + lastView +
                 ", personalRating=" + personalRating +
-                ", categories=" + genres +
+                ", genres=" + genres +
                 '}';
     }
 

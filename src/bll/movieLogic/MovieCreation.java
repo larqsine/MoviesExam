@@ -48,7 +48,7 @@ public class MovieCreation {
     }
 
 
-    public void saveMovie(Movie movie, int categoryId) {
-        this.movieDao.createMovie(movie,categoryId);
+    public boolean saveMovie(Movie movie, int categoryId) throws MoviesException {
+        return this.movieDao.createMovie(movie,categoryId);
     }
 }
