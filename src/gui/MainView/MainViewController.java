@@ -50,7 +50,6 @@ public class MainViewController implements Initializable {
     private Button searchButton;
     @FXML
     private ISearchGraphic searchGraphic;
-
     @FXML
     private Label infoEmptyLabel;
     @FXML
@@ -64,9 +63,9 @@ public class MainViewController implements Initializable {
     private CategoryView categoryView;
     @FXML
     private Pane moviesView;
-    @FXML
-    private Pane mediaContainer;
     private CategoryReloadable categoryReloadable;
+    private PlayerControl playerControl;
+    private PlayerCommander playerCommander;
 
     @FXML
     private void applyFilter(ActionEvent event) {
@@ -77,22 +76,21 @@ public class MainViewController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         UIInitializer uiInitializer = new UIInitializer();
-
-
         try {
-
             model = MainModel.getInstance();
+
+            //initialize application playback
             PlayOperations playOperations = PlayOperationsHandler.getInstance(model);
             DataSupplier dataHandler = DataHandler.getInstance(model,playOperations);
             MediaViewReloader mediaViewReloader = new MediaViewUpdate(mediaViewPlayer);
-            PlayerControl playerControl = Player.useMediaPlayer(dataHandler,mediaViewReloader);
-            PlayerCommander playerCommander= new PlayerCommander(dataHandler,playerControl);
+            playerControl = Player.useMediaPlayer(dataHandler,mediaViewReloader);
+            playerCommander= new PlayerCommander(dataHandler,playerControl);
             mediaViewPlayer.setMediaPlayer(playerControl.getMediaPlayer());
             //initialize the category list view
             categoryView = new CategoryView(new CategorySelectionHandler(model), model.getCategories());
             categoryContainer.getChildren().add(categoryView);
             //initialize moviesTable data
-            moviesView.getChildren().add(new MoviesTable(new MovieSelectionHandler(this.model,playerCommander,playButton),model.getMovies()));
+            moviesView.getChildren().add(new MoviesTable(new MovieSelectionHandler(this.model,playerCommander,playButton),model.getMovies(),model));
             //initializes the filter view
             uiInitializer.initializeSearchView(isearchGraphic, searchButton, searchValue, infoEmptyLabel);
         } catch (MoviesException me) {
@@ -154,7 +152,6 @@ public class MainViewController implements Initializable {
             ExceptionHandler.displayInformationAlert(InformationalMessages.NO_CATEGORY_OPENED,"Please open a category");
        return;
     }
-
         try {
         FXMLLoader loader =new FXMLLoader(getClass().getResource(resourcePath));
         Parent root = loader.load();
@@ -173,5 +170,22 @@ public class MainViewController implements Initializable {
     private Parent getParent(String resourcePath) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(resourcePath));
         return loader.load();
+    }
+
+    public void playPreviousMovie(ActionEvent event) {
+    }
+
+    public void playMovie(ActionEvent event) {
+      if(this.playButton.getText().trim().equals("||")){
+          this.playerCommander.processOperation(Operations.PAUSE);
+          this.playButton.setText(PlayButtonGraphic.PLAY.getValue());
+      }else{
+          this.playerCommander.processOperation(Operations.PLAY_CURRENT);
+          this.playButton.setText(PlayButtonGraphic.STOP.getValue());
+      }
+
+    }
+
+    public void playNextMovie(ActionEvent event) {
     }
 }

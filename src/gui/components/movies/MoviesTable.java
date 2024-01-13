@@ -2,6 +2,7 @@ package gui.components.movies;
 
 import be.Genre;
 import be.Movie;
+import gui.MainView.MainModel;
 import gui.components.listeners.MovieSelectionListener;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;
@@ -13,12 +14,13 @@ import java.util.List;
 
 public class MoviesTable extends TableView<Movie> {
     private MovieSelectionListener movieSelectionListener;
-
+    private MainModel model ;
     private final int defaultHeight = 513;
 
-    public MoviesTable(MovieSelectionListener listener,ObservableList<Movie> movies) {
+    public MoviesTable(MovieSelectionListener listener,ObservableList<Movie> movies, MainModel model) {
         this.setItems(movies);
         this.movieSelectionListener = listener;
+        this.model=model;
         setupColumns();
         setRowFactory();
         this.setHeight(defaultHeight);
@@ -65,6 +67,8 @@ public class MoviesTable extends TableView<Movie> {
                 if (!row.isEmpty() && event.getClickCount() == 2) {
                     movieSelectionListener.playSelectedMovie(row.getItem().getId(), true);
                 } else if (!row.isEmpty() && event.getClickCount() == 1) {
+                    model.setPlayMovie(true);
+                    model.setCurrentPlayingMovie(row.getItem().getId());
 
                 }
             });

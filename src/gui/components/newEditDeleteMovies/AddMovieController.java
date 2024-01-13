@@ -36,9 +36,6 @@ public class AddMovieController extends NewEditController implements Initializab
     @FXML
     private GenreView genreList;
 
-
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
@@ -49,26 +46,7 @@ public class AddMovieController extends NewEditController implements Initializab
         } catch (MoviesException e) {
             ExceptionHandler.displayErrorAlert(e.getExceptionsMessages(), "Add movie error");
         }
-
-
     }
-
-
-//
-//private boolean checkIfCategorySelected(SimpleIntegerProperty catId){
-//   return   catId.getValue()!=0;
-//}
-//
-//private void disableButton(Button button,boolean isCategoryOpened){
-//   button.setDisable(isCategoryOpened);
-//}
-//
-//private void displayInfoMessage(boolean isCategorySelected){
-//        if(!isCategorySelected){
-////            initiateInfoAlert();
-//        }
-//}
-
 
     @Override
     public void cancelAddEditMovie(ActionEvent event) {

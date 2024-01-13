@@ -11,46 +11,43 @@ import utility.Operations;
 import utility.PlayButtonGraphic;
 
 public class MovieSelectionHandler implements MovieSelectionListener {
-
-    private MainModel model;
+    private final MainModel model;
     private final PlayerCommander playerCommander;
     @FXML
-    private Button button;
+    private Button playButton;
 
-    public MovieSelectionHandler(MainModel model, PlayerCommander playerCommander, Button button) {
-
+    public MovieSelectionHandler(MainModel model, PlayerCommander playerCommander,Button playButton) {
         this.model = model;
         this.playerCommander = playerCommander;
-        this.button = button;
+        this.playButton =playButton;
     }
-
-
     /**
      * Play the selected movie when it is double-clicked.
      *
      * @param id   The index of the selected song.
      * @param play    Whether to play the song or not.
      */
-
     @Override
     public void playSelectedMovie(int id, boolean play)  {
         setMovieToPlay(id,play);
         playerCommander.processOperation(Operations.PLAY_CURRENT);
-        changeButtonGraphic(this.button);
+        changeButtonGraphic(this.playButton);
     }
 
-    private void setMovieToPlay(int id,boolean play) {model.setPlayMovie(play);
+    private void setMovieToPlay(int id,boolean play) {
+        model.setPlayMovie(play);
        model.setCurrentPlayingMovie(id);
     }
 
     private void changeButtonGraphic(Button button) {
-        if (isGraphicPlaying(button)) {
+        if (isPlayButtonPressed(button)) {
             button.setText(PlayButtonGraphic.STOP.getValue());
         }
     }
 
-    private boolean isGraphicPlaying(Button button) {
-        return button.getText().equals(PlayButtonGraphic.PLAY.getValue());
+    private boolean isPlayButtonPressed(Button button) {
+        System.out.println(button.getText().equalsIgnoreCase(">"));
+        return button.getText().toLowerCase().equals(PlayButtonGraphic.PLAY.getValue());
     }
 
 

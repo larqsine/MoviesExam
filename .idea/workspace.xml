@@ -4,19 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="movie creation implemented, it is saving movies to the database">
-      <change afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/MovieReloader.java" afterDir="false" />
+    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="Reload movies from the database when new movie is created implemented">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/listeners/ConfirmationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/listeners/ConfirmationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/listeners/MediaViewReloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/listeners/MediaViewReloader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/listeners/Reloadable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/listeners/MovieReloadable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/CategoryReloadableHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/CategoryReloadableHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/movies/MovieSelectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/movies/MovieSelectionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/movies/MoviesTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/movies/MoviesTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/AddMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/AddMovieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/NewEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/NewEditController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/player/MediaViewUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/MediaViewUpdate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/deleteMovieView/DeleteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/deleteMovieView/DeleteController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +130,7 @@
       <workItem from="1705056947896" duration="612000" />
       <workItem from="1705057932159" duration="2254000" />
       <workItem from="1705143377383" duration="84000" />
-      <workItem from="1705143472887" duration="22666000" />
+      <workItem from="1705143472887" duration="26091000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <option name="closed" value="true" />
@@ -409,7 +404,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705164606379</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Reload movies from the database when new movie is created implemented">
+      <option name="closed" value="true" />
+      <created>1705184697199</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1705184697199</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -427,7 +430,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="jdbc connection" />
     <MESSAGE value="movie dao" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
     <MESSAGE value="categories displayed in view" />
@@ -452,7 +454,8 @@
     <MESSAGE value="check movie path an location" />
     <MESSAGE value="movie creation bussines logic" />
     <MESSAGE value="movie creation implemented, it is saving movies to the database" />
-    <option name="LAST_COMMIT_MESSAGE" value="movie creation implemented, it is saving movies to the database" />
+    <MESSAGE value="Reload movies from the database when new movie is created implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reload movies from the database when new movie is created implemented" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

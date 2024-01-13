@@ -25,7 +25,7 @@ public class MainModel {
     private Map<Integer, Movie> movieObjects;
     private Media currentPlayingMedia;
     private TextField searchValue;
-    private IntegerProperty currentMovieSelected = new SimpleIntegerProperty();
+    private final IntegerProperty currentMovieSelected = new SimpleIntegerProperty();
 
 
 

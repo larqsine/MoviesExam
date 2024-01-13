@@ -57,9 +57,18 @@
                               <Slider prefHeight="25.0" prefWidth="386.0" />
                               <HBox alignment="CENTER" prefHeight="75.0" prefWidth="410.0">
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="92.0" text="Button" />
-                                    <Button fx:id="playButton" mnemonicParsing="false" prefHeight="58.0" prefWidth="92.0" text=" &gt;" />
-                                    <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="92.0" text="Button" />
+                                    <Button mnemonicParsing="false" onAction="#playPreviousMovie" prefHeight="58.0" prefWidth="92.0" text="&lt;&lt;">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font></Button>
+                                    <Button fx:id="playButton" mnemonicParsing="false" onAction="#playMovie" prefHeight="58.0" prefWidth="92.0" text="&gt;">
+                                       <font>
+                                          <Font name="Algerian" size="24.0" />
+                                       </font></Button>
+                                    <Button mnemonicParsing="false" onAction="#playNextMovie" prefHeight="58.0" prefWidth="92.0" text="&gt;&gt;">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font></Button>
                                     <Slider orientation="VERTICAL" prefHeight="75.0" prefWidth="52.0" />
                                  </children>
                               </HBox>
@@ -87,8 +96,14 @@
             <Pane fx:id="moviesView" prefHeight="455.0" prefWidth="300.0" />
             <HBox alignment="TOP_CENTER" prefHeight="170.0" prefWidth="260.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#addNewMovie" text="Add" />
-                  <Button mnemonicParsing="false" text="Edit" />
+                  <Button mnemonicParsing="false" onAction="#addNewMovie" text="Add">
+                     <HBox.margin>
+                        <Insets right="30.0" />
+                     </HBox.margin></Button>
+                  <Button mnemonicParsing="false" text="Edit">
+                     <HBox.margin>
+                        <Insets right="30.0" />
+                     </HBox.margin></Button>
                   <Button mnemonicParsing="false" text="Delete" />
                </children>
             </HBox>
