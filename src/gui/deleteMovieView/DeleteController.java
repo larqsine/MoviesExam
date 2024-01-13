@@ -24,24 +24,29 @@ public class DeleteController implements ConfirmationController, Initializable {
     private Movie movieToDelete;
     private MediaViewReloader mediaViewReloader;
 
+//    @Override
+//    public void confirmationEventHandler(boolean confirmation) {
+//        if (confirmation) {
+//            boolean deleted = movieModel.deleteMovie(this.movieToDelete);
+//            if (deleted) {
+//                String message = movieToDelete.getName() + " " + InformationalMessages.DELETE_SUCCEEDED.getValue();
+//                Platform.runLater(() -> {
+//                    ExceptionHandler.displayInformationAlert(message,null);
+//                });
+//                reloadMovies();
+//            }
+//        }
+//    }
+
     @Override
     public void confirmationEventHandler(boolean confirmation) {
-        if (confirmation) {
-            boolean deleted = movieModel.deleteMovie(this.movieToDelete);
-            if (deleted) {
-                String message = movieToDelete.getName() + " " + InformationalMessages.DELETE_SUCCEEDED.getValue();
-                Platform.runLater(() -> {
-                    ExceptionHandler.displayInformationAlert(message,null);
-                });
-                reloadMovies();
-            }
-        }
-    }
-
-    @Override
-    public void confirmationEventHandeler(boolean confirmation) {
 
     }
+
+//    @Override
+//    public void confirmationEventHandeler(boolean confirmation) {
+//
+//    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -60,15 +65,15 @@ public class DeleteController implements ConfirmationController, Initializable {
         }
     }
 
-    @FXML
-    public void deleteSelectedMovie(ActionEvent event) {
-        boolean deleted = movieModel.deleteMovie(this.movieToDelete);
-        if (deleted) {
-            Platform.runLater(() -> {
-            });
-            reloadMovies();
-        }
-    }
+//    @FXML
+//    public void deleteSelectedMovie(ActionEvent event) {
+//        boolean deleted = movieModel.deleteMovie(this.movieToDelete);
+//        if (deleted) {
+//            Platform.runLater(() -> {
+//            });
+//            reloadMovies();
+//        }
+//    }
 
     public void getMovieToDelete(Movie movie) {
         this.movieToDelete = movie;
@@ -89,9 +94,9 @@ public class DeleteController implements ConfirmationController, Initializable {
         return confirmationWindow;
     }
 
-    private void reloadMovies() {
-        if (mediaViewReloader != null) {
-            mediaViewReloader.reloadMovies();
-        }
-    }
+//    private void reloadMovies() {
+//        if (mediaViewReloader != null) {
+//            mediaViewReloader.reloadMovies();
+//        }
+//    }
 }

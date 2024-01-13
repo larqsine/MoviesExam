@@ -2,6 +2,8 @@ package gui.components.newEditDeleteMovies;
 
 import be.Movie;
 import exceptions.MoviesException;
+import gui.MainView.MainModel;
+import gui.components.listeners.MovieReloadable;
 import gui.components.newEditDeleteMovies.genreView.GenreView;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
@@ -70,7 +72,7 @@ public class AddMovieController extends NewEditController implements Initializab
 
     @Override
     public void cancelAddEditMovie(ActionEvent event) {
-        System.out.println("sads");
+        closeStage(Utility.getCurrentStage(event));
     }
 
     @Override
@@ -84,19 +86,15 @@ public class AddMovieController extends NewEditController implements Initializab
         try {
             boolean isSuccess = model.saveMovie(title, path, genres, this.getOpenedCategory());
             if (!isSuccess) {
-                // Show an error alert if the operation was unsuccessful
                 ExceptionHandler.displayErrorAlert(ExceptionsMessages.DB_UNSUCCESFULL.getValue(), "Unsuccessful operation");
             }
-
+            this.getReloadableController().reloadMovies();
             closeStage(Utility.getCurrentStage(event));
         } catch (MoviesException e) {
-            // Show an error alert if an exception occurs
             ExceptionHandler.displayErrorAlert(ExceptionsMessages.DB_UNSUCCESFULL.getValue(), "Unsuccessful operation");
             closeStage(Utility.getCurrentStage(event));
         }
     }
-
-
     @Override
     public void openFileChooser(ActionEvent event) {
         Stage newSongStage = Utility.getCurrentStage(event);
@@ -115,6 +113,12 @@ public class AddMovieController extends NewEditController implements Initializab
     public void getCurrentOpenedCategory(int currentOpenedCategory) {
         this.setOpenedCategory(currentOpenedCategory);
     }
+
+    public void setModel(MainModel model){
+        MovieReloadable movieReloadable = new MovieReloader(model);
+        this.setReloadableController(movieReloadable);
+    }
+
 
     private MovieFormat setMovieFormat(File file) throws MoviesException {
         return model.getFormat(file.getName());

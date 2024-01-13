@@ -25,23 +25,23 @@ public class DeleteCategoryController implements ConfirmationController, Initial
 
     }
 
-    @Override
-    public void confirmationEventHandeler(boolean confirmation) {
-        boolean deleted;
-        if (confirmation){
-            try {
-                deleted = categoryModel.deleteCategory(this.categoryToDelete);
-                if (deleted){
-                    Platform.runLater(() ->{
-                        ExceptionHandler.displayErrorAlert(InformationalMessages.DELETE_SUCCEEDED, "Delete Category");
-                    });
-                    categoryReloadable.reloadCategoriesFromDB();
-                }
-            } catch (MoviesException e){
-                ExceptionHandler.displayErrorAlert(e.getMessage(),null);
-            }
-        }
-    }
+//    @Override
+//    public void confirmationEventHandeler(boolean confirmation) {
+//        boolean deleted;
+//        if (confirmation){
+//            try {
+//                deleted = categoryModel.deleteCategory(this.categoryToDelete);
+//                if (deleted){
+//                    Platform.runLater(() ->{
+//                        ExceptionHandler.displayErrorAlert(InformationalMessages.DELETE_SUCCEEDED, "Delete Category");
+//                    });
+//                    categoryReloadable.reloadCategoriesFromDB();
+//                }
+//            } catch (MoviesException e){
+//                ExceptionHandler.displayErrorAlert(e.getMessage(),null);
+//            }
+//        }
+//    }
 
   /**  @Override
     public void initialize(URL location, ResourceBundle resources) {

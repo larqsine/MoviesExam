@@ -160,6 +160,7 @@ public class MainViewController implements Initializable {
         Parent root = loader.load();
         AddMovieController adMovie = loader.getController();
         adMovie.getCurrentOpenedCategory(model.getCurrentOpenedCategory());
+        adMovie.setModel(this.model);
         Scene scene = new Scene(root);
         Stage mainStage = Utility.getCurrentStage(event);
         Stage newCategoryStage = Utility.createPopupStage(mainStage, scene, Titles.ADD_NEW_MOVIE.getValue(),POPUP_WIDTH);

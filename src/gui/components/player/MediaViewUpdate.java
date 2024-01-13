@@ -11,28 +11,28 @@ public class MediaViewUpdate implements MediaViewReloader {
         this.mediaView = mediaView;
     }
 
-    @Override
-    public MediaViewReloader getReloadable() {
-        return null;
-    }
+//    @Override
+//    public MediaViewReloader getReloadable() {
+//        return null;
+//    }
 
     @Override
     public void getUpdatedMedia(MediaPlayer instance) {
         this.mediaView.setMediaPlayer(instance);
     }
 
-    @Override
-    public void saveMovieEdit(ActionEvent event) {
-
-    }
-
-    @Override
-    public void cancelMovieEdit(ActionEvent event) {
-
-    }
-
-    @Override
-    public void reloadMovies() {
-
-    }
+//    @Override
+//    public void saveMovieEdit(ActionEvent event) {
+//
+//    }
+//
+//    @Override
+//    public void cancelMovieEdit(ActionEvent event) {
+//
+//    }
+//
+//    @Override
+//    public void reloadMovies() {
+//
+//    }
 }

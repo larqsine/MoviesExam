@@ -1,6 +1,7 @@
 package gui.components.newEditDeleteMovies;
 
 import exceptions.MoviesException;
+import gui.components.listeners.MovieReloadable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,7 +22,7 @@ import java.util.ResourceBundle;
 
 public abstract class NewEditController  {
 
-    private  MediaViewReloader reloadable ;
+    private MovieReloadable reloadable;
     private final FileChooser fileChooser = new FileChooser();
     private int openedCategory;
 
@@ -65,19 +66,13 @@ public abstract class NewEditController  {
                 , new FileChooser.ExtensionFilter("Mpeg4 Files", "*.mpeg4")
         );
     }
-
-
-    public void setReloadableController(MediaViewReloader reloadable) {
+    public void setReloadableController(MovieReloadable reloadable) {
         this.reloadable = reloadable;
     }
 
-    public MediaViewReloader getReloadableController() {
+    public MovieReloadable getReloadableController() {
         return reloadable;
     }
-
-
-
-
 
     public boolean validateInputs(String title , String path,MovieModel movieModel) {
         if (movieModel.areTitleOrPathEmpty(title, path)) {

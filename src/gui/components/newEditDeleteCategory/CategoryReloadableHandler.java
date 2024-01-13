@@ -19,7 +19,7 @@ public class CategoryReloadableHandler implements CategoryReloadable {
     @Override
     public void reloadCategoriesFromDB() {
         try {
-            model.reloadSongsFromDB();
+            model.reloadCategories();
         } catch (MoviesException e) {
             ExceptionHandler.displayErrorAlert(ExceptionsMessages.READING_FROMDB_FAILED,null);
         }

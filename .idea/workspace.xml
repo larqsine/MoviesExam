@@ -4,15 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="movie creation bussines logic">
-      <change afterPath="$PROJECT_DIR$/src/utility/DateConversion.java" afterDir="false" />
+    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="movie creation implemented, it is saving movies to the database">
+      <change afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/MovieReloader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/Movie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieCreation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieCreation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dal/IMovieDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/IMovieDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dal/MovieDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/MovieDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/listeners/ConfirmationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/listeners/ConfirmationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/listeners/MediaViewReloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/listeners/MediaViewReloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/listeners/Reloadable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/listeners/MovieReloadable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/CategoryReloadableHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/CategoryReloadableHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/AddMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/AddMovieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/MovieModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/MovieModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/NewEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/NewEditController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/player/MediaViewUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/MediaViewUpdate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/deleteMovieView/DeleteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/deleteMovieView/DeleteController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +135,7 @@
       <workItem from="1705056947896" duration="612000" />
       <workItem from="1705057932159" duration="2254000" />
       <workItem from="1705143377383" duration="84000" />
-      <workItem from="1705143472887" duration="20283000" />
+      <workItem from="1705143472887" duration="22666000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <option name="closed" value="true" />
@@ -397,7 +401,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705158464103</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="movie creation implemented, it is saving movies to the database">
+      <option name="closed" value="true" />
+      <created>1705164606379</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1705164606379</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -415,7 +427,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="start project" />
     <MESSAGE value="jdbc connection" />
     <MESSAGE value="movie dao" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
@@ -440,7 +451,8 @@
     <MESSAGE value="Check if a category movies a re opened" />
     <MESSAGE value="check movie path an location" />
     <MESSAGE value="movie creation bussines logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="movie creation bussines logic" />
+    <MESSAGE value="movie creation implemented, it is saving movies to the database" />
+    <option name="LAST_COMMIT_MESSAGE" value="movie creation implemented, it is saving movies to the database" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

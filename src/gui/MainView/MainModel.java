@@ -126,7 +126,7 @@ public class MainModel {
         return this.initialDefaultMedia;
     }
 
-    public void reloadSongsFromDB() throws MoviesException {
+    public void reloadCategories() throws MoviesException {
         initializeCategories();
     }
 
@@ -154,6 +154,10 @@ public class MainModel {
      * set the opened category id,  to be used for movie insertion into the database*/
     public void setCurrentOpenedCategory(int currentOpenedCategory) {
         this.currentOpenedCategory.set(currentOpenedCategory);
+    }
+
+    public void reloadMoviesFromDB() throws MoviesException {
+    this.setMovieObservableList(this.currentOpenedCategory.get());
     }
 }
 
