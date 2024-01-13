@@ -8,7 +8,6 @@ import java.util.List;
 
 public class GenreView extends ListView<String> implements CheckListener {
 
-
     private final List<String> selectedGenres;
 
     public GenreView() {

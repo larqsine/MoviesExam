@@ -19,27 +19,12 @@ import utility.InformationalMessages;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public abstract class NewEditController implements Initializable {
+public abstract class NewEditController  {
     private final Alert alertWindowOperation = new Alert(Alert.AlertType.NONE);
-    private MovieModel movieModel;
     private  MediaViewReloader reloadable ;
     private final FileChooser fileChooser = new FileChooser();
-//    @FXML
-//    private TextField movieTitle;
-//    @FXML
-//    private Label information;
-//    @FXML
-//    private Button saveUpdateButton;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        try {
-            movieModel = MovieModel.getInstance();
-//            setOnChangeListener(getMovieTitle(), getInformation());
-        } catch (MoviesException e) {
-            ExceptionHandler.displayErrorAlert(e.getExceptionsMessages(), "Operation error");
-        }
-    }
+
 
     /**
      * Abstract method to cancel movie creation/editing.
@@ -169,9 +154,7 @@ public abstract class NewEditController implements Initializable {
 //        return (Stage) ((Node) event.getSource()).getScene().getWindow();
 //    }
 //
-    public MovieModel getMovieModel() {
-        return this.movieModel;
-    }
+
 
 
 //

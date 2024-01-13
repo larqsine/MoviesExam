@@ -40,7 +40,7 @@ public class MovieModel {
     }
 
     private void initializeGenres() throws MoviesException {
-
+        System.out.println(genreLogic.getGenres().size());
         this.genres.setAll(genreLogic.getGenres());
     }
 

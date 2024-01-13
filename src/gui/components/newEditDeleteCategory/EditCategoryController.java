@@ -9,10 +9,7 @@ import static utility.Utility.getCurrentStage;
 
 public class EditCategoryController extends NewEditController{
 
-    @Override
-    public void cancelUpdateMovie(ActionEvent event) {
 
-    }
 
     public void cancelCategory(ActionEvent event) {
         getCategoryModel().cancelUpdateCategory();

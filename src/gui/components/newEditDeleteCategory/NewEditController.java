@@ -40,9 +40,6 @@ public abstract class NewEditController implements Initializable {
         setOnChangeListener(getCategoryTitle(), getInformation());
     }
 
-
-    public abstract void cancelUpdateMovie(ActionEvent event);
-
     /**
      * Abstract method to cancel category creation/editing.
      *

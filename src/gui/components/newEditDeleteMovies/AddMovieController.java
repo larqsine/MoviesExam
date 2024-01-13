@@ -12,6 +12,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AddMovieController extends NewEditController implements Initializable {
+
     public TextField movieTitle;
     private MovieModel model;
     @FXML
@@ -21,12 +22,20 @@ public class AddMovieController extends NewEditController implements Initializab
 
 
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        model = getMovieModel();
-        genreList = new GenreView();
-        genreList.setGenres(model.getGenres());
-        genresContainer.getChildren().add(genreList);
+        try {
+            model = MovieModel.getInstance();
+            System.out.println(model.getGenres());
+            genreList = new GenreView();
+            genreList.setGenres(model.getGenres());
+            genresContainer.getChildren().add(genreList);
+        } catch (MoviesException e) {
+            ExceptionHandler.displayErrorAlert(e.getExceptionsMessages(),"Add movie error");
+        }
+
+
     }
 
 
