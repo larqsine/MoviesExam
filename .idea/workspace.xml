@@ -6,16 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="video playing on doubleclick implemented">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/CategoryLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/CategoryLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/confirmationWindow/ConfirmationWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/confirmationWindow/ConfirmationWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/DeleteCategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/DeleteCategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/EditCategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/EditCategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/NewCategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/NewCategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/NewCategoryControllerRel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/NewCategoryControllerRel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/DeleteMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/DeleteMovieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/player/MediaViewUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/MediaViewUpdate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/deleteMovieView/DeleteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/deleteMovieView/DeleteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utility/Titles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/Titles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogicAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogicAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dal/IMovieDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/IMovieDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dal/MovieDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/MovieDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dal/MovieReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/MovieReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/AddMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/AddMovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/MovieModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/MovieModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

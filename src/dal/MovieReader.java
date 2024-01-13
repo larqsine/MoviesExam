@@ -6,6 +6,7 @@ import javafx.scene.media.MediaException;
 import utility.ExceptionsMessages;
 import java.io.File;
 import java.net.URI;
+import java.util.List;
 
 public class MovieReader implements IMovieReader {
     private Media readMedia(String path) throws MoviesException {
@@ -31,5 +32,8 @@ public class MovieReader implements IMovieReader {
         System.out.println(media);
         return media;
     }
+
+
+
 
 }

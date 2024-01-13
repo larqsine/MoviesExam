@@ -60,5 +60,9 @@ public class MovieLogic implements MovieLogicAPI {
         return movieReader.getMedia(path);
     }
 
+    //used to insert genres into the database
+//   public void insertGenres(List<String> genres){
+//        this.movieDao.insertGenres(genres);
+//   }
 }
 

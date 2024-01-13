@@ -105,4 +105,27 @@ public class MovieDao implements IMovieDao {
             throw new RuntimeException(e);
         }
     }
+
+//used to insert genres into the database
+//    public void insertGenres(List<String> genres){
+//        String sql = "INSERT INTO Genre values (?)";
+//
+//        try(Connection conn =CONNECTION_MANAGER.getConnection()){
+//            PreparedStatement psmt = conn.prepareStatement(sql);
+//            genres.stream().forEach(elem-> {
+//                try {
+//                    psmt.setString(1,elem);
+//                    psmt.execute();
+//                } catch (SQLException e) {
+//                    throw new RuntimeException(e);
+//                }
+//            });
+//
+//
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        } catch (MoviesException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 }

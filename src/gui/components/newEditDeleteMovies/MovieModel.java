@@ -1,6 +1,8 @@
 package gui.components.newEditDeleteMovies;
 
 import be.Movie;
+import bll.movieLogic.MovieLogic;
+import bll.movieLogic.MovieLogicAPI;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import utility.MovieGenre;
@@ -11,6 +13,7 @@ import java.util.List;
 public class MovieModel {
 
     private final ObservableList<String> genres;
+    private MovieLogicAPI movieLogic;
 
     public ObservableList<String> getGenres() {
         return genres;
@@ -26,7 +29,8 @@ public class MovieModel {
     }
 
     private MovieModel() {
-        this.genres = FXCollections.observableArrayList();
+     this.movieLogic= new MovieLogic();
+     this.genres = FXCollections.observableArrayList();
         initializeGenres();
     }
 
@@ -53,4 +57,14 @@ public class MovieModel {
     public boolean checkTitle(String title) {
         return false;
     }
+
+
+
+    /*
+      Used  to insert movie genres into the database
+      */
+//    public void insertGenres(){
+//        List<String> genres = Arrays.stream(MovieGenre.values()).map(MovieGenre::getDisplayName).toList();
+//        this.movieLogic.insertGenres(genres);
+//    }
 }
