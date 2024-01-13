@@ -1,8 +1,10 @@
 package dal;
+
 import be.Category;
 import be.Movie;
 import exceptions.MoviesException;
 import utility.ExceptionsMessages;
+
 import java.sql.*;
 import java.util.*;
 import java.util.Date;
@@ -62,8 +64,7 @@ public class MovieDao implements IMovieDao {
         String inSql = movieIds.stream()
                 .map(String::valueOf)
                 .collect(Collectors.joining(","));
-        String sql = "SELECT cm.MovieId, c.id, c.name FROM CatMovie cm JOIN Category c ON c.id = cm.CategoryId WHERE cm.MovieId IN (" + inSql + ")";
-
+        String sql = "SELECT gm.MovieId, g.GenreId, g.name FROM GenreMovie gm JOIN Genre g ON g.GenreId= gm.GenreId WHERE gm.MovieId IN (" + inSql + ")";
         Map<Integer, List<Category>> categoriesMap = new HashMap<>();
         try (Connection conn = CONNECTION_MANAGER.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
