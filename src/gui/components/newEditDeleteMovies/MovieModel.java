@@ -1,5 +1,6 @@
 package gui.components.newEditDeleteMovies;
 
+import be.Movie;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import utility.MovieGenre;
@@ -16,9 +17,10 @@ public class MovieModel {
     }
 
     private static MovieModel instance;
-    public static MovieModel getInstance(){
-        if(instance==null){
-            instance=new MovieModel();
+
+    public static MovieModel getInstance() {
+        if (instance == null) {
+            instance = new MovieModel();
         }
         return instance;
     }
@@ -34,4 +36,21 @@ public class MovieModel {
     }
 
 
+    public boolean deleteMovie(Movie movieToDelete) {
+        return false;
+    }
+
+    public void cancelUpdateMovie() {
+    }
+
+    public void setCurrentSelectedMovie(Movie movie) {
+    }
+
+    public boolean updateMovie(String title) {
+        return false;
+    }
+
+    public boolean checkTitle(String title) {
+        return false;
+    }
 }

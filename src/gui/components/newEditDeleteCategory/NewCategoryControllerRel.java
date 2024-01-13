@@ -35,6 +35,11 @@ public class NewCategoryControllerRel extends NewEditController {
         }
     }
 
+    @Override
+    public void cancelUpdateMovie(ActionEvent event) {
+
+    }
+
     /**
      * Cancel new category creation
      */

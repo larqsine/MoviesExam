@@ -15,7 +15,7 @@ import utility.InformationalMessages;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class EditMovieController implements Initializable, MediaViewReloader {
+public class NewEditController implements Initializable, MediaViewReloader {
     private MovieModel movieModel;
 
     @FXML
@@ -47,15 +47,19 @@ public class EditMovieController implements Initializable, MediaViewReloader {
         if (movieModel.checkTitle(title)) {
             showTitleError();
         } else {
-            reloadMovies(); // Corrected method name
+            reloadMovies();
             closeCurrentStage(event);
         }
+    }
+
+    private void closeCurrentStage(ActionEvent event) {
     }
 
     @Override
     public void cancelMovieEdit(ActionEvent event) {
         closeCurrentStage(event);
     }
+
 
     public void setOnChangeListener(TextField textField, Label label) {
         textField.textProperty().addListener((obs, oldValue, newValue) -> {
@@ -92,10 +96,8 @@ public class EditMovieController implements Initializable, MediaViewReloader {
 
     @Override
     public void reloadMovies() {
+
     }
 
 
-    private void closeCurrentStage(ActionEvent event) {
-        getCurrentStage(event).close();
-    }
 }

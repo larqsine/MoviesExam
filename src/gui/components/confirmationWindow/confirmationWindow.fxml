@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.shape.Line?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="420.0" style="-fx-background-color: f1eaff;" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="gui.components.confirmationWindow.ConfirmationWindow" >
+<children>
+    <Label fx:id="operationTitle" text="Confirmation window">
+        <VBox.margin>
+            <Insets top="5.0" />
+        </VBox.margin>
+    </Label>
+    <Line endX="420.0" layoutX="420.0">
+        <VBox.margin>
+            <Insets bottom="10.0" top="5.0" />
+        </VBox.margin>
+    </Line>
+    <HBox alignment="CENTER" prefHeight="133.0" prefWidth="420.0">
+        <children>
+            <Label fx:id="operationInformation" />
+        </children>
+    </HBox>
+    <HBox alignment="CENTER" layoutX="10.0" layoutY="29.0" prefHeight="35.0" prefWidth="200.0">
+        <children>
+            <Button fx:id="confirmButton"   alignment="CENTER" mnemonicParsing="false" prefWidth="60.0" style="-fx-background-color: a076f9;" text="Confirm">
+                <HBox.margin>
+                    <Insets left="134.0" right="5.0" />
+                </HBox.margin>
+            </Button>
+            <Button fx:id="cancelButton" alignment="CENTER" layoutX="194.0" layoutY="15.0" mnemonicParsing="false" prefWidth="60.0" style="-fx-background-color: a076f9;" text="Cancel" />
+        </children>
+        <VBox.margin>
+            <Insets />
+        </VBox.margin>
+    </HBox>
+    <Line endX="420.0" layoutX="10.0" layoutY="207.0">
+        <VBox.margin>
+            <Insets bottom="20.0" top="10.0" />
+        </VBox.margin>
+    </Line>
+</children>
+</VBox>

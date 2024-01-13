@@ -5,14 +5,20 @@ import exceptions.MoviesException;
 import javafx.event.ActionEvent;
 import utility.ExceptionHandler;
 
+import static utility.Utility.getCurrentStage;
+
 public class EditCategoryController extends NewEditController{
+
     @Override
+    public void cancelUpdateMovie(ActionEvent event) {
+
+    }
+
     public void cancelCategory(ActionEvent event) {
         getCategoryModel().cancelUpdateCategory();
         getCurrentStage(event).close();
     }
 
-    @Override
     public void saveCategory(ActionEvent event) {
         if (!isValidTitle()){
             showTitleError();
@@ -49,5 +55,7 @@ public class EditCategoryController extends NewEditController{
         getCategoryModel().setCurrentSelectedCategory(category);
         getCategoryTitle().setText(category.getName());
     }
+
+
 
 }

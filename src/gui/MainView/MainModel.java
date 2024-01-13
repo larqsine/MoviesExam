@@ -127,6 +127,7 @@ public class MainModel {
     }
 
     public void resetFilter() {
+        this.currentMovieSelected.set(0);
         this.searchValue.setText("");
     }
 
