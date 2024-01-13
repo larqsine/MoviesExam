@@ -11,6 +11,7 @@ import gui.components.movies.MoviesTable;
 import gui.components.newEditDeleteCategory.CategoryReloadable;
 import gui.components.newEditDeleteCategory.CategoryReloadableHandler;
 import gui.components.newEditDeleteCategory.NewCategoryControllerRel;
+import gui.components.newEditDeleteMovies.AddMovieController;
 import gui.components.player.*;
 import gui.playOperations.PlayOperations;
 import gui.playOperations.PlayOperationsHandler;
@@ -33,6 +34,7 @@ import utility.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 
@@ -147,19 +149,24 @@ public class MainViewController implements Initializable {
 
     public void addNewMovie(ActionEvent event) {
         String resourcePath=  "../components/newEditDeleteMovies/NewMovieView.fxml";
+        String resourcePathnew= "../components/newEditDeleteMovies/NewMovieView.fxml";
     try {
-        Scene scene = new Scene(getParent(resourcePath));
+        Scene scene = new Scene(getParent(resourcePathnew));
         Stage mainStage = Utility.getCurrentStage(event);
         Stage newCategoryStage = Utility.createPopupStage(mainStage, scene, Titles.EDIT_CATEGORY.getValue(),POPUP_WIDTH);
         newCategoryStage.show();
 
     } catch (IOException e) {
+        System.out.println(e.toString());
         ExceptionHandler.displayErrorAlert(InformationalMessages.FXML_MISSING, "Application error");
     }
     }
 
     private Parent getParent(String resourcePath) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(resourcePath));
+        Parent parent = loader.load();
+        AddMovieController add= loader.getController();
+        System.out.println(add.getMovieModel().getGenres());
         return loader.load();
     }
 }

@@ -5,10 +5,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import gui.components.listeners.MediaViewReloader;
 import utility.ExceptionHandler;
@@ -17,57 +19,139 @@ import utility.InformationalMessages;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class NewEditController implements Initializable, MediaViewReloader {
+public abstract class NewEditController implements Initializable {
+    private final Alert alertWindowOperation = new Alert(Alert.AlertType.NONE);
     private MovieModel movieModel;
-
-    @FXML
-    private TextField movieTitle;
-    @FXML
-    private Label information;
-    @FXML
-    private Button saveUpdateButton;
+    private  MediaViewReloader reloadable ;
+    private final FileChooser fileChooser = new FileChooser();
+//    @FXML
+//    private TextField movieTitle;
+//    @FXML
+//    private Label information;
+//    @FXML
+//    private Button saveUpdateButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
             movieModel = MovieModel.getInstance();
-            setOnChangeListener(getMovieTitle(), getInformation());
+//            setOnChangeListener(getMovieTitle(), getInformation());
         } catch (MoviesException e) {
-            ExceptionHandler.displayErrorAlert(e.getExceptionsMessages(),"Operation error");
+            ExceptionHandler.displayErrorAlert(e.getExceptionsMessages(), "Operation error");
         }
-
     }
 
-    @Override
-    public MediaViewReloader getReloadable() {
-        return null;
+    /**
+     * Abstract method to cancel movie creation/editing.
+     *
+     * @param event The ActionEvent that triggered the cancel operation.
+     */
+    public abstract void cancelAddEditMovie(ActionEvent event);
+
+    /**
+     * Abstract method to save/update a movie.
+     *
+     * @param event The ActionEvent that triggered the save/update.
+     */
+    public abstract void saveAddEditMovie(ActionEvent event);
+
+
+    public abstract void openFileChooser(ActionEvent event);
+
+
+    public FileChooser getFileChooser() {
+        setDefaultExtensions();
+        return fileChooser;
     }
 
-    @Override
-    public void getUpdatedMedia(MediaPlayer instance) {
-
+    private void setDefaultExtensions() {
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Mp4 Files", "*.mp4")
+                , new FileChooser.ExtensionFilter("Mpeg4 Files", "*.mpeg4")
+        );
     }
 
-    @Override
-    public void saveMovieEdit(ActionEvent event) {
-        String title = getMovieTitle().getText();
-        if (movieModel.checkTitle(title)) {
-            showTitleError();
+
+    public void setReloadableController(MediaViewReloader reloadable) {
+        this.reloadable = reloadable;
+    }
+
+    public MediaViewReloader getReloadableController() {
+        return reloadable;
+    }
+
+    public void initiateInfoAlert(Stage newSongStage, String message) {
+        alertWindowOperation.setAlertType(Alert.AlertType.INFORMATION);
+        alertWindowOperation.setX(newSongStage.getX());
+        alertWindowOperation.setY(newSongStage.getY());
+        if (message == null) {
+            alertWindowOperation.setContentText(InformationalMessages.NO_EMPTY_INPUT.getValue());
         } else {
-            reloadMovies();
-            closeCurrentStage(event);
+            alertWindowOperation.setContentText(message);
         }
+        alertWindowOperation.showAndWait();
     }
 
-    public void closeCurrentStage(ActionEvent event) {
+    public void initiateErrorAlert(MoviesException e, Stage newSongStage) {
+        alertWindowOperation.setAlertType(Alert.AlertType.ERROR);
+        alertWindowOperation.setX(newSongStage.getX());
+        alertWindowOperation.setY(newSongStage.getY());
+        alertWindowOperation.setContentText(e.getMessage());
+        alertWindowOperation.showAndWait();
     }
 
-    @Override
-    public void cancelMovieEdit(ActionEvent event) {
-        closeCurrentStage(event);
+    public boolean validateInputs(String title , String path, Stage stage, MovieModel movieModel) {
+//        if (movieModel.areTitleOrPathEmpty(title, path)) {
+//            initiateInfoAlert(stage, null);
+//            return true;
+//        }
+//        if (!movieModel.checkIfFileExists(path)) {
+//            initiateInfoAlert(stage, InformationalMessages.NO_FILE.getValue());
+//            return true;
+//        }
+        return false;
     }
 
 
+
+
+
+
+
+
+
+
+//    Salma code
+//
+//    @Override
+//    public MediaViewReloader getReloadable() {
+//        return null;
+//    }
+//
+//    @Override
+//    public void getUpdatedMedia(MediaPlayer instance) {
+//
+//    }
+//
+//    @Override
+//    public void saveMovieEdit(ActionEvent event) {
+//        String title = getMovieTitle().getText();
+//        if (movieModel.checkTitle(title)) {
+//            showTitleError();
+//        } else {
+//            reloadMovies();
+//            closeCurrentStage(event);
+//        }
+//    }
+//
+//    public void closeCurrentStage(ActionEvent event) {
+//    }
+//
+//    @Override
+//    public void cancelMovieEdit(ActionEvent event) {
+//        closeCurrentStage(event);
+//    }
+//
     public void setOnChangeListener(TextField textField, Label label) {
         textField.textProperty().addListener((obs, oldValue, newValue) -> {
             if (label.isVisible()) {
@@ -75,36 +159,38 @@ public class NewEditController implements Initializable, MediaViewReloader {
             }
         });
     }
-
-    public void showTitleError() {
-        getInformation().setText(InformationalMessages.NO_EMPTY_TITLE.getValue());
-        getInformation().setVisible(true);
+//
+//    public void showTitleError() {
+//        getInformation().setText(InformationalMessages.NO_EMPTY_TITLE.getValue());
+//        getInformation().setVisible(true);
+//    }
+//
+//    public Stage getCurrentStage(ActionEvent event) {
+//        return (Stage) ((Node) event.getSource()).getScene().getWindow();
+//    }
+//
+    public MovieModel getMovieModel() {
+        return this.movieModel;
     }
 
-    public Stage getCurrentStage(ActionEvent event) {
-        return (Stage) ((Node) event.getSource()).getScene().getWindow();
-    }
 
-    public MovieModel getMovieModel() throws MoviesException {
-        return MovieModel.getInstance();
-    }
-
-    public TextField getMovieTitle() {
-        return movieTitle;
-    }
-
-    public Label getInformation() {
-        return information;
-    }
-
-    public Button getSaveUpdateButton() {
-        return saveUpdateButton;
-    }
-
-    @Override
-    public void reloadMovies() {
-
-    }
+//
+//    public TextField getMovieTitle() {
+//        return movieTitle;
+//    }
+//
+//    public Label getInformation() {
+//        return information;
+//    }
+//
+//    public Button getSaveUpdateButton() {
+//        return saveUpdateButton;
+//    }
+//
+//    @Override
+//    public void reloadMovies() {
+//
+//    }
 
 
 }
