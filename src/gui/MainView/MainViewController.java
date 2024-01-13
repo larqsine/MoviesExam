@@ -150,8 +150,20 @@ public class MainViewController implements Initializable {
 
     public void addNewMovie(ActionEvent event) {
         String resourcePath=  "../components/newEditDeleteMovies/AddViewMovie.fxml";
-    try {
-        Scene scene = new Scene(getParent(resourcePath));
+        if(model.getCurrentOpenedCategory()==0){
+            System.out.println("is zero");
+            ExceptionHandler.displayInformationAlert(InformationalMessages.NO_CATEGORY_OPENED,"Please open a category");
+
+
+       return;
+    }
+
+        try {
+        FXMLLoader loader =new FXMLLoader(getClass().getResource(resourcePath));
+        Parent root = loader.load();
+        AddMovieController adMovie = loader.getController();
+        adMovie.getStage(Utility.getCurrentStage(event));
+        Scene scene = new Scene(root);
         Stage mainStage = Utility.getCurrentStage(event);
         Stage newCategoryStage = Utility.createPopupStage(mainStage, scene, Titles.ADD_NEW_MOVIE.getValue(),POPUP_WIDTH);
         newCategoryStage.show();

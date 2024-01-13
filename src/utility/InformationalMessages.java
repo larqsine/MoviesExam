@@ -5,7 +5,7 @@ public enum InformationalMessages implements Messages {
     NO_INTERNET_CONNECTION("Check your internet connection"),
     FXML_MISSING("Application error, file system corrupt, FXML resource is missing"),
     NO_EMPTY_INPUT("Title and Location can not be empty"),
-    NO_SONG_SELECTED("No song selected"),
+    NO_CATEGORY_OPENED("No category opened, please open a category"),
     OPERATION_FAILED("Operation failed"),
     NO_CATEGORY_SELECTED("No category has been selected"),
     PLAYLIST_IN_USE("The playlist that you are trying to delete is in use"),

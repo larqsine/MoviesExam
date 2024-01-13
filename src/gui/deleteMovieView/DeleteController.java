@@ -31,7 +31,7 @@ public class DeleteController implements ConfirmationController, Initializable {
             if (deleted) {
                 String message = movieToDelete.getName() + " " + InformationalMessages.DELETE_SUCCEEDED.getValue();
                 Platform.runLater(() -> {
-                    ExceptionHandler.displayInformationAlert(message);
+                    ExceptionHandler.displayInformationAlert(message,null);
                 });
                 reloadMovies();
             }

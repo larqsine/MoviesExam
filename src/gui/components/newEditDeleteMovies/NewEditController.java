@@ -65,10 +65,10 @@ public abstract class NewEditController  {
         return reloadable;
     }
 
-    public void initiateInfoAlert(Stage newSongStage, String message) {
+    public void initiateInfoAlert(Stage newMovieStage, String message) {
         alertWindowOperation.setAlertType(Alert.AlertType.INFORMATION);
-        alertWindowOperation.setX(newSongStage.getX());
-        alertWindowOperation.setY(newSongStage.getY());
+        alertWindowOperation.setX(newMovieStage.getX());
+        alertWindowOperation.setY(newMovieStage.getY());
         if (message == null) {
             alertWindowOperation.setContentText(InformationalMessages.NO_EMPTY_INPUT.getValue());
         } else {
@@ -77,10 +77,10 @@ public abstract class NewEditController  {
         alertWindowOperation.showAndWait();
     }
 
-    public void initiateErrorAlert(MoviesException e, Stage newSongStage) {
+    public void initiateErrorAlert(MoviesException e, Stage newMovieStage) {
         alertWindowOperation.setAlertType(Alert.AlertType.ERROR);
-        alertWindowOperation.setX(newSongStage.getX());
-        alertWindowOperation.setY(newSongStage.getY());
+        alertWindowOperation.setX(newMovieStage.getX());
+        alertWindowOperation.setY(newMovieStage.getY());
         alertWindowOperation.setContentText(e.getMessage());
         alertWindowOperation.showAndWait();
     }

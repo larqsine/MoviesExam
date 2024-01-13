@@ -69,9 +69,5 @@ public class ExceptionHandler {
 
     }
 
-    public static void displayErrorAlert(String message) {
-    }
 
-    public static void displayInformationAlert(String message) {
-    }
 }

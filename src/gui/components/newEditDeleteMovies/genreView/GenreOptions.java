@@ -1,5 +1,6 @@
-package gui.components.newEditDeleteMovies;
+package gui.components.newEditDeleteMovies.genreView;
 
+import gui.components.newEditDeleteMovies.CheckListener;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListCell;
 import java.util.HashMap;

@@ -38,7 +38,7 @@ public class DeleteCategoryController implements ConfirmationController, Initial
                     categoryReloadable.reloadCategoriesFromDB();
                 }
             } catch (MoviesException e){
-                ExceptionHandler.displayErrorAlert(e.getMessage());
+                ExceptionHandler.displayErrorAlert(e.getMessage(),null);
             }
         }
     }

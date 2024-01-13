@@ -26,6 +26,10 @@ public class MainModel {
     private Media currentPlayingMedia;
     private TextField searchValue;
     private IntegerProperty currentMovieSelected = new SimpleIntegerProperty();
+
+
+
+    private SimpleIntegerProperty currentOpenedCategory = new SimpleIntegerProperty();
     /**
      * holds the current volume off the appliation
      */
@@ -135,7 +139,23 @@ public class MainModel {
         Map<Integer,Movie> filteredMovies = movieLogic.applyFilter(filter,movieObjects);
         this.movies.setAll(filteredMovies.keySet().stream().map(elem -> movieObjects.get(elem)).toList());
     }
+
+/**
+ * set the opened category id,  to be used for movie insertion into the database*/
+    public int getCurrentOpenedCategory() {
+        return currentOpenedCategory.get();
     }
+    /**
+     * set the opened category id,  to be used for movie insertion into the database*/
+    public SimpleIntegerProperty currentOpenedCategoryProperty() {
+        return currentOpenedCategory;
+    }
+    /**
+     * set the opened category id,  to be used for movie insertion into the database*/
+    public void setCurrentOpenedCategory(int currentOpenedCategory) {
+        this.currentOpenedCategory.set(currentOpenedCategory);
+    }
+}
 
 
 

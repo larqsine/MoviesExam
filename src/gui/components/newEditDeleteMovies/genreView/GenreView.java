@@ -1,5 +1,7 @@
-package gui.components.newEditDeleteMovies;
+package gui.components.newEditDeleteMovies.genreView;
 
+import gui.components.newEditDeleteMovies.CheckListener;
+import gui.components.newEditDeleteMovies.genreView.GenreOptions;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ListView;
 

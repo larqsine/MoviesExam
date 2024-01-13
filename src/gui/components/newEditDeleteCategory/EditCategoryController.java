@@ -37,7 +37,7 @@ public class EditCategoryController extends NewEditController{
             String title = getCategoryTitle().getText();
             return getCategoryModel().updateCategory(title);
         } catch (MatchException e){
-            ExceptionHandler.displayErrorAlert(e.getMessage());
+            ExceptionHandler.displayErrorAlert(e.getMessage(),null);
             return false;
         } catch (MoviesException e) {
             throw new RuntimeException(e);
