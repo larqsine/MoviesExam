@@ -1,5 +1,7 @@
 package gui.components.newEditDeleteMovies;
 
+import be.Category;
+import be.Genre;
 import be.Movie;
 import bll.genreLogic.GenreLogic;
 import bll.genreLogic.GenreLogicApi;
@@ -11,8 +13,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import utility.MovieFormat;
 
-public class MovieModel {
+import java.util.List;
+import java.util.Map;
 
+public class MovieModel {
+    private Map<String, Genre> genresObjects;
     private final ObservableList<String> genres;
     private MovieLogicAPI movieLogic;
     private GenreLogicApi genreLogic;
@@ -36,12 +41,15 @@ public class MovieModel {
      this.movieCreation= new MovieCreation();
      this.genreLogic =new GenreLogic();
      this.genres = FXCollections.observableArrayList();
+        initializeGenresObjects();
         initializeGenres();
     }
 
-    private void initializeGenres() throws MoviesException {
-        System.out.println(genreLogic.getGenres().size());
-        this.genres.setAll(genreLogic.getGenres());
+    private void initializeGenres() {
+        this.genres.setAll(genreLogic.getGenreValues(this.genresObjects));
+    }
+    private void initializeGenresObjects() throws MoviesException {
+        this.genresObjects=genreLogic.getGenres();
     }
 
 
@@ -77,6 +85,12 @@ public class MovieModel {
 
     public boolean checkIfFileExists(String path) {
         return movieCreation.checkFilePath(path);
+    }
+
+    public void saveMovie(String title, String path, List<String> genres, int categoryId) throws MoviesException {
+     List<Genre> genreObjects  = genreLogic.convertStringsToGenre(this.genresObjects,genres);
+     Movie movie =  new Movie(title,null,path,null,null,genreObjects);
+     movieCreation.saveMovie(movie,categoryId);
     }
 
     /*

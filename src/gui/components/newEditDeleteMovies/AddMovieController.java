@@ -1,6 +1,9 @@
 package gui.components.newEditDeleteMovies;
+
+import be.Movie;
 import exceptions.MoviesException;
 import gui.components.newEditDeleteMovies.genreView.GenreView;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,10 +12,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import utility.ExceptionHandler;
+import utility.ExceptionsMessages;
 import utility.MovieFormat;
 import utility.Utility;
+
 import java.io.File;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class AddMovieController extends NewEditController implements Initializable {
@@ -22,14 +28,13 @@ public class AddMovieController extends NewEditController implements Initializab
     private Button createButton;
     @FXML
     private TextField fileLocation;
-
     private MovieModel model;
     @FXML
     private HBox genresContainer;
     @FXML
     private GenreView genreList;
-    @FXML
-    private Stage currentStage;
+
+
 
 
     @Override
@@ -40,7 +45,7 @@ public class AddMovieController extends NewEditController implements Initializab
             genreList.setGenres(model.getGenres());
             genresContainer.getChildren().add(genreList);
         } catch (MoviesException e) {
-            ExceptionHandler.displayErrorAlert(e.getExceptionsMessages(),"Add movie error");
+            ExceptionHandler.displayErrorAlert(e.getExceptionsMessages(), "Add movie error");
         }
 
 
@@ -63,34 +68,40 @@ public class AddMovieController extends NewEditController implements Initializab
 //}
 
 
-@Override
+    @Override
     public void cancelAddEditMovie(ActionEvent event) {
         System.out.println("sads");
     }
 
 
-@Override
+    @Override
     public void saveAddEditMovie(ActionEvent event) {
-    String title =movieTitle.getText();
-    String path = fileLocation.getText();
-        if (validateInputs(title, path,this.model)) {
-        return;
-    }
-    }
-
-
-@Override
-    public void openFileChooser(ActionEvent event) {
-    Stage newSongStage = Utility.getCurrentStage(event);
-    File selectedFile = getFileChooser().showOpenDialog(newSongStage);
-    if (selectedFile != null) {
-        try {
-            MovieFormat movieformat = setMovieFormat(selectedFile);
-            this.fileLocation.setText(selectedFile.getPath());
-        } catch (MoviesException e) {
-           ExceptionHandler.displayErrorAndWait(e.getMessage(),"Format unsupported");
+        String title = movieTitle.getText();
+        String path = fileLocation.getText();
+        if (validateInputs(title, path, this.model)) {
+            return;
         }
+        List<String> genres = this.genreList.getSelectedGenres();
+       try{ model.saveMovie(title, path, genres,this.getOpenedCategory());}
+       catch (MoviesException e){
+           ExceptionHandler.displayErrorAlert(ExceptionsMessages.DB_UNSUCCESFULL.getValue(),"Unsuccessful operation");
+           closeStage(Utility.getCurrentStage(event));
+       }
     }
+
+
+    @Override
+    public void openFileChooser(ActionEvent event) {
+        Stage newSongStage = Utility.getCurrentStage(event);
+        File selectedFile = getFileChooser().showOpenDialog(newSongStage);
+        if (selectedFile != null) {
+            try {
+                MovieFormat movieformat = setMovieFormat(selectedFile);
+                this.fileLocation.setText(selectedFile.getPath());
+            } catch (MoviesException e) {
+                ExceptionHandler.displayErrorAndWait(e.getMessage(), "Format unsupported");
+            }
+        }
     }
 
 

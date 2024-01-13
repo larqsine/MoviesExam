@@ -1,10 +1,19 @@
 package bll.movieLogic;
+import be.Movie;
+import dal.IMovieDao;
+import dal.MovieDao;
 import exceptions.MoviesException;
 import utility.MovieFormat;
 
 import java.io.File;
 
 public class MovieCreation {
+    private final IMovieDao movieDao;
+
+    public MovieCreation() {
+        this.movieDao = new MovieDao();
+    }
+
     /**
      * extract format off the song, in order to know the file format
      */
@@ -24,7 +33,8 @@ public class MovieCreation {
         if (songFormat == null) {
             throw new MoviesException("Format not supported.Supported files:MP4,MPEG4!");
         }
-        return songFormat;}
+        return songFormat;
+    }
     /**
      * checks if title or path are empty*/
     public boolean areTitleOrPathEmpty(String title,String path){
@@ -38,5 +48,7 @@ public class MovieCreation {
     }
 
 
-
+    public void saveMovie(Movie movie, int categoryId) {
+        this.movieDao.createMovie(movie,categoryId);
+    }
 }

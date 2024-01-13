@@ -10,7 +10,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class GenreDao implements IGenreDao {
 
@@ -18,8 +20,8 @@ public class GenreDao implements IGenreDao {
 
 
     @Override
-    public List<Genre> retrieveGenres() throws MoviesException {
-        List<Genre> genres = new ArrayList<>();
+    public Map<String,Genre> retrieveGenres() throws MoviesException {
+        Map<String,Genre> genres = new HashMap<>();
         String sql = "SELECT * FROM GENRE ";
         try (Connection conn = CONNECTION_MANAGER.getConnection()) {
             Statement stmt = conn.createStatement();
@@ -29,7 +31,7 @@ public class GenreDao implements IGenreDao {
                 String name = rs.getString(2);
                 SimpleStringProperty genreName = getSimpleStringProperty(name);
                 Genre genre = new Genre(id, genreName);
-                genres.add(genre);
+                genres.put(genre.getName(),genre);
             }
 
         } catch (SQLException e) {

@@ -90,6 +90,9 @@ public abstract class NewEditController  {
         }
         return false;
     }
+    public void  closeStage(Stage stage ){
+        stage.close();
+    }
 
 
 

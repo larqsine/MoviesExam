@@ -1,5 +1,6 @@
 package be;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -42,10 +43,10 @@ public class Movie {
 
     public Movie(String name, Double rating, String fileLink, Date lastView, Double personalRating, List<Genre> genres) {
         this.name = name;
-        this.rating = rating;
+        this.rating = setDefaultRating(rating);
         this.fileLink = fileLink;
-        this.lastView = lastView;
-        this.personalRating = personalRating;
+        this.lastView = setDefaultDate(lastView);
+        this.personalRating = setDefaultRating(personalRating);
         intializeGenres(genres);
     }
 
@@ -107,4 +108,19 @@ public class Movie {
                 ", categories=" + genres +
                 '}';
     }
+
+    private double setDefaultRating(Double rating){
+ if(rating!=null){
+     return rating;
+ }
+ else return 0;
+    }
+
+    private Date  setDefaultDate(Date date){
+        if(date!=null){
+            return date;
+        }
+        else return  new Date();
+    }
+
 }

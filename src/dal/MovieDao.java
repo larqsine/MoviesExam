@@ -114,6 +114,11 @@ public class MovieDao implements IMovieDao {
         }
     }
 
+    @Override
+    public void createMovie(Movie movie, int categoryId) {
+
+    }
+
 //used to insert genres into the database
 //    public void insertGenres(List<String> genres){
 //        String sql = "INSERT INTO Genre values (?)";
