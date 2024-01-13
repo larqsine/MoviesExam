@@ -1,8 +1,10 @@
 package dal;
 
 import be.Category;
+import be.Genre;
 import be.Movie;
 import exceptions.MoviesException;
+import javafx.beans.property.SimpleStringProperty;
 import utility.ExceptionsMessages;
 
 import java.sql.*;
@@ -19,7 +21,7 @@ public class MovieDao implements IMovieDao {
     private Map<Integer, Movie> retrieveMovies(int categoryId) throws MoviesException {
         Map<Integer, Movie> moviesMap = new HashMap<>();
         Movie movie;
-        Category category;
+        Genre genre;
         try (Connection conn = CONNECTION_MANAGER.getConnection()) {
             String sql = "SELECT m.id,m.name, m.rating, m.filelink, m.lastview, m.personalRating FROM CatMovie cm " +
                     "JOIN Movie m  on m.id = cm.MovieId " +
@@ -42,10 +44,10 @@ public class MovieDao implements IMovieDao {
         } catch (SQLException | MoviesException e) {
             throw new MoviesException(ExceptionsMessages.READING_FROMDB_FAILED);
         }
-        Map<Integer, List<Category>> moviesGenre = fetchAllCategoriesForMovies(moviesMap.keySet());
+        Map<Integer, List<Genre>> moviesGenre = fetchAllGenresForMovies(moviesMap.keySet());
         for (Map.Entry<Integer, Movie> entry : moviesMap.entrySet()) {
             movie = entry.getValue();
-            List<Category> categories = moviesGenre.getOrDefault(movie.getId(), Collections.emptyList());
+            List<Genre> categories = moviesGenre.getOrDefault(movie.getId(), Collections.emptyList());
             movie.setCategories(categories);
         }
         return moviesMap;
@@ -56,7 +58,7 @@ public class MovieDao implements IMovieDao {
     }
 
 
-    private Map<Integer, List<Category>> fetchAllCategoriesForMovies(Set<Integer> movieIds) throws MoviesException {
+    private Map<Integer, List<Genre>> fetchAllGenresForMovies(Set<Integer> movieIds) throws MoviesException {
         if (movieIds.isEmpty()) {
             return Collections.emptyMap();
         }
@@ -65,23 +67,28 @@ public class MovieDao implements IMovieDao {
                 .map(String::valueOf)
                 .collect(Collectors.joining(","));
         String sql = "SELECT gm.MovieId, g.GenreId, g.name FROM GenreMovie gm JOIN Genre g ON g.GenreId= gm.GenreId WHERE gm.MovieId IN (" + inSql + ")";
-        Map<Integer, List<Category>> categoriesMap = new HashMap<>();
+        Map<Integer, List<Genre>> genresMap = new HashMap<>();
         try (Connection conn = CONNECTION_MANAGER.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             try (ResultSet rs = pstmt.executeQuery()) {
                 while (rs.next()) {
                     int movieId = rs.getInt(1);
-                    int categoryId = rs.getInt(2);
-                    String categoryName = rs.getString(3);
-
-                    Category category = new Category(categoryId, categoryName);
-                    categoriesMap.computeIfAbsent(movieId, k -> new ArrayList<>()).add(category);
+                    int genreId = rs.getInt(2);
+                    SimpleStringProperty genreName = getSimpleStringProperty(rs.getString(3));
+                    Genre genre = new Genre(genreId, genreName);
+                    genresMap.computeIfAbsent(movieId, k -> new ArrayList<>()).add(genre);
                 }
             }
         } catch (SQLException e) {
             throw new MoviesException("Error fetching categories", e);
         }
-        return categoriesMap;
+        return genresMap;
+    }
+
+    private static SimpleStringProperty getSimpleStringProperty(String name) throws SQLException {
+        SimpleStringProperty genreName = new SimpleStringProperty();
+        genreName.setValue(name);
+        return genreName;
     }
 
 

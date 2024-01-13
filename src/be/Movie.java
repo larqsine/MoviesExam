@@ -20,33 +20,33 @@ public class Movie {
         return personalRating;
     }
 
-    private List<Category> categories;
+    private List<Genre> genres;
 
-    public Movie(int id, String name, Double rating, String fileLink, Date lastView, Double personalRating, List<Category> categories) {
+    public Movie(int id, String name, Double rating, String fileLink, Date lastView, Double personalRating, List<Genre> genres) {
         this.id = id;
         this.name = name;
         this.rating = rating;
         this.fileLink = fileLink;
         this.lastView = lastView;
         this.personalRating = personalRating;
-        intializeCategories(categories);
+        intializeGenres(genres);
     }
 
-    private void intializeCategories(List<Category> categories) {
-        if (categories == null) {
-            this.categories = new ArrayList<>();
+    private void intializeGenres(List<Genre> genres) {
+        if (genres == null) {
+            this.genres = new ArrayList<>();
         } else {
-            this.categories = categories;
+            this.genres = genres;
         }
     }
 
-    public Movie(String name, Double rating, String fileLink, Date lastView, Double personalRating, List<Category> categories) {
+    public Movie(String name, Double rating, String fileLink, Date lastView, Double personalRating, List<Genre> genres) {
         this.name = name;
         this.rating = rating;
         this.fileLink = fileLink;
         this.lastView = lastView;
         this.personalRating = personalRating;
-        intializeCategories(categories);
+        intializeGenres(genres);
     }
 
 
@@ -87,12 +87,12 @@ public class Movie {
         this.lastView = lastView;
     }
 
-    public List<Category> getCategories() {
-        return categories;
+    public List<Genre> getGenres() {
+        return genres;
     }
 
-    public void setCategories(List<Category> categories) {
-        this.categories = categories;
+    public void setCategories(List<Genre> genres) {
+        this.genres = genres;
     }
 
     @Override
@@ -104,7 +104,7 @@ public class Movie {
                 ", fileLink='" + fileLink + '\'' +
                 ", lastView=" + lastView +
                 ", personalRating=" + personalRating +
-                ", categories=" + categories +
+                ", categories=" + genres +
                 '}';
     }
 }

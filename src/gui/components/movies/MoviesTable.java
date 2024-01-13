@@ -1,6 +1,6 @@
 package gui.components.movies;
 
-import be.Category;
+import be.Genre;
 import be.Movie;
 import gui.components.listeners.MovieSelectionListener;
 import javafx.collections.ObservableList;
@@ -49,8 +49,8 @@ public class MoviesTable extends TableView<Movie> {
         personalRating.setPrefWidth(48);
         personalRating.setCellFactory(column ->  new DoubleCell(48, null));
 
-        TableColumn<Movie, List<Category>> categories = new TableColumn<>("Genre");
-        categories.setCellValueFactory(new PropertyValueFactory<>("categories"));
+        TableColumn<Movie, List<Genre>> categories = new TableColumn<>("Genre");
+        categories.setCellValueFactory(new PropertyValueFactory<>("genres"));
         categories.setPrefWidth(95);
         categories.setCellFactory(column -> new ListCell(95, null));
 

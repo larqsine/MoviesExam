@@ -1,13 +1,14 @@
 package gui.components.movies;
 
 import be.Category;
+import be.Genre;
 import javafx.util.Duration;
 
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ListCell<T> extends MovieCell<List<Category>>{
+public class ListCell<T> extends MovieCell<List<Genre>>{
     public ListCell(int width, Duration duration) {
         this.setCellWidth(width);
         if (duration != null) {
@@ -16,7 +17,7 @@ public class ListCell<T> extends MovieCell<List<Category>>{
     }
 
     @Override
-    protected void updateItem(List<Category> item, boolean empty) {
+    protected void updateItem(List<Genre> item, boolean empty) {
         super.updateItem(item, empty);
 
         if (empty || item == null) {
@@ -29,9 +30,9 @@ public class ListCell<T> extends MovieCell<List<Category>>{
         }
     }
 
-    private String convertToString(List<Category> items) {
+    private String convertToString(List<Genre> items) {
         return items.stream()
-                .map(Category::getName)
+                .map(Genre::getName)
                 .collect(Collectors.joining(","));
     }
 
