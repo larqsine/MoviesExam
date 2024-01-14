@@ -40,7 +40,8 @@ public class CategoryLogic implements CategoryLogicAPI{
 
     @Override
     public boolean updateCategory(int categoryId, String newTitle) throws MoviesException {
-        return false;
+        System.out.println("I am here");
+        return categoryDao.updateCategory(categoryId,newTitle);
     }
 
     @Override
@@ -55,11 +56,11 @@ public class CategoryLogic implements CategoryLogicAPI{
         return instance;
     }
 
-    public boolean updateCategory(Category categoryToUpdate, String newTitle) throws MoviesException{
-        if (categoryToUpdate.getName().equals(newTitle)){
-            return false;
-        }
-       return this.categoryDao.updateCategory(categoryToUpdate.getId(),newTitle);
-    }
+//    public boolean updateCategory(Category categoryToUpdate, String newTitle) throws MoviesException{
+//        if (categoryToUpdate.getName().equals(newTitle)){
+//            return false;
+//        }
+//       return this.categoryDao.updateCategory(categoryToUpdate.getId(),newTitle);
+//    }
 
 }

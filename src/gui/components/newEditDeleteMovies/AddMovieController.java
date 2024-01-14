@@ -5,7 +5,6 @@ import exceptions.MoviesException;
 import gui.MainView.MainModel;
 import gui.components.listeners.MovieReloadable;
 import gui.components.newEditDeleteMovies.genreView.GenreView;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

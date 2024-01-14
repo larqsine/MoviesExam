@@ -20,7 +20,7 @@ public class CategoryModel {
      */
     private Movie currentSelectedMovie;
 
-    private CategoryModel() throws MoviesException{
+    private CategoryModel() throws MoviesException {
         categoryLogic = CategoryLogic.getInstance();
     }
 
@@ -29,7 +29,7 @@ public class CategoryModel {
     }
 
     public static CategoryModel getInstance() throws MoviesException {
-        if (instance == null){
+        if (instance == null) {
             instance = new CategoryModel();
         }
         return instance;
@@ -40,12 +40,11 @@ public class CategoryModel {
     }
 
     public boolean updateCategory(String newTitle) throws MoviesException {
-        boolean executed = this.categoryLogic.updateCategory(this.currentSelectedCategory.getId(), newTitle);
-        this.currentSelectedCategory = null;
-        return executed;
+      //  this.currentSelectedCategory = null;
+        return this.categoryLogic.updateCategory(this.currentSelectedCategory.getId(), newTitle);
     }
 
-    public void cancelUpdateCategory(){
+    public void cancelUpdateCategory() {
         this.currentSelectedCategory = null;
     }
 
@@ -53,7 +52,7 @@ public class CategoryModel {
         this.currentSelectedCategory = currentSelectedCategory;
     }
 
-    public boolean deleteCategory(Category categoryToDelete) throws MoviesException{
+    public boolean deleteCategory(Category categoryToDelete) throws MoviesException {
         return this.categoryLogic.deleteCategory(categoryToDelete.getId());
     }
 }

@@ -9,7 +9,6 @@ import java.util.List;
 
 public interface CategoryLogicAPI {
     List<Category> getAllCategories() throws MoviesException;
-
     Movie applyFilter(String filter, ObservableList<Movie> movies);
     boolean createCategory(String categoryTitle) throws MoviesException;
 

@@ -1,5 +1,6 @@
 package gui.components.newEditDeleteCategory;
 
+import be.Category;
 import exceptions.MoviesException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -33,6 +34,7 @@ public abstract class NewEditController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         try {
             setCategoryModel(CategoryModel.getInstance());
+
         } catch (MoviesException e) {
             ExceptionHandler.displayErrorAlert(e.getMessage(), null);
             return;
@@ -64,6 +66,7 @@ public abstract class NewEditController implements Initializable {
     }
 
     public void setCategoryModel(CategoryModel categoryModel) {
+
         this.categoryModel = categoryModel;
     }
 
@@ -79,6 +82,10 @@ public abstract class NewEditController implements Initializable {
         return saveUpdateButton;
     }
 
+
+
+    /**
+     * it is used to change the info label to visibility hidden when is typed into the text field*/
     public void setOnChangeListener(TextField textField, Label label) {
         textField.textProperty().addListener((obs, oldValue, newValue) -> {
             if (label.isVisible()) {
@@ -98,6 +105,12 @@ public abstract class NewEditController implements Initializable {
 
     public void setReloadable(CategoryReloadable reloadable) {
         this.reloadable = reloadable;
+    }
+
+
+    public void setTextFieldText(Category category){
+        categoryModel.setCurrentSelectedCategory(category);
+        this.categoryTitle.setText(category.getName());
     }
 
 

@@ -10,8 +10,10 @@ import gui.components.movies.MovieSelectionHandler;
 import gui.components.movies.MoviesTable;
 import gui.components.newEditDeleteCategory.CategoryReloadable;
 import gui.components.newEditDeleteCategory.CategoryReloadableHandler;
+import gui.components.newEditDeleteCategory.EditCategoryController;
 import gui.components.newEditDeleteCategory.NewCategoryControllerRel;
 import gui.components.newEditDeleteMovies.AddMovieController;
+import gui.components.newEditDeleteMovies.EditMovieControllerNew;
 import gui.components.player.*;
 import gui.playOperations.PlayOperations;
 import gui.playOperations.PlayOperationsHandler;
@@ -62,7 +64,6 @@ public class MainViewController implements Initializable {
     private CategoryView categoryView;
     @FXML
     private Pane moviesView;
-    private CategoryReloadable categoryReloadable;
     private PlayerControl playerControl;
     private PlayerCommander playerCommander;
 
@@ -110,6 +111,7 @@ public class MainViewController implements Initializable {
         try{
             Stage mainStage = Utility.getCurrentStage(event);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../components/newEditDeleteCategory/NewCategoryView.fxml"));
+            loader.setController(new NewCategoryControllerRel());
             Parent parent =loader.load();
             NewCategoryControllerRel categoryControllerRel  = loader.getController();
             categoryControllerRel.setReloadable(categoryReloadable);
@@ -128,10 +130,13 @@ public class MainViewController implements Initializable {
             return;
         }
         try {
+            CategoryReloadable categoryReloadable = CategoryReloadableHandler.getInstance(this.model);
            FXMLLoader loader = new FXMLLoader(getClass().getResource("../components/newEditDeleteCategory/NewCategoryView.fxml"));
+            loader.setController(new EditCategoryController());
             Parent root = loader.load();
-            NewCategoryControllerRel categoryControllerRel  = loader.getController();
-            categoryControllerRel.setReloadable(categoryReloadable);
+            EditCategoryController edc= loader.getController();
+            edc.setReloadable(categoryReloadable);
+            edc.setTextFieldText(categoryToUpdate);
             Scene scene = new Scene(root);
             Stage mainStage = Utility.getCurrentStage(actionEvent);
             Stage newCategoryStage = Utility.createPopupStage(mainStage, scene, Titles.EDIT_CATEGORY.getValue(),POPUP_WIDTH);
@@ -198,4 +203,25 @@ public class MainViewController implements Initializable {
     }
 
 
+    public void editMovie(ActionEvent event) {
+        String resourcePath=  "../components/newEditDeleteMovies/EditMovieView.fxml";
+        if(model.getCurrentOpenedCategory()==0){
+            ExceptionHandler.displayInformationAlert(InformationalMessages.NO_CATEGORY_OPENED,"Please open a category");
+            return;
+        }
+        try {
+            FXMLLoader loader =new FXMLLoader(getClass().getResource(resourcePath));
+            Parent root = loader.load();
+            EditMovieControllerNew editMovie = loader.getController();
+            editMovie.getCurrentOpenedCategory(model.getCurrentOpenedCategory());
+            editMovie.setModel(this.model);
+            Scene scene = new Scene(root);
+            Stage mainStage = Utility.getCurrentStage(event);
+            Stage newCategoryStage = Utility.createPopupStage(mainStage, scene, Titles.ADD_NEW_MOVIE.getValue(),POPUP_WIDTH);
+            newCategoryStage.show();
+        } catch (IOException e) {
+            ExceptionHandler.displayErrorAlert(InformationalMessages.FXML_MISSING, "Application error");
+        }
+
+    }
 }

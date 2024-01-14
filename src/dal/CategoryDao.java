@@ -51,7 +51,7 @@ public class CategoryDao implements ICategoryDao {
 
     @Override
     public boolean updateCategory (int categoryId, String newTitle) throws MoviesException {
-        String sql = "UPDATE Category SET CategoryName=? WHERE CategoryId=?";
+        String sql = "UPDATE Category SET name=? WHERE Id=?";
         try (Connection connection = CONNECTION_MANAGER.getConnection()){
             PreparedStatement psmt = connection.prepareStatement(sql);
             psmt.setString(1, newTitle);

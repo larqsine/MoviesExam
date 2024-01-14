@@ -1,24 +1,13 @@
 package gui.components.newEditDeleteMovies;
-
-import exceptions.MoviesException;
 import gui.components.listeners.MovieReloadable;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import gui.components.listeners.MediaViewReloader;
 import utility.ExceptionHandler;
 import utility.InformationalMessages;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public abstract class NewEditController  {
 

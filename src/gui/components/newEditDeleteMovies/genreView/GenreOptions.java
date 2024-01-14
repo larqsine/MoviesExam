@@ -18,13 +18,11 @@ class GenreOptions extends ListCell<String> {
             String item = getItem();
             if (item != null) {
                 checkedItems.put(item, checkBox.isSelected());
-                System.out.println(item + " selection state: " + checkBox.isSelected());
                 if(checkBox.isSelected()){
                     listener.getSelectedItem(item);
                 }else{
                     listener.removeUnselectedItem(item);
                 }
-
             }
         });
     }

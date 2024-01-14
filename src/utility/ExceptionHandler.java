@@ -66,8 +66,8 @@ public class ExceptionHandler {
         if (title != null) {
             error.setTitle(title);
         }
-
     }
+
 
 
 }

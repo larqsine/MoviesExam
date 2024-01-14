@@ -140,9 +140,7 @@ public class MainModel {
     }
 
     public void resetFilter() {
-        this.currentMovieSelected.set(0);
-//        this throws a null pointer exception, needs to be reevaluated
-        this.searchValue.setText("");
+        this.movies.setAll(movieObjects.keySet().stream().map(elem -> movieObjects.get(elem)).toList());
     }
 
     public void applyFilter(String filter) {

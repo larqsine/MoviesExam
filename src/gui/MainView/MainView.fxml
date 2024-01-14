@@ -29,7 +29,7 @@
                <children>
                   <Button mnemonicParsing="false" onAction="#addNewCategory" text="Add" />
                   <Button mnemonicParsing="false" onAction="#editCategory" text="Edit" />
-                  <Button mnemonicParsing="false" text="Delete" />
+                  <Button mnemonicParsing="false" style="-fx-background-color: #272F6D; -fx-fill: #F26F63;" text="Delete" />
                </children>
             </HBox>
          </children>
@@ -100,7 +100,7 @@
                      <HBox.margin>
                         <Insets right="30.0" />
                      </HBox.margin></Button>
-                  <Button mnemonicParsing="false" text="Edit">
+                  <Button mnemonicParsing="false" onAction="#editMovie" text="Edit">
                      <HBox.margin>
                         <Insets right="30.0" />
                      </HBox.margin></Button>

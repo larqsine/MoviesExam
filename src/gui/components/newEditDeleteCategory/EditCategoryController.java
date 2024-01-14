@@ -36,11 +36,9 @@ public class EditCategoryController extends NewEditController{
         try {
             String title = getCategoryTitle().getText();
             return getCategoryModel().updateCategory(title);
-        } catch (MatchException e){
-            ExceptionHandler.displayErrorAlert(e.getMessage(),null);
-            return false;
         } catch (MoviesException e) {
-            throw new RuntimeException(e);
+                ExceptionHandler.displayErrorAlert(e.getMessage(),null);
+                return false;
         }
     }
 
@@ -48,10 +46,13 @@ public class EditCategoryController extends NewEditController{
         getCurrentStage(event).close();
     }
 
-    public void setCategoryToEdit(Category category){
-        getCategoryModel().setCurrentSelectedCategory(category);
-        getCategoryTitle().setText(category.getName());
-    }
+//    public void setCategoryToEdit(Category category){
+//        getCategoryModel().setCurrentSelectedCategory(category);
+//        getCategoryTitle().setText(category.getName());
+//    }
+
+
+
 
 
 
