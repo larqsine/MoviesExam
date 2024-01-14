@@ -29,7 +29,7 @@ public class EditMovieControllerNew extends NewEditController implements Initial
     private HBox genresContainer;
     @Override
     public void cancelAddEditMovie(ActionEvent event) {
-        this.cancelAddEditMovie(event);
+        this.closeStage(Utility.getCurrentStage(event));
     }
 
     @Override
