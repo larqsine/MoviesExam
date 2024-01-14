@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="null pointer exception when resetting the filter">
-      <change afterPath="$PROJECT_DIR$/src/gui/components/movies/ButtonChangeHandler.java" afterDir="false" />
+    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="change button graphis when button is pressed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/movies/ButtonCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/movies/ButtonCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/movies/MovieSelectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/movies/MovieSelectionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/movies/MoviesTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/movies/MoviesTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +126,7 @@
       <workItem from="1705056947896" duration="612000" />
       <workItem from="1705057932159" duration="2254000" />
       <workItem from="1705143377383" duration="84000" />
-      <workItem from="1705143472887" duration="38367000" />
+      <workItem from="1705143472887" duration="38823000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <option name="closed" value="true" />
@@ -445,7 +440,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705192516455</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="change button graphis when button is pressed">
+      <option name="closed" value="true" />
+      <created>1705227998997</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1705227998997</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -463,7 +466,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changed list view with a custom implementation" />
     <MESSAGE value="exception handling" />
     <MESSAGE value="category custom component" />
     <MESSAGE value="filter functionality started" />
@@ -488,7 +490,8 @@
     <MESSAGE value="Play movie from the table implemented" />
     <MESSAGE value="Control play movie from the button and from the button displayed when hovered over the table row" />
     <MESSAGE value="null pointer exception when resetting the filter" />
-    <option name="LAST_COMMIT_MESSAGE" value="null pointer exception when resetting the filter" />
+    <MESSAGE value="change button graphis when button is pressed" />
+    <option name="LAST_COMMIT_MESSAGE" value="change button graphis when button is pressed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

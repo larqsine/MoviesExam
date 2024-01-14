@@ -31,12 +31,32 @@ public class ButtonCell extends TableCell<Movie, String> {
         button.setGraphic(playSvg());
         button.setOnAction(event -> {
             Movie movie = getTableView().getItems().get(getIndex());
-            model.setPlayMovie(true);
+
             model.setCurrentPlayingMovie(movie.getId());
-            this.playerCommander.processOperation(Operations.PLAY_CURRENT);
-            model.setPlayButtonValue(PlayButtonGraphic.STOP.getValue());
-            model.setPlayButtonFromTableId(button.getId());
-            movieTable.refresh();
+//            model.setPlayMovie(true);
+//            model.setCurrentPlayingMovie(movie.getId());
+//            this.playerCommander.processOperation(Operations.PLAY_CURRENT);
+//            model.setPlayButtonValue(PlayButtonGraphic.STOP.getValue());
+//            model.setPlayButtonFromTableId(button.getId());
+//            movieTable.refresh();
+
+
+//            controll the play operation, needs to be working on , change the appearence off the button also, maybe remove the model . stringProprety
+            if(model.getPlayButtonState()){
+                model.setPlayMovie(false);
+                model.setPlayButtonValue(PlayButtonGraphic.PLAY.getValue());
+                this.playerCommander.processOperation(Operations.PAUSE);
+                model.setPlayButtonValue(PlayButtonGraphic.PLAY.getValue());
+                model.setPlayButtonState(false);
+            }
+            else{
+                model.setPlayMovie(true);
+                this.playerCommander.processOperation(Operations.PLAY_CURRENT);
+                model.setPlayButtonValue(PlayButtonGraphic.STOP.getValue());
+                model.setPlayButtonFromTableId(button.getId());
+                movieTable.refresh();
+                model.setPlayButtonState(true);
+            }
         });
 
         hoverListener = (ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) -> {

@@ -175,13 +175,22 @@ public class MainViewController implements Initializable {
     }
 
     public void playMovie(ActionEvent event) {
-      if(this.playButton.getText().trim().equals(PlayButtonGraphic.STOP.getValue())){
-          this.playerCommander.processOperation(Operations.PAUSE);
-          model.setPlayButtonValue(PlayButtonGraphic.PLAY.getValue());
-      }else{
-          this.playerCommander.processOperation(Operations.PLAY);
-          model.setPlayButtonValue(PlayButtonGraphic.STOP.getValue());
-      }
+
+        if(model.getPlayButtonState()){
+            this.playerCommander.processOperation(Operations.PAUSE);
+            model.setPlayButtonValue(PlayButtonGraphic.PLAY.getValue());
+            model.setPlayButtonState(false);
+        }
+        else{
+            this.playerCommander.processOperation(Operations.PLAY);
+            model.setPlayButtonValue(PlayButtonGraphic.STOP.getValue());
+            model.setPlayButtonState(true);
+        }
+//      if(this.playButton.getText().trim().equals(PlayButtonGraphic.STOP.getValue())){
+//
+//      }else{
+//
+//      }
 
     }
 

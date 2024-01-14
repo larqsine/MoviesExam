@@ -30,6 +30,8 @@ public class MainModel {
     private final SimpleStringProperty playButtonValue= new SimpleStringProperty(PlayButtonGraphic.PLAY.getValue());
     private final SimpleStringProperty playButtonFromTableId = new SimpleStringProperty();
 
+/**
+ * controls the state off the  play button*/
     private final SimpleBooleanProperty playButtonState = new SimpleBooleanProperty(false);
 
 
@@ -203,7 +205,7 @@ public class MainModel {
 
 /**
  * control the button state*/
-    public boolean isPlayButtonState() {
+    public boolean getPlayButtonState() {
         return playButtonState.get();
     }
 
