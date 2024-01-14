@@ -187,4 +187,6 @@ public class MainViewController implements Initializable {
 
     public void playNextMovie(ActionEvent event) {
     }
+
+
 }

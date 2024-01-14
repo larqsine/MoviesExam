@@ -28,8 +28,9 @@ public class MainModel {
     private TextField searchValue;
     private final IntegerProperty currentMovieSelected = new SimpleIntegerProperty();
     private final SimpleStringProperty playButtonValue= new SimpleStringProperty(PlayButtonGraphic.PLAY.getValue());
+    private final SimpleStringProperty playButtonFromTableId = new SimpleStringProperty();
 
-
+    private final SimpleBooleanProperty playButtonState = new SimpleBooleanProperty(false);
 
 
     private SimpleIntegerProperty currentOpenedCategory = new SimpleIntegerProperty();
@@ -103,6 +104,9 @@ public class MainModel {
         this.currentPlayingMedia = movieLogic.retrieveMedia(movieId, this.movieObjects);
     }
 
+
+    /**
+     * retrieve the media from local to be played*/
     public Media getCurrentMovieToBePlayed() throws MoviesException {
         getMediaFromLocal(this.currentMovieSelected.getValue(), this.movieObjects);
         return this.currentPlayingMedia;
@@ -180,6 +184,40 @@ public class MainModel {
     public void setPlayButtonValue(String playButtonValue) {
         this.playButtonValue.set(playButtonValue);
     }
+
+    /**
+     * used to control the play button state from the table*/
+    public String getPlayButtonFromTableId() {
+        return playButtonFromTableId.get();
+    }
+    /**
+     * used to control the play button state from the table*/
+    public SimpleStringProperty playButtonFromTableIdProperty() {
+        return playButtonFromTableId;
+    }
+    /**
+     * used to control the play button state from the table*/
+    public void setPlayButtonFromTableId(String playButtonFromTableId) {
+        this.playButtonFromTableId.set(playButtonFromTableId);
+    }
+
+/**
+ * control the button state*/
+    public boolean isPlayButtonState() {
+        return playButtonState.get();
+    }
+
+    public SimpleBooleanProperty playButtonStateProperty() {
+        return playButtonState;
+    }
+
+    public void setPlayButtonState(boolean playButtonState) {
+        this.playButtonState.set(playButtonState);
+    }
+
+
+
+
 }
 
 

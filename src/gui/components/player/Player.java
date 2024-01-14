@@ -20,7 +20,7 @@ import utility.Operations;
 public class Player implements PlayerControl {
     private MediaPlayer mediaPlayer;
     private static Player instance;
-    private Media song;
+    private Media movie;
     private DataSupplier dataSupplier;
     private MediaViewReloader mediaViewReloader;
     private final StringProperty time = new SimpleStringProperty();
@@ -55,7 +55,7 @@ public class Player implements PlayerControl {
             mediaPlayer.dispose();
             mediaPlayer.volumeProperty().unbind();
         }
-        Media media = this.song;
+        Media media = this.movie;
         mediaPlayer = new MediaPlayer(media);
         mediaViewReloader.getUpdatedMedia(mediaPlayer);
         mediaPlayer.volumeProperty().bind(Bindings.when(dataSupplier.isMute())
@@ -94,12 +94,12 @@ public class Player implements PlayerControl {
         if (media == null) {
             throw new MoviesException(ExceptionsMessages.READING_SONG_LOCAL);
         } else {
-            this.song = media;
+            this.movie = media;
         }
     }
 
 
-    public void setSong(Media media) throws MoviesException {
+    public void setMovie(Media media) throws MoviesException {
         checkMediaValid(media);
     }
 
@@ -121,7 +121,7 @@ public class Player implements PlayerControl {
     @Override
     public void playNext(Media media, boolean play) {
         try {
-            setSong(media);
+            setMovie(media);
         } catch (MoviesException e) {
             ExceptionHandler.displayErrorAlert(e.getMessage(),null);
             return;
@@ -132,7 +132,7 @@ public class Player implements PlayerControl {
     @Override
     public void playPrevious(Media media, boolean play) {
         try {
-            setSong(media);
+            setMovie(media);
         } catch (MoviesException e) {
             ExceptionHandler.displayErrorAlert(e.getMessage(),null);
             return;

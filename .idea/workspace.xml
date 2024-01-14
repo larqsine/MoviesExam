@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="Play movie from the table implemented">
+    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="null pointer exception when resetting the filter">
+      <change afterPath="$PROJECT_DIR$/src/gui/components/movies/ButtonChangeHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/components/movies/ButtonCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/movies/ButtonCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/movies/MovieSelectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/movies/MovieSelectionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/movies/MoviesTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/movies/MoviesTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +131,7 @@
       <workItem from="1705056947896" duration="612000" />
       <workItem from="1705057932159" duration="2254000" />
       <workItem from="1705143377383" duration="84000" />
-      <workItem from="1705143472887" duration="30173000" />
+      <workItem from="1705143472887" duration="38367000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <option name="closed" value="true" />
@@ -426,7 +429,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705191392826</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Control play movie from the button and from the button displayed when hovered over the table row">
+      <option name="closed" value="true" />
+      <created>1705192247188</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1705192247188</updated>
+    </task>
+    <task id="LOCAL-00039" summary="null pointer exception when resetting the filter">
+      <option name="closed" value="true" />
+      <created>1705192516455</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1705192516455</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -444,8 +463,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="categories displayed in view" />
-    <MESSAGE value="added Categoryes view" />
     <MESSAGE value="changed list view with a custom implementation" />
     <MESSAGE value="exception handling" />
     <MESSAGE value="category custom component" />
@@ -469,7 +486,9 @@
     <MESSAGE value="Reload movies from the database when new movie is created implemented" />
     <MESSAGE value="Play movie from the button implemented" />
     <MESSAGE value="Play movie from the table implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="Play movie from the table implemented" />
+    <MESSAGE value="Control play movie from the button and from the button displayed when hovered over the table row" />
+    <MESSAGE value="null pointer exception when resetting the filter" />
+    <option name="LAST_COMMIT_MESSAGE" value="null pointer exception when resetting the filter" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

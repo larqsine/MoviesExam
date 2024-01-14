@@ -32,7 +32,7 @@ public class MoviesTable extends TableView<Movie> {
     private void setupColumns() {
         TableColumn<Movie,String> buttonColumn = new TableColumn<>("Action");
        buttonColumn.setPrefWidth(30);
-        buttonColumn.setCellFactory(column -> new ButtonCell(30,32,this.model,this.playerCommander));
+        buttonColumn.setCellFactory(column -> new ButtonCell(30,32,this.model,this.playerCommander,this));
 
         TableColumn<Movie, String> titleColumn = new TableColumn<>("Name");
         titleColumn.setCellValueFactory(new PropertyValueFactory<>("name"));

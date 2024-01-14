@@ -41,12 +41,11 @@ public class MovieSelectionHandler implements MovieSelectionListener {
 
     private void changeButtonGraphic(Button button) {
         if (isPlayButtonPressed(button)) {
-            button.setText(PlayButtonGraphic.STOP.getValue());
+            model.setPlayButtonValue(PlayButtonGraphic.STOP.getValue());
         }
     }
 
     private boolean isPlayButtonPressed(Button button) {
-        System.out.println(button.getText().equalsIgnoreCase(">"));
         return button.getText().toLowerCase().equals(PlayButtonGraphic.PLAY.getValue());
     }
 
