@@ -135,6 +135,7 @@ public class MainModel {
 
     public void resetFilter() {
         this.currentMovieSelected.set(0);
+//        this throws a null pointer exception, needs to be reevaluated
         this.searchValue.setText("");
     }
 
