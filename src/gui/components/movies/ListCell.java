@@ -1,19 +1,15 @@
 package gui.components.movies;
 
-import be.Category;
 import be.Genre;
+import javafx.geometry.Pos;
 import javafx.util.Duration;
 
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class ListCell<T> extends MovieCell<List<Genre>>{
-    public ListCell(int width, Duration duration) {
-        this.setCellWidth(width);
-        if (duration != null) {
-            this.setDeelayDuration(duration);
-        }
+    public ListCell(int width,int height, Duration duration) {
+    super(width,height,duration);
     }
 
     @Override
@@ -26,7 +22,8 @@ public class ListCell<T> extends MovieCell<List<Genre>>{
             setOnMouseEntered(null);
             setOnMouseExited(null);
         } else {
-            setGraphic(createSongCell(convertToString(item)));
+            setGraphic(createMovieCell(convertToString(item)));
+            setAlignment(Pos.CENTER);
         }
     }
 

@@ -1,15 +1,13 @@
 package gui.components.movies;
 
+import javafx.geometry.Pos;
 import javafx.util.Duration;
 
 import java.util.Date;
 
 public class DateCell<T> extends MovieCell<Date> {
-    public DateCell(int width, Duration duration) {
-        this.setCellWidth(width);
-        if (duration != null) {
-            this.setDeelayDuration(duration);
-        }
+    public DateCell(int width,int height, Duration duration) {
+        super(width,height,duration);
     }
 
     @Override
@@ -22,7 +20,8 @@ public class DateCell<T> extends MovieCell<Date> {
             setOnMouseEntered(null);
             setOnMouseExited(null);
         } else {
-            setGraphic(createSongCell(convertDateToString(item)));
+            setGraphic(createMovieCell(convertDateToString(item)));
+            setAlignment(Pos.CENTER);
         }
     }
 

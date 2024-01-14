@@ -9,7 +9,14 @@ public abstract class MovieCell<T> extends TableCell<T,T> {
     private int cellWidth;
     private Duration deelayDuration= new Duration(0.2);
     private final Tooltip longDescription =  new Tooltip();
-    public Label createSongCell(String item){
+    public MovieCell(int width,int height, Duration duration) {
+        this.setCellHeight(height);
+        this.setCellWidth(width);
+        if (duration != null) {
+            this.setDelayDuration(duration);
+        }
+    }
+    public Label createMovieCell(String item){
         Label label = new Label(item);
         label.setWrapText(true);
         label.setTextAlignment(TextAlignment.LEFT);
@@ -29,8 +36,11 @@ public abstract class MovieCell<T> extends TableCell<T,T> {
     public void setCellWidth(int cellWidth) {
         this.cellWidth = cellWidth;
     }
+    public void setCellHeight(int cellHeight){
+        this.setPrefHeight(cellHeight);
+    }
 
-    public void setDeelayDuration(Duration deelayDuration) {
+    public void setDelayDuration(Duration deelayDuration) {
         this.deelayDuration = deelayDuration;
     }
 

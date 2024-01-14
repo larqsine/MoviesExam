@@ -1,12 +1,10 @@
 package gui.components.movies;
+import javafx.geometry.Pos;
 import javafx.util.Duration;
 public class DoubleCell<T> extends MovieCell<Double> {
 
-    public DoubleCell(int width, Duration duration) {
-        this.setCellWidth(width);
-        if (duration != null) {
-            this.setDeelayDuration(duration);
-        }
+    public DoubleCell(int width,int height, Duration duration) {
+        super(width,height,duration);
     }
     @Override
     protected void updateItem(Double item, boolean empty) {
@@ -18,7 +16,8 @@ public class DoubleCell<T> extends MovieCell<Double> {
             setOnMouseEntered(null);
             setOnMouseExited(null);
         } else {
-            setGraphic(createSongCell(castToString(item)));
+            setGraphic(createMovieCell(castToString(item)));
+            setAlignment(Pos.CENTER);
         }
     }
 

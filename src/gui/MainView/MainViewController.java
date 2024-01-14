@@ -11,7 +11,6 @@ import gui.components.movies.MoviesTable;
 import gui.components.newEditDeleteCategory.CategoryReloadable;
 import gui.components.newEditDeleteCategory.CategoryReloadableHandler;
 import gui.components.newEditDeleteCategory.NewCategoryControllerRel;
-
 import gui.components.newEditDeleteMovies.AddMovieController;
 import gui.components.player.*;
 import gui.playOperations.PlayOperations;
@@ -78,7 +77,6 @@ public class MainViewController implements Initializable {
         UIInitializer uiInitializer = new UIInitializer();
         try {
             model = MainModel.getInstance();
-
             //initialize application playback
             PlayOperations playOperations = PlayOperationsHandler.getInstance(model);
             DataSupplier dataHandler = DataHandler.getInstance(model,playOperations);
@@ -90,7 +88,7 @@ public class MainViewController implements Initializable {
             categoryView = new CategoryView(new CategorySelectionHandler(model), model.getCategories());
             categoryContainer.getChildren().add(categoryView);
             //initialize moviesTable data
-            moviesView.getChildren().add(new MoviesTable(new MovieSelectionHandler(this.model,playerCommander,playButton),model.getMovies(),model));
+            moviesView.getChildren().add(new MoviesTable(new MovieSelectionHandler(this.model,playerCommander,playButton),model.getMovies(),model,playerCommander));
             //initializes the filter view
             uiInitializer.initializeSearchView(isearchGraphic, searchButton, searchValue, infoEmptyLabel);
         } catch (MoviesException me) {

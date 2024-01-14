@@ -11,6 +11,7 @@ import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.media.Media;
+import utility.PlayButtonGraphic;
 
 import java.awt.*;
 import java.util.Map;
@@ -26,6 +27,22 @@ public class MainModel {
     private Media currentPlayingMedia;
     private TextField searchValue;
     private final IntegerProperty currentMovieSelected = new SimpleIntegerProperty();
+
+
+    public String getPlayButtonValue() {
+        return playButtonValue.get();
+    }
+
+    public SimpleStringProperty playButtonValueProperty() {
+        return playButtonValue;
+    }
+
+    public void setPlayButtonValue(String playButtonValue) {
+        this.playButtonValue.set(playButtonValue);
+    }
+
+    private final SimpleStringProperty playButtonValue= new SimpleStringProperty(PlayButtonGraphic.PLAY.getValue());
+
 
 
 

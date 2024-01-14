@@ -1,15 +1,13 @@
 package gui.components.movies;
+import javafx.geometry.Pos;
 import javafx.util.Duration;
 
 public class TitleCell<T> extends MovieCell<String> {
 
 
 
-    public TitleCell(int width, Duration duration){
-        this.setCellWidth(width);
-        if (duration != null) {
-            this.setDeelayDuration(duration);
-        }
+    public TitleCell(int width,int height, Duration duration){
+      super(width,height,duration);
     }
 
     @Override
@@ -22,7 +20,8 @@ public class TitleCell<T> extends MovieCell<String> {
             setOnMouseEntered(null);
             setOnMouseExited(null);
         } else {
-            setGraphic(createSongCell(item));
+            setGraphic(createMovieCell(item));
+            setAlignment(Pos.CENTER);
         }
     }
 }
