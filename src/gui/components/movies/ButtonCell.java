@@ -8,6 +8,7 @@ import javafx.scene.control.TableRow;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.SVGPath;
 import utility.Operations;
+import utility.PlayButtonGraphic;
 
 public class ButtonCell extends TableCell<Movie,String> {
     private final Button button;
@@ -29,6 +30,7 @@ public class ButtonCell extends TableCell<Movie,String> {
             model.setPlayMovie(true);
             model.setCurrentPlayingMovie(movie.getId());
             this.playerCommander.processOperation(Operations.PLAY_CURRENT);
+            model.setPlayButtonValue(PlayButtonGraphic.STOP.getValue());
         });
     }
 

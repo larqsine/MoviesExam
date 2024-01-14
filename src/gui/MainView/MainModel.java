@@ -27,20 +27,6 @@ public class MainModel {
     private Media currentPlayingMedia;
     private TextField searchValue;
     private final IntegerProperty currentMovieSelected = new SimpleIntegerProperty();
-
-
-    public String getPlayButtonValue() {
-        return playButtonValue.get();
-    }
-
-    public SimpleStringProperty playButtonValueProperty() {
-        return playButtonValue;
-    }
-
-    public void setPlayButtonValue(String playButtonValue) {
-        this.playButtonValue.set(playButtonValue);
-    }
-
     private final SimpleStringProperty playButtonValue= new SimpleStringProperty(PlayButtonGraphic.PLAY.getValue());
 
 
@@ -175,6 +161,23 @@ public class MainModel {
 
     public void reloadMoviesFromDB() throws MoviesException {
     this.setMovieObservableList(this.currentOpenedCategory.get());
+    }
+
+
+    /**
+     * used to control the playButton graphics */
+    public String getPlayButtonValue() {
+        return playButtonValue.get();
+    }
+    /**
+     * used to control the playButton graphics */
+    public SimpleStringProperty playButtonValueProperty() {
+        return playButtonValue;
+    }
+    /**
+     * used to control the playButton graphics */
+    public void setPlayButtonValue(String playButtonValue) {
+        this.playButtonValue.set(playButtonValue);
     }
 }
 

@@ -78,6 +78,7 @@ public class MainViewController implements Initializable {
         try {
             model = MainModel.getInstance();
             //initialize application playback
+            playButton.textProperty().bind(model.playButtonValueProperty());
             PlayOperations playOperations = PlayOperationsHandler.getInstance(model);
             DataSupplier dataHandler = DataHandler.getInstance(model,playOperations);
             MediaViewReloader mediaViewReloader = new MediaViewUpdate(mediaViewPlayer);
@@ -174,12 +175,12 @@ public class MainViewController implements Initializable {
     }
 
     public void playMovie(ActionEvent event) {
-      if(this.playButton.getText().trim().equals("||")){
+      if(this.playButton.getText().trim().equals(PlayButtonGraphic.STOP.getValue())){
           this.playerCommander.processOperation(Operations.PAUSE);
-          this.playButton.setText(PlayButtonGraphic.PLAY.getValue());
+          model.setPlayButtonValue(PlayButtonGraphic.PLAY.getValue());
       }else{
-          this.playerCommander.processOperation(Operations.PLAY_CURRENT);
-          this.playButton.setText(PlayButtonGraphic.STOP.getValue());
+          this.playerCommander.processOperation(Operations.PLAY);
+          model.setPlayButtonValue(PlayButtonGraphic.STOP.getValue());
       }
 
     }

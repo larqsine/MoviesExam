@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="Play movie from the button implemented">
-      <change afterPath="$PROJECT_DIR$/src/gui/components/movies/ButtonCell.java" afterDir="false" />
+    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="Play movie from the table implemented">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/movies/DateCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/movies/DateCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/movies/DoubleCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/movies/DoubleCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/movies/ListCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/movies/ListCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/movies/MovieCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/movies/MovieCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/movies/MoviesTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/movies/MoviesTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/movies/TitleCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/movies/TitleCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/movies/ButtonCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/movies/ButtonCell.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +128,7 @@
       <workItem from="1705056947896" duration="612000" />
       <workItem from="1705057932159" duration="2254000" />
       <workItem from="1705143377383" duration="84000" />
-      <workItem from="1705143472887" duration="29131000" />
+      <workItem from="1705143472887" duration="30173000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <option name="closed" value="true" />
@@ -421,7 +418,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705188694174</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Play movie from the table implemented">
+      <option name="closed" value="true" />
+      <created>1705191392826</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1705191392826</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -439,7 +444,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
     <MESSAGE value="categories displayed in view" />
     <MESSAGE value="added Categoryes view" />
     <MESSAGE value="changed list view with a custom implementation" />
@@ -464,7 +468,8 @@
     <MESSAGE value="movie creation implemented, it is saving movies to the database" />
     <MESSAGE value="Reload movies from the database when new movie is created implemented" />
     <MESSAGE value="Play movie from the button implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="Play movie from the button implemented" />
+    <MESSAGE value="Play movie from the table implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="Play movie from the table implemented" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
