@@ -51,4 +51,8 @@ public class MovieCreation {
     public boolean saveMovie(Movie movie, int categoryId) throws MoviesException {
         return this.movieDao.createMovie(movie,categoryId);
     }
+
+    public boolean deleteMovie(int movieId) throws MoviesException {
+        return this.movieDao.deleteMovie(movieId);
+    }
 }

@@ -161,6 +161,8 @@ public class MovieDao implements IMovieDao {
         }
     }
 
+
+
     private void insertMovieCategory(int categoryId, int movieId, Connection conn) throws MoviesException {
         String sql = "INSERT INTO CatMovie VALUES (?,?)";
         try {
@@ -190,6 +192,12 @@ public class MovieDao implements IMovieDao {
         } catch (SQLException e) {
             throw new MoviesException(e);
         }
+    }
+
+
+    @Override
+    public boolean deleteMovie(int movieId) throws MoviesException {
+        return false;
     }
 
 
