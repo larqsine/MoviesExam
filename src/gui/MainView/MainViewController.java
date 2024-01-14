@@ -32,11 +32,8 @@ import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 import gui.filterSongs.FilterManager;
 import utility.*;
-
-
 import java.io.IOException;
 import java.net.URL;
-import java.util.Arrays;
 import java.util.ResourceBundle;
 
 
@@ -58,7 +55,6 @@ public class MainViewController implements Initializable {
     @FXML
     private MediaView mediaViewPlayer;
     private ISearchGraphic isearchGraphic;
-
     @FXML
     private Pane categoryContainer;
     private CategoryView categoryView;
