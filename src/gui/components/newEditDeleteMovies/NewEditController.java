@@ -10,7 +10,6 @@ import utility.InformationalMessages;
 
 
 public abstract class NewEditController  {
-
     private MovieReloadable reloadable;
     private final FileChooser fileChooser = new FileChooser();
     private int openedCategory;

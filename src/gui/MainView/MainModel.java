@@ -1,5 +1,4 @@
 package gui.MainView;
-
 import be.Category;
 import be.Movie;
 import bll.CategoryLogic;
@@ -10,10 +9,10 @@ import exceptions.MoviesException;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Button;
 import javafx.scene.media.Media;
 import utility.PlayButtonGraphic;
 
-import java.awt.*;
 import java.util.Map;
 
 public class MainModel {
@@ -25,12 +24,11 @@ public class MainModel {
     private final ObservableList<Movie> movies;
     private Map<Integer, Movie> movieObjects;
     private Media currentPlayingMedia;
-    private TextField searchValue;
     private final IntegerProperty currentMovieSelected = new SimpleIntegerProperty();
     private final SimpleStringProperty playButtonValue= new SimpleStringProperty(PlayButtonGraphic.PLAY.getValue());
     private final SimpleStringProperty playButtonFromTableId = new SimpleStringProperty();
 
-/**
+    /**
  * controls the state off the  play button*/
     private final SimpleBooleanProperty playButtonState = new SimpleBooleanProperty(false);
 
@@ -214,7 +212,6 @@ public class MainModel {
     public void setPlayButtonState(boolean playButtonState) {
         this.playButtonState.set(playButtonState);
     }
-
 
 
 

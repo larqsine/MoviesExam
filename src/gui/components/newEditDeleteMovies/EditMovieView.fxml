@@ -65,7 +65,16 @@
                     </HBox.margin>
                 </Button>
             </children>
+         <VBox.margin>
+            <Insets left="5.0" />
+         </VBox.margin>
         </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label text="PersonalRating" />
+            <TextField />
+         </children>
+      </HBox>
         <HBox alignment="CENTER" prefHeight="35.0" prefWidth="200.0">
             <children>
                 <Button fx:id="createButton" alignment="CENTER" mnemonicParsing="false" onAction="#saveAddEditMovie" prefWidth="60.0" style="-fx-background-color: a076f9;" text="Create">
@@ -75,6 +84,9 @@
                 </Button>
                 <Button alignment="CENTER" layoutX="194.0" layoutY="15.0" mnemonicParsing="false" onAction="#cancelAddEditMovie" prefWidth="60.0" style="-fx-background-color: a076f9;" text="Cancel" />
             </children>
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
         </HBox>
         <Line endX="420.0">
             <VBox.margin>

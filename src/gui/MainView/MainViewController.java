@@ -176,7 +176,6 @@ public class MainViewController implements Initializable {
     }
 
     public void playMovie(ActionEvent event) {
-
         if(model.getPlayButtonState()){
             this.playerCommander.processOperation(Operations.PAUSE);
             model.setPlayButtonValue(PlayButtonGraphic.PLAY.getValue());

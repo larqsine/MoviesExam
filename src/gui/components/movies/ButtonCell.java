@@ -1,7 +1,5 @@
 package gui.components.movies;
-
 import be.Movie;
-import exceptions.MoviesException;
 import gui.MainView.MainModel;
 import gui.components.player.PlayerCommander;
 import javafx.beans.value.ChangeListener;
@@ -12,6 +10,7 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.SVGPath;
+import utility.GraphicIdValues;
 import utility.Operations;
 import utility.PlayButtonGraphic;
 
@@ -31,46 +30,33 @@ public class ButtonCell extends TableCell<Movie, String> {
         button.setGraphic(playSvg());
         button.setOnAction(event -> {
             Movie movie = getTableView().getItems().get(getIndex());
-
             model.setCurrentPlayingMovie(movie.getId());
-//            model.setPlayMovie(true);
-//            model.setCurrentPlayingMovie(movie.getId());
-//            this.playerCommander.processOperation(Operations.PLAY_CURRENT);
-//            model.setPlayButtonValue(PlayButtonGraphic.STOP.getValue());
-//            model.setPlayButtonFromTableId(button.getId());
-//            movieTable.refresh();
 
-
-//            controll the play operation, needs to be working on , change the appearence off the button also, maybe remove the model . stringProprety
-            if(model.getPlayButtonState()){
-                model.setPlayMovie(false);
-                model.setPlayButtonValue(PlayButtonGraphic.PLAY.getValue());
+            if (model.getPlayButtonState()) {
                 this.playerCommander.processOperation(Operations.PAUSE);
                 model.setPlayButtonValue(PlayButtonGraphic.PLAY.getValue());
                 model.setPlayButtonState(false);
-            }
-            else{
-                model.setPlayMovie(true);
-                this.playerCommander.processOperation(Operations.PLAY_CURRENT);
-                model.setPlayButtonValue(PlayButtonGraphic.STOP.getValue());
                 model.setPlayButtonFromTableId(button.getId());
                 movieTable.refresh();
+            } else {
+                model.setPlayMovie(true);
+               // this.playerCommander.processOperation(Operations.PLAY_CURRENT);
+                this.playerCommander.processOperation(Operations.PLAY);
+                model.setPlayButtonValue(PlayButtonGraphic.STOP.getValue());
+                model.setPlayButtonFromTableId(button.getId());
                 model.setPlayButtonState(true);
+                movieTable.refresh();
             }
         });
-
         hoverListener = (ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) -> {
             if (newValue) {
-//                change button to pause is the button id equals with the urrent button;
+//                change button to pause if the button id equals with the current button;
                 if (button.getId().equals(model.getPlayButtonFromTableId())) {
-                    button.setGraphic(pauseSvg());
-                    setGraphic(button);
+                    button.setGraphic(model.getPlayButtonState() ? pauseSvg() : playSvg());
                 } else {
                     button.setGraphic(playSvg());
-                    setGraphic(button);
-
                 }
-
+                setGraphic(button);
             } else {
                 setGraphic(null);
             }
@@ -93,28 +79,20 @@ public class ButtonCell extends TableCell<Movie, String> {
         }
     }
 
-    private void updateButtonGraphic(boolean state, String id, boolean isHovered) {
-        if (state && id.equals(model.getPlayButtonFromTableId()) && isHovered) {
-            button.setGraphic(pauseSvg());
-        } else if (isHovered) {
-            button.setGraphic(playSvg());
-        } else {
-            setGraphic(null);
-        }
-    }
-
     private SVGPath playSvg() {
-        SVGPath svgPath = new SVGPath();
-        svgPath.setContent("M0 0 L0 10 L10 5 z");
-        svgPath.setFill(Color.BLACK);
-        return svgPath;
+        SVGPath playIcon = new SVGPath();
+        playIcon.setContent("M0 0 L0 10 L10 5 z");
+        playIcon.setFill(Color.BLACK);
+        playIcon.setId(GraphicIdValues.PLAY.getValue());
+        return playIcon;
+
     }
 
     private SVGPath pauseSvg() {
         SVGPath pauseIcon = new SVGPath();
         pauseIcon.setContent("M0 0h3v10H0zM5 0h3v10H5z");
         pauseIcon.setFill(Color.BLACK);
+        pauseIcon.setId(GraphicIdValues.PAUSE.getValue());
         return pauseIcon;
     }
-
 }
