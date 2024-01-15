@@ -13,13 +13,10 @@ import utility.PlayButtonGraphic;
 public class MovieSelectionHandler implements MovieSelectionListener {
     private final MainModel model;
     private final PlayerCommander playerCommander;
-    @FXML
-    private Button playButton;
 
-    public MovieSelectionHandler(MainModel model, PlayerCommander playerCommander,Button playButton) {
+    public MovieSelectionHandler(MainModel model, PlayerCommander playerCommander) {
         this.model = model;
         this.playerCommander = playerCommander;
-        this.playButton =playButton;
     }
     /**
      * Play the selected movie when it is double-clicked.
@@ -31,23 +28,9 @@ public class MovieSelectionHandler implements MovieSelectionListener {
     public void playSelectedMovie(int id, boolean play)  {
         setMovieToPlay(id,play);
         playerCommander.processOperation(Operations.PLAY_CURRENT);
-        changeButtonGraphic(this.playButton);
     }
-
     private void setMovieToPlay(int id,boolean play) {
-        model.setPlayMovie(play);
+        model.setObservablePlayPropertyValue(play);
        model.setCurrentPlayingMovie(id);
     }
-
-    private void changeButtonGraphic(Button button) {
-        if (isPlayButtonPressed(button)) {
-            model.setPlayButtonValue(PlayButtonGraphic.STOP.getValue());
-        }
-    }
-
-    private boolean isPlayButtonPressed(Button button) {
-        return button.getText().toLowerCase().equals(PlayButtonGraphic.PLAY.getValue());
-    }
-
-
 }

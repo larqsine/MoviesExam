@@ -41,7 +41,7 @@ public class DataHandler implements DataSupplier {
      */
     @Override
     public boolean isPlaying() {
-        return this.model.isPlayMusic();
+        return this.model.getObservablePlayPropertyValue();
     }
 
 
@@ -60,7 +60,6 @@ public class DataHandler implements DataSupplier {
      */
     @Override
     public BooleanProperty isMute() {
-
         return this.model.isMuteProperty();
     }
 }

@@ -21,7 +21,7 @@ public class PlaybackButton extends Button implements PlaybackObserver {
         this.setPrefWidth(width);
         this.setPrefHeight(height);
         this.setGraphic(playSvg());
-        this.setId("playButton");
+//        this.setId("playButton");
         model.addObserver(this);
     }
     @Override

@@ -1,4 +1,5 @@
 package gui.components.movies;
+
 import be.Movie;
 import gui.MainView.MainModel;
 import gui.components.player.PlayerCommander;
@@ -12,49 +13,36 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.SVGPath;
 import utility.GraphicIdValues;
 import utility.Operations;
-import utility.PlayButtonGraphic;
 
+import java.beans.EventHandler;
 
 public class ButtonCell extends TableCell<Movie, String> {
+    private static final String PLAY_ICON_PATH = "M0 0 L0 10 L10 5 z";
     private final Button button;
     private MainModel model;
-    private PlayerCommander playerCommander;
     private ChangeListener<Boolean> hoverListener;
 
     public ButtonCell(int width, int height, MainModel model, PlayerCommander playerCommander, TableView<Movie> movieTable) {
         this.setPrefWidth(width);
         this.setPrefHeight(height);
         this.model = model;
-        this.playerCommander = playerCommander;
         button = new Button();
         button.setGraphic(playSvg());
-        button.setUserData("");
         button.setOnAction(event -> {
             Movie movie = getTableView().getItems().get(getIndex());
             model.setCurrentPlayingMovie(movie.getId());
-            if (model.getPlayButtonState()) {
-                this.playerCommander.processOperation(Operations.PAUSE);
-                model.setPlayButtonValue(PlayButtonGraphic.PLAY.getValue());
-                model.setPlayButtonState(false);
-                model.setPlayButtonFromTableId(button.getId());
-                movieTable.refresh();
-            } else {
-                model.setPlayMovie(true);
-           this.playerCommander.processOperation(Operations.PLAY_CURRENT);
-                model.setPlayButtonValue(PlayButtonGraphic.STOP.getValue());
-                model.setPlayButtonFromTableId(button.getId());
-                model.setPlayButtonState(true);
-                movieTable.refresh();
-            }
+            model.setObservablePlayPropertyValue(true);
+            model.setPlayButtonFromTableId(button.getId());
+            playerCommander.processOperation(Operations.PLAY_CURRENT);
+            movieTable.refresh();
         });
+
         hoverListener = (ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) -> {
             if (newValue) {
-//                change button to pause if the button id equals with the current button;
                 if (button.getId().equals(model.getPlayButtonFromTableId())) {
-                    button.setGraphic(model.getPlayButtonState() ? pauseSvg() : playSvg());
-                } else {
-                    button.setGraphic(playSvg());
+                    button.setDisable(true);
                 }
+
                 setGraphic(button);
             } else {
                 setGraphic(null);
@@ -80,28 +68,10 @@ public class ButtonCell extends TableCell<Movie, String> {
 
     private SVGPath playSvg() {
         SVGPath playIcon = new SVGPath();
-        playIcon.setContent("M0 0 L0 10 L10 5 z");
+        playIcon.setContent(PLAY_ICON_PATH);
         playIcon.setFill(Color.BLACK);
         playIcon.setId(GraphicIdValues.PLAY.getValue());
         return playIcon;
-
     }
-
-    private SVGPath pauseSvg() {
-        SVGPath pauseIcon = new SVGPath();
-        pauseIcon.setContent("M0 0h3v10H0zM5 0h3v10H5z");
-        pauseIcon.setFill(Color.BLACK);
-        pauseIcon.setId(GraphicIdValues.PAUSE.getValue());
-        return pauseIcon;
-    }
-
-    private void playOperation(String operation){
-        switch(operation){
-            case "play":this.playerCommander.processOperation(Operations.PLAY);
-            break;
-            default:this.playerCommander.processOperation(Operations.PLAY_CURRENT);
-        }
-    }
-
 
 }

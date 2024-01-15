@@ -60,6 +60,14 @@ public class MovieLogic implements MovieLogicAPI {
         return movieReader.getMedia(path);
     }
 
+
+
+    /**
+     * used to decide if the movie from the current table button can be played. If is already playing than the button will be disabled.*/
+    public boolean checkIfMoviesAreEqual(int currentMovieId,int nextMovieId){
+        return currentMovieId==nextMovieId;
+    }
+
     //used to insert genres into the database
 //   public void insertGenres(List<String> genres){
 //        this.movieDao.insertGenres(genres);

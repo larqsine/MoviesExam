@@ -53,8 +53,6 @@ public class MainViewController implements Initializable {
     @FXML
     private Label infoEmptyLabel;
     @FXML
-    private Button playButton;
-    @FXML
     private Button customPlayButton;
     @FXML
     private HBox  playbackContainer;
@@ -81,10 +79,6 @@ public class MainViewController implements Initializable {
         try {
             model = MainModel.getInstance();
             //initialize application playback
-            playButton.textProperty().bind(model.playButtonValueProperty());
-
-
-
             PlayOperations playOperations = PlayOperationsHandler.getInstance(model);
             DataSupplier dataHandler = DataHandler.getInstance(model,playOperations);
             MediaViewReloader mediaViewReloader = new MediaViewUpdate(mediaViewPlayer);
@@ -97,7 +91,7 @@ public class MainViewController implements Initializable {
             categoryView = new CategoryView(new CategorySelectionHandler(model), model.getCategories());
             categoryContainer.getChildren().add(categoryView);
             //initialize moviesTable data
-            moviesView.getChildren().add(new MoviesTable(new MovieSelectionHandler(this.model,playerCommander,playButton),model.getMovies(),model,playerCommander));
+            moviesView.getChildren().add(new MoviesTable(/*new MovieSelectionHandler(this.model,playerCommander)*/model.getMovies(),model,playerCommander));
             //initializes the filter view
             uiInitializer.initializeSearchView(isearchGraphic, searchButton, searchValue, infoEmptyLabel);
         } catch (MoviesException me) {
@@ -186,24 +180,24 @@ public class MainViewController implements Initializable {
     public void playPreviousMovie(ActionEvent event) {
     }
 
-    public void playMovie(ActionEvent event) {
-        if(model.getPlayButtonState()){
-            this.playerCommander.processOperation(Operations.PAUSE);
-            model.setPlayButtonValue(PlayButtonGraphic.PLAY.getValue());
-            model.setPlayButtonState(false);
-        }
-        else{
-            this.playerCommander.processOperation(Operations.PLAY);
-            model.setPlayButtonValue(PlayButtonGraphic.STOP.getValue());
-            model.setPlayButtonState(true);
-        }
-//      if(this.playButton.getText().trim().equals(PlayButtonGraphic.STOP.getValue())){
+   public void playMovie(ActionEvent event) {
+//        if(model.getPlayButtonState()){
+//            this.playerCommander.processOperation(Operations.PAUSE);
+//            model.setPlayButtonValue(PlayButtonGraphic.PLAY.getValue());
+//            model.setPlayButtonState(false);
+//        }
+//        else{
+//            this.playerCommander.processOperation(Operations.PLAY);
+//            model.setPlayButtonValue(PlayButtonGraphic.STOP.getValue());
+//            model.setPlayButtonState(true);
+//        }
+////      if(this.playButton.getText().trim().equals(PlayButtonGraphic.STOP.getValue())){
+////
+////      }else{
+////
+////      }
 //
-//      }else{
-//
-//      }
-
-    }
+   }
 
     public void playNextMovie(ActionEvent event) {
     }

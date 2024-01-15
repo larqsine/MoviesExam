@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 public class MainModel {
-    private boolean playMusic = false;
+
     private final CategoryLogicAPI categoryLogic;
     private final MovieLogicAPI movieLogic;
     private static MainModel instance;
@@ -27,6 +27,11 @@ public class MainModel {
     private final ObservableList<Movie> movies;
     private Map<Integer, Movie> movieObjects;
     private Media currentPlayingMedia;
+
+
+
+
+
     private final IntegerProperty currentMovieSelected = new SimpleIntegerProperty();
     private final SimpleStringProperty playButtonValue = new SimpleStringProperty(PlayButtonGraphic.PLAY.getValue());
     private final SimpleStringProperty playButtonFromTableId = new SimpleStringProperty();
@@ -94,13 +99,14 @@ public class MainModel {
         this.movies.setAll(movieObjects.keySet().stream().map(elem -> movieObjects.get(elem)).toList());
     }
 
-
-    public void setPlayMovie(boolean play) {
-        this.playMusic = play;
-    }
-
     public void setCurrentPlayingMovie(int movieId) {
         this.currentMovieSelected.set(movieId);
+    }
+    public int getCurrentMovieSelected() {
+        return currentMovieSelected.get();
+    }
+    public boolean checkIfMovieAreEqual(int movieId){
+        return movieLogic.checkIfMoviesAreEqual(this.currentMovieSelected.get(),movieId);
     }
 
     public Media getNextMovie() {
@@ -122,10 +128,6 @@ public class MainModel {
     public Media getCurrentMovieToBePlayed() throws MoviesException {
         getMediaFromLocal(this.currentMovieSelected.getValue(), this.movieObjects);
         return this.currentPlayingMedia;
-    }
-
-    public boolean isPlayMusic() {
-        return this.playMusic;
     }
 
     public DoubleProperty volumeLevelProperty() {
@@ -188,27 +190,6 @@ public class MainModel {
 
 
     /**
-     * used to control the playButton graphics
-     */
-    public String getPlayButtonValue() {
-        return playButtonValue.get();
-    }
-
-    /**
-     * used to control the playButton graphics
-     */
-    public SimpleStringProperty playButtonValueProperty() {
-        return playButtonValue;
-    }
-
-    /**
-     * used to control the playButton graphics
-     */
-    public void setPlayButtonValue(String playButtonValue) {
-        this.playButtonValue.set(playButtonValue);
-    }
-
-    /**
      * used to control the play button state from the table
      */
     public String getPlayButtonFromTableId() {
@@ -227,21 +208,6 @@ public class MainModel {
      */
     public void setPlayButtonFromTableId(String playButtonFromTableId) {
         this.playButtonFromTableId.set(playButtonFromTableId);
-    }
-
-    /**
-     * control the button state maybe remove them after implementing observable design
-     */
-    public boolean getPlayButtonState() {
-        return playButtonState.get();
-    }
-
-    public SimpleBooleanProperty playButtonStateProperty() {
-        return playButtonState;
-    }
-
-    public void setPlayButtonState(boolean playButtonState) {
-        this.playButtonState.set(playButtonState);
     }
 
 

@@ -4,14 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="button changes according to the events">
-      <change afterPath="$PROJECT_DIR$/src/gui/components/PlaybackButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/components/listeners/PlaybackObserver.java" afterDir="false" />
+    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="implemented custom button that will be an observable and changes his graphics acording to the playback state">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogicAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogicAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/PlaybackButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/PlaybackButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/components/movies/ButtonCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/movies/ButtonCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/movies/ButtonChangeHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/movies/MovieSelectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/movies/MovieSelectionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/movies/MoviesTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/movies/MoviesTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/player/DataHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/DataHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +135,7 @@
       <workItem from="1705057932159" duration="2254000" />
       <workItem from="1705143377383" duration="84000" />
       <workItem from="1705143472887" duration="49297000" />
-      <workItem from="1705270260022" duration="10955000" />
+      <workItem from="1705270260022" duration="20188000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <option name="closed" value="true" />
@@ -517,7 +521,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705277405495</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="implemented custom button that will be an observable and changes his graphics acording to the playback state">
+      <option name="closed" value="true" />
+      <created>1705340745208</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1705340745208</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -535,7 +547,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="movies data displayed into the table" />
     <MESSAGE value="movies data displayed into the table plus categorie per movie" />
     <MESSAGE value="implemented MovieReader, for reading files from local storage" />
     <MESSAGE value="player implemented, problems with the path i need to work more with" />
@@ -560,16 +571,12 @@
     <MESSAGE value="edit category implemented. needs to be refactored" />
     <MESSAGE value="delete methods" />
     <MESSAGE value="button changes according to the events" />
-    <option name="LAST_COMMIT_MESSAGE" value="button changes according to the events" />
+    <MESSAGE value="implemented custom button that will be an observable and changes his graphics acording to the playback state" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented custom button that will be an observable and changes his graphics acording to the playback state" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/bll/movieLogic/MovieLogicAPI.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/bll/movieLogic/MovieCreation.java</url>
           <line>26</line>
