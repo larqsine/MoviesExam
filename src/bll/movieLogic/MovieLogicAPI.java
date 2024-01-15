@@ -11,7 +11,7 @@ public interface MovieLogicAPI {
     Map<Integer, Movie> getMovies(int categoryId) throws MoviesException;
     Media retrieveMedia(int movieId, Map<Integer, Movie> movieObjects) throws MoviesException;
     Media retrieveInitialDefaultMedia() throws MoviesException;
-    boolean checkIfMoviesAreEqual(int currentMovieId,int nextMovieId);
+
 
 
 //used to insert genres into the database

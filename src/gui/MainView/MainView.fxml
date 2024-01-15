@@ -54,16 +54,19 @@
                      <children>
                         <VBox alignment="CENTER" prefHeight="134.0" prefWidth="386.0">
                            <children>
-                              <Slider prefHeight="25.0" prefWidth="386.0" />
+                              <Slider fx:id="timeSlider" prefHeight="25.0" prefWidth="386.0" />
+                              <HBox prefHeight="10.0" prefWidth="50.0">
+                                 <children>
+                                    <Label fx:id="timeElapsed" alignment="CENTER_RIGHT" prefWidth="50.0" text="0.0" />
+                                    <Label text="/" />
+                                    <Label fx:id="totalTime" prefWidth="50.0" />
+                                 </children>
+                              </HBox>
                               <HBox fx:id="playbackContainer" alignment="CENTER" prefHeight="75.0" prefWidth="410.0">
                                  <children>
                                     <Button mnemonicParsing="false" onAction="#playPreviousMovie" prefHeight="58.0" prefWidth="92.0" text="&lt;&lt;">
                                        <font>
                                           <Font size="24.0" />
-                                       </font></Button>
-                                    <Button fx:id="playButton" mnemonicParsing="false" onAction="#playMovie" prefHeight="58.0" prefWidth="92.0">
-                                       <font>
-                                          <Font name="Algerian" size="24.0" />
                                        </font></Button>
                                     <Button mnemonicParsing="false" onAction="#playNextMovie" prefHeight="58.0" prefWidth="92.0" text="&gt;&gt;">
                                        <font>

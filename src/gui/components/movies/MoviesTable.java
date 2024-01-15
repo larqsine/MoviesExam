@@ -1,15 +1,11 @@
 package gui.components.movies;
-
 import be.Genre;
 import be.Movie;
 import gui.MainView.MainModel;
-import gui.components.listeners.MovieSelectionListener;
 import gui.components.player.PlayerCommander;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
-
 import java.util.Date;
 import java.util.List;
 

@@ -7,7 +7,6 @@ import gui.components.category.CategorySelectionHandler;
 import gui.components.category.CategoryView;
 import gui.components.listeners.DataSupplier;
 import gui.components.listeners.MediaViewReloader;
-import gui.components.movies.MovieSelectionHandler;
 import gui.components.movies.MoviesTable;
 import gui.components.newEditDeleteCategory.CategoryReloadable;
 import gui.components.newEditDeleteCategory.CategoryReloadableHandler;
@@ -27,6 +26,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -66,6 +66,12 @@ public class MainViewController implements Initializable {
     private Pane moviesView;
     private PlayerControl playerControl;
     private PlayerCommander playerCommander;
+    @FXML
+    private Label timeElapsed;
+    @FXML
+    private Label totalTime;
+    @FXML
+    private Slider timeSlider;
 
     @FXML
     private void applyFilter(ActionEvent event) {
@@ -79,14 +85,16 @@ public class MainViewController implements Initializable {
         try {
             model = MainModel.getInstance();
             //initialize application playback
+
             PlayOperations playOperations = PlayOperationsHandler.getInstance(model);
             DataSupplier dataHandler = DataHandler.getInstance(model,playOperations);
             MediaViewReloader mediaViewReloader = new MediaViewUpdate(mediaViewPlayer);
             playerControl = Player.useMediaPlayer(dataHandler,mediaViewReloader);
             playerCommander= new PlayerCommander(dataHandler,playerControl);
             mediaViewPlayer.setMediaPlayer(playerControl.getMediaPlayer());
-            customPlayButton= new PlaybackButton(30,30,playerCommander,model);
-            playbackContainer.getChildren().add(customPlayButton);
+            customPlayButton= new PlaybackButton(92,52,playerCommander,model);
+            playbackContainer.getChildren().add(1,customPlayButton);
+
             //initialize the category list view
             categoryView = new CategoryView(new CategorySelectionHandler(model), model.getCategories());
             categoryContainer.getChildren().add(categoryView);
@@ -94,6 +102,12 @@ public class MainViewController implements Initializable {
             moviesView.getChildren().add(new MoviesTable(/*new MovieSelectionHandler(this.model,playerCommander)*/model.getMovies(),model,playerCommander));
             //initializes the filter view
             uiInitializer.initializeSearchView(isearchGraphic, searchButton, searchValue, infoEmptyLabel);
+            //bind elapsed time to the duration
+            uiInitializer.initializeDurationLabels(timeElapsed,totalTime,playerCommander);
+            // bind duration to model
+            uiInitializer.bindDurationToModel(model,playerCommander);
+            //initialize the time slider
+            uiInitializer.initializeTimeSlider(timeSlider,model);
         } catch (MoviesException me) {
             this.error=true;
             this.exceptionMessage=me.getMessage();
@@ -180,25 +194,6 @@ public class MainViewController implements Initializable {
     public void playPreviousMovie(ActionEvent event) {
     }
 
-   public void playMovie(ActionEvent event) {
-//        if(model.getPlayButtonState()){
-//            this.playerCommander.processOperation(Operations.PAUSE);
-//            model.setPlayButtonValue(PlayButtonGraphic.PLAY.getValue());
-//            model.setPlayButtonState(false);
-//        }
-//        else{
-//            this.playerCommander.processOperation(Operations.PLAY);
-//            model.setPlayButtonValue(PlayButtonGraphic.STOP.getValue());
-//            model.setPlayButtonState(true);
-//        }
-////      if(this.playButton.getText().trim().equals(PlayButtonGraphic.STOP.getValue())){
-////
-////      }else{
-////
-////      }
-//
-   }
-
     public void playNextMovie(ActionEvent event) {
     }
 
@@ -222,6 +217,5 @@ public class MainViewController implements Initializable {
         } catch (IOException e) {
             ExceptionHandler.displayErrorAlert(InformationalMessages.FXML_MISSING, "Application error");
         }
-
     }
 }

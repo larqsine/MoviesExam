@@ -6,9 +6,7 @@ import gui.components.listeners.DataSupplier;
 import gui.components.listeners.MediaViewReloader;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.StringBinding;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 import javafx.scene.control.Label;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -24,18 +22,21 @@ public class Player implements PlayerControl {
     private DataSupplier dataSupplier;
     private MediaViewReloader mediaViewReloader;
     private final StringProperty time = new SimpleStringProperty();
+    private final StringProperty totalTime = new SimpleStringProperty();
+    private final DoubleProperty currentDuration = new SimpleDoubleProperty();
+    private final DoubleProperty totalDuration = new SimpleDoubleProperty();
 
     private BooleanProperty isMute;
 
 
-    private Player(DataSupplier dataSupplier,MediaViewReloader mediaViewReloader) throws MoviesException {
+    private Player(DataSupplier dataSupplier, MediaViewReloader mediaViewReloader) throws MoviesException {
         this.dataSupplier = dataSupplier;
         this.mediaViewReloader = mediaViewReloader;
         checkMediaValid(dataSupplier.getMedia(Operations.GET_DEFAULT));
         playTrack(dataSupplier.isPlaying());
     }
 
-    public static Player useMediaPlayer(DataSupplier dataSupplier,MediaViewReloader mediaViewReloader) throws MoviesException {
+    public static Player useMediaPlayer(DataSupplier dataSupplier, MediaViewReloader mediaViewReloader) throws MoviesException {
         if (instance == null) {
             instance = new Player(dataSupplier, mediaViewReloader);
         }
@@ -45,6 +46,7 @@ public class Player implements PlayerControl {
     public MediaPlayer getMediaPlayer() {
         return mediaPlayer;
     }
+
 
     /**
      * controls the play functionality if the app just started , music will not play
@@ -62,12 +64,16 @@ public class Player implements PlayerControl {
                 .then(0.0)
                 .otherwise(dataSupplier.getVolumeObservable()));
         bindDurationToLabel(time);
+        bindTotalDurationToLabel(totalTime);
+        bindCurrentDuration(currentDuration);
+        bindTotalDuration(totalDuration);
 //        mediaPlayer.setOnEndOfMedia(this::playContinuous);
         if (play) {
             mediaPlayer.play();
         }
         return mediaPlayer;
     }
+
 
     private void playNextTrack(boolean play) {
         this.mediaPlayer = playTrack(play);
@@ -81,6 +87,35 @@ public class Player implements PlayerControl {
     private void bindDurationToLabel(StringProperty stringToBind) {
         StringBinding currentTimeStringBinding = Bindings.createStringBinding(() -> formatDuration(mediaPlayer.getCurrentTime()), mediaPlayer.currentTimeProperty());
         stringToBind.bind(currentTimeStringBinding);
+    }
+
+    private void bindTotalDurationToLabel(StringProperty stringToBind) {
+        mediaPlayer.statusProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue == MediaPlayer.Status.READY) {
+                Duration totalDuration = mediaPlayer.getTotalDuration();
+                stringToBind.bind(Bindings.createStringBinding(
+                        () -> formatDuration(totalDuration)
+                ));
+            }
+        });
+    }
+
+    private void bindCurrentDuration(DoubleProperty doubleProperty) {
+        doubleProperty.bind(Bindings.createDoubleBinding(
+                () -> mediaPlayer.getCurrentTime().toSeconds(),
+                mediaPlayer.currentTimeProperty()
+        ));
+    }
+
+    private void bindTotalDuration(DoubleProperty doubleProperty) {
+        getMediaPlayer().statusProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue == MediaPlayer.Status.READY) {
+                doubleProperty.bind(Bindings.createDoubleBinding(
+                        () -> mediaPlayer.getTotalDuration().toSeconds(),
+                        mediaPlayer.totalDurationProperty()
+                ));
+            }
+        });
     }
 
     private String formatDuration(Duration duration) {
@@ -97,7 +132,6 @@ public class Player implements PlayerControl {
             this.movie = media;
         }
     }
-
 
     public void setMovie(Media media) throws MoviesException {
         checkMediaValid(media);
@@ -123,7 +157,7 @@ public class Player implements PlayerControl {
         try {
             setMovie(media);
         } catch (MoviesException e) {
-            ExceptionHandler.displayErrorAlert(e.getMessage(),null);
+            ExceptionHandler.displayErrorAlert(e.getMessage(), null);
             return;
         }
         playNextTrack(play);
@@ -134,7 +168,7 @@ public class Player implements PlayerControl {
         try {
             setMovie(media);
         } catch (MoviesException e) {
-            ExceptionHandler.displayErrorAlert(e.getMessage(),null);
+            ExceptionHandler.displayErrorAlert(e.getMessage(), null);
             return;
         }
         playNextTrack(play);
@@ -150,7 +184,7 @@ public class Player implements PlayerControl {
         try {
             checkMediaValid(media);
         } catch (MoviesException e) {
-            ExceptionHandler.displayErrorAlert(e.getMessage(),null);
+            ExceptionHandler.displayErrorAlert(e.getMessage(), null);
             return;
         }
         playTrack(play);
@@ -160,4 +194,21 @@ public class Player implements PlayerControl {
     public void bindMediaTimeToScreen(Label label) {
         label.textProperty().bind(time);
     }
+
+    @Override
+    public void bindTotalMediaToScreen(Label label) {
+        label.textProperty().bind(totalTime);
+    }
+
+    @Override
+    public void bindDurationToModel(DoubleProperty duration) {
+        duration.bind(currentDuration);
+    }
+
+    @Override
+    public void bindTotalDurationToModel(DoubleProperty totalDuration) {
+        totalDuration.bind(this.totalDuration);
+    }
+
+
 }

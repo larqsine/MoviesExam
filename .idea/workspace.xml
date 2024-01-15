@@ -9,13 +9,16 @@
       <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogicAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogicAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/PlaybackButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/PlaybackButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/movies/ButtonCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/movies/ButtonCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/movies/ButtonChangeHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/listeners/DataSupplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/listeners/DataSupplier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/listeners/MovieSelectionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/listeners/MovieSelectionListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/components/movies/MovieSelectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/movies/MovieSelectionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/components/movies/MoviesTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/movies/MoviesTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/player/DataHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/DataHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/player/PlayerCommander.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/PlayerCommander.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/player/PlayerControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/PlayerControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utility/UIInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/UIInitializer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,15 +138,7 @@
       <workItem from="1705057932159" duration="2254000" />
       <workItem from="1705143377383" duration="84000" />
       <workItem from="1705143472887" duration="49297000" />
-      <workItem from="1705270260022" duration="20188000" />
-    </task>
-    <task id="LOCAL-00001" summary="start project">
-      <option name="closed" value="true" />
-      <created>1704364745587</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1704364745587</updated>
+      <workItem from="1705270260022" duration="27155000" />
     </task>
     <task id="LOCAL-00002" summary="jdbc connection">
       <option name="closed" value="true" />
@@ -529,7 +524,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705340745208</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="implemented custom button that will be an observable and changes his graphics acording to the playback state">
+      <option name="closed" value="true" />
+      <created>1705351164097</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1705351164100</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

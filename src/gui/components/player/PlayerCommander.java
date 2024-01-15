@@ -2,6 +2,7 @@ package gui.components.player;
 
 import exceptions.MoviesException;
 import gui.components.listeners.DataSupplier;
+import javafx.beans.property.DoubleProperty;
 import javafx.scene.control.Label;
 import javafx.util.Duration;
 import utility.Operations;
@@ -11,7 +12,7 @@ public class PlayerCommander {
     private final PlayerControl playerControl;
     private final DataSupplier dataSupplier;
 
-    public PlayerCommander(DataSupplier dataSupplier , PlayerControl playerControl) throws MoviesException {
+    public PlayerCommander(DataSupplier dataSupplier, PlayerControl playerControl) throws MoviesException {
         this.dataSupplier = dataSupplier;
         this.playerControl = playerControl;
     }
@@ -28,7 +29,7 @@ public class PlayerCommander {
                 playerControl.pause();
                 break;
             case PLAY_CURRENT:
-                playerControl.playCurrent(dataSupplier.getMedia(Operations.GET_CURRENT_SONG),dataSupplier.isPlaying());
+                playerControl.playCurrent(dataSupplier.getMedia(Operations.GET_CURRENT_SONG), dataSupplier.isPlaying());
                 break;
             default:
                 playerControl.play();
@@ -39,8 +40,20 @@ public class PlayerCommander {
         return playerControl.getCurrentTime();
     }
 
-    public void bindMediaTimeToScreen(Label label){
+    public void bindMediaTimeToScreen(Label label) {
         playerControl.bindMediaTimeToScreen(label);
+    }
+
+    public void bindTotalTimeToScreen(Label label) {
+        playerControl.bindTotalMediaToScreen(label);
+    }
+
+    public void bindDurationToModel(DoubleProperty duration) {
+        playerControl.bindDurationToModel(duration);
+    }
+
+    public void bindTotalDurationToModel(DoubleProperty totalDuration) {
+        playerControl.bindTotalDurationToModel(totalDuration);
     }
 
 }

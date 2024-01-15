@@ -12,8 +12,6 @@ import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.media.Media;
-import utility.PlayButtonGraphic;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -27,31 +25,33 @@ public class MainModel {
     private final ObservableList<Movie> movies;
     private Map<Integer, Movie> movieObjects;
     private Media currentPlayingMedia;
-
-
-
-
-
     private final IntegerProperty currentMovieSelected = new SimpleIntegerProperty();
-    private final SimpleStringProperty playButtonValue = new SimpleStringProperty(PlayButtonGraphic.PLAY.getValue());
     private final SimpleStringProperty playButtonFromTableId = new SimpleStringProperty();
-    private final List<PlaybackObserver> playbackObservers;
-
-
-    //    used to attach change listeners to the play operation
-    private SimpleBooleanProperty observablePlayProperty = new SimpleBooleanProperty(false);
 
     /**
-     * controls the state off the  play button
+     * holds the duration off the movie being played
      */
-    private final SimpleBooleanProperty playButtonState = new SimpleBooleanProperty(false);
+    private final DoubleProperty currentTime = new SimpleDoubleProperty(0.0);
 
+
+
+    /**
+     * holds the total duration off the movie*/
+    private final DoubleProperty totalTime = new SimpleDoubleProperty();
+    private final List<PlaybackObserver> playbackObservers;
+
+    /**
+     * used to attach change listeners to the play operation
+     */
+    private final SimpleBooleanProperty observablePlayProperty = new SimpleBooleanProperty(false);
 
     private SimpleIntegerProperty currentOpenedCategory = new SimpleIntegerProperty();
+
     /**
      * holds the current volume off the appliation
      */
     private DoubleProperty volumeLevel = new SimpleDoubleProperty(100);
+
     /**
      * controls if the application  volume is mute
      */
@@ -101,12 +101,6 @@ public class MainModel {
 
     public void setCurrentPlayingMovie(int movieId) {
         this.currentMovieSelected.set(movieId);
-    }
-    public int getCurrentMovieSelected() {
-        return currentMovieSelected.get();
-    }
-    public boolean checkIfMovieAreEqual(int movieId){
-        return movieLogic.checkIfMoviesAreEqual(this.currentMovieSelected.get(),movieId);
     }
 
     public Media getNextMovie() {
@@ -186,6 +180,8 @@ public class MainModel {
     }
 
 
+
+
 //    maybe remove them , i need to try a different approach
 
 
@@ -237,6 +233,43 @@ public class MainModel {
         this.observablePlayProperty.set(observablePlayProperty);
     }
 
+
+    /**
+     * duration propriety off the movie being played
+     */
+    public double getCurrentTime() {
+        return currentTime.get();
+    }
+
+    /**
+     * duration propriety off the movie being played
+     */
+
+    public DoubleProperty currentTimeProperty() {
+        return currentTime;
+    }
+
+    /**
+     * duration propriety off the movie being played
+     */
+    public void setCurrentTime(double currentTime) {
+        this.currentTime.set(currentTime);
+    }
+
+
+
+    /**total time duration off the movie*/
+    public double getTotalTime() {
+        return totalTime.get();
+    }
+    /**total time duration off the movie*/
+    public DoubleProperty totalTimeProperty() {
+        return totalTime;
+    }
+    /**total time duration off the movie*/
+    public void setTotalTime(double totalTime) {
+        this.totalTime.set(totalTime);
+    }
 }
 
 
