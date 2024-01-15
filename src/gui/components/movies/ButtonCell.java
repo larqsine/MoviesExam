@@ -21,7 +21,6 @@ public class ButtonCell extends TableCell<Movie, String> {
     private PlayerCommander playerCommander;
     private ChangeListener<Boolean> hoverListener;
 
-
     public ButtonCell(int width, int height, MainModel model, PlayerCommander playerCommander, TableView<Movie> movieTable) {
         this.setPrefWidth(width);
         this.setPrefHeight(height);
@@ -45,7 +44,6 @@ public class ButtonCell extends TableCell<Movie, String> {
                 model.setPlayButtonValue(PlayButtonGraphic.STOP.getValue());
                 model.setPlayButtonFromTableId(button.getId());
                 model.setPlayButtonState(true);
-                button.setUserData(Boolean.FALSE);
                 movieTable.refresh();
             }
         });
