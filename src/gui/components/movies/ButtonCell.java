@@ -21,6 +21,7 @@ public class ButtonCell extends TableCell<Movie, String> {
     private PlayerCommander playerCommander;
     private ChangeListener<Boolean> hoverListener;
 
+
     public ButtonCell(int width, int height, MainModel model, PlayerCommander playerCommander, TableView<Movie> movieTable) {
         this.setPrefWidth(width);
         this.setPrefHeight(height);
@@ -28,10 +29,10 @@ public class ButtonCell extends TableCell<Movie, String> {
         this.playerCommander = playerCommander;
         button = new Button();
         button.setGraphic(playSvg());
+        button.setUserData("");
         button.setOnAction(event -> {
             Movie movie = getTableView().getItems().get(getIndex());
             model.setCurrentPlayingMovie(movie.getId());
-
             if (model.getPlayButtonState()) {
                 this.playerCommander.processOperation(Operations.PAUSE);
                 model.setPlayButtonValue(PlayButtonGraphic.PLAY.getValue());
@@ -40,11 +41,11 @@ public class ButtonCell extends TableCell<Movie, String> {
                 movieTable.refresh();
             } else {
                 model.setPlayMovie(true);
-               // this.playerCommander.processOperation(Operations.PLAY_CURRENT);
-                this.playerCommander.processOperation(Operations.PLAY);
+                playOperation(button.getUserData().toString());
                 model.setPlayButtonValue(PlayButtonGraphic.STOP.getValue());
                 model.setPlayButtonFromTableId(button.getId());
                 model.setPlayButtonState(true);
+                button.setUserData(Boolean.FALSE);
                 movieTable.refresh();
             }
         });
@@ -95,4 +96,14 @@ public class ButtonCell extends TableCell<Movie, String> {
         pauseIcon.setId(GraphicIdValues.PAUSE.getValue());
         return pauseIcon;
     }
+
+    private void playOperation(String operation){
+        switch(operation){
+            case "play":this.playerCommander.processOperation(Operations.PLAY);
+            break;
+            default:this.playerCommander.processOperation(Operations.PLAY_CURRENT);
+        }
+    }
+
+
 }
