@@ -2,6 +2,7 @@ package gui.MainView;
 
 import be.Category;
 import exceptions.MoviesException;
+import gui.components.PlaybackButton;
 import gui.components.category.CategorySelectionHandler;
 import gui.components.category.CategoryView;
 import gui.components.listeners.DataSupplier;
@@ -27,6 +28,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
@@ -53,6 +55,10 @@ public class MainViewController implements Initializable {
     @FXML
     private Button playButton;
     @FXML
+    private Button customPlayButton;
+    @FXML
+    private HBox  playbackContainer;
+    @FXML
     private MediaView mediaViewPlayer;
     private ISearchGraphic isearchGraphic;
     @FXML
@@ -76,12 +82,17 @@ public class MainViewController implements Initializable {
             model = MainModel.getInstance();
             //initialize application playback
             playButton.textProperty().bind(model.playButtonValueProperty());
+
+
+
             PlayOperations playOperations = PlayOperationsHandler.getInstance(model);
             DataSupplier dataHandler = DataHandler.getInstance(model,playOperations);
             MediaViewReloader mediaViewReloader = new MediaViewUpdate(mediaViewPlayer);
             playerControl = Player.useMediaPlayer(dataHandler,mediaViewReloader);
             playerCommander= new PlayerCommander(dataHandler,playerControl);
             mediaViewPlayer.setMediaPlayer(playerControl.getMediaPlayer());
+            customPlayButton= new PlaybackButton(30,30,playerCommander,model);
+            playbackContainer.getChildren().add(customPlayButton);
             //initialize the category list view
             categoryView = new CategoryView(new CategorySelectionHandler(model), model.getCategories());
             categoryContainer.getChildren().add(categoryView);

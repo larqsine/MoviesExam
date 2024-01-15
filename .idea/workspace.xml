@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="button changes according to the events">
+      <change afterPath="$PROJECT_DIR$/src/gui/components/PlaybackButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/components/listeners/PlaybackObserver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/components/movies/ButtonCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/movies/ButtonCell.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -16,9 +21,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -126,7 +131,7 @@
       <workItem from="1705057932159" duration="2254000" />
       <workItem from="1705143377383" duration="84000" />
       <workItem from="1705143472887" duration="49297000" />
-      <workItem from="1705270260022" duration="6633000" />
+      <workItem from="1705270260022" duration="10955000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <option name="closed" value="true" />
@@ -496,7 +501,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705275558692</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="button changes according to the events">
+      <option name="closed" value="true" />
+      <created>1705277372575</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1705277372575</updated>
+    </task>
+    <task id="LOCAL-00048" summary="button changes according to the events">
+      <option name="closed" value="true" />
+      <created>1705277405495</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1705277405495</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -40,7 +40,7 @@ public class ButtonCell extends TableCell<Movie, String> {
                 movieTable.refresh();
             } else {
                 model.setPlayMovie(true);
-                playOperation(button.getUserData().toString());
+           this.playerCommander.processOperation(Operations.PLAY_CURRENT);
                 model.setPlayButtonValue(PlayButtonGraphic.STOP.getValue());
                 model.setPlayButtonFromTableId(button.getId());
                 model.setPlayButtonState(true);

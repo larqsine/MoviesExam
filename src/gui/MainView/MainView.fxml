@@ -55,7 +55,7 @@
                         <VBox alignment="CENTER" prefHeight="134.0" prefWidth="386.0">
                            <children>
                               <Slider prefHeight="25.0" prefWidth="386.0" />
-                              <HBox alignment="CENTER" prefHeight="75.0" prefWidth="410.0">
+                              <HBox fx:id="playbackContainer" alignment="CENTER" prefHeight="75.0" prefWidth="410.0">
                                  <children>
                                     <Button mnemonicParsing="false" onAction="#playPreviousMovie" prefHeight="58.0" prefWidth="92.0" text="&lt;&lt;">
                                        <font>
