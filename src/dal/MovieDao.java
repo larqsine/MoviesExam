@@ -205,14 +205,11 @@ public class MovieDao implements IMovieDao {
             try (PreparedStatement psmtDelete = connection.prepareStatement(sqlDeleteMovie)) {
                 psmtDelete.setInt(1, movie.getId());
                 int rows =psmtDelete.executeUpdate();
-                System.out.println(rows);
-
                 FileHandler fileHandler = FileHandler.getInstance();
-                if (!fileHandler.deleteSongLocal(movie.getFileLink())) {
-                    System.out.println("IAm here");
-                    connection.rollback();
-                    return false;
-                }
+//                if (!fileHandler.deleteSongLocal(movie.getFileLink())) {
+//                    connection.rollback();
+//                    return false;
+//                }
                 connection.commit();
                 return true;
             } catch (SQLException e) {

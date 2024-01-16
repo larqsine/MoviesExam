@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="ConfirmationWindow modified">
-      <change afterPath="$PROJECT_DIR$/src/dal/FileHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieCreation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieCreation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dal/IMovieDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/IMovieDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dal/MovieDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/MovieDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/confirmationWindow/ConfirmationWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/confirmationWindow/ConfirmationWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/deleteMovieView/DeleteModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/deleteMovieView/DeleteModel.java" afterDir="false" />
-    </list>
+    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="Movie deletion implemented fully functional" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -132,15 +124,7 @@
       <workItem from="1705143377383" duration="84000" />
       <workItem from="1705143472887" duration="49297000" />
       <workItem from="1705270260022" duration="27155000" />
-      <workItem from="1705406171896" duration="7318000" />
-    </task>
-    <task id="LOCAL-00003" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <option name="closed" value="true" />
-      <created>1704374695886</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1704374695886</updated>
+      <workItem from="1705406171896" duration="7636000" />
     </task>
     <task id="LOCAL-00004" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <option name="closed" value="true" />
@@ -526,7 +510,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705410973853</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Movie deletion implemented fully functional">
+      <option name="closed" value="true" />
+      <created>1705414605783</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1705414605783</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -544,7 +536,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="implemented MovieReader, for reading files from local storage" />
     <MESSAGE value="player implemented, problems with the path i need to work more with" />
     <MESSAGE value="player implemented, eroors solved," />
     <MESSAGE value="video playing on doubleclick implemented" />
@@ -569,7 +560,8 @@
     <MESSAGE value="button changes according to the events" />
     <MESSAGE value="implemented custom button that will be an observable and changes his graphics acording to the playback state" />
     <MESSAGE value="ConfirmationWindow modified" />
-    <option name="LAST_COMMIT_MESSAGE" value="ConfirmationWindow modified" />
+    <MESSAGE value="Movie deletion implemented fully functional" />
+    <option name="LAST_COMMIT_MESSAGE" value="Movie deletion implemented fully functional" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
