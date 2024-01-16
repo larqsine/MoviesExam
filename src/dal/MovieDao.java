@@ -221,6 +221,11 @@ public class MovieDao implements IMovieDao {
         }
     }
 
+    @Override
+    public boolean updateMovie(Movie movie) throws MoviesException {
+        return false;
+    }
+
 
 //used to insert genres into the database
 //    public void insertGenres(List<String> genres){

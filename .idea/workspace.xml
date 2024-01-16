@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="Movie deletion implemented fully functional">
-      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/listeners/MediaViewReloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/listeners/MediaViewReloader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/player/MediaViewUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/MediaViewUpdate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogicAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogicAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dal/IMovieDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/IMovieDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/MovieModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/MovieModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,33 +51,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/computer_science/sco/MediPlayer/MoviesExam/src/gui/components/confirmationWindow",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "D:/computer_science/sco/MediPlayer/MoviesExam/src/Main.java",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15722656",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "build.tools",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/computer_science/sco/MediPlayer/MoviesExam/src/gui/components/confirmationWindow&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;D:/computer_science/sco/MediPlayer/MoviesExam/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15722656&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;build.tools&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src\gui\components\confirmationWindow" />
@@ -129,7 +130,23 @@
       <workItem from="1705143377383" duration="84000" />
       <workItem from="1705143472887" duration="49297000" />
       <workItem from="1705270260022" duration="27155000" />
-      <workItem from="1705406171896" duration="12071000" />
+      <workItem from="1705406171896" duration="8846000" />
+    </task>
+    <task id="LOCAL-00005" summary="categories displayed in view">
+      <option name="closed" value="true" />
+      <created>1704397562509</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1704397562509</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added Categoryes view">
+      <option name="closed" value="true" />
+      <created>1704400013952</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1704400013952</updated>
     </task>
     <task id="LOCAL-00007" summary="changed list view with a custom implementation">
       <option name="closed" value="true" />
@@ -507,23 +524,7 @@
       <option name="project" value="LOCAL" />
       <updated>1705414957790</updated>
     </task>
-    <task id="LOCAL-00054" summary="Movie deletion implemented fully functional">
-      <option name="closed" value="true" />
-      <created>1705415955069</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1705415955069</updated>
-    </task>
-    <task id="LOCAL-00055" summary="Movie deletion implemented fully functional">
-      <option name="closed" value="true" />
-      <created>1705417671403</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1705417671403</updated>
-    </task>
-    <option name="localTasksCounter" value="56" />
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -571,11 +572,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/bll/movieLogic/MovieCreation.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/deleteMovieView/DeleteMovieController.java</url>
           <line>49</line>

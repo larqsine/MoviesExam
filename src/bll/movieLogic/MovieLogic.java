@@ -7,10 +7,8 @@ import dal.MovieDao;
 import dal.MovieReader;
 import exceptions.MoviesException;
 import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class MovieLogic implements MovieLogicAPI {
     private final IMovieDao movieDao;
@@ -42,6 +40,16 @@ public class MovieLogic implements MovieLogicAPI {
     @Override
     public boolean checkIfMovieIsPlaying(int selectedMovie, int currentMovieId) {
         return selectedMovie==currentMovieId;
+    }
+
+    @Override
+    public boolean updateMovie(String newTitle) throws Exception {
+        return false;
+    }
+
+    @Override
+    public boolean updateMovie() {
+        return false;
     }
 
     public Map<Integer, Movie> applyFilter(String filter, Map<Integer, Movie> toFilter) {
