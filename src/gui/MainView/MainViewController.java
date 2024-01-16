@@ -71,6 +71,8 @@ public class MainViewController implements Initializable {
     private Label totalTime;
     @FXML
     private Slider timeSlider;
+    @FXML
+    private Slider volumeSlider;
     private CategoryReloadable categoryReloadable;
 
 
@@ -109,6 +111,8 @@ public class MainViewController implements Initializable {
             uiInitializer.bindDurationToModel(model,playerCommander);
             //initialize the time slider
             uiInitializer.initializeTimeSlider(timeSlider,model);
+            //initialize volumeSlider
+            uiInitializer.initializeVolumeSlider(volumeSlider,model);
         } catch (MoviesException me) {
             this.error=true;
             this.exceptionMessage=me.getMessage();

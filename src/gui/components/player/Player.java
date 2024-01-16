@@ -61,11 +61,7 @@ public class Player implements PlayerControl {
         Media media = this.movie;
         mediaPlayer = new MediaPlayer(media);
         updateMediaView();
-        mediaPlayer.volumeProperty().bind(Bindings.when(dataSupplier.isMute())
-                .then(0.0)
-                .otherwise(dataSupplier.getVolumeObservable()));
-
-
+        mediaPlayer.volumeProperty().bind(dataSupplier.getVolumeObservable());
         bindDurationToLabel(time);
         bindTotalDurationToLabel(totalTime);
         bindCurrentDuration(currentDuration);

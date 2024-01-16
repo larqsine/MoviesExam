@@ -5,11 +5,12 @@ import gui.MainView.MainModel;
 import gui.components.player.PlayerCommander;
 import gui.searchButton.ISearchGraphic;
 import gui.searchButton.SearchGraphic;
-import javafx.beans.property.DoubleProperty;
+import javafx.beans.binding.Bindings;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import javafx.scene.media.MediaPlayer;
 
 
 public class UIInitializer {
@@ -23,15 +24,12 @@ public class UIInitializer {
         });
     }
 
-    public void initializeDurationLabels(Label elapsedTime, Label totalTime, PlayerCommander pc){
+    public void initializeDurationLabels(Label elapsedTime, Label totalTime, PlayerCommander pc) {
         pc.bindMediaTimeToScreen(elapsedTime);
         pc.bindTotalTimeToScreen(totalTime);
     }
 
-//    public void initializeDurationSlider(Slider slider, DoubleProperty duration){
-//        slider.valueProperty().bind();
-//    }
-    public void bindDurationToModel(MainModel model,PlayerCommander pc){
+    public void bindDurationToModel(MainModel model, PlayerCommander pc) {
         pc.bindDurationToModel(model.currentTimeProperty());
         pc.bindTotalDurationToModel(model.totalTimeProperty());
     }
@@ -40,5 +38,15 @@ public class UIInitializer {
         timeSlider.setMin(0);
         timeSlider.maxProperty().bind(model.totalTimeProperty());
         timeSlider.valueProperty().bind(model.currentTimeProperty());
+    }
+
+
+    public void initializeVolumeSlider(Slider volumeSlider, MainModel mainModel) {
+        volumeSlider.setMin(0);
+        volumeSlider.setMax(100);
+        volumeSlider.setValue(100);
+        volumeSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            mainModel.volumeLevelProperty().set((Double) newValue / 100);
+        });
     }
 }
