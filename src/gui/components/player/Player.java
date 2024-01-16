@@ -76,7 +76,7 @@ public class Player implements PlayerControl {
         mediaPlayer.statusProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue == MediaPlayer.Status.READY) {
 
-                mediaViewReloader.getMediaViewPlayable();
+//                mediaViewReloader.getMediaViewPlayable();
                 mediaViewReloader.getUpdatedMedia(mediaPlayer);
             }
         });
