@@ -177,6 +177,9 @@ public class MainViewController implements Initializable {
         DeleteCategoryController deleteCategoryController = createDeleteCategoryController(categoryToDelete);
         if (deleteCategoryController.getConfirmationWindow() != null){
             Stage confirmationStage = createConfirmationStage(deleteCategoryController, actionEvent);
+            confirmationStage.show();
+        } else {
+            ExceptionHandler.displayErrorAlert(InformationalMessages.OPERATION_FAILED, null);
         }
     }
 

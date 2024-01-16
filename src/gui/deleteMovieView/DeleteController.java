@@ -43,11 +43,6 @@ public class DeleteController implements ConfirmationController, Initializable {
 
     }
 
-//    @Override
-//    public void confirmationEventHandeler(boolean confirmation) {
-//
-//    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
