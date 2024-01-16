@@ -10,18 +10,15 @@ import java.util.Date;
 import java.util.List;
 
 public class MoviesTable extends TableView<Movie> {
-//    private MovieSelectionListener movieSelectionListener;
     private MainModel model;
     private PlayerCommander playerCommander;
     private final int defaultHeight = 513;
 
-    public MoviesTable(/*MovieSelectionListener listener*/ObservableList<Movie> movies, MainModel model,PlayerCommander playerCommander) {
+    public MoviesTable(ObservableList<Movie> movies, MainModel model,PlayerCommander playerCommander) {
         this.setItems(movies);
-//        this.movieSelectionListener = listener;
         this.model=model;
         this.playerCommander=playerCommander;
         setupColumns();
-//        setRowFactory();
         this.setHeight(defaultHeight);
     }
 
@@ -61,27 +58,9 @@ public class MoviesTable extends TableView<Movie> {
         this.getColumns().addAll(buttonColumn,titleColumn, imdbRating, lastView, personalRating, categories);
         this.setPlaceholder(new Label("No movies to display"));
     }
-
-//    private void setRowFactory() {
-//        this.setRowFactory(tv -> {
-//            TableRow<Movie> row = new TableRow<>();
-//            row.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-//                if (!row.isEmpty() && event.getClickCount() == 2) {
-//                    movieSelectionListener.playSelectedMovie(row.getItem().getId(), true);
-//                }
-//            });
-//            return row;
-//        });
-//    }
-
     public void setMovies(ObservableList<Movie> movies) {
         this.setItems(movies);
     }
-
-//    public void setMovieSelectionListener(MovieSelectionListener movieSelectionListener) {
-//        this.movieSelectionListener = movieSelectionListener;
-//    }
-
 
 }
 

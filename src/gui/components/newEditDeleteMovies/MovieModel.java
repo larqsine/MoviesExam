@@ -52,11 +52,6 @@ public class MovieModel {
         this.genresObjects=genreLogic.getGenres();
     }
 
-
-    public boolean deleteMovie(Movie movieToDelete) {
-        return false;
-    }
-
     public void cancelUpdateMovie() {
     }
 
@@ -91,6 +86,15 @@ public class MovieModel {
      List<Genre> genreObjects  = genreLogic.convertStringsToGenre(this.genresObjects,genres);
      Movie movie =  new Movie(title,null,path,null,null,genreObjects);
      return movieCreation.saveMovie(movie,categoryId);
+    }
+    /**
+     * Delete a movie from the database
+     *
+     * @param movieToDelete The movie to be deleted
+     * @return True if the movie was deleted successfully, false otherwise
+     */
+    public boolean deleteMovie(Movie movieToDelete) throws MoviesException {
+        return movieCreation.deleteMovie(movieToDelete);
     }
 
     /*

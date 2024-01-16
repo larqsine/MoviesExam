@@ -14,7 +14,7 @@ import gui.components.newEditDeleteMovies.AddMovieController;
 import gui.components.newEditDeleteMovies.EditMovieControllerNew;
 import gui.components.newEditDeleteMovies.MovieReloader;
 import gui.components.player.*;
-import gui.deleteMovieView.DeleteMovieController;
+import gui.components.newEditDeleteMovies.DeleteMovieController;
 import gui.playOperations.PlayOperations;
 import gui.playOperations.PlayOperationsHandler;
 import gui.searchButton.ISearchGraphic;
@@ -88,10 +88,9 @@ public class MainViewController implements Initializable {
         try {
             model = MainModel.getInstance();
             //initialize application playback
-
             PlayOperations playOperations = PlayOperationsHandler.getInstance(model);
             DataSupplier dataHandler = DataHandler.getInstance(model,playOperations);
-            MediaViewReloader mediaViewReloader = new MediaViewUpdate(mediaViewPlayer);
+            MediaViewReloader mediaViewReloader = new MediaViewUpdate(mediaViewPlayer,mediaContainer);
             playerControl = Player.useMediaPlayer(dataHandler,mediaViewReloader);
             playerCommander= new PlayerCommander(dataHandler,playerControl);
             mediaViewPlayer.setVisible(false);
@@ -286,7 +285,7 @@ public class MainViewController implements Initializable {
             Stage mainStage = Utility.getCurrentStage(event);
             Scene scene = new Scene(deleteMovieController.getConfirmationWindow());
              Stage stage=Utility.createPopupStage(mainStage, scene, Titles.DELETE_CATEGORY.getValue(), POPUP_WIDTH);
-             stage.show();
+
         } else {
             ExceptionHandler.displayErrorAlert(InformationalMessages.OPERATION_FAILED,null);
         }

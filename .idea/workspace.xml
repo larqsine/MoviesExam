@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="Movie deletion implemented fully functional">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogicAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogicAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dal/IMovieDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/IMovieDao.java" afterDir="false" />
+    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="fixing movie problems">
+      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/DeleteMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/DeleteMovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/MovieModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/MovieModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/deleteMovieView/DeleteModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/deleteMovieView/DeleteMovieController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/editMovieView/EditController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/editMovieView/EditModel.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,14 +134,6 @@
       <workItem from="1705143472887" duration="49297000" />
       <workItem from="1705270260022" duration="27155000" />
       <workItem from="1705406171896" duration="8846000" />
-    </task>
-    <task id="LOCAL-00005" summary="categories displayed in view">
-      <option name="closed" value="true" />
-      <created>1704397562509</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1704397562509</updated>
     </task>
     <task id="LOCAL-00006" summary="added Categoryes view">
       <option name="closed" value="true" />
@@ -524,7 +519,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705414957790</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="fixing movie problems">
+      <option name="closed" value="true" />
+      <created>1705421432468</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1705421432468</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -542,7 +545,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="player implemented, problems with the path i need to work more with" />
     <MESSAGE value="player implemented, eroors solved," />
     <MESSAGE value="video playing on doubleclick implemented" />
     <MESSAGE value="Movie Genres Window implemented with the unselected genres being removed from the list" />
@@ -567,14 +569,15 @@
     <MESSAGE value="implemented custom button that will be an observable and changes his graphics acording to the playback state" />
     <MESSAGE value="ConfirmationWindow modified" />
     <MESSAGE value="Movie deletion implemented fully functional" />
-    <option name="LAST_COMMIT_MESSAGE" value="Movie deletion implemented fully functional" />
+    <MESSAGE value="fixing movie problems" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing movie problems" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/gui/deleteMovieView/DeleteMovieController.java</url>
-          <line>49</line>
+          <url>file://$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/DeleteMovieController.java</url>
+          <line>50</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
