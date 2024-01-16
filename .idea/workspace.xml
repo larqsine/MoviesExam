@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="Media view update with the new player in the platfrom run later">
+    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="volume coupled with the player volume propriety">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/listeners/MediaViewReloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/listeners/MediaViewReloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/player/MediaViewUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/MediaViewUpdate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/components/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/player/PlayerCommander.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/PlayerCommander.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/player/PlayerControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/PlayerControl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utility/UIInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/UIInitializer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -130,14 +135,6 @@
       <workItem from="1705143472887" duration="49297000" />
       <workItem from="1705270260022" duration="27155000" />
       <workItem from="1705406171896" duration="8846000" />
-    </task>
-    <task id="LOCAL-00008" summary="exception handling">
-      <option name="closed" value="true" />
-      <created>1704488719007</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1704488719007</updated>
     </task>
     <task id="LOCAL-00009" summary="category custom component">
       <option name="closed" value="true" />
@@ -523,7 +520,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705426335480</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="volume coupled with the player volume propriety">
+      <option name="closed" value="true" />
+      <created>1705427994754</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1705427994754</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -541,7 +546,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="video playing on doubleclick implemented" />
     <MESSAGE value="Movie Genres Window implemented with the unselected genres being removed from the list" />
     <MESSAGE value="Added the genres to a separate table in the database" />
     <MESSAGE value="genre be implemented" />
@@ -566,7 +570,8 @@
     <MESSAGE value="Movie deletion implemented fully functional" />
     <MESSAGE value="deleted all the unused classes" />
     <MESSAGE value="Media view update with the new player in the platfrom run later" />
-    <option name="LAST_COMMIT_MESSAGE" value="Media view update with the new player in the platfrom run later" />
+    <MESSAGE value="volume coupled with the player volume propriety" />
+    <option name="LAST_COMMIT_MESSAGE" value="volume coupled with the player volume propriety" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

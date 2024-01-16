@@ -20,7 +20,7 @@ public interface PlayerControl {
     void bindMediaTimeToScreen(Label label);
     MediaPlayer getMediaPlayer();
     void bindTotalMediaToScreen(Label label);
-    void bindDurationToModel(DoubleProperty duration);
+
     void bindTotalDurationToModel(DoubleProperty totalDuration);
 
 

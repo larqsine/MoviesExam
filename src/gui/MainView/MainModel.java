@@ -27,14 +27,6 @@ public class MainModel {
     private Media currentPlayingMedia;
     private final IntegerProperty currentMovieSelected = new SimpleIntegerProperty();
     private final SimpleStringProperty playButtonFromTableId = new SimpleStringProperty();
-
-    /**
-     * holds the duration off the movie being played
-     */
-    private final DoubleProperty currentTime = new SimpleDoubleProperty(0.0);
-
-
-
     /**
      * holds the total duration off the movie*/
     private final DoubleProperty totalTime = new SimpleDoubleProperty();
@@ -233,28 +225,6 @@ public class MainModel {
         this.observablePlayProperty.set(observablePlayProperty);
     }
 
-
-    /**
-     * duration propriety off the movie being played
-     */
-    public double getCurrentTime() {
-        return currentTime.get();
-    }
-
-    /**
-     * duration propriety off the movie being played
-     */
-
-    public DoubleProperty currentTimeProperty() {
-        return currentTime;
-    }
-
-    /**
-     * duration propriety off the movie being played
-     */
-    public void setCurrentTime(double currentTime) {
-        this.currentTime.set(currentTime);
-    }
 
     /**
      * Checks if the category for deletion is open

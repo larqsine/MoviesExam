@@ -48,9 +48,6 @@ public class PlayerCommander {
         playerControl.bindTotalMediaToScreen(label);
     }
 
-    public void bindDurationToModel(DoubleProperty duration) {
-        playerControl.bindDurationToModel(duration);
-    }
 
     public void bindTotalDurationToModel(DoubleProperty totalDuration) {
         playerControl.bindTotalDurationToModel(totalDuration);

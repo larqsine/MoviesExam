@@ -90,10 +90,11 @@ public class MainViewController implements Initializable {
             //initialize application playback
             PlayOperations playOperations = PlayOperationsHandler.getInstance(model);
             DataSupplier dataHandler = DataHandler.getInstance(model,playOperations);
-            MediaViewReloader mediaViewReloader = new MediaViewUpdate(mediaView);
-            playerControl = Player.useMediaPlayer(dataHandler,mediaViewReloader);
+            MediaViewReloader mediaViewReloader = new MediaViewUpdate(mediaView,timeSlider);
+            playerControl = Player.useMediaPlayer(dataHandler,mediaViewReloader,timeSlider);
+            uiInitializer.initializeTimeSlider(timeSlider,model);
             playerCommander= new PlayerCommander(dataHandler,playerControl);
-//            mediaViewPlayer.setMediaPlayer(playerControl.getMediaPlayer());
+            // mediaViewPlayer.setMediaPlayer(playerControl.getMediaPlayer());
             customPlayButton= new PlaybackButton(92,52,playerCommander,model);
             playbackContainer.getChildren().add(1,customPlayButton);
             //initialize the category list view
@@ -102,15 +103,12 @@ public class MainViewController implements Initializable {
             //initialize moviesTable data
             moviesTable = new MoviesTable(model.getMovies(),model,playerCommander);
             moviesView.getChildren().add(moviesTable);
-
             //initializes the filter view
             uiInitializer.initializeSearchView(isearchGraphic, searchButton, searchValue, infoEmptyLabel);
             //bind elapsed time to the duration
             uiInitializer.initializeDurationLabels(timeElapsed,totalTime,playerCommander);
-            // bind duration to model
-            uiInitializer.bindDurationToModel(model,playerCommander);
-            //initialize the time slider
-            uiInitializer.initializeTimeSlider(timeSlider,model);
+            //bind model to total duration
+            uiInitializer.initializeTotalDurationModel(model,playerCommander);
             //initialize volumeSlider
             uiInitializer.initializeVolumeSlider(volumeSlider,model);
         } catch (MoviesException me) {
