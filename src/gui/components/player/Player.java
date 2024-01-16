@@ -8,6 +8,7 @@ import javafx.beans.property.*;
 import javafx.scene.control.Label;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.util.Duration;
 import utility.ExceptionHandler;
 import utility.ExceptionsMessages;
@@ -75,9 +76,12 @@ public class Player implements PlayerControl {
     private void updateMediaView() {
         mediaPlayer.statusProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue == MediaPlayer.Status.READY) {
-
-//                mediaViewReloader.getMediaViewPlayable();
-                mediaViewReloader.getUpdatedMedia(mediaPlayer);
+MediaView mediaView =  new MediaView();
+mediaView.setFitWidth(400);
+mediaView.setFitHeight(330);
+mediaView.setMediaPlayer(mediaPlayer);
+mediaViewReloader.getMediaViewPlayable(mediaView);
+//                mediaViewReloader.getUpdatedMedia(mediaPlayer);
             }
         });
     }

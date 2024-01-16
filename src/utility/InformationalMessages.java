@@ -6,6 +6,7 @@ public enum InformationalMessages implements Messages {
     FXML_MISSING("Application error, file system corrupt, FXML resource is missing"),
     NO_EMPTY_INPUT("Title and Location can not be empty"),
     NO_CATEGORY_OPENED("No category opened, please open a category"),
+    NO_MOVIE_OPENED("No movie opened, please open a movie"),
     OPERATION_FAILED("Operation failed"),
     NO_CATEGORY_SELECTED("No category has been selected"),
     CATEGORY_IN_USE("The category that you are trying to delete is in use"),

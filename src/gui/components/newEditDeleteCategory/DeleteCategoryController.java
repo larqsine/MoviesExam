@@ -22,16 +22,14 @@ public class DeleteCategoryController implements ConfirmationController, Initial
 
     @Override
     public void confirmationEventHandler(boolean confirmation) {
-        boolean deleted;
+
         if (confirmation){
             try {
-                deleted = categoryModel.deleteCategory(this.categoryToDelete);
-                if (deleted){
+             categoryModel.deleteCategory(this.categoryToDelete);
                     Platform.runLater(() ->{
                         ExceptionHandler.displayErrorAlert(InformationalMessages.DELETE_SUCCEEDED, "Delete Category");
                     });
                     categoryReloadable.reloadCategoriesFromDB();
-                }
             } catch (MoviesException e){
                 ExceptionHandler.displayErrorAlert(e.getMessage(),null);
             }

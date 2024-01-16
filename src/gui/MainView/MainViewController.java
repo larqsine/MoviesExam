@@ -93,11 +93,9 @@ public class MainViewController implements Initializable {
             MediaViewReloader mediaViewReloader = new MediaViewUpdate(mediaViewPlayer,mediaContainer);
             playerControl = Player.useMediaPlayer(dataHandler,mediaViewReloader);
             playerCommander= new PlayerCommander(dataHandler,playerControl);
-            mediaViewPlayer.setVisible(false);
 //            mediaViewPlayer.setMediaPlayer(playerControl.getMediaPlayer());
             customPlayButton= new PlaybackButton(92,52,playerCommander,model);
             playbackContainer.getChildren().add(1,customPlayButton);
-
             //initialize the category list view
             categoryView = new CategoryView(new CategorySelectionHandler(model), model.getCategories());
             categoryContainer.getChildren().add(categoryView);
@@ -270,7 +268,7 @@ public class MainViewController implements Initializable {
     public void deleteMovie(ActionEvent event) {
         Movie selectedMovie = moviesTable.getSelectionModel().getSelectedItem();
         if(selectedMovie==null){
-            ExceptionHandler.displayInformationAlert(InformationalMessages.NO_CATEGORY_OPENED,"Please open a category");
+            ExceptionHandler.displayInformationAlert(InformationalMessages.NO_MOVIE_OPENED,"Please open a movie");
             return;
         }
         if(model.isMoviePlaying(selectedMovie)){
@@ -284,8 +282,8 @@ public class MainViewController implements Initializable {
         if (deleteMovieController.getConfirmationWindow() != null) {
             Stage mainStage = Utility.getCurrentStage(event);
             Scene scene = new Scene(deleteMovieController.getConfirmationWindow());
-             Stage stage=Utility.createPopupStage(mainStage, scene, Titles.DELETE_CATEGORY.getValue(), POPUP_WIDTH);
-
+             Stage stage=Utility.createPopupStage(mainStage, scene, Titles.DELETE_MOVIE.getValue(), POPUP_WIDTH);
+              stage.show();
         } else {
             ExceptionHandler.displayErrorAlert(InformationalMessages.OPERATION_FAILED,null);
         }
