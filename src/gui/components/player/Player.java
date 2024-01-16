@@ -53,10 +53,13 @@ public class Player implements PlayerControl {
             mediaPlayer.stop();
             mediaPlayer.dispose();
             mediaPlayer.volumeProperty().unbind();
+
         }
         Media media = this.movie;
         mediaPlayer = new MediaPlayer(media);
-        mediaViewReloader.getUpdatedMedia(mediaPlayer);
+        updateMediaView();
+
+
         mediaPlayer.volumeProperty().bind(Bindings.when(dataSupplier.isMute())
                 .then(0.0)
                 .otherwise(dataSupplier.getVolumeObservable()));
@@ -69,6 +72,14 @@ public class Player implements PlayerControl {
             mediaPlayer.play();
         }
         return mediaPlayer;
+    }
+
+    private void updateMediaView() {
+        mediaPlayer.statusProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue == MediaPlayer.Status.READY) {
+                mediaViewReloader.getUpdatedMedia(mediaPlayer);
+            }
+        });
     }
 
 
@@ -96,6 +107,7 @@ public class Player implements PlayerControl {
             }
         });
     }
+
 
     private void bindCurrentDuration(DoubleProperty doubleProperty) {
         doubleProperty.bind(Bindings.createDoubleBinding(
