@@ -55,6 +55,8 @@ public class MainViewController implements Initializable {
     private HBox  playbackContainer;
     @FXML
     private MediaView mediaViewPlayer;
+    @FXML
+    private HBox mediaContainer;
     private ISearchGraphic isearchGraphic;
     @FXML
     private Pane categoryContainer;
@@ -92,7 +94,8 @@ public class MainViewController implements Initializable {
             MediaViewReloader mediaViewReloader = new MediaViewUpdate(mediaViewPlayer);
             playerControl = Player.useMediaPlayer(dataHandler,mediaViewReloader);
             playerCommander= new PlayerCommander(dataHandler,playerControl);
-            mediaViewPlayer.setMediaPlayer(playerControl.getMediaPlayer());
+            mediaViewPlayer.setVisible(false);
+//            mediaViewPlayer.setMediaPlayer(playerControl.getMediaPlayer());
             customPlayButton= new PlaybackButton(92,52,playerCommander,model);
             playbackContainer.getChildren().add(1,customPlayButton);
 

@@ -5,6 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="Movie deletion implemented fully functional">
+      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/listeners/MediaViewReloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/listeners/MediaViewReloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/player/MediaViewUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/MediaViewUpdate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/components/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -126,23 +129,7 @@
       <workItem from="1705143377383" duration="84000" />
       <workItem from="1705143472887" duration="49297000" />
       <workItem from="1705270260022" duration="27155000" />
-      <workItem from="1705406171896" duration="8846000" />
-    </task>
-    <task id="LOCAL-00005" summary="categories displayed in view">
-      <option name="closed" value="true" />
-      <created>1704397562509</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1704397562509</updated>
-    </task>
-    <task id="LOCAL-00006" summary="added Categoryes view">
-      <option name="closed" value="true" />
-      <created>1704400013952</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1704400013952</updated>
+      <workItem from="1705406171896" duration="12071000" />
     </task>
     <task id="LOCAL-00007" summary="changed list view with a custom implementation">
       <option name="closed" value="true" />
@@ -520,7 +507,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705414957790</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Movie deletion implemented fully functional">
+      <option name="closed" value="true" />
+      <created>1705415955069</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1705415955069</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Movie deletion implemented fully functional">
+      <option name="closed" value="true" />
+      <created>1705417671403</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1705417671403</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
