@@ -63,8 +63,8 @@ public class MovieModel {
     public void setCurrentSelectedMovie(Movie movie) {
     }
 
-    public boolean updateMovie(String title) {
-        return false;
+    public boolean updateMovie(String title) throws Exception{
+        return this.movieLogic.updateMovie();
     }
 
     public boolean checkTitle(String title) {
