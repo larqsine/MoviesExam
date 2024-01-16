@@ -8,11 +8,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
 <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainView.MainViewController">
    <children>
-      <VBox prefHeight="715.0" prefWidth="250.0">
+      <VBox prefHeight="715.0" prefWidth="150.0">
          <children>
             <Label prefHeight="34.0" prefWidth="58.0" text="Category">
                <font>
@@ -32,12 +33,15 @@
             </HBox>
          </children>
       </VBox>
-      <VBox alignment="CENTER" prefHeight="715.0" prefWidth="460.0">
+      <VBox alignment="CENTER" prefHeight="715.0" prefWidth="500.0">
          <children>
             <HBox fx:id="mediaContainer" alignment="CENTER" prefHeight="330.0" prefWidth="486.0">
                <VBox.margin>
                   <Insets top="150.0" />
                </VBox.margin>
+               <children>
+                  <MediaView fx:id="mediaView" fitHeight="330.0" fitWidth="430.0" />
+               </children>
             </HBox>
             <HBox prefHeight="206.0" prefWidth="489.0">
                <children>
@@ -63,7 +67,7 @@
                                        <font>
                                           <Font size="24.0" />
                                        </font></Button>
-                                    <Slider orientation="VERTICAL" prefHeight="75.0" prefWidth="52.0" />
+                                    <Slider fx:id="volumeSlider" orientation="VERTICAL" prefHeight="75.0" prefWidth="52.0" />
                                  </children>
                               </HBox>
                            </children>
@@ -74,7 +78,7 @@
             </HBox>
          </children>
       </VBox>
-      <VBox alignment="TOP_CENTER" prefHeight="708.0" prefWidth="350.0">
+      <VBox alignment="TOP_CENTER" prefHeight="715.0" prefWidth="360.0">
          <children>
             <Label prefHeight="36.0" prefWidth="42.0" text="Movies">
                <font>
@@ -87,7 +91,7 @@
                   <Button fx:id="searchButton" mnemonicParsing="false" onAction="#applyFilter" />
                </children></HBox>
             <Label fx:id="infoEmptyLabel" text="Filter is Empty!" visible="false" />
-            <Pane fx:id="moviesView" prefHeight="455.0" prefWidth="300.0" />
+            <Pane fx:id="moviesView" prefHeight="439.0" prefWidth="387.0" />
             <HBox alignment="TOP_CENTER" prefHeight="170.0" prefWidth="260.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#addNewMovie" text="Add">

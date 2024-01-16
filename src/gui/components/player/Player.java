@@ -1,7 +1,9 @@
 package gui.components.player;
+
 import exceptions.MoviesException;
 import gui.components.listeners.DataSupplier;
 import gui.components.listeners.MediaViewReloader;
+import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.StringBinding;
 import javafx.beans.property.*;
@@ -62,6 +64,8 @@ public class Player implements PlayerControl {
         mediaPlayer.volumeProperty().bind(Bindings.when(dataSupplier.isMute())
                 .then(0.0)
                 .otherwise(dataSupplier.getVolumeObservable()));
+
+
         bindDurationToLabel(time);
         bindTotalDurationToLabel(totalTime);
         bindCurrentDuration(currentDuration);
@@ -73,15 +77,14 @@ public class Player implements PlayerControl {
         return mediaPlayer;
     }
 
+/**
+ * Update the MediaView with the newly created mediaPlayer  */
     private void updateMediaView() {
         mediaPlayer.statusProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue == MediaPlayer.Status.READY) {
-MediaView mediaView =  new MediaView();
-mediaView.setFitWidth(400);
-mediaView.setFitHeight(330);
-mediaView.setMediaPlayer(mediaPlayer);
-mediaViewReloader.getMediaViewPlayable(mediaView);
-//                mediaViewReloader.getUpdatedMedia(mediaPlayer);
+                Platform.runLater(()->{
+                    mediaViewReloader.updateMediaView(mediaPlayer);
+                });
             }
         });
     }

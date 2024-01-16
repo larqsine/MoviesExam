@@ -6,6 +6,5 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 
 public interface MediaViewReloader {
-  void getUpdatedMedia(MediaPlayer instance);
-  void getMediaViewPlayable(MediaView mediaView);
+  void updateMediaView(MediaPlayer mediaPlayer);
 }
