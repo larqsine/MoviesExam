@@ -29,6 +29,6 @@ public class DeleteModel {
      * @return True if the movie was deleted successfully, false otherwise
      */
     public boolean deleteMovie(Movie movieToDelete) throws MoviesException {
-        return movieCreation.deleteMovie(movieToDelete.getId());
+        return movieCreation.deleteMovie(movieToDelete);
     }
 }

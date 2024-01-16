@@ -52,7 +52,7 @@ public class MovieCreation {
         return this.movieDao.createMovie(movie,categoryId);
     }
 
-    public boolean deleteMovie(int movieId) throws MoviesException {
-        return this.movieDao.deleteMovie(movieId);
+    public boolean deleteMovie(Movie movie) throws MoviesException {
+        return this.movieDao.deleteMovie(movie);
     }
 }

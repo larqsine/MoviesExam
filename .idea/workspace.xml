@@ -4,21 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="implemented custom button that will be an observable and changes his graphics acording to the playback state">
-      <change afterPath="$PROJECT_DIR$/src/gui/deleteMovieView/DeleteMovieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="ConfirmationWindow modified">
+      <change afterPath="$PROJECT_DIR$/src/dal/FileHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogicAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogicAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/confirmationWindow/ConfirmationWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/confirmationWindow/ConfirmationWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/deleteMovieView/DeleteController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieCreation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieCreation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dal/IMovieDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/IMovieDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dal/MovieDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/MovieDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/confirmationWindow/ConfirmationWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/confirmationWindow/ConfirmationWindow.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/deleteMovieView/DeleteModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/deleteMovieView/DeleteModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utility/InformationalMessages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/InformationalMessages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utility/Titles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/Titles.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +66,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/computer_science/sco/MovieRecomandationSystem/MovieRecommendationSystem-master",
+    "last_opened_file_path": "D:/computer_science/sco/MediPlayer/MoviesExam/src/gui/components/confirmationWindow",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -89,21 +82,21 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src\gui\components\confirmationWindow" />
       <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src\gui\components\newEditDeleteCategory" />
       <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src\gui" />
       <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src\gui\components" />
       <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src\dal" />
-      <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src\gui\components\movies" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src\gui\components\newEditDeleteMovies" />
       <recent name="D:\computer_science\sco\MediPlayer\MoviesExam" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="dal" />
       <recent name="utility" />
       <recent name="gui.components.newEditDeleteCategory" />
       <recent name="gui.components.Category" />
-      <recent name="dal" />
     </key>
   </component>
   <component name="RunManager">
@@ -139,15 +132,7 @@
       <workItem from="1705143377383" duration="84000" />
       <workItem from="1705143472887" duration="49297000" />
       <workItem from="1705270260022" duration="27155000" />
-      <workItem from="1705406171896" duration="4487000" />
-    </task>
-    <task id="LOCAL-00002" summary="jdbc connection">
-      <option name="closed" value="true" />
-      <created>1704366816455</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1704366816455</updated>
+      <workItem from="1705406171896" duration="7318000" />
     </task>
     <task id="LOCAL-00003" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <option name="closed" value="true" />
@@ -533,7 +518,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705351164100</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="ConfirmationWindow modified">
+      <option name="closed" value="true" />
+      <created>1705410973852</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1705410973853</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -551,7 +544,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="movies data displayed into the table plus categorie per movie" />
     <MESSAGE value="implemented MovieReader, for reading files from local storage" />
     <MESSAGE value="player implemented, problems with the path i need to work more with" />
     <MESSAGE value="player implemented, eroors solved," />
@@ -576,7 +568,8 @@
     <MESSAGE value="delete methods" />
     <MESSAGE value="button changes according to the events" />
     <MESSAGE value="implemented custom button that will be an observable and changes his graphics acording to the playback state" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented custom button that will be an observable and changes his graphics acording to the playback state" />
+    <MESSAGE value="ConfirmationWindow modified" />
+    <option name="LAST_COMMIT_MESSAGE" value="ConfirmationWindow modified" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

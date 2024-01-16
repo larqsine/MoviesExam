@@ -22,7 +22,6 @@ public class MovieDao implements IMovieDao {
     private Map<Integer, Movie> retrieveMovies(int categoryId) throws MoviesException {
         Map<Integer, Movie> moviesMap = new HashMap<>();
         Movie movie;
-        Genre genre;
         try (Connection conn = CONNECTION_MANAGER.getConnection()) {
             String sql = "SELECT m.id,m.name, m.rating, m.filelink, m.lastview, m.personalRating FROM CatMovie cm " +
                     "JOIN Movie m  on m.id = cm.MovieId " +
@@ -195,9 +194,34 @@ public class MovieDao implements IMovieDao {
     }
 
 
-    @Override
-    public boolean deleteMovie(int movieId) throws MoviesException {
-        return false;
+
+@Override
+    public boolean deleteMovie(Movie movie) throws MoviesException {
+    System.out.println(movie.getName());
+    System.out.println(movie.getId());
+        String sqlDeleteMovie = "DELETE FROM Movie WHERE id=?";
+        try (Connection connection = CONNECTION_MANAGER.getConnection()) {
+            connection.setAutoCommit(false);
+            try (PreparedStatement psmtDelete = connection.prepareStatement(sqlDeleteMovie)) {
+                psmtDelete.setInt(1, movie.getId());
+                int rows =psmtDelete.executeUpdate();
+                System.out.println(rows);
+
+                FileHandler fileHandler = FileHandler.getInstance();
+                if (!fileHandler.deleteSongLocal(movie.getFileLink())) {
+                    System.out.println("IAm here");
+                    connection.rollback();
+                    return false;
+                }
+                connection.commit();
+                return true;
+            } catch (SQLException e) {
+                connection.rollback();
+                throw new MoviesException(ExceptionsMessages.TRANSACTION_FAILED, e);
+            }
+        } catch (SQLException e) {
+            throw new MoviesException(ExceptionsMessages.NO_DATABASE_CONNECTION, e);
+        }
     }
 
 

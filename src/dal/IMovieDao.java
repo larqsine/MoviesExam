@@ -11,7 +11,7 @@ public interface IMovieDao {
 
     boolean createMovie(Movie movie, int categoryId) throws MoviesException;
 
-    boolean deleteMovie(int movieId) throws MoviesException;
+    boolean deleteMovie(Movie movie) throws MoviesException;
 //used to insert genres into the database
     //    void insertGenres(List<String> genres);
 }
