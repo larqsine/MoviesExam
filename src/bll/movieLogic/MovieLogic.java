@@ -39,6 +39,11 @@ public class MovieLogic implements MovieLogicAPI {
         return this.movieReader.getInitialMedia();
     }
 
+    @Override
+    public boolean checkIfMovieIsPlaying(int selectedMovie, int currentMovieId) {
+        return selectedMovie==currentMovieId;
+    }
+
     public Map<Integer, Movie> applyFilter(String filter, Map<Integer, Movie> toFilter) {
         Map<Integer, Movie> moviesFiltered = new HashMap<>();
         if (filter == null || filter.isEmpty()) {

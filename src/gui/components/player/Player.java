@@ -1,6 +1,4 @@
 package gui.components.player;
-
-
 import exceptions.MoviesException;
 import gui.components.listeners.DataSupplier;
 import gui.components.listeners.MediaViewReloader;
@@ -25,7 +23,6 @@ public class Player implements PlayerControl {
     private final StringProperty totalTime = new SimpleStringProperty();
     private final DoubleProperty currentDuration = new SimpleDoubleProperty();
     private final DoubleProperty totalDuration = new SimpleDoubleProperty();
-
     private BooleanProperty isMute;
 
 

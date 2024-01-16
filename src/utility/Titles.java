@@ -3,8 +3,7 @@ package utility;
 public enum Titles implements Messages {
     ADD_NEW_MOVIE("Add new Movie"),
     ADD_CATEGORY("Add Category"),
-    DELETE_MOVIE("Delete Song"),
-    CREATE_PLAYLIST("Create playlist"),
+    DELETE_MOVIE("Delete Movie"),
     EDIT_CATEGORY("Edit Category"),
     DELETE_CATEGORY("Delete Category"),;
 

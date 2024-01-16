@@ -12,6 +12,7 @@ public interface MovieLogicAPI {
     Media retrieveMedia(int movieId, Map<Integer, Movie> movieObjects) throws MoviesException;
     Media retrieveInitialDefaultMedia() throws MoviesException;
 
+    boolean checkIfMovieIsPlaying(int selectedMovie, int currentMovieId);
 
 
 //used to insert genres into the database

@@ -1,6 +1,7 @@
 package gui.MainView;
 
 import be.Category;
+import be.Movie;
 import exceptions.MoviesException;
 import gui.components.PlaybackButton;
 import gui.components.category.CategorySelectionHandler;
@@ -11,7 +12,9 @@ import gui.components.movies.MoviesTable;
 import gui.components.newEditDeleteCategory.*;
 import gui.components.newEditDeleteMovies.AddMovieController;
 import gui.components.newEditDeleteMovies.EditMovieControllerNew;
+import gui.components.newEditDeleteMovies.MovieReloader;
 import gui.components.player.*;
+import gui.deleteMovieView.DeleteMovieController;
 import gui.playOperations.PlayOperations;
 import gui.playOperations.PlayOperationsHandler;
 import gui.searchButton.ISearchGraphic;
@@ -21,10 +24,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Slider;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.MediaView;
@@ -61,6 +61,8 @@ public class MainViewController implements Initializable {
     private CategoryView categoryView;
     @FXML
     private Pane moviesView;
+    @FXML
+    private TableView<Movie> moviesTable;
     private PlayerControl playerControl;
     private PlayerCommander playerCommander;
     @FXML
@@ -98,7 +100,9 @@ public class MainViewController implements Initializable {
             categoryView = new CategoryView(new CategorySelectionHandler(model), model.getCategories());
             categoryContainer.getChildren().add(categoryView);
             //initialize moviesTable data
-            moviesView.getChildren().add(new MoviesTable(/*new MovieSelectionHandler(this.model,playerCommander)*/model.getMovies(),model,playerCommander));
+            moviesTable = new MoviesTable(model.getMovies(),model,playerCommander);
+            moviesView.getChildren().add(moviesTable);
+
             //initializes the filter view
             uiInitializer.initializeSearchView(isearchGraphic, searchButton, searchValue, infoEmptyLabel);
             //bind elapsed time to the duration
@@ -259,5 +263,31 @@ public class MainViewController implements Initializable {
         } catch (IOException e) {
             ExceptionHandler.displayErrorAlert(InformationalMessages.FXML_MISSING, "Application error");
         }
+    }
+
+    public void deleteMovie(ActionEvent event) {
+        Movie selectedMovie = moviesTable.getSelectionModel().getSelectedItem();
+        if(selectedMovie==null){
+            ExceptionHandler.displayInformationAlert(InformationalMessages.NO_CATEGORY_OPENED,"Please open a category");
+            return;
+        }
+        if(model.isMoviePlaying(selectedMovie)){
+            ExceptionHandler.displayInformationAlert(InformationalMessages.MOVIE_IN_USE,"Delete forbidden");
+            return;
+        }
+        MovieReloader movieReloader =  new MovieReloader(model);
+        DeleteMovieController deleteMovieController = new DeleteMovieController(movieReloader);
+        deleteMovieController.setMovieToDelete(selectedMovie);
+        deleteMovieController.initialize(null,null);
+        if (deleteMovieController.getConfirmationWindow() != null) {
+            Stage mainStage = Utility.getCurrentStage(event);
+            Scene scene = new Scene(deleteMovieController.getConfirmationWindow());
+             Stage stage=Utility.createPopupStage(mainStage, scene, Titles.DELETE_CATEGORY.getValue(), POPUP_WIDTH);
+             stage.show();
+        } else {
+            ExceptionHandler.displayErrorAlert(InformationalMessages.OPERATION_FAILED,null);
+        }
+
+
     }
 }

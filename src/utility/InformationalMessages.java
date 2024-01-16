@@ -9,7 +9,7 @@ public enum InformationalMessages implements Messages {
     OPERATION_FAILED("Operation failed"),
     NO_CATEGORY_SELECTED("No category has been selected"),
     CATEGORY_IN_USE("The category that you are trying to delete is in use"),
-    NO_SONG_AND_PLAYLIST("Please select a song and a playlist"),
+    MOVIE_IN_USE("The movie that you want to delete is in use"),
     DELETE_SUCCEEDED("Deleted with success"),
     DELETE_QUESTION("Are you sure that you want to delete this song"),
     NO_FILE("No file, returned by your path!\nPlease check again"),

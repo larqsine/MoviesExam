@@ -276,6 +276,10 @@ public class MainModel {
     public void setTotalTime(double totalTime) {
         this.totalTime.set(totalTime);
     }
+
+    public boolean isMoviePlaying(Movie selectedMovie) {
+        return movieLogic.checkIfMovieIsPlaying(selectedMovie.getId(),this.currentMovieSelected.get());
+    }
 }
 
 

@@ -4,127 +4,81 @@ import gui.components.listeners.ConfirmationController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.io.IOException;
 import javafx.scene.layout.VBox;
 import utility.ExceptionHandler;
 import utility.InformationalMessages;
-
-
 public class ConfirmationWindow {
-
     private ConfirmationController confirmationController;
-
-    @FXML
-    private Label operationTitle;
-
-    @FXML
-    private Label operationInformation;
-
-    @FXML
-    private Button confirmButton;
-
-    @FXML
-    private Button cancelButton;
     @FXML
     private VBox container;
+    @FXML
+    private Label operationTitle;
+    @FXML
+    private Label operationInformation;
+    @FXML
+    private Button confirmButton;
+    @FXML
+    private Button cancelButton;
 
-   public void show() {
+
+    public ConfirmationWindow() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ConfirmationWindow.fxml"));
+        loader.setController(this);
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ConfirmationWindow.fxml"));
-            loader.setController(this);
-
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setScene(scene);
-            stage.showAndWait();
-
+            container = loader.load();
         } catch (IOException e) {
-            handleFxmlLoadingError();
+            ExceptionHandler.displayErrorAlert(InformationalMessages.FXML_MISSING,null);
+        }
+        if (container != null) {
+            initializeHandlers();
         }
     }
 
-    public void setConfirmationController(ConfirmationController confirmationController) {
-        this.confirmationController = confirmationController;
+    public VBox getConfirmationWindow() {
+        return container;
     }
+
 
     public void setOperationTitle(String title) {
         this.operationTitle.setText(title);
     }
 
-    public void setOperationInformation(String information) {
-        this.operationInformation.setText(information);
+    public void setOperationInformation(String title) {
+        this.operationInformation.setText(title);
     }
 
-    private void handleFxmlLoadingError() {
-    }
-
-    @FXML
-    private void handleConfirmation() {
-        confirmationController.confirmationEventHandler(true);
-        closeWindow();
-    }
-
-    @FXML
-    private void handleCancel() {
-        confirmationController.confirmationEventHandler(false);
-        closeWindow();
-    }
-
-    private void closeWindow() {
-        Stage stage = (Stage) confirmButton.getScene().getWindow();
-        stage.close();
-    }
-
-
-    public ConfirmationWindow(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ConfirmationWindow.fxml"));
-        loader.setController(this);
-        try {
-            container = loader.load();
-        }catch (IOException e){
-            ExceptionHandler.displayErrorAlert(InformationalMessages.FXML_MISSING, "Application error");
-        }
-        if (container != null){
-            initializeHandlers();
-        }
-    }
 
     private void initializeHandlers() {
         addConfirmHandler();
         addCancelHandler();
     }
 
-    private void addConfirmHandler(){
+    private void addConfirmHandler() {
         this.confirmButton.setOnMouseClicked(event ->
-        {
-            confirmationController.confirmationEventHandler(true);
+                {
+                    confirmationController.confirmationEventHandler(true);
+                    getCurrentStage(event).close();
+                }
+        );
+    }
+
+    private void addCancelHandler() {
+        this.cancelButton.setOnMouseClicked(event -> {
+            confirmationController.confirmationEventHandler(false);
             getCurrentStage(event).close();
         });
     }
-    private void addCancelHandler() {
-        this.cancelButton.setOnMouseClicked(event -> {
-                confirmationController.confirmationEventHandler(false);
-        getCurrentStage(event).close();
-        });
+
+    public void setConfirmationController(ConfirmationController confirmationController) {
+        this.confirmationController = confirmationController;
     }
 
-    public VBox getConfirmationWindow(){
-        return container;
-    }
-
-    private Stage getCurrentStage(MouseEvent event){
+    private Stage getCurrentStage(MouseEvent event) {
         return (Stage) ((Node) event.getSource()).getScene().getWindow();
     }
-
-
 }

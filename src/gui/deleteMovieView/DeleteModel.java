@@ -1,17 +1,18 @@
 package gui.deleteMovieView;
 
 import be.Movie;
+import bll.movieLogic.MovieCreation;
 import exceptions.MoviesException;
 import gui.components.newEditDeleteMovies.MovieModel;
 import utility.ExceptionHandler;
 import utility.InformationalMessages;
 
 public class DeleteModel {
-    private MovieModel movieModel;
+    private MovieCreation movieCreation;
     private static DeleteModel instance;
 
     private DeleteModel() throws MoviesException {
-        movieModel = MovieModel.getInstance();
+        this.movieCreation= new MovieCreation();
     }
 
     public static DeleteModel getInstance() throws MoviesException {
@@ -27,7 +28,7 @@ public class DeleteModel {
      * @param movieToDelete The movie to be deleted
      * @return True if the movie was deleted successfully, false otherwise
      */
-    public boolean deleteMovie(Movie movieToDelete) {
-        return movieModel.deleteMovie(movieToDelete);
+    public boolean deleteMovie(Movie movieToDelete) throws MoviesException {
+        return movieCreation.deleteMovie(movieToDelete.getId());
     }
 }
