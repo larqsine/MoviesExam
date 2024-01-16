@@ -8,10 +8,7 @@ import gui.components.category.CategoryView;
 import gui.components.listeners.DataSupplier;
 import gui.components.listeners.MediaViewReloader;
 import gui.components.movies.MoviesTable;
-import gui.components.newEditDeleteCategory.CategoryReloadable;
-import gui.components.newEditDeleteCategory.CategoryReloadableHandler;
-import gui.components.newEditDeleteCategory.EditCategoryController;
-import gui.components.newEditDeleteCategory.NewCategoryControllerRel;
+import gui.components.newEditDeleteCategory.*;
 import gui.components.newEditDeleteMovies.AddMovieController;
 import gui.components.newEditDeleteMovies.EditMovieControllerNew;
 import gui.components.player.*;
@@ -72,6 +69,8 @@ public class MainViewController implements Initializable {
     private Label totalTime;
     @FXML
     private Slider timeSlider;
+    private CategoryReloadable categoryReloadable;
+
 
     @FXML
     private void applyFilter(ActionEvent event) {
@@ -163,6 +162,46 @@ public class MainViewController implements Initializable {
 
     private Category getSelectedCategory() {
         return this.categoryView.getSelectionModel().getSelectedItem();
+    }
+
+    public void deleteCategory(ActionEvent actionEvent){
+        Category categoryToDelete = getSelectedCategory();
+        if (categoryToDelete == null){
+            ExceptionHandler.displayWarningAlert(InformationalMessages.NO_CATEGORY_SELECTED, "No category has been selected");
+            return;
+        }
+        if (isCategoryCurrentlyOpen(categoryToDelete)){
+            ExceptionHandler.displayInformationAlert(InformationalMessages.CATEGORY_IN_USE, null);
+            return;
+        }
+        DeleteCategoryController deleteCategoryController = createDeleteCategoryController(categoryToDelete);
+        if (deleteCategoryController.getConfirmationWindow() != null){
+            Stage confirmationStage = createConfirmationStage(deleteCategoryController, actionEvent);
+        }
+    }
+
+    private boolean isCategoryCurrentlyOpen(Category categoryToDelete) {
+        return this.model.checkOpenCategory(categoryToDelete);
+    }
+
+    private DeleteCategoryController createDeleteCategoryController(Category categoryToDelete) {
+        DeleteCategoryController deleteCategoryController = new DeleteCategoryController();
+        deleteCategoryController.getCategoryToDelete(categoryToDelete);
+        deleteCategoryController.initialize(null, null);
+        deleteCategoryController.setReloadable(categoryReloadable);
+        return deleteCategoryController;
+    }
+
+    /**
+     * Creates a confirmation stage for deleting a category.
+     * @param deleteCategoryController The controller handling the category deletion.
+     * @param actionEvent The ActionEvent for triggering the operation.
+     * @return The created confirmation stage.
+     */
+    private Stage createConfirmationStage(DeleteCategoryController deleteCategoryController, ActionEvent actionEvent) {
+        Stage mainStage = Utility.getCurrentStage(actionEvent);
+        Scene scene = new Scene(deleteCategoryController.getConfirmationWindow());
+        return Utility.createPopupStage(mainStage, scene, Titles.DELETE_CATEGORY.getValue(), POPUP_WIDTH);
     }
 
     public void addNewMovie(ActionEvent event) {

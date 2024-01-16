@@ -22,33 +22,29 @@ public class DeleteCategoryController implements ConfirmationController, Initial
 
     @Override
     public void confirmationEventHandler(boolean confirmation) {
-
+        boolean deleted;
+        if (confirmation){
+            try {
+                deleted = categoryModel.deleteCategory(this.categoryToDelete);
+                if (deleted){
+                    Platform.runLater(() ->{
+                        ExceptionHandler.displayErrorAlert(InformationalMessages.DELETE_SUCCEEDED, "Delete Category");
+                    });
+                    categoryReloadable.reloadCategoriesFromDB();
+                }
+            } catch (MoviesException e){
+                ExceptionHandler.displayErrorAlert(e.getMessage(),null);
+            }
+        }
     }
 
-//    @Override
-//    public void confirmationEventHandeler(boolean confirmation) {
-//        boolean deleted;
-//        if (confirmation){
-//            try {
-//                deleted = categoryModel.deleteCategory(this.categoryToDelete);
-//                if (deleted){
-//                    Platform.runLater(() ->{
-//                        ExceptionHandler.displayErrorAlert(InformationalMessages.DELETE_SUCCEEDED, "Delete Category");
-//                    });
-//                    categoryReloadable.reloadCategoriesFromDB();
-//                }
-//            } catch (MoviesException e){
-//                ExceptionHandler.displayErrorAlert(e.getMessage(),null);
-//            }
-//        }
-//    }
 
-  /**  @Override
+  @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
             categoryModel = CategoryModel.getInstance();
         } catch (MoviesException e){
-            ExceptionHandler.displayErrorAlert(e.getMessage());
+            ExceptionHandler.displayErrorAlert(e.getMessage(),null);
         }
         if (categoryModel != null) {
             ConfirmationWindow confirmationView = new ConfirmationWindow();
@@ -58,7 +54,7 @@ public class DeleteCategoryController implements ConfirmationController, Initial
             confirmationWindow = confirmationView.getConfirmationWindow();
             initializeConfirmationWindow(confirmationView, this);
         }
-    }*/
+    }
 
     private void initializeConfirmationWindow(ConfirmationWindow confirmationWindow, ConfirmationController confirmationController) {
         confirmationWindow.setConfirmationController(confirmationController);
@@ -67,8 +63,15 @@ public class DeleteCategoryController implements ConfirmationController, Initial
         confirmationWindow.setOperationTitle(InformationalMessages.DELETE_CATEGORY_QUESTION.getValue() + category);
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void getCategoryToDelete(Category category) {
+        this.categoryToDelete = category;
+    }
 
+    public void setReloadable(CategoryReloadable categoryReloadable){
+        this.categoryReloadable = categoryReloadable;
+    }
+
+    public VBox getConfirmationWindow() {
+        return confirmationWindow;
     }
 }

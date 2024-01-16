@@ -95,10 +95,8 @@ public class ConfirmationWindow {
         loader.setController(this);
         try {
             container = loader.load();
-        }catch (IIOException e){
+        }catch (IOException e){
             ExceptionHandler.displayErrorAlert(InformationalMessages.FXML_MISSING, "Application error");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
         if (container != null){
             initializeHandlers();

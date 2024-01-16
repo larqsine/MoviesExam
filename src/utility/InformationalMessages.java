@@ -8,7 +8,7 @@ public enum InformationalMessages implements Messages {
     NO_CATEGORY_OPENED("No category opened, please open a category"),
     OPERATION_FAILED("Operation failed"),
     NO_CATEGORY_SELECTED("No category has been selected"),
-    PLAYLIST_IN_USE("The playlist that you are trying to delete is in use"),
+    CATEGORY_IN_USE("The category that you are trying to delete is in use"),
     NO_SONG_AND_PLAYLIST("Please select a song and a playlist"),
     DELETE_SUCCEEDED("Deleted with success"),
     DELETE_QUESTION("Are you sure that you want to delete this song"),

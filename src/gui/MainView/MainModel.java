@@ -256,6 +256,12 @@ public class MainModel {
         this.currentTime.set(currentTime);
     }
 
+    /**
+     * Checks if the category for deletion is open
+     */
+    public  boolean checkOpenCategory(Category categoryToDelete){
+        return this.categoryLogic.checkOpenCategory(this.currentOpenedCategory, categoryToDelete.getId());  }
+
 
 
     /**total time duration off the movie*/

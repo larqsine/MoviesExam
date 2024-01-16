@@ -46,10 +46,6 @@ public class EditCategoryController extends NewEditController{
         getCurrentStage(event).close();
     }
 
-//    public void setCategoryToEdit(Category category){
-//        getCategoryModel().setCurrentSelectedCategory(category);
-//        getCategoryTitle().setText(category.getName());
-//    }
 
 
 

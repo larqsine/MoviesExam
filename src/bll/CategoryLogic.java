@@ -5,6 +5,7 @@ import be.Movie;
 import dal.CategoryDao;
 import dal.ICategoryDao;
 import exceptions.MoviesException;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.ObservableList;
 import java.util.List;
 import java.util.Map;
@@ -49,6 +50,15 @@ public class CategoryLogic implements CategoryLogicAPI{
         return false;
     }
 
+
+    public boolean checkOpenCategory(SimpleIntegerProperty openCategoryId, int currentCategoryToDelete) {
+        return openCategoryId.get() == currentCategoryToDelete;
+    }
+
+    //  public boolean checkOpenCategory(SimpleIntegerProperty openCategoryId, SimpleIntegerProperty currentCategoryToDelete) {
+  //      return openCategoryId == currentCategoryToDelete;
+  //  }
+
     public static CategoryLogic getInstance() throws MoviesException {
         if (instance == null){
             instance = new CategoryLogic();
@@ -56,11 +66,5 @@ public class CategoryLogic implements CategoryLogicAPI{
         return instance;
     }
 
-//    public boolean updateCategory(Category categoryToUpdate, String newTitle) throws MoviesException{
-//        if (categoryToUpdate.getName().equals(newTitle)){
-//            return false;
-//        }
-//       return this.categoryDao.updateCategory(categoryToUpdate.getId(),newTitle);
-//    }
 
 }
