@@ -42,15 +42,6 @@ public class MovieLogic implements MovieLogicAPI {
         return selectedMovie==currentMovieId;
     }
 
-    @Override
-    public boolean updateMovie(String newTitle) throws Exception {
-        return false;
-    }
-
-    @Override
-    public boolean updateMovie() {
-        return false;
-    }
 
     public Map<Integer, Movie> applyFilter(String filter, Map<Integer, Movie> toFilter) {
         Map<Integer, Movie> moviesFiltered = new HashMap<>();

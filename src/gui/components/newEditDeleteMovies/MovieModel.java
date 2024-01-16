@@ -64,7 +64,7 @@ public class MovieModel {
     }
 
     public boolean updateMovie(String title) throws Exception{
-        return this.movieLogic.updateMovie();
+        return false;
     }
 
     public boolean checkTitle(String title) {

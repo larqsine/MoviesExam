@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface MovieLogicAPI {
-    boolean updateMovie();
+
 
     Map<Integer,Movie> applyFilter(String filter, Map<Integer,Movie> movies);
     Map<Integer, Movie> getMovies(int categoryId) throws MoviesException;
@@ -16,7 +16,6 @@ public interface MovieLogicAPI {
 
     boolean checkIfMovieIsPlaying(int selectedMovie, int currentMovieId);
 
-    public boolean updateMovie(String newTitle) throws Exception;
 
 
 //used to insert genres into the database
