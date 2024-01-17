@@ -5,7 +5,6 @@ import gui.components.player.PlayerCommander;
 import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.SVGPath;
-import utility.GraphicIdValues;
 import utility.Operations;
 
 public class PlaybackButton extends Button implements PlaybackObserver {
@@ -21,7 +20,6 @@ public class PlaybackButton extends Button implements PlaybackObserver {
         this.setPrefWidth(width);
         this.setPrefHeight(height);
         this.setGraphic(playSvg());
-//        this.setId("playButton");
         model.addObserver(this);
     }
     @Override
@@ -32,14 +30,12 @@ public class PlaybackButton extends Button implements PlaybackObserver {
         SVGPath playIcon = new SVGPath();
         playIcon.setContent(PLAY_ICON_PATH);
         playIcon.setFill(Color.BLACK);
-        playIcon.setId(GraphicIdValues.PLAY.getValue());
         return playIcon;
     }
     private SVGPath pauseSvg() {
         SVGPath pauseIcon = new SVGPath();
         pauseIcon.setContent(PAUSE_ICON_PATH);
         pauseIcon.setFill(Color.BLACK);
-        pauseIcon.setId(GraphicIdValues.PAUSE.getValue());
         return pauseIcon;
     }
 

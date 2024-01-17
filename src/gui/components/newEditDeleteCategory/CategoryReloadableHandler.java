@@ -24,5 +24,4 @@ public class CategoryReloadableHandler implements CategoryReloadable {
             ExceptionHandler.displayErrorAlert(ExceptionsMessages.READING_FROMDB_FAILED,null);
         }
     }
-
 }

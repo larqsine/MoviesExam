@@ -1,9 +1,7 @@
 package utility;
 
 public enum GraphicIdValues {
-    SEARCH("search"), UNDO("undo"), UP("upButton"), DOWN("downButton"),
-    PLAY("play"),PAUSE("pause");
-
+    SEARCH("search"), UNDO("undo");
     private final String value;
 
     GraphicIdValues(String value) {

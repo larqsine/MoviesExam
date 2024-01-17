@@ -11,10 +11,9 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.SVGPath;
-import utility.GraphicIdValues;
 import utility.Operations;
 
-import java.beans.EventHandler;
+
 
 public class ButtonCell extends TableCell<Movie, String> {
     private static final String PLAY_ICON_PATH = "M0 0 L0 10 L10 5 z";
@@ -42,7 +41,6 @@ public class ButtonCell extends TableCell<Movie, String> {
                 if (button.getId().equals(model.getPlayButtonFromTableId())) {
                     button.setDisable(true);
                 }
-
                 setGraphic(button);
             } else {
                 setGraphic(null);
@@ -70,7 +68,6 @@ public class ButtonCell extends TableCell<Movie, String> {
         SVGPath playIcon = new SVGPath();
         playIcon.setContent(PLAY_ICON_PATH);
         playIcon.setFill(Color.BLACK);
-        playIcon.setId(GraphicIdValues.PLAY.getValue());
         return playIcon;
     }
 

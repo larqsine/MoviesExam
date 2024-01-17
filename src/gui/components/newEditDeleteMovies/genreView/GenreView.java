@@ -37,4 +37,6 @@ public class GenreView extends ListView<String> implements CheckListener {
     public List<String> getSelectedGenres() {
         return selectedGenres;
     }
+
+
 }

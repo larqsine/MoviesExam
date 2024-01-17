@@ -29,7 +29,7 @@ public class PlayerCommander {
                 playerControl.pause();
                 break;
             case PLAY_CURRENT:
-                playerControl.playCurrent(dataSupplier.getMedia(Operations.GET_CURRENT_SONG), dataSupplier.isPlaying());
+                playerControl.playCurrent(dataSupplier.getMedia(Operations.GET_CURRENT_MOVIE), dataSupplier.isPlaying());
                 break;
             default:
                 playerControl.play();

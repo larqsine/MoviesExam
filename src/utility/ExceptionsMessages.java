@@ -2,7 +2,7 @@ package utility;
 
 public enum ExceptionsMessages implements Messages {
     READING_FROMDB_FAILED("Reading  from the data base gone wrong." + "\n" + InformationalMessages.NO_INTERNET_CONNECTION.getValue()),
-    READING_SONG_LOCAL("Reading file from local storage went wrong"),
+    READING_MOVIE_LOCAL("Reading file from local storage went wrong"),
     UPDATE_SONG_FAILED("Database error when tried to update the song"),
     DELETE_SONG_FAILED("Error when trying to delete from data base"),
     SONG_CREATION_FAILED("Database error when tried to create the song"),

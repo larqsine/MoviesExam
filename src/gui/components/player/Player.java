@@ -133,7 +133,7 @@ public class Player implements PlayerControl {
 
     private void checkMediaValid(Media media) throws MoviesException {
         if (media == null) {
-            throw new MoviesException(ExceptionsMessages.READING_SONG_LOCAL);
+            throw new MoviesException(ExceptionsMessages.READING_MOVIE_LOCAL);
         } else {
             this.movie = media;
         }

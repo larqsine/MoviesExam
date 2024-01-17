@@ -6,7 +6,6 @@ import javafx.scene.media.MediaException;
 import utility.ExceptionsMessages;
 import java.io.File;
 import java.net.URI;
-import java.util.List;
 
 public class MovieReader implements IMovieReader {
     private Media readMedia(String path) throws MoviesException {
@@ -16,7 +15,7 @@ public class MovieReader implements IMovieReader {
             return new Media(mediaUri.toString());
         } catch (NullPointerException | MediaException | IllegalArgumentException | UnsupportedOperationException e) {
             //System.out.println(e.getCause().toString());
-            throw new MoviesException(ExceptionsMessages.READING_SONG_LOCAL, e.getCause());
+            throw new MoviesException(ExceptionsMessages.READING_MOVIE_LOCAL, e.getCause());
         }
     }
 

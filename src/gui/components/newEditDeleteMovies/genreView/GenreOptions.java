@@ -9,7 +9,7 @@ import java.util.Map;
 class GenreOptions extends ListCell<String> {
     private CheckListener listener;
     private final CheckBox checkBox;
-    private static final Map<String, Boolean> checkedItems = new HashMap<>();
+    private  final Map<String, Boolean> checkedItems = new HashMap<>();
 
     public GenreOptions(CheckListener listener) {
         this.listener=listener;
@@ -27,8 +27,6 @@ class GenreOptions extends ListCell<String> {
         });
     }
 
-
-
     @Override
     protected void updateItem(String item, boolean empty) {
         super.updateItem(item, empty);
@@ -40,4 +38,7 @@ class GenreOptions extends ListCell<String> {
             setGraphic(checkBox);
         }
     }
+//    public void resetSelectedItems(){
+//      checkedItems.clear();
+//    }
 }
