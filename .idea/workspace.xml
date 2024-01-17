@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="commit mine">
+    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="validate rating">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,14 +132,6 @@
       <workItem from="1705406171896" duration="8846000" />
       <workItem from="1705427664975" duration="3116000" />
       <workItem from="1705497803856" duration="4844000" />
-    </task>
-    <task id="LOCAL-00011" summary="category custom component">
-      <option name="closed" value="true" />
-      <created>1704538676361</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1704538676361</updated>
     </task>
     <task id="LOCAL-00012" summary="filter functionality started">
       <option name="closed" value="true" />
@@ -527,7 +517,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705504051932</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="validate rating">
+      <option name="closed" value="true" />
+      <created>1705505766572</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1705505766572</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -545,7 +543,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added the genres to a separate table in the database" />
     <MESSAGE value="genre be implemented" />
     <MESSAGE value="implemented movies to display genres instead of categories" />
     <MESSAGE value="Get genres for addMovie form database" />
@@ -570,7 +567,8 @@
     <MESSAGE value="Media view update with the new player in the platfrom run later" />
     <MESSAGE value="volume coupled with the player volume propriety" />
     <MESSAGE value="commit mine" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit mine" />
+    <MESSAGE value="validate rating" />
+    <option name="LAST_COMMIT_MESSAGE" value="validate rating" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
