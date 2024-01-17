@@ -39,7 +39,13 @@ public class EditMovieController extends NewEditController implements Initializa
 
     @Override
     public void saveAddEditMovie(ActionEvent event) {
+        double rating = 0;
+    if (validateRating(personalRating)) {
+        rating = Double.parseDouble(personalRating.getText());
+        System.out.println(rating);
 
+
+}
     }
 
     @Override
@@ -90,6 +96,10 @@ public class EditMovieController extends NewEditController implements Initializa
     public void setTextFieldText(Movie movie) {
         model.setCurrentSelectedMovie(movie);
         this.movieTitle.setText(movie.getName());
+    }
+
+    public void setPersonalRating(double rating){
+        this.personalRating.setText(String.valueOf(rating));
     }
 
     private boolean validateRating(TextField textField) {
