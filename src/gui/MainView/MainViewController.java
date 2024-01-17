@@ -116,8 +116,8 @@ public class MainViewController implements Initializable {
             //initialize volumeSlider
             uiInitializer.initializeVolumeSlider(volumeSlider, model);
             // initialize the buttons
-            uiInitializer.addMovieOpenedListener(model.getMovies(),playPrevious);
-            uiInitializer.addMovieOpenedListener(model.getMovies(),playNext);
+            uiInitializer.addMovieOpenedListener(model.getMovies(), playPrevious);
+            uiInitializer.addMovieOpenedListener(model.getMovies(), playNext);
         } catch (MoviesException me) {
             this.error = true;
             this.exceptionMessage = me.getMessage();
@@ -255,8 +255,8 @@ public class MainViewController implements Initializable {
 
 
     public void playNextMovie(ActionEvent event) {
-    model.setObservablePlayPropertyValue(true);
-    playerCommander.processOperation(Operations.PLAY_NEXT);
+        model.setObservablePlayPropertyValue(true);
+        playerCommander.processOperation(Operations.PLAY_NEXT);
     }
 
 
@@ -273,9 +273,11 @@ public class MainViewController implements Initializable {
             EditMovieController editMovie = loader.getController();
             editMovie.getCurrentOpenedCategory(model.getCurrentOpenedCategory());
             editMovie.setModel(this.model);
-            System.out.println(selectedMovie.getName());
-            editMovie.setTextFieldText(selectedMovie);
+            editMovie.setMovie(selectedMovie);
+            editMovie.setTextMovieTitle(selectedMovie.getName());
             editMovie.setPersonalRating(selectedMovie.getPersonalRating());
+            editMovie.setFileLocation(selectedMovie.getFileLink());
+
             Scene scene = new Scene(root);
             Stage mainStage = Utility.getCurrentStage(event);
             Stage newCategoryStage = Utility.createPopupStage(mainStage, scene, Titles.ADD_NEW_MOVIE.getValue(), POPUP_WIDTH);

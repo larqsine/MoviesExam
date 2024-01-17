@@ -23,6 +23,9 @@ public class MovieModel {
     private MovieLogicAPI movieLogic;
     private GenreLogicApi genreLogic;
     private MovieCreation movieCreation;
+
+
+
     private Movie currentSelectedMovie;
 
     public ObservableList<String> getGenres() {
@@ -59,6 +62,10 @@ public class MovieModel {
     public void setCurrentSelectedMovie(Movie currentSelectedMovie) {
         this.currentSelectedMovie = currentSelectedMovie;
     }
+    /** retrieve the current selected movie for editing*/
+    public Movie getCurrentSelectedMovie() {
+        return currentSelectedMovie;
+    }
 
     public boolean updateMovie(String title) throws Exception{
         return false;
@@ -73,6 +80,7 @@ public class MovieModel {
      * get the format off the file , it is used by getDuration() method
      * @param name  it is the name off the file that is being processed */
     public MovieFormat getFormat(String name) throws MoviesException {
+
         return movieCreation.extractFormat(name);
     }
 
@@ -98,6 +106,8 @@ public class MovieModel {
     public boolean deleteMovie(Movie movieToDelete) throws MoviesException {
         return movieCreation.deleteMovie(movieToDelete);
     }
+
+
 
     /*
       Used  to insert movie genres into the database
