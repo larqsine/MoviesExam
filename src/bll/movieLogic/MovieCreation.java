@@ -1,4 +1,5 @@
 package bll.movieLogic;
+import be.Category;
 import be.Movie;
 import dal.IMovieDao;
 import dal.MovieDao;
@@ -6,6 +7,7 @@ import exceptions.MoviesException;
 import utility.MovieFormat;
 
 import java.io.File;
+import java.util.List;
 
 public class MovieCreation {
     private final IMovieDao movieDao;
@@ -51,11 +53,11 @@ public class MovieCreation {
         return this.movieDao.updateMovie(movie,movieTitle);
     }
 
-    public boolean saveMovie(Movie movie, int categoryId) throws MoviesException {
-        return this.movieDao.createMovie(movie,categoryId);
+    public boolean saveMovie(Movie movie, List<Category> categories) throws MoviesException {
+        return this.movieDao.createMovie(movie,categories);
     }
 
     public boolean deleteMovie(Movie movie) throws MoviesException {
-        return this.movieDao.deleteMovie(movie);
+        return this.movieDao.deleteMovieFromLocalAndDB(movie);
     }
 }

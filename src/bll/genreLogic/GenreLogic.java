@@ -1,5 +1,6 @@
 package bll.genreLogic;
 
+import be.Category;
 import be.Genre;
 import dal.GenreDao;
 import dal.IGenreDao;
@@ -33,6 +34,26 @@ public class GenreLogic implements GenreLogicApi {
         return genres.stream()
                 .map(genreObjects::get)
                 .toList();
+    }
+
+    @Override
+    public List<Category> convertStringsToCategory(Map<String, Category> categoryMapObjects, List<String> genres) {
+        return genres.stream()
+                .map(categoryMapObjects::get)
+                .toList();
+    }
+
+    @Override
+    public List<String> getCategoriesValues(Map<String, Category> categoryObjects) {
+        return categoryObjects.keySet().stream()
+                .map(categoryObjects::get)
+                .map(Category::getName)
+                .toList();
+    }
+
+    @Override
+    public Map<String, Category> getCategories() throws MoviesException {
+        return genreDao.retrieveCategories();
     }
 
 

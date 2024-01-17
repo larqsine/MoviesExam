@@ -1,5 +1,6 @@
 package dal;
 
+import be.Category;
 import be.Genre;
 import be.Movie;
 import exceptions.MoviesException;
@@ -116,7 +117,7 @@ public class MovieDao implements IMovieDao {
 
 
     @Override
-    public boolean createMovie(Movie movie, int categoryId) throws MoviesException {
+    public boolean createMovie(Movie movie, List<Category> categories) throws MoviesException {
         System.out.println(movie);
         String sql = "INSERT INTO Movie values(?,?,?,?,?)";
         Connection conn = null;
@@ -133,18 +134,18 @@ public class MovieDao implements IMovieDao {
                 psmt.execute();
                 ResultSet rs = psmt.getGeneratedKeys();
                 if (rs.next()) {
-                    insertMovieCategory(categoryId, rs.getInt(1), conn);
+                    insertMovieCategory( rs.getInt(1),categories, conn);
                     insertMovieGenres(rs.getInt(1), movie.getGenres(), conn);
                 }
             }
             conn.commit();
             return true;
         } catch (SQLException e) {
-            System.err.println("SQL Exception: " + e.getMessage()); // Log the exception
+            System.err.println("SQL Exception: " + e.getMessage());
             try {
                 conn.rollback();
             } catch (SQLException ex) {
-                System.err.println("Rollback Exception: " + ex.getMessage()); // Log rollback exception
+                System.err.println("Rollback Exception: " + ex.getMessage());
                 ExceptionHandler.displayErrorAndWait(ex.getMessage(), "Database operation error");
             }
             return false;
@@ -153,7 +154,7 @@ public class MovieDao implements IMovieDao {
                 try {
                     conn.close();
                 } catch (SQLException ex) {
-                    System.err.println("Close Connection Exception: " + ex.getMessage()); // Log close exception
+                    System.err.println("Close Connection Exception: " + ex.getMessage());
                     ExceptionHandler.displayErrorAndWait(ex.getMessage(), "Database operation error");
                 }
             }
@@ -161,16 +162,16 @@ public class MovieDao implements IMovieDao {
     }
 
 
-
-
-    private void insertMovieCategory(int categoryId, int movieId, Connection conn) throws MoviesException {
+    private void insertMovieCategory(int movieId, List<Category> categories, Connection conn) throws MoviesException {
         String sql = "INSERT INTO CatMovie VALUES (?,?)";
         try {
-
             try (PreparedStatement psmt = conn.prepareStatement(sql)) {
-                psmt.setInt(1, categoryId);
-                psmt.setInt(2, movieId);
-                psmt.execute();
+                for (Category category : categories) {
+                    psmt.setInt(1, category.getId());
+                    psmt.setInt(2, movieId);
+                    psmt.addBatch();
+                }
+                psmt.executeBatch();
             }
         } catch (SQLException e) {
             throw new MoviesException(e);
@@ -182,8 +183,9 @@ public class MovieDao implements IMovieDao {
         String sql = "INSERT INTO GenreMovie values(?,?)";
         try {
             try (PreparedStatement psmt = conn.prepareStatement(sql)) {
-                psmt.setInt(1, movieId);
+
                 for (Genre genre : genres) {
+                    psmt.setInt(1, movieId);
                     psmt.setInt(2, genre.getId());
                     psmt.addBatch();
                 }
@@ -199,16 +201,14 @@ public class MovieDao implements IMovieDao {
         return false;
     }
 
-@Override
-    public boolean deleteMovie(Movie movie) throws MoviesException {
-    System.out.println(movie.getName());
-    System.out.println(movie.getId());
+    @Override
+    public boolean deleteMovieFromLocalAndDB(Movie movie) throws MoviesException {
         String sqlDeleteMovie = "DELETE FROM Movie WHERE id=?";
         try (Connection connection = CONNECTION_MANAGER.getConnection()) {
             connection.setAutoCommit(false);
             try (PreparedStatement psmtDelete = connection.prepareStatement(sqlDeleteMovie)) {
                 psmtDelete.setInt(1, movie.getId());
-                int rows =psmtDelete.executeUpdate();
+                int rows = psmtDelete.executeUpdate();
                 FileHandler fileHandler = FileHandler.getInstance();
 //                if (!fileHandler.deleteSongLocal(movie.getFileLink())) {
 //                    connection.rollback();
@@ -225,27 +225,35 @@ public class MovieDao implements IMovieDao {
         }
     }
 
+    @Override
+    public boolean deleteMovieFromCategory(Movie movie, Category category) throws MoviesException {
+        String sql = "DELETE FROM CatMovie WHERE CategoryId=? AND MovieID=?";
+        try (Connection connection = CONNECTION_MANAGER.getConnection()) {
+            try (PreparedStatement psmt = connection.prepareStatement(sql)) {
+                psmt.setInt(1, category.getId());
+                psmt.setInt(2, movie.getId());
+                psmt.execute();
+                return true;
+            }
+        } catch (SQLException e) {
+            throw new MoviesException(e.getMessage());
+        }
+    }
 
-//used to insert genres into the database
-//    public void insertGenres(List<String> genres){
-//        String sql = "INSERT INTO Genre values (?)";
-//
-//        try(Connection conn =CONNECTION_MANAGER.getConnection()){
-//            PreparedStatement psmt = conn.prepareStatement(sql);
-//            genres.stream().forEach(elem-> {
-//                try {
-//                    psmt.setString(1,elem);
-//                    psmt.execute();
-//                } catch (SQLException e) {
-//                    throw new RuntimeException(e);
-//                }
-//            });
-//
-//
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        } catch (MoviesException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
+    @Override
+    public boolean deleteMovieFromDB(Movie movie) throws MoviesException {
+        String sqlDeleteMovie = "DELETE FROM Movie WHERE id=?";
+        try (Connection connection = CONNECTION_MANAGER.getConnection()) {
+            connection.setAutoCommit(false);
+            try (PreparedStatement psmtDelete = connection.prepareStatement(sqlDeleteMovie)) {
+                psmtDelete.setInt(1, movie.getId());
+                psmtDelete.execute();
+                return true;
+            }
+        } catch (SQLException e) {
+            throw new MoviesException(ExceptionsMessages.NO_DATABASE_CONNECTION, e);
+        }
+    }
 }
+
+

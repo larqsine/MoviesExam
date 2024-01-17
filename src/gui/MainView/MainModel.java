@@ -29,7 +29,11 @@ public class MainModel {
     /**
      * holds the total duration off the movie*/
     private final DoubleProperty totalTime = new SimpleDoubleProperty();
+
+    /** Contains all the observers off the play propriety*/
     private final List<PlaybackObserver> playbackObservers;
+
+
 
     /**
      * used to attach change listeners to the play operation
@@ -243,6 +247,7 @@ public class MainModel {
     public DoubleProperty totalTimeProperty() {
         return totalTime;
     }
+
     /**total time duration off the movie*/
     public void setTotalTime(double totalTime) {
         this.totalTime.set(totalTime);
@@ -252,8 +257,3 @@ public class MainModel {
         return movieLogic.checkIfMovieIsPlaying(selectedMovie.getId(),this.currentMovieSelected.get());
     }
 }
-
-
-
-
-

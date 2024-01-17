@@ -10,6 +10,8 @@ import javafx.stage.Stage;
 import utility.ExceptionHandler;
 import utility.InformationalMessages;
 
+import java.util.List;
+
 
 public abstract class NewEditController  {
     private MovieReloadable reloadable;
@@ -64,7 +66,7 @@ public abstract class NewEditController  {
         return reloadable;
     }
 
-    public boolean validateInputs(String title , String path,MovieModel movieModel) {
+    public boolean validateInputs(String title , String path, MovieModel movieModel) {
         if (movieModel.areTitleOrPathEmpty(title, path)) {
             ExceptionHandler.displayInformationAlert(InformationalMessages.NO_EMPTY_INPUT,"No empty input");
             return true;
@@ -75,6 +77,7 @@ public abstract class NewEditController  {
         }
         return false;
     }
+
     public void  closeStage(Stage stage ){
         stage.close();
     }
@@ -122,13 +125,13 @@ public abstract class NewEditController  {
 //        closeCurrentStage(event);
 //    }
 //
-    public void setOnChangeListener(TextField textField, Label label) {
-        textField.textProperty().addListener((obs, oldValue, newValue) -> {
-            if (label.isVisible()) {
-                label.setVisible(false);
-            }
-        });
-    }
+//    public void setOnChangeListener(TextField textField, Label label) {
+//        textField.textProperty().addListener((obs, oldValue, newValue) -> {
+//            if (label.isVisible()) {
+//                label.setVisible(false);
+//            }
+//        });
+//    }
 //
 //    public void showTitleError() {
 //        getInformation().setText(InformationalMessages.NO_EMPTY_TITLE.getValue());

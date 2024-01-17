@@ -1,6 +1,8 @@
 package bll.movieLogic;
+import be.Category;
 import be.Movie;
 import exceptions.MoviesException;
+import javafx.collections.ObservableList;
 import javafx.scene.media.Media;
 
 import java.util.List;
@@ -18,6 +20,8 @@ public interface MovieLogicAPI {
     int processIndexUpp(int toCheck,int listSize);
     int processIndexDown(int toCheck,int listSize);
     Media getMediaAtIndex(int index,List<Movie> movies) throws MoviesException;
+
+
 
 
 //used to insert genres into the database
