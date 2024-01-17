@@ -1,4 +1,4 @@
-package bll;
+package bll.categoryLogic;
 
 import be.Category;
 import be.Movie;
@@ -16,7 +16,7 @@ public interface CategoryLogicAPI {
     boolean checkTitle(String title);
     public boolean updateCategory(int categoryId, String newTitle) throws MoviesException;
 
-    boolean deleteCategory(int id);
+    boolean deleteCategory(int id) throws MoviesException;
     boolean checkOpenCategory(SimpleIntegerProperty openCategoryId, int currentCategoryToDelete);
 }
 

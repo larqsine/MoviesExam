@@ -2,8 +2,8 @@ package gui.MainView;
 
 import be.Category;
 import be.Movie;
-import bll.CategoryLogic;
-import bll.CategoryLogicAPI;
+import bll.categoryLogic.CategoryLogic;
+import bll.categoryLogic.CategoryLogicAPI;
 import bll.movieLogic.MovieLogic;
 import bll.movieLogic.MovieLogicAPI;
 import exceptions.MoviesException;

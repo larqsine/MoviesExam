@@ -2,8 +2,8 @@ package gui.components.newEditDeleteCategory;
 
 import be.Category;
 import be.Movie;
-import bll.CategoryLogic;
-import bll.CategoryLogicAPI;
+import bll.categoryLogic.CategoryLogic;
+import bll.categoryLogic.CategoryLogicAPI;
 import exceptions.MoviesException;
 
 public class CategoryModel {

@@ -1,11 +1,14 @@
 package dal;
 
 import be.Category;
+import be.Movie;
 import exceptions.MoviesException;
 import utility.ExceptionsMessages;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CategoryDao implements ICategoryDao {
@@ -62,4 +65,61 @@ public class CategoryDao implements ICategoryDao {
             throw new MoviesException(ExceptionsMessages.DB_UNSUCCESFULL, e.getCause());
         }
     }
+
+    @Override
+    public boolean deleteCategory(int id) throws MoviesException {
+        String sql = "DELETE FROM Category WHERE Id=?";
+        try (Connection connection = CONNECTION_MANAGER.getConnection()){
+            PreparedStatement psmt = null;
+            int rowsAffected = 0;
+            boolean deleteFromTable = deleteCategoryFromTable(id, connection, psmt);
+            if (deleteFromTable) {
+                psmt = connection.prepareStatement(sql);
+                psmt.setInt(1, id);
+                rowsAffected = psmt.executeUpdate();
+            }
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            throw new MoviesException(ExceptionsMessages.DB_UNSUCCESFULL, e.getCause());
+        }
+    }
+
+    private boolean deleteCategoryFromTable(int categoryId, Connection connection, PreparedStatement psmt) throws MoviesException {
+        String sql = "DELETE FROM Category WHERE Id=?";
+        try{
+            psmt = connection.prepareStatement(sql);
+            psmt.setInt(1, categoryId);
+            int rows = psmt.executeUpdate();
+            return rows > 0;
+        } catch (SQLException e){
+            throw new MoviesException(ExceptionsMessages.DB_UNSUCCESFULL, e.getCause());
+        }
+    }
+
+
+    /**@Override
+    public boolean de(Category category) throws MoviesException {
+        System.out.println(category.getName());
+        System.out.println(category.getId());
+        String sqlDeleteCategory = "DELETE FROM Category WHERE id=?";
+        try (Connection connection = CONNECTION_MANAGER.getConnection()) {
+            connection.setAutoCommit(false);
+            try (PreparedStatement psmtDelete = connection.prepareStatement(sqlDeleteCategory)) {
+                psmtDelete.setInt(1, category.getId());
+                int rows = psmtDelete.executeUpdate();
+                FileHandler fileHandler = FileHandler.getInstance();
+//                if (!fileHandler.deleteSongLocal(movie.getFileLink())) {
+//                    connection.rollback();
+//                    return false;
+//                }
+                connection.commit();
+                return true;
+            } catch (SQLException e) {
+                connection.rollback();
+                throw new MoviesException(ExceptionsMessages.TRANSACTION_FAILED, e);
+            }
+        } catch (SQLException e) {
+            throw new MoviesException(ExceptionsMessages.NO_DATABASE_CONNECTION, e);
+        }
+    }*/
 }
