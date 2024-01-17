@@ -31,6 +31,7 @@ import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 import gui.filterSongs.FilterManager;
 import utility.*;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -39,7 +40,7 @@ import java.util.ResourceBundle;
 public class MainViewController implements Initializable {
     private final int POPUP_WIDTH = 420;
     private MainModel model;
-    private  boolean error = false;
+    private boolean error = false;
     private String exceptionMessage;
     @FXML
     private TextField searchValue;
@@ -52,7 +53,7 @@ public class MainViewController implements Initializable {
     @FXML
     private Button customPlayButton;
     @FXML
-    private HBox  playbackContainer;
+    private HBox playbackContainer;
     @FXML
     private MediaView mediaView;
     private ISearchGraphic isearchGraphic;
@@ -89,77 +90,79 @@ public class MainViewController implements Initializable {
             model = MainModel.getInstance();
             //initialize application playback
             PlayOperations playOperations = PlayOperationsHandler.getInstance(model);
-            DataSupplier dataHandler = DataHandler.getInstance(model,playOperations);
-            MediaViewReloader mediaViewReloader = new MediaViewUpdate(mediaView,timeSlider);
-            playerControl = Player.useMediaPlayer(dataHandler,mediaViewReloader,timeSlider);
-            uiInitializer.initializeTimeSlider(timeSlider,model);
-            playerCommander= new PlayerCommander(dataHandler,playerControl);
+            DataSupplier dataHandler = DataHandler.getInstance(model, playOperations);
+            MediaViewReloader mediaViewReloader = new MediaViewUpdate(mediaView, timeSlider);
+            playerControl = Player.useMediaPlayer(dataHandler, mediaViewReloader, timeSlider);
+            uiInitializer.initializeTimeSlider(timeSlider, model);
+            playerCommander = new PlayerCommander(dataHandler, playerControl);
             // mediaViewPlayer.setMediaPlayer(playerControl.getMediaPlayer());
-            customPlayButton= new PlaybackButton(92,52,playerCommander,model);
-            playbackContainer.getChildren().add(1,customPlayButton);
+            customPlayButton = new PlaybackButton(92, 52, playerCommander, model);
+            playbackContainer.getChildren().add(1, customPlayButton);
             //initialize the category list view
             categoryView = new CategoryView(new CategorySelectionHandler(model), model.getCategories());
             categoryContainer.getChildren().add(categoryView);
             //initialize moviesTable data
-            moviesTable = new MoviesTable(model.getMovies(),model,playerCommander);
+            moviesTable = new MoviesTable(model.getMovies(), model, playerCommander);
             moviesView.getChildren().add(moviesTable);
             //initializes the filter view
             uiInitializer.initializeSearchView(isearchGraphic, searchButton, searchValue, infoEmptyLabel);
             //bind elapsed time to the duration
-            uiInitializer.initializeDurationLabels(timeElapsed,totalTime,playerCommander);
+            uiInitializer.initializeDurationLabels(timeElapsed, totalTime, playerCommander);
             //bind model to total duration
-            uiInitializer.initializeTotalDurationModel(model,playerCommander);
+            uiInitializer.initializeTotalDurationModel(model, playerCommander);
             //initialize volumeSlider
-            uiInitializer.initializeVolumeSlider(volumeSlider,model);
+            uiInitializer.initializeVolumeSlider(volumeSlider, model);
         } catch (MoviesException me) {
-            this.error=true;
-            this.exceptionMessage=me.getMessage();
+            this.error = true;
+            this.exceptionMessage = me.getMessage();
         }
     }
 
     public boolean isError() {
         return error;
     }
+
     public String getExceptionMessage() {
         return exceptionMessage;
     }
-@FXML
+
+    @FXML
     private void addNewCategory(ActionEvent event) {
         CategoryReloadable categoryReloadable = CategoryReloadableHandler.getInstance(this.model);
-        try{
+        try {
             Stage mainStage = Utility.getCurrentStage(event);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../components/newEditDeleteCategory/NewCategoryView.fxml"));
             loader.setController(new NewCategoryControllerRel());
-            Parent parent =loader.load();
-            NewCategoryControllerRel categoryControllerRel  = loader.getController();
+            Parent parent = loader.load();
+            NewCategoryControllerRel categoryControllerRel = loader.getController();
             categoryControllerRel.setReloadable(categoryReloadable);
             Scene scene = new Scene(parent);
             Stage newSongStage = Utility.createPopupStage(mainStage, scene, Titles.ADD_CATEGORY.getValue(), POPUP_WIDTH);
             newSongStage.show();
         } catch (IOException e) {
-            ExceptionHandler.displayErrorAlert(InformationalMessages.FXML_MISSING,"Application error");
+            ExceptionHandler.displayErrorAlert(InformationalMessages.FXML_MISSING, "Application error");
         }
     }
 
     public void editCategory(ActionEvent actionEvent) {
         Category categoryToUpdate = getSelectedCategory();
-        if (categoryToUpdate == null){
+        if (categoryToUpdate == null) {
             ExceptionHandler.displayErrorAlert(InformationalMessages.NO_CATEGORY_SELECTED, "No category has been selected");
             return;
         }
         try {
             CategoryReloadable categoryReloadable = CategoryReloadableHandler.getInstance(this.model);
-           FXMLLoader loader = new FXMLLoader(getClass().getResource("../components/newEditDeleteCategory/NewCategoryView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../components/newEditDeleteCategory/NewCategoryView.fxml"));
             loader.setController(new EditCategoryController());
             Parent root = loader.load();
-            EditCategoryController edc= loader.getController();
+            EditCategoryController edc = loader.getController();
             edc.setReloadable(categoryReloadable);
             edc.setTextFieldText(categoryToUpdate);
             Scene scene = new Scene(root);
             Stage mainStage = Utility.getCurrentStage(actionEvent);
-            Stage newCategoryStage = Utility.createPopupStage(mainStage, scene, Titles.EDIT_CATEGORY.getValue(),POPUP_WIDTH);
+            Stage newCategoryStage = Utility.createPopupStage(mainStage, scene, Titles.EDIT_CATEGORY.getValue(), POPUP_WIDTH);
             newCategoryStage.show();
-        } catch (IOException e){
+        } catch (IOException e) {
             ExceptionHandler.displayErrorAlert(InformationalMessages.FXML_MISSING, "Application error");
         }
     }
@@ -168,18 +171,18 @@ public class MainViewController implements Initializable {
         return this.categoryView.getSelectionModel().getSelectedItem();
     }
 
-    public void deleteCategory(ActionEvent actionEvent){
+    public void deleteCategory(ActionEvent actionEvent) {
         Category categoryToDelete = getSelectedCategory();
-        if (categoryToDelete == null){
+        if (categoryToDelete == null) {
             ExceptionHandler.displayWarningAlert(InformationalMessages.NO_CATEGORY_SELECTED, "No category has been selected");
             return;
         }
-        if (isCategoryCurrentlyOpen(categoryToDelete)){
+        if (isCategoryCurrentlyOpen(categoryToDelete)) {
             ExceptionHandler.displayInformationAlert(InformationalMessages.CATEGORY_IN_USE, null);
             return;
         }
         DeleteCategoryController deleteCategoryController = createDeleteCategoryController(categoryToDelete);
-        if (deleteCategoryController.getConfirmationWindow() != null){
+        if (deleteCategoryController.getConfirmationWindow() != null) {
             Stage confirmationStage = createConfirmationStage(deleteCategoryController, actionEvent);
             confirmationStage.show();
         } else {
@@ -201,8 +204,9 @@ public class MainViewController implements Initializable {
 
     /**
      * Creates a confirmation stage for deleting a category.
+     *
      * @param deleteCategoryController The controller handling the category deletion.
-     * @param actionEvent The ActionEvent for triggering the operation.
+     * @param actionEvent              The ActionEvent for triggering the operation.
      * @return The created confirmation stage.
      */
     private Stage createConfirmationStage(DeleteCategoryController deleteCategoryController, ActionEvent actionEvent) {
@@ -212,24 +216,24 @@ public class MainViewController implements Initializable {
     }
 
     public void addNewMovie(ActionEvent event) {
-        String resourcePath=  "../components/newEditDeleteMovies/AddViewMovie.fxml";
-        if(model.getCurrentOpenedCategory()==0){
-            ExceptionHandler.displayInformationAlert(InformationalMessages.NO_CATEGORY_OPENED,"Please open a category");
-       return;
-    }
+        String resourcePath = "../components/newEditDeleteMovies/AddViewMovie.fxml";
+        if (model.getCurrentOpenedCategory() == 0) {
+            ExceptionHandler.displayInformationAlert(InformationalMessages.NO_CATEGORY_OPENED, "Please open a category");
+            return;
+        }
         try {
-        FXMLLoader loader =new FXMLLoader(getClass().getResource(resourcePath));
-        Parent root = loader.load();
-        AddMovieController adMovie = loader.getController();
-        adMovie.getCurrentOpenedCategory(model.getCurrentOpenedCategory());
-        adMovie.setModel(this.model);
-        Scene scene = new Scene(root);
-        Stage mainStage = Utility.getCurrentStage(event);
-        Stage newCategoryStage = Utility.createPopupStage(mainStage, scene, Titles.ADD_NEW_MOVIE.getValue(),POPUP_WIDTH);
-        newCategoryStage.show();
-    } catch (IOException e) {
-        ExceptionHandler.displayErrorAlert(InformationalMessages.FXML_MISSING, "Application error");
-    }
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(resourcePath));
+            Parent root = loader.load();
+            AddMovieController adMovie = loader.getController();
+            adMovie.getCurrentOpenedCategory(model.getCurrentOpenedCategory());
+            adMovie.setModel(this.model);
+            Scene scene = new Scene(root);
+            Stage mainStage = Utility.getCurrentStage(event);
+            Stage newCategoryStage = Utility.createPopupStage(mainStage, scene, Titles.ADD_NEW_MOVIE.getValue(), POPUP_WIDTH);
+            newCategoryStage.show();
+        } catch (IOException e) {
+            ExceptionHandler.displayErrorAlert(InformationalMessages.FXML_MISSING, "Application error");
+        }
     }
 
     private Parent getParent(String resourcePath) throws IOException {
@@ -245,23 +249,23 @@ public class MainViewController implements Initializable {
 
 
     public void editMovie(ActionEvent event) {
-        String resourcePath=  "../components/newEditDeleteMovies/EditMovieView.fxml";
+        String resourcePath = "../components/newEditDeleteMovies/EditMovieView.fxml";
         Movie selectedMovie = moviesTable.getSelectionModel().getSelectedItem();
-        if(selectedMovie==null){
-            ExceptionHandler.displayInformationAlert(InformationalMessages.NO_MOVIE_OPENED,"Please open a movie");
+        if (selectedMovie == null) {
+            ExceptionHandler.displayInformationAlert(InformationalMessages.NO_MOVIE_OPENED, "Please open a movie");
             return;
         }
         try {
-            FXMLLoader loader =new FXMLLoader(getClass().getResource(resourcePath));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(resourcePath));
             Parent root = loader.load();
             EditMovieController editMovie = loader.getController();
             editMovie.getCurrentOpenedCategory(model.getCurrentOpenedCategory());
             editMovie.setModel(this.model);
             System.out.println(selectedMovie.getName());
-//            editMovie.setTextFieldText(selectedMovie);
+            editMovie.setTextFieldText(selectedMovie);
             Scene scene = new Scene(root);
             Stage mainStage = Utility.getCurrentStage(event);
-            Stage newCategoryStage = Utility.createPopupStage(mainStage, scene, Titles.ADD_NEW_MOVIE.getValue(),POPUP_WIDTH);
+            Stage newCategoryStage = Utility.createPopupStage(mainStage, scene, Titles.ADD_NEW_MOVIE.getValue(), POPUP_WIDTH);
             newCategoryStage.show();
         } catch (IOException e) {
             ExceptionHandler.displayErrorAlert(InformationalMessages.FXML_MISSING, "Application error");
@@ -270,25 +274,25 @@ public class MainViewController implements Initializable {
 
     public void deleteMovie(ActionEvent event) {
         Movie selectedMovie = moviesTable.getSelectionModel().getSelectedItem();
-        if(selectedMovie==null){
-            ExceptionHandler.displayInformationAlert(InformationalMessages.NO_MOVIE_OPENED,"Please open a movie");
+        if (selectedMovie == null) {
+            ExceptionHandler.displayInformationAlert(InformationalMessages.NO_MOVIE_OPENED, "Please open a movie");
             return;
         }
-        if(model.isMoviePlaying(selectedMovie)){
-            ExceptionHandler.displayInformationAlert(InformationalMessages.MOVIE_IN_USE,"Delete forbidden");
+        if (model.isMoviePlaying(selectedMovie)) {
+            ExceptionHandler.displayInformationAlert(InformationalMessages.MOVIE_IN_USE, "Delete forbidden");
             return;
         }
-        MovieReloader movieReloader =  new MovieReloader(model);
+        MovieReloader movieReloader = new MovieReloader(model);
         DeleteMovieController deleteMovieController = new DeleteMovieController(movieReloader);
         deleteMovieController.setMovieToDelete(selectedMovie);
-        deleteMovieController.initialize(null,null);
+        deleteMovieController.initialize(null, null);
         if (deleteMovieController.getConfirmationWindow() != null) {
             Stage mainStage = Utility.getCurrentStage(event);
             Scene scene = new Scene(deleteMovieController.getConfirmationWindow());
-             Stage stage=Utility.createPopupStage(mainStage, scene, Titles.DELETE_MOVIE.getValue(), POPUP_WIDTH);
-              stage.show();
+            Stage stage = Utility.createPopupStage(mainStage, scene, Titles.DELETE_MOVIE.getValue(), POPUP_WIDTH);
+            stage.show();
         } else {
-            ExceptionHandler.displayErrorAlert(InformationalMessages.OPERATION_FAILED,null);
+            ExceptionHandler.displayErrorAlert(InformationalMessages.OPERATION_FAILED, null);
         }
 
 

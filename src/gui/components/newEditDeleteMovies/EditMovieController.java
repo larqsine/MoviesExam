@@ -25,9 +25,11 @@ public class EditMovieController extends NewEditController implements Initializa
     private TextField fileLocation;
     @FXML
     private GenreView genreList;
-
     @FXML
     private HBox genresContainer;
+    @FXML
+    private TextField movieTitle;
+
     @Override
     public void cancelAddEditMovie(ActionEvent event) {
         this.closeStage(Utility.getCurrentStage(event));
@@ -82,8 +84,8 @@ public class EditMovieController extends NewEditController implements Initializa
 //    }
 //
 //
-//    public void setTextFieldText(Movie movie){
-//        movieModel.setCurrentSelectedMovie(movie);
-//        this.movieTitle.setText(movie.getName());
-//    }
+    public void setTextFieldText(Movie movie){
+        /*movieModel.setCurrentSelectedMovie(movie);*/
+        this.movieTitle.setText(movie.getName());
+}
 }

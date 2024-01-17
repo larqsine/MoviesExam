@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="volume coupled with the player volume propriety" />
+    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="commit mine">
+      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/NewEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/NewEditController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -130,14 +134,6 @@
       <workItem from="1705406171896" duration="8846000" />
       <workItem from="1705427664975" duration="3116000" />
       <workItem from="1705497803856" duration="4844000" />
-    </task>
-    <task id="LOCAL-00009" summary="category custom component">
-      <option name="closed" value="true" />
-      <created>1704525166413</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1704525166413</updated>
     </task>
     <task id="LOCAL-00010" summary="category custom component">
       <option name="closed" value="true" />
@@ -523,7 +519,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705427994754</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="commit mine">
+      <option name="closed" value="true" />
+      <created>1705503679676</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1705503679676</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -541,7 +545,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Movie Genres Window implemented with the unselected genres being removed from the list" />
     <MESSAGE value="Added the genres to a separate table in the database" />
     <MESSAGE value="genre be implemented" />
     <MESSAGE value="implemented movies to display genres instead of categories" />
@@ -566,7 +569,8 @@
     <MESSAGE value="deleted all the unused classes" />
     <MESSAGE value="Media view update with the new player in the platfrom run later" />
     <MESSAGE value="volume coupled with the player volume propriety" />
-    <option name="LAST_COMMIT_MESSAGE" value="volume coupled with the player volume propriety" />
+    <MESSAGE value="commit mine" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit mine" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
