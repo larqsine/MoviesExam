@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="volume coupled with the player volume propriety">
+    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="Time slider implemented to seek into the movie">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/listeners/MediaViewReloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/listeners/MediaViewReloader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/player/MediaViewUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/MediaViewUpdate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/player/PlayerCommander.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/PlayerCommander.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/player/PlayerControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/PlayerControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utility/UIInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/UIInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/NewEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/NewEditController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,14 +128,7 @@
       <workItem from="1705143472887" duration="49297000" />
       <workItem from="1705270260022" duration="27155000" />
       <workItem from="1705406171896" duration="8846000" />
-    </task>
-    <task id="LOCAL-00009" summary="category custom component">
-      <option name="closed" value="true" />
-      <created>1704525166413</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1704525166413</updated>
+      <workItem from="1705501394032" duration="800000" />
     </task>
     <task id="LOCAL-00010" summary="category custom component">
       <option name="closed" value="true" />
@@ -528,7 +514,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705427994754</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Time slider implemented to seek into the movie">
+      <option name="closed" value="true" />
+      <created>1705442870995</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1705442870995</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -546,7 +540,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Movie Genres Window implemented with the unselected genres being removed from the list" />
     <MESSAGE value="Added the genres to a separate table in the database" />
     <MESSAGE value="genre be implemented" />
     <MESSAGE value="implemented movies to display genres instead of categories" />
@@ -571,7 +564,8 @@
     <MESSAGE value="deleted all the unused classes" />
     <MESSAGE value="Media view update with the new player in the platfrom run later" />
     <MESSAGE value="volume coupled with the player volume propriety" />
-    <option name="LAST_COMMIT_MESSAGE" value="volume coupled with the player volume propriety" />
+    <MESSAGE value="Time slider implemented to seek into the movie" />
+    <option name="LAST_COMMIT_MESSAGE" value="Time slider implemented to seek into the movie" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

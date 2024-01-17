@@ -137,9 +137,6 @@ public abstract class NewEditController  {
 //        return (Stage) ((Node) event.getSource()).getScene().getWindow();
 //    }
 //
-
-
-
 //
 //    public TextField getMovieTitle() {
 //        return movieTitle;
