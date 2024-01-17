@@ -72,7 +72,7 @@
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
             <Label text="PersonalRating" />
-            <TextField />
+            <TextField fx:id="personalRating" />
          </children>
       </HBox>
         <HBox alignment="CENTER" prefHeight="35.0" prefWidth="200.0">

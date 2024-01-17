@@ -29,6 +29,8 @@ public class EditMovieController extends NewEditController implements Initializa
     private HBox genresContainer;
     @FXML
     private TextField movieTitle;
+    @FXML
+    private TextField personalRating;
 
     @Override
     public void cancelAddEditMovie(ActionEvent event) {
@@ -66,7 +68,7 @@ public class EditMovieController extends NewEditController implements Initializa
         }
     }
 
-    public void setModel(MainModel model){
+    public void setModel(MainModel model) {
         MovieReloadable movieReloadable = new MovieReloader(model);
         this.setReloadableController(movieReloadable);
     }
@@ -74,18 +76,30 @@ public class EditMovieController extends NewEditController implements Initializa
     public void getCurrentOpenedCategory(int currentOpenedCategory) {
         this.setOpenedCategory(currentOpenedCategory);
     }
+
     private MovieFormat setMovieFormat(File file) throws MoviesException {
         return model.getFormat(file.getName());
     }
 
-//    private boolean isValidTitle(){
+    //    private boolean isValidTitle(){
 //        String title = getMovieTitle().getText();
 //        return !getMovieModel().checkTitle(title);
 //    }
 //
 //
-    public void setTextFieldText(Movie movie){
-        /*movieModel.setCurrentSelectedMovie(movie);*/
+    public void setTextFieldText(Movie movie) {
+        model.setCurrentSelectedMovie(movie);
         this.movieTitle.setText(movie.getName());
-}
+    }
+
+    private boolean validateRating(TextField textField) {
+        try {
+            Double.parseDouble(personalRating.getText());
+            return true;
+        } catch (NumberFormatException ex) {
+            ExceptionHandler.displayInformationAlert(ex.getMessage(), "Wrong format ");
+            return false;
+        }
+    }
+
 }
