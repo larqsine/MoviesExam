@@ -43,22 +43,7 @@ public abstract class NewEditController  {
      */
     public abstract void saveAddEditMovie(ActionEvent event);
 
-    public TextField getMovieTitle() {
-        return movieTitle;
-    }
-    public MovieModel getMovieModel(){
-        return movieModel;
-}
-    public void setMovieModel(MovieModel movieModel) {
-        this.movieModel = movieModel;
-    }
-    public void setTextFieldText(Movie movie){
-        movieModel.setCurrentSelectedMovie(movie);
-        this.movieTitle.setText(movie.getName());
-    }
-
     public abstract void openFileChooser(ActionEvent event);
-
 
     public FileChooser getFileChooser() {
         setDefaultExtensions();

@@ -258,7 +258,7 @@ public class MainViewController implements Initializable {
             editMovie.getCurrentOpenedCategory(model.getCurrentOpenedCategory());
             editMovie.setModel(this.model);
             System.out.println(selectedMovie.getName());
-            editMovie.setTextFieldText(selectedMovie);
+//            editMovie.setTextFieldText(selectedMovie);
             Scene scene = new Scene(root);
             Stage mainStage = Utility.getCurrentStage(event);
             Stage newCategoryStage = Utility.createPopupStage(mainStage, scene, Titles.ADD_NEW_MOVIE.getValue(),POPUP_WIDTH);

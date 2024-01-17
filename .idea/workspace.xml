@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="volume coupled with the player volume propriety">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieCreation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieCreation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dal/IMovieDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/IMovieDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dal/MovieDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/MovieDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/EditCategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/EditCategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieControllerNew.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/MovieModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/MovieModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/NewEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/NewEditController.java" afterDir="false" />
-    </list>
+    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="volume coupled with the player volume propriety" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

@@ -1,5 +1,6 @@
 package gui.components.newEditDeleteMovies;
 
+import be.Movie;
 import exceptions.MoviesException;
 import gui.MainView.MainModel;
 import gui.components.listeners.MovieReloadable;
@@ -74,8 +75,15 @@ public class EditMovieController extends NewEditController implements Initializa
     private MovieFormat setMovieFormat(File file) throws MoviesException {
         return model.getFormat(file.getName());
     }
-    private boolean isValidTitle(){
-        String title = getMovieTitle().getText();
-        return !getMovieModel().checkTitle(title);
-    }
+
+//    private boolean isValidTitle(){
+//        String title = getMovieTitle().getText();
+//        return !getMovieModel().checkTitle(title);
+//    }
+//
+//
+//    public void setTextFieldText(Movie movie){
+//        movieModel.setCurrentSelectedMovie(movie);
+//        this.movieTitle.setText(movie.getName());
+//    }
 }
