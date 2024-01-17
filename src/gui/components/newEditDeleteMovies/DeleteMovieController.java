@@ -5,7 +5,6 @@ import exceptions.MoviesException;
 import gui.components.confirmationWindow.ConfirmationWindow;
 import gui.components.listeners.ConfirmationController;
 import gui.components.listeners.MovieReloadable;
-import gui.components.newEditDeleteMovies.MovieModel;
 import javafx.application.Platform;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.VBox;
@@ -30,14 +29,14 @@ public class DeleteMovieController implements ConfirmationController, Initializa
                 Platform.runLater(() -> {
                     ExceptionHandler.displayInformationAlert(message,"Delete operation successful");
                 });
-                reloadSongs();
+                reloadMovies();
             } catch (MoviesException e) {
                 throw new RuntimeException(e);
             }
         }
     }
 
-    private void reloadSongs() throws MoviesException {
+    private void reloadMovies() throws MoviesException {
    reloadable.reloadMovies();
     }
 

@@ -74,7 +74,6 @@ public class MainViewController implements Initializable {
     private Slider timeSlider;
     @FXML
     private Slider volumeSlider;
-    private CategoryReloadable categoryReloadable;
 
 
     @FXML
@@ -195,6 +194,7 @@ public class MainViewController implements Initializable {
     }
 
     private DeleteCategoryController createDeleteCategoryController(Category categoryToDelete) {
+        CategoryReloadable categoryReloadable = CategoryReloadableHandler.getInstance(model);
         DeleteCategoryController deleteCategoryController = new DeleteCategoryController();
         deleteCategoryController.getCategoryToDelete(categoryToDelete);
         deleteCategoryController.initialize(null, null);
@@ -263,6 +263,7 @@ public class MainViewController implements Initializable {
             editMovie.setModel(this.model);
             System.out.println(selectedMovie.getName());
             editMovie.setTextFieldText(selectedMovie);
+            editMovie.setPersonalRating(selectedMovie.getPersonalRating());
             Scene scene = new Scene(root);
             Stage mainStage = Utility.getCurrentStage(event);
             Stage newCategoryStage = Utility.createPopupStage(mainStage, scene, Titles.ADD_NEW_MOVIE.getValue(), POPUP_WIDTH);
