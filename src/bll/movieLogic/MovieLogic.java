@@ -6,6 +6,7 @@ import dal.IMovieReader;
 import dal.MovieDao;
 import dal.MovieReader;
 import exceptions.MoviesException;
+import gui.components.newEditDeleteMovies.NewEditController;
 import javafx.beans.property.IntegerProperty;
 import javafx.collections.ObservableList;
 import javafx.scene.media.Media;
@@ -45,8 +46,12 @@ public class MovieLogic implements MovieLogicAPI {
     }
 
 
-    public Map<Integer, Movie> applyFilter(String filter, Map<Integer, Movie> toFilter) {
+    public Map<Integer, Movie> applyFilter(String filter, Map<Integer, Movie> toFilter) throws MoviesException {
         Map<Integer, Movie> moviesFiltered = new HashMap<>();
+        if (toFilter==null){
+            throw  new MoviesException("No Movies Opened");
+        }
+
         if (filter == null || filter.isEmpty()) {
             return toFilter;
         }

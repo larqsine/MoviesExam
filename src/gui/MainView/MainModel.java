@@ -147,7 +147,7 @@ public class MainModel {
         this.movies.setAll(movieObjects.keySet().stream().map(elem -> movieObjects.get(elem)).toList());
     }
 
-    public void applyFilter(String filter) {
+    public void applyFilter(String filter) throws MoviesException {
         Map<Integer, Movie> filteredMovies = movieLogic.applyFilter(filter, movieObjects);
         this.movies.setAll(filteredMovies.keySet().stream().map(elem -> movieObjects.get(elem)).toList());
     }

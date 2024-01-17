@@ -1,9 +1,11 @@
 package gui.filterSongs;
 
+import exceptions.MoviesException;
 import gui.MainView.MainModel;
 import gui.searchButton.ISearchGraphic;
 import gui.searchButton.SearchGraphic;
 import gui.searchButton.UndoGraphic;
+import utility.ExceptionHandler;
 import utility.GraphicIdValues;
 import utility.InformationalMessages;
 import javafx.scene.control.Button;
@@ -18,12 +20,12 @@ public class FilterManager {
     private Button searchButton;
     private TextField searchValue;
 
-    public FilterManager(MainModel model, ISearchGraphic searchGraphic, Label infoLabel, Button searchButton, TextField searchValue) {
+    public FilterManager(MainModel model,ISearchGraphic searchGraphic, Label infoLabel, Button searchButton, TextField searchValue) {
         this.model = model;
-        this.searchGraphic = searchGraphic;
         this.infoLabel = infoLabel;
         this.searchButton = searchButton;
         this.searchValue = searchValue;
+        this.searchGraphic=searchGraphic;
     }
 
 
@@ -31,7 +33,11 @@ public class FilterManager {
         String filter = searchValue.getText();
         if (searchButton.getGraphic().getId().equals(GraphicIdValues.SEARCH.getValue())) {
             if (!filter.isEmpty()) {
-                applySearchFilter(filter);
+                try {
+                    applySearchFilter(filter);
+                } catch (MoviesException e) {
+                    ExceptionHandler.displayInformationAlert(e.getMessage(),"Open a category");
+                }
             } else {
                 showInfoMessage(InformationalMessages.FILTER_EMPTY.getValue());
             }
@@ -40,7 +46,7 @@ public class FilterManager {
         }
     }
 
-    private void applySearchFilter(String filter) {
+    private void applySearchFilter(String filter) throws MoviesException {
         searchGraphic = new UndoGraphic();
         model.applyFilter(filter);
         infoLabel.setVisible(false);
