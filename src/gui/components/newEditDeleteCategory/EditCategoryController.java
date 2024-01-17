@@ -7,7 +7,7 @@ import utility.ExceptionHandler;
 
 import static utility.Utility.getCurrentStage;
 
-public class EditCategoryController extends NewEditController{
+public class    EditCategoryController extends NewEditController{
 
 
 

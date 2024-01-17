@@ -9,6 +9,7 @@ import bll.movieLogic.MovieCreation;
 import bll.movieLogic.MovieLogic;
 import bll.movieLogic.MovieLogicAPI;
 import exceptions.MoviesException;
+import gui.components.newEditDeleteCategory.CategoryModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import utility.MovieFormat;
@@ -22,6 +23,7 @@ public class MovieModel {
     private MovieLogicAPI movieLogic;
     private GenreLogicApi genreLogic;
     private MovieCreation movieCreation;
+    private Movie currentSelectedMovie;
 
     public ObservableList<String> getGenres() {
         return genres;
@@ -44,7 +46,6 @@ public class MovieModel {
         initializeGenresObjects();
         initializeGenres();
     }
-
     private void initializeGenres() {
         this.genres.setAll(genreLogic.getGenreValues(this.genresObjects));
     }
@@ -55,7 +56,8 @@ public class MovieModel {
     public void cancelUpdateMovie() {
     }
 
-    public void setCurrentSelectedMovie(Movie movie) {
+    public void setCurrentSelectedMovie(Movie currentSelectedMovie) {
+        this.currentSelectedMovie = currentSelectedMovie;
     }
 
     public boolean updateMovie(String title) throws Exception{

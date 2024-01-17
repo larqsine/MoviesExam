@@ -18,7 +18,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class EditMovieControllerNew extends NewEditController implements Initializable {
+public class EditMovieController extends NewEditController implements Initializable {
     private MovieModel model;
     @FXML
     private TextField fileLocation;
@@ -73,5 +73,9 @@ public class EditMovieControllerNew extends NewEditController implements Initial
     }
     private MovieFormat setMovieFormat(File file) throws MoviesException {
         return model.getFormat(file.getName());
+    }
+    private boolean isValidTitle(){
+        String title = getMovieTitle().getText();
+        return !getMovieModel().checkTitle(title);
     }
 }

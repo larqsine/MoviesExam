@@ -6,14 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="volume coupled with the player volume propriety">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieCreation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieCreation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dal/IMovieDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/IMovieDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dal/MovieDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/MovieDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/listeners/MediaViewReloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/listeners/MediaViewReloader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/player/MediaViewUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/MediaViewUpdate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/player/PlayerCommander.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/PlayerCommander.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/player/PlayerControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/player/PlayerControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utility/UIInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/UIInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/EditCategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/EditCategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieControllerNew.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/MovieModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/MovieModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/NewEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/NewEditController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +46,9 @@
         <option name="url" value="https://github.com/larqsine/Movie-Collection.git" />
       </UrlAndAccount>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -135,6 +139,8 @@
       <workItem from="1705143472887" duration="49297000" />
       <workItem from="1705270260022" duration="27155000" />
       <workItem from="1705406171896" duration="8846000" />
+      <workItem from="1705427664975" duration="3116000" />
+      <workItem from="1705497803856" duration="4844000" />
     </task>
     <task id="LOCAL-00009" summary="category custom component">
       <option name="closed" value="true" />
