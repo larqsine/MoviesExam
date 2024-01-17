@@ -1,4 +1,4 @@
-package bll;
+package bll.categoryLogic;
 
 import be.Category;
 import be.Movie;
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class CategoryLogic implements CategoryLogicAPI{
+public class CategoryLogic implements CategoryLogicAPI {
     private final ICategoryDao categoryDao;
     private static CategoryLogic instance;
 
@@ -41,23 +41,18 @@ public class CategoryLogic implements CategoryLogicAPI{
 
     @Override
     public boolean updateCategory(int categoryId, String newTitle) throws MoviesException {
-        System.out.println("I am here");
         return categoryDao.updateCategory(categoryId,newTitle);
     }
 
     @Override
-    public boolean deleteCategory(int id) {
-        return false;
+    public boolean deleteCategory(int id) throws MoviesException {
+        return this.categoryDao.deleteCategory(id);
     }
 
 
     public boolean checkOpenCategory(SimpleIntegerProperty openCategoryId, int currentCategoryToDelete) {
         return openCategoryId.get() == currentCategoryToDelete;
     }
-
-    //  public boolean checkOpenCategory(SimpleIntegerProperty openCategoryId, SimpleIntegerProperty currentCategoryToDelete) {
-  //      return openCategoryId == currentCategoryToDelete;
-  //  }
 
     public static CategoryLogic getInstance() throws MoviesException {
         if (instance == null){

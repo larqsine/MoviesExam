@@ -12,4 +12,6 @@ public interface ICategoryDao {
     boolean createCategory(String  categoryTitle) throws MoviesException;
 
     boolean updateCategory(int categoryId, String newTitle) throws MoviesException;
+
+    boolean deleteCategory(int id) throws MoviesException;
 }

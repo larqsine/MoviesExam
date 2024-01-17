@@ -1,4 +1,6 @@
 package gui.components.newEditDeleteMovies;
+import be.Category;
+import be.Movie;
 import gui.components.listeners.MovieReloadable;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
@@ -13,6 +15,8 @@ public abstract class NewEditController  {
     private MovieReloadable reloadable;
     private final FileChooser fileChooser = new FileChooser();
     private int openedCategory;
+    private TextField movieTitle;
+    private MovieModel movieModel;
 
     /**
      * returns the current opened category*/
@@ -39,6 +43,19 @@ public abstract class NewEditController  {
      */
     public abstract void saveAddEditMovie(ActionEvent event);
 
+    public TextField getMovieTitle() {
+        return movieTitle;
+    }
+    public MovieModel getMovieModel(){
+        return movieModel;
+}
+    public void setMovieModel(MovieModel movieModel) {
+        this.movieModel = movieModel;
+    }
+    public void setTextFieldText(Movie movie){
+        movieModel.setCurrentSelectedMovie(movie);
+        this.movieTitle.setText(movie.getName());
+    }
 
     public abstract void openFileChooser(ActionEvent event);
 

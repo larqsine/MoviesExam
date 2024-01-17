@@ -11,7 +11,7 @@ import gui.components.listeners.MediaViewReloader;
 import gui.components.movies.MoviesTable;
 import gui.components.newEditDeleteCategory.*;
 import gui.components.newEditDeleteMovies.AddMovieController;
-import gui.components.newEditDeleteMovies.EditMovieControllerNew;
+import gui.components.newEditDeleteMovies.EditMovieController;
 import gui.components.newEditDeleteMovies.MovieReloader;
 import gui.components.player.*;
 import gui.components.newEditDeleteMovies.DeleteMovieController;
@@ -138,7 +138,7 @@ public class MainViewController implements Initializable {
             newSongStage.show();
         } catch (IOException e) {
             ExceptionHandler.displayErrorAlert(InformationalMessages.FXML_MISSING,"Application error");
-        }   
+        }
     }
 
     public void editCategory(ActionEvent actionEvent) {
@@ -246,16 +246,19 @@ public class MainViewController implements Initializable {
 
     public void editMovie(ActionEvent event) {
         String resourcePath=  "../components/newEditDeleteMovies/EditMovieView.fxml";
-        if(model.getCurrentOpenedCategory()==0){
-            ExceptionHandler.displayInformationAlert(InformationalMessages.NO_CATEGORY_OPENED,"Please open a category");
+        Movie selectedMovie = moviesTable.getSelectionModel().getSelectedItem();
+        if(selectedMovie==null){
+            ExceptionHandler.displayInformationAlert(InformationalMessages.NO_MOVIE_OPENED,"Please open a movie");
             return;
         }
         try {
             FXMLLoader loader =new FXMLLoader(getClass().getResource(resourcePath));
             Parent root = loader.load();
-            EditMovieControllerNew editMovie = loader.getController();
+            EditMovieController editMovie = loader.getController();
             editMovie.getCurrentOpenedCategory(model.getCurrentOpenedCategory());
             editMovie.setModel(this.model);
+            System.out.println(selectedMovie.getName());
+            editMovie.setTextFieldText(selectedMovie);
             Scene scene = new Scene(root);
             Stage mainStage = Utility.getCurrentStage(event);
             Stage newCategoryStage = Utility.createPopupStage(mainStage, scene, Titles.ADD_NEW_MOVIE.getValue(),POPUP_WIDTH);

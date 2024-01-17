@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="Time slider implemented to seek into the movie">
+    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="volume coupled with the player volume propriety">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieCreation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieCreation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dal/IMovieDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/IMovieDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dal/MovieDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/MovieDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/EditCategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/EditCategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieControllerNew.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/MovieModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/MovieModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/NewEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/NewEditController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,6 +46,9 @@
         <option name="url" value="https://github.com/larqsine/Movie-Collection.git" />
       </UrlAndAccount>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -128,7 +139,16 @@
       <workItem from="1705143472887" duration="49297000" />
       <workItem from="1705270260022" duration="27155000" />
       <workItem from="1705406171896" duration="8846000" />
-      <workItem from="1705501394032" duration="800000" />
+      <workItem from="1705427664975" duration="3116000" />
+      <workItem from="1705497803856" duration="4844000" />
+    </task>
+    <task id="LOCAL-00009" summary="category custom component">
+      <option name="closed" value="true" />
+      <created>1704525166413</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1704525166413</updated>
     </task>
     <task id="LOCAL-00010" summary="category custom component">
       <option name="closed" value="true" />
@@ -514,15 +534,7 @@
       <option name="project" value="LOCAL" />
       <updated>1705427994754</updated>
     </task>
-    <task id="LOCAL-00058" summary="Time slider implemented to seek into the movie">
-      <option name="closed" value="true" />
-      <created>1705442870995</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1705442870995</updated>
-    </task>
-    <option name="localTasksCounter" value="59" />
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -540,6 +552,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Movie Genres Window implemented with the unselected genres being removed from the list" />
     <MESSAGE value="Added the genres to a separate table in the database" />
     <MESSAGE value="genre be implemented" />
     <MESSAGE value="implemented movies to display genres instead of categories" />
@@ -564,8 +577,7 @@
     <MESSAGE value="deleted all the unused classes" />
     <MESSAGE value="Media view update with the new player in the platfrom run later" />
     <MESSAGE value="volume coupled with the player volume propriety" />
-    <MESSAGE value="Time slider implemented to seek into the movie" />
-    <option name="LAST_COMMIT_MESSAGE" value="Time slider implemented to seek into the movie" />
+    <option name="LAST_COMMIT_MESSAGE" value="volume coupled with the player volume propriety" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

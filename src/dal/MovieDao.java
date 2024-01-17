@@ -162,6 +162,7 @@ public class MovieDao implements IMovieDao {
 
 
 
+
     private void insertMovieCategory(int categoryId, int movieId, Connection conn) throws MoviesException {
         String sql = "INSERT INTO CatMovie VALUES (?,?)";
         try {
@@ -193,7 +194,10 @@ public class MovieDao implements IMovieDao {
         }
     }
 
-
+    @Override
+    public boolean updateMovie(Movie movie, String movieTitle) throws MoviesException {
+        return false;
+    }
 
 @Override
     public boolean deleteMovie(Movie movie) throws MoviesException {
@@ -219,11 +223,6 @@ public class MovieDao implements IMovieDao {
         } catch (SQLException e) {
             throw new MoviesException(ExceptionsMessages.NO_DATABASE_CONNECTION, e);
         }
-    }
-
-
-    public boolean updateMovie(Movie movie) throws MoviesException {
-        return false;
     }
 
 
