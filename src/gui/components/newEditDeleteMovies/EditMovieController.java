@@ -4,7 +4,7 @@ import be.Movie;
 import exceptions.MoviesException;
 import gui.MainView.MainModel;
 import gui.components.listeners.MovieReloadable;
-import gui.components.newEditDeleteMovies.genreView.GenreView;
+import gui.components.newEditDeleteMovies.genreView.MultipleChoiceView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -28,7 +28,7 @@ public class EditMovieController extends NewEditController implements Initializa
     @FXML
     private TextField fileLocation;
     @FXML
-    private GenreView genreList;
+    private MultipleChoiceView genreList;
     @FXML
     private HBox genresContainer;
     @FXML
@@ -68,8 +68,8 @@ public class EditMovieController extends NewEditController implements Initializa
 
     @Override
     public void openFileChooser(ActionEvent event) {
-        Stage newSongStage = Utility.getCurrentStage(event);
-        File selectedFile = getFileChooser().showOpenDialog(newSongStage);
+        Stage newMovieStage = Utility.getCurrentStage(event);
+        File selectedFile = getFileChooser().showOpenDialog(newMovieStage);
         if (selectedFile != null) {
             try {
                 System.out.println(selectedFile);
@@ -85,8 +85,8 @@ public class EditMovieController extends NewEditController implements Initializa
     public void initialize(URL location, ResourceBundle resources) {
         try {
             model = MovieModel.getInstance();
-            genreList = new GenreView();
-            genreList.setGenres(model.getGenres());
+            genreList = new MultipleChoiceView();
+            genreList.setElements(model.getGenres());
             genresContainer.getChildren().add(genreList);
         } catch (MoviesException e) {
             ExceptionHandler.displayErrorAlert(e.getExceptionsMessages(), "Add movie error");

@@ -4,11 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="validate rating">
+    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="add movie changed to acept multiple categories">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/MovieModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/MovieModel.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogicAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogicAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/filterSongs/FilterManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/filterSongs/FilterManager.java" afterDir="false" />
+>>>>>>> ce49350e540ba11c5306724d68c60ab0224f9390
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,22 +143,6 @@
       <workItem from="1705406171896" duration="8846000" />
       <workItem from="1705427664975" duration="3116000" />
       <workItem from="1705497803856" duration="4844000" />
-    </task>
-    <task id="LOCAL-00012" summary="filter functionality started">
-      <option name="closed" value="true" />
-      <created>1704563459326</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1704563459326</updated>
-    </task>
-    <task id="LOCAL-00013" summary="movies data displayed into the table">
-      <option name="closed" value="true" />
-      <created>1704573392768</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1704573392768</updated>
     </task>
     <task id="LOCAL-00014" summary="movies data displayed into the table">
       <option name="closed" value="true" />
@@ -528,7 +520,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705518883844</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="play next and play previous functionalities implemented">
+      <option name="closed" value="true" />
+      <created>1705523788942</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1705523788942</updated>
+    </task>
+    <task id="LOCAL-00062" summary="add movie changed to acept multiple categories">
+      <option name="closed" value="true" />
+      <created>1705530034752</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1705530034752</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -546,8 +554,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="genre be implemented" />
-    <MESSAGE value="implemented movies to display genres instead of categories" />
     <MESSAGE value="Get genres for addMovie form database" />
     <MESSAGE value="Add new movie view" />
     <MESSAGE value="Check if a category movies a re opened" />
@@ -571,7 +577,9 @@
     <MESSAGE value="volume coupled with the player volume propriety" />
     <MESSAGE value="commit mine" />
     <MESSAGE value="validate rating" />
-    <option name="LAST_COMMIT_MESSAGE" value="validate rating" />
+    <MESSAGE value="play next and play previous functionalities implemented" />
+    <MESSAGE value="add movie changed to acept multiple categories" />
+    <option name="LAST_COMMIT_MESSAGE" value="add movie changed to acept multiple categories" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -583,7 +591,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/bll/movieLogic/MovieLogicAPI.java</url>
-          <line>18</line>
+          <line>20</line>
           <properties class="bll.movieLogic.MovieLogicAPI" method="processIndexDown">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

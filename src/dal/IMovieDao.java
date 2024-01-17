@@ -1,4 +1,5 @@
 package dal;
+import be.Category;
 import be.Movie;
 import exceptions.MoviesException;
 
@@ -9,11 +10,16 @@ public interface IMovieDao {
     Map<Integer,Movie> getMovies(int categoryId) throws MoviesException;
     void testConnection();
 
-    boolean createMovie(Movie movie, int categoryId) throws MoviesException;
+    boolean createMovie(Movie movie, List<Category> categories) throws MoviesException;
 
     boolean updateMovie(Movie movie, String movieTitle) throws MoviesException;
 
-    boolean deleteMovie(Movie movie) throws MoviesException;
+    boolean deleteMovieFromLocalAndDB(Movie movie) throws MoviesException;
+
+    boolean deleteMovieFromDB(Movie movie) throws MoviesException;
+
+    boolean deleteMovieFromCategory(Movie movie , Category category) throws MoviesException;
+
 //used to insert genres into the database
     //    void insertGenres(List<String> genres);
 

@@ -1,5 +1,4 @@
 package gui.MainView;
-
 import be.Category;
 import be.Movie;
 import exceptions.MoviesException;
@@ -31,7 +30,6 @@ import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 import gui.filterSongs.FilterManager;
 import utility.*;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -46,8 +44,6 @@ public class MainViewController implements Initializable {
     private TextField searchValue;
     @FXML
     private Button searchButton;
-    @FXML
-    private ISearchGraphic searchGraphic;
     @FXML
     private Label infoEmptyLabel;
     @FXML
@@ -64,7 +60,6 @@ public class MainViewController implements Initializable {
     private Pane moviesView;
     @FXML
     private TableView<Movie> moviesTable;
-    private PlayerControl playerControl;
     private PlayerCommander playerCommander;
     @FXML
     private Label timeElapsed;
@@ -82,7 +77,7 @@ public class MainViewController implements Initializable {
 
     @FXML
     private void applyFilter(ActionEvent event) {
-        FilterManager filterManager = new FilterManager(this.model, searchGraphic, infoEmptyLabel, searchButton, searchValue);
+        FilterManager filterManager = new FilterManager(this.model, isearchGraphic, infoEmptyLabel, searchButton, searchValue);
         filterManager.applyFilter(event);
     }
 
@@ -91,30 +86,39 @@ public class MainViewController implements Initializable {
         UIInitializer uiInitializer = new UIInitializer();
         try {
             model = MainModel.getInstance();
+
             //initialize application playback
             PlayOperations playOperations = PlayOperationsHandler.getInstance(model);
             DataSupplier dataHandler = DataHandler.getInstance(model, playOperations);
             MediaViewReloader mediaViewReloader = new MediaViewUpdate(mediaView, timeSlider);
-            playerControl = Player.useMediaPlayer(dataHandler, mediaViewReloader, timeSlider);
+            PlayerControl playerControl = Player.useMediaPlayer(dataHandler, mediaViewReloader, timeSlider);
             uiInitializer.initializeTimeSlider(timeSlider, model);
             playerCommander = new PlayerCommander(dataHandler, playerControl);
+
             // mediaViewPlayer.setMediaPlayer(playerControl.getMediaPlayer());
             customPlayButton = new PlaybackButton(92, 52, playerCommander, model);
             playbackContainer.getChildren().add(1, customPlayButton);
+
             //initialize the category list view
             categoryView = new CategoryView(new CategorySelectionHandler(model), model.getCategories());
             categoryContainer.getChildren().add(categoryView);
+
             //initialize moviesTable data
             moviesTable = new MoviesTable(model.getMovies(), model, playerCommander);
             moviesView.getChildren().add(moviesTable);
+
             //initializes the filter view
             uiInitializer.initializeSearchView(isearchGraphic, searchButton, searchValue, infoEmptyLabel);
+
             //bind elapsed time to the duration
             uiInitializer.initializeDurationLabels(timeElapsed, totalTime, playerCommander);
+
             //bind model to total duration
             uiInitializer.initializeTotalDurationModel(model, playerCommander);
+
             //initialize volumeSlider
             uiInitializer.initializeVolumeSlider(volumeSlider, model);
+
             // initialize the buttons
             uiInitializer.addMovieOpenedListener(model.getMovies(), playPrevious);
             uiInitializer.addMovieOpenedListener(model.getMovies(), playNext);
@@ -224,10 +228,6 @@ public class MainViewController implements Initializable {
 
     public void addNewMovie(ActionEvent event) {
         String resourcePath = "../components/newEditDeleteMovies/AddViewMovie.fxml";
-        if (model.getCurrentOpenedCategory() == 0) {
-            ExceptionHandler.displayInformationAlert(InformationalMessages.NO_CATEGORY_OPENED, "Please open a category");
-            return;
-        }
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(resourcePath));
             Parent root = loader.load();
@@ -309,7 +309,5 @@ public class MainViewController implements Initializable {
         } else {
             ExceptionHandler.displayErrorAlert(InformationalMessages.OPERATION_FAILED, null);
         }
-
-
     }
 }

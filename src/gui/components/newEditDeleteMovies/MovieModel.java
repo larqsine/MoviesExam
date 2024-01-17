@@ -19,18 +19,20 @@ import java.util.Map;
 
 public class MovieModel {
     private Map<String, Genre> genresObjects;
+    private Map<String, Category> categoriesObjects;
     private final ObservableList<String> genres;
+    private final ObservableList<String> categories;
     private MovieLogicAPI movieLogic;
     private GenreLogicApi genreLogic;
     private MovieCreation movieCreation;
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ce49350e540ba11c5306724d68c60ab0224f9390
     private Movie currentSelectedMovie;
 
-    public ObservableList<String> getGenres() {
-        return genres;
-    }
 
     private static MovieModel instance;
 
@@ -42,18 +44,31 @@ public class MovieModel {
     }
 
     private MovieModel() throws MoviesException {
-     this.movieLogic= new MovieLogic();
-     this.movieCreation= new MovieCreation();
-     this.genreLogic =new GenreLogic();
-     this.genres = FXCollections.observableArrayList();
+        this.movieLogic = new MovieLogic();
+        this.movieCreation = new MovieCreation();
+        this.genreLogic = new GenreLogic();
+        this.categories = FXCollections.observableArrayList();
+        this.genres = FXCollections.observableArrayList();
         initializeGenresObjects();
         initializeGenres();
+        initializeCategoryObjects();
+        initializeCategories();
     }
+
     private void initializeGenres() {
         this.genres.setAll(genreLogic.getGenreValues(this.genresObjects));
     }
+
     private void initializeGenresObjects() throws MoviesException {
-        this.genresObjects=genreLogic.getGenres();
+        this.genresObjects = genreLogic.getGenres();
+    }
+
+    private void initializeCategories() {
+        this.categories.setAll(genreLogic.getCategoriesValues(this.categoriesObjects));
+    }
+
+    private void initializeCategoryObjects() throws MoviesException {
+        this.categoriesObjects = genreLogic.getCategories();
     }
 
     public void cancelUpdateMovie() {
@@ -67,7 +82,7 @@ public class MovieModel {
         return currentSelectedMovie;
     }
 
-    public boolean updateMovie(String title) throws Exception{
+    public boolean updateMovie(String title) throws Exception {
         return false;
     }
 
@@ -75,28 +90,37 @@ public class MovieModel {
         return false;
     }
 
+    public ObservableList<String> getGenres() {
+        return genres;
+    }
+
 
     /**
      * get the format off the file , it is used by getDuration() method
-     * @param name  it is the name off the file that is being processed */
+     *
+     * @param name it is the name off the file that is being processed
+     */
     public MovieFormat getFormat(String name) throws MoviesException {
 
         return movieCreation.extractFormat(name);
     }
 
     public boolean areTitleOrPathEmpty(String title, String path) {
-        return movieCreation.areTitleOrPathEmpty(title,path);
+        return movieCreation.areTitleOrPathEmpty(title, path);
     }
 
     public boolean checkIfFileExists(String path) {
         return movieCreation.checkFilePath(path);
     }
 
-    public boolean saveMovie(String title, String path, List<String> genres, int categoryId) throws MoviesException {
-     List<Genre> genreObjects  = genreLogic.convertStringsToGenre(this.genresObjects,genres);
-     Movie movie =  new Movie(title,null,path,null,null,genreObjects);
-     return movieCreation.saveMovie(movie,categoryId);
+    public boolean saveMovie(String title, String path, List<String> genres,List<String>categories, int categoryId) throws MoviesException {
+        List<Genre> genreObjects = genreLogic.convertStringsToGenre(this.genresObjects, genres);
+        List<Category> catObjects = genreLogic.convertStringsToCategory(this.categoriesObjects,categories);
+        Movie movie = new Movie(title, null, path, null, null, genreObjects);
+
+        return movieCreation.saveMovie(movie, catObjects);
     }
+
     /**
      * Delete a movie from the database
      *
@@ -107,7 +131,13 @@ public class MovieModel {
         return movieCreation.deleteMovie(movieToDelete);
     }
 
+<<<<<<< HEAD
 
+=======
+    public ObservableList<String> getCategories() {
+        return this.categories;
+    }
+>>>>>>> ce49350e540ba11c5306724d68c60ab0224f9390
 
     /*
       Used  to insert movie genres into the database

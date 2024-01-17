@@ -1,10 +1,10 @@
 package gui.components.newEditDeleteMovies;
 
-import be.Movie;
 import exceptions.MoviesException;
 import gui.MainView.MainModel;
+import gui.components.category.CategoryView;
 import gui.components.listeners.MovieReloadable;
-import gui.components.newEditDeleteMovies.genreView.GenreView;
+import gui.components.newEditDeleteMovies.genreView.MultipleChoiceView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,10 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import utility.ExceptionHandler;
-import utility.ExceptionsMessages;
-import utility.MovieFormat;
-import utility.Utility;
+import utility.*;
 
 import java.io.File;
 import java.net.URL;
@@ -23,6 +20,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class AddMovieController extends NewEditController implements Initializable {
+    public HBox categoryContainer;
     @FXML
     private TextField movieTitle;
     @FXML
@@ -32,16 +30,22 @@ public class AddMovieController extends NewEditController implements Initializab
     private MovieModel model;
     @FXML
     private HBox genresContainer;
+
     @FXML
-    private GenreView genreList;
+    private MultipleChoiceView genreList;
+    @FXML
+    private MultipleChoiceView  categorySelectionView;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
             model = MovieModel.getInstance();
-            genreList = new GenreView();
-            genreList.setGenres(model.getGenres());
+            genreList = new MultipleChoiceView();
+            genreList.setElements(model.getGenres());
             genresContainer.getChildren().add(genreList);
+            categorySelectionView=new MultipleChoiceView();
+            categorySelectionView.setElements(model.getCategories());
+            categoryContainer.getChildren().add(categorySelectionView);
         } catch (MoviesException e) {
             ExceptionHandler.displayErrorAlert(e.getExceptionsMessages(), "Add movie error");
         }
@@ -56,12 +60,18 @@ public class AddMovieController extends NewEditController implements Initializab
     public void saveAddEditMovie(ActionEvent event) {
         String title = movieTitle.getText();
         String path = fileLocation.getText();
-        if (validateInputs(title, path, this.model)) {
+        List<String> categories = this.categorySelectionView.getSelectedElements();
+        List<String> genres = this.genreList.getSelectedElements();
+        if (validateInputs(title, path,this.model)) {
             return;
         }
-        List<String> genres = this.genreList.getSelectedGenres();
+        if(categories.isEmpty()){
+            ExceptionHandler.displayInformationAlert(InformationalMessages.NO_CATEGORY_CHECKED.getValue(),"Data incomplete");
+            return;
+        }
+
         try {
-            boolean isSuccess = model.saveMovie(title, path, genres, this.getOpenedCategory());
+            boolean isSuccess = model.saveMovie(title, path, genres, categories,this.getOpenedCategory());
             if (!isSuccess) {
                 ExceptionHandler.displayErrorAlert(ExceptionsMessages.DB_UNSUCCESFULL.getValue(), "Unsuccessful operation");
             }
@@ -74,8 +84,8 @@ public class AddMovieController extends NewEditController implements Initializab
     }
     @Override
     public void openFileChooser(ActionEvent event) {
-        Stage newSongStage = Utility.getCurrentStage(event);
-        File selectedFile = getFileChooser().showOpenDialog(newSongStage);
+        Stage newMovieStage = Utility.getCurrentStage(event);
+        File selectedFile = getFileChooser().showOpenDialog(newMovieStage);
         if (selectedFile != null) {
             try {
                 MovieFormat movieformat = setMovieFormat(selectedFile);
@@ -85,6 +95,8 @@ public class AddMovieController extends NewEditController implements Initializab
             }
         }
     }
+
+
 
 
     public void getCurrentOpenedCategory(int currentOpenedCategory) {

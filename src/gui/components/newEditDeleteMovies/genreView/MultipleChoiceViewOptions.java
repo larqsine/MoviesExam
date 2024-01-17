@@ -6,12 +6,12 @@ import javafx.scene.control.ListCell;
 import java.util.HashMap;
 import java.util.Map;
 
-class GenreOptions extends ListCell<String> {
+class MultipleChoiceViewOptions extends ListCell<String> {
     private CheckListener listener;
     private final CheckBox checkBox;
     private  final Map<String, Boolean> checkedItems = new HashMap<>();
 
-    public GenreOptions(CheckListener listener) {
+    public MultipleChoiceViewOptions(CheckListener listener) {
         this.listener=listener;
         checkBox = new CheckBox();
         checkBox.setOnAction(e -> {
