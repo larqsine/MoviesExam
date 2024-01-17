@@ -1,16 +1,14 @@
 package gui.components.player;
-
 import exceptions.MoviesException;
 import gui.components.listeners.DataSupplier;
 import gui.components.listeners.MediaViewReloader;
-import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.StringBinding;
 import javafx.beans.property.*;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
 import javafx.util.Duration;
 import utility.ExceptionHandler;
 import utility.ExceptionsMessages;
@@ -21,24 +19,26 @@ public class Player implements PlayerControl {
     private static Player instance;
     private Media movie;
     private DataSupplier dataSupplier;
-    private MediaViewReloader mediaViewReloader;
+    private Slider timeSlider;
+    private final MediaViewReloader mediaViewReloader;
     private final StringProperty time = new SimpleStringProperty();
     private final StringProperty totalTime = new SimpleStringProperty();
-    private final DoubleProperty currentDuration = new SimpleDoubleProperty();
     private final DoubleProperty totalDuration = new SimpleDoubleProperty();
-    private BooleanProperty isMute;
 
 
-    private Player(DataSupplier dataSupplier, MediaViewReloader mediaViewReloader) throws MoviesException {
+
+    private Player(DataSupplier dataSupplier, MediaViewReloader mediaViewReloader,Slider slider ) throws MoviesException {
         this.dataSupplier = dataSupplier;
         this.mediaViewReloader = mediaViewReloader;
+        this.timeSlider = slider;
         checkMediaValid(dataSupplier.getMedia(Operations.GET_DEFAULT));
         playTrack(dataSupplier.isPlaying());
+
     }
 
-    public static Player useMediaPlayer(DataSupplier dataSupplier, MediaViewReloader mediaViewReloader) throws MoviesException {
+    public static Player useMediaPlayer(DataSupplier dataSupplier, MediaViewReloader mediaViewReloader,Slider slider) throws MoviesException {
         if (instance == null) {
-            instance = new Player(dataSupplier, mediaViewReloader);
+            instance = new Player(dataSupplier, mediaViewReloader,slider);
         }
         return instance;
     }
@@ -56,15 +56,13 @@ public class Player implements PlayerControl {
             mediaPlayer.stop();
             mediaPlayer.dispose();
             mediaPlayer.volumeProperty().unbind();
-
         }
         Media media = this.movie;
         mediaPlayer = new MediaPlayer(media);
-        updateMediaView();
+        updateMediaView(mediaPlayer);
         mediaPlayer.volumeProperty().bind(dataSupplier.getVolumeObservable());
         bindDurationToLabel(time);
         bindTotalDurationToLabel(totalTime);
-        bindCurrentDuration(currentDuration);
         bindTotalDuration(totalDuration);
 //        mediaPlayer.setOnEndOfMedia(this::playContinuous);
         if (play) {
@@ -73,14 +71,18 @@ public class Player implements PlayerControl {
         return mediaPlayer;
     }
 
+
+
+
 /**
  * Update the MediaView with the newly created mediaPlayer  */
-    private void updateMediaView() {
+    private void updateMediaView(MediaPlayer mediaPlayer) {
         mediaPlayer.statusProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue == MediaPlayer.Status.READY) {
-                Platform.runLater(()->{
-                    mediaViewReloader.updateMediaView(mediaPlayer);
-                });
+                mediaViewReloader.updateMediaView(mediaPlayer);
+//                Platform.runLater(()->{
+//                    mediaViewReloader.updateMediaView(mediaPlayer);
+//                });
             }
         });
     }
@@ -109,14 +111,6 @@ public class Player implements PlayerControl {
                 ));
             }
         });
-    }
-
-
-    private void bindCurrentDuration(DoubleProperty doubleProperty) {
-        doubleProperty.bind(Bindings.createDoubleBinding(
-                () -> mediaPlayer.getCurrentTime().toSeconds(),
-                mediaPlayer.currentTimeProperty()
-        ));
     }
 
     private void bindTotalDuration(DoubleProperty doubleProperty) {
@@ -211,16 +205,9 @@ public class Player implements PlayerControl {
     public void bindTotalMediaToScreen(Label label) {
         label.textProperty().bind(totalTime);
     }
-
-    @Override
-    public void bindDurationToModel(DoubleProperty duration) {
-        duration.bind(currentDuration);
-    }
-
     @Override
     public void bindTotalDurationToModel(DoubleProperty totalDuration) {
         totalDuration.bind(this.totalDuration);
     }
-
 
 }
