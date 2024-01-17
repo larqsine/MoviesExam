@@ -1,16 +1,20 @@
 package utility;
 
+import be.Movie;
+
 import gui.MainView.MainModel;
-import gui.components.newEditDeleteMovies.MovieModel;
+
 import gui.components.player.PlayerCommander;
 import gui.searchButton.ISearchGraphic;
 import gui.searchButton.SearchGraphic;
+import javafx.beans.binding.BooleanBinding;
+import javafx.beans.binding.Bindings;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
-import javafx.scene.media.MediaPlayer;
-import javafx.util.Duration;
+
 
 public class UIInitializer {
     public void initializeSearchView(ISearchGraphic searchGraphic, Button searchButton, TextField searchValue, Label infoLabel) {
@@ -44,4 +48,16 @@ public class UIInitializer {
         timeSlider.setMin(0);
         timeSlider.maxProperty().bind(model.totalTimeProperty());
     }
+
+
+
+    /**bind the button disablePropriety to the  model observable list*/
+    public void addMovieOpenedListener(ObservableList<Movie> movies,Button button) {
+        BooleanBinding isMoviesEmpty = Bindings.createBooleanBinding(
+                () -> movies.size() <= 1,
+                movies
+        );
+        button.disableProperty().bind(isMoviesEmpty);
+    }
+
 }

@@ -6,6 +6,8 @@ import dal.IMovieReader;
 import dal.MovieDao;
 import dal.MovieReader;
 import exceptions.MoviesException;
+import javafx.beans.property.IntegerProperty;
+import javafx.collections.ObservableList;
 import javafx.scene.media.Media;
 
 import java.util.*;
@@ -65,7 +67,33 @@ public class MovieLogic implements MovieLogicAPI {
     }
 
 
+    /**
+     * get the next index to be played in the list,if reach the end off the list goes back to 0
+     **/
+    @Override
+    public int processIndexUpp(int indexToCheck, int movieSize) {
+        if (indexToCheck < movieSize - 1) {
+            return indexToCheck + 1;
+        }
+        return 0;
+    }
 
+    /**
+     * get the previous index to be played if it reaches the beginning off the list goes to the end off the list
+     **/
+    @Override
+    public int processIndexDown(int indexToCheck, int moviesSize) {
+        if (indexToCheck >= 1) {
+            return indexToCheck - 1;
+        }
+        return moviesSize - 1;
+    }
+
+    @Override
+    public Media getMediaAtIndex(int index, List<Movie> movies) throws MoviesException {
+            String path = movies.get(index).getFileLink();
+            return this.movieReader.getMedia(path);
+    }
 
 
     //used to insert genres into the database

@@ -59,11 +59,11 @@
                               </HBox>
                               <HBox fx:id="playbackContainer" alignment="CENTER" prefHeight="75.0" prefWidth="410.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#playPreviousMovie" prefHeight="58.0" prefWidth="92.0" text="&lt;&lt;">
+                                    <Button fx:id="playPrevious" mnemonicParsing="false" onAction="#playPreviousMovie" prefHeight="58.0" prefWidth="92.0" text="&lt;&lt;">
                                        <font>
                                           <Font size="24.0" />
                                        </font></Button>
-                                    <Button mnemonicParsing="false" onAction="#playNextMovie" prefHeight="58.0" prefWidth="92.0" text="&gt;&gt;">
+                                    <Button fx:id="playNext" mnemonicParsing="false" onAction="#playNextMovie" prefHeight="58.0" prefWidth="92.0" text="&gt;&gt;">
                                        <font>
                                           <Font size="24.0" />
                                        </font></Button>

@@ -14,7 +14,4 @@ public interface DataSupplier {
 
     DoubleProperty getVolumeObservable();
 
-    BooleanProperty isMute();
-
-
 }

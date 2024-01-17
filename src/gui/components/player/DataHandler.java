@@ -12,16 +12,17 @@ public class DataHandler implements DataSupplier {
     private MainModel model;
     private static DataHandler instance;
     private PlayOperations playOperations;
-    public static DataHandler getInstance(MainModel model, PlayOperations playOperationsHandler){
-        if(instance==null){
-            instance=new DataHandler(model,playOperationsHandler);
+
+    public static DataHandler getInstance(MainModel model, PlayOperations playOperationsHandler) {
+        if (instance == null) {
+            instance = new DataHandler(model, playOperationsHandler);
         }
         return instance;
     }
 
-    private  DataHandler (MainModel model,PlayOperations playOperationsHandler){
-        this.model=model;
-        this.playOperations=playOperationsHandler;
+    private DataHandler(MainModel model, PlayOperations playOperationsHandler) {
+        this.model = model;
+        this.playOperations = playOperationsHandler;
     }
 
 
@@ -45,21 +46,11 @@ public class DataHandler implements DataSupplier {
     }
 
 
-
     /**
      * binds the volume off the player with the volume level stored in the model
      */
     @Override
     public DoubleProperty getVolumeObservable() {
         return this.model.volumeLevelProperty();
-    }
-
-
-        /**
-     * supplies data to the player when the volume is mute
-     */
-    @Override
-    public BooleanProperty isMute() {
-        return this.model.isMuteProperty();
     }
 }

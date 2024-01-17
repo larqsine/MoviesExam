@@ -38,7 +38,5 @@ class GenreOptions extends ListCell<String> {
             setGraphic(checkBox);
         }
     }
-//    public void resetSelectedItems(){
-//      checkedItems.clear();
-//    }
+
 }

@@ -64,7 +64,7 @@ public class Player implements PlayerControl {
         bindDurationToLabel(time);
         bindTotalDurationToLabel(totalTime);
         bindTotalDuration(totalDuration);
-//        mediaPlayer.setOnEndOfMedia(this::playContinuous);
+
         if (play) {
             mediaPlayer.play();
         }

@@ -1,5 +1,4 @@
 package gui.MainView;
-
 import be.Category;
 import be.Movie;
 import bll.categoryLogic.CategoryLogic;
@@ -37,17 +36,17 @@ public class MainModel {
      */
     private final SimpleBooleanProperty observablePlayProperty = new SimpleBooleanProperty(false);
 
-    private SimpleIntegerProperty currentOpenedCategory = new SimpleIntegerProperty();
+    private  final SimpleIntegerProperty currentOpenedCategory = new SimpleIntegerProperty();
 
     /**
      * holds the current volume off the appliation
      */
-    private DoubleProperty volumeLevel = new SimpleDoubleProperty(100);
+    private final  DoubleProperty volumeLevel = new SimpleDoubleProperty(100);
 
-    /**
-     * controls if the application  volume is mute
-     */
-    private BooleanProperty isMute = new SimpleBooleanProperty();
+    /** current Index off the movie being played*/
+    private  final IntegerProperty currentIndex = new SimpleIntegerProperty(0);
+
+
     /**
      * Initial default media
      */
@@ -95,12 +94,19 @@ public class MainModel {
         this.currentMovieSelected.set(movieId);
     }
 
-    public Media getNextMovie() {
-        return null;
-    }
 
-    public Media getPreviousMovie() {
-        return null;
+    /**
+     * retrieves the next movie to be played when the next button is played*/
+    public Media getNextMovie() throws MoviesException {
+        currentIndex.set(movieLogic.processIndexUpp(currentIndex.get(),movies.size()));
+       return movieLogic.getMediaAtIndex(currentIndex.get(),movies);
+
+    }
+    /**
+     * retrieves the previous movie to be played when the next button is played*/
+    public Media getPreviousMovie()  throws MoviesException{
+        currentIndex.set(movieLogic.processIndexDown(currentIndex.get(),movies.size()));
+        return movieLogic.getMediaAtIndex(currentIndex.get(),movies);
     }
 
     private void getMediaFromLocal(int movieId, Map<Integer, Movie> movies) throws MoviesException {
@@ -118,10 +124,6 @@ public class MainModel {
 
     public DoubleProperty volumeLevelProperty() {
         return this.volumeLevel;
-    }
-
-    public BooleanProperty isMuteProperty() {
-        return isMute;
     }
 
     private void initializeDefaultMedia() throws MoviesException {
@@ -212,14 +214,13 @@ public class MainModel {
         });
     }
 
+
+    /** used to control the playback functionality*/
     public boolean getObservablePlayPropertyValue() {
         return observablePlayProperty.get();
     }
 
-    public SimpleBooleanProperty getObservablePlayPropertyProperty() {
-        return observablePlayProperty;
-    }
-
+    /** used to control the playback functionality*/
     public void setObservablePlayPropertyValue(boolean observablePlayProperty) {
         System.out.println(observablePlayProperty + "from model");
         this.observablePlayProperty.set(observablePlayProperty);

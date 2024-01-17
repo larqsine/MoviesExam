@@ -74,6 +74,10 @@ public class MainViewController implements Initializable {
     private Slider timeSlider;
     @FXML
     private Slider volumeSlider;
+    @FXML
+    private Button playNext;
+    @FXML
+    private Button playPrevious;
 
 
     @FXML
@@ -111,6 +115,9 @@ public class MainViewController implements Initializable {
             uiInitializer.initializeTotalDurationModel(model, playerCommander);
             //initialize volumeSlider
             uiInitializer.initializeVolumeSlider(volumeSlider, model);
+            // initialize the buttons
+            uiInitializer.addMovieOpenedListener(model.getMovies(),playPrevious);
+            uiInitializer.addMovieOpenedListener(model.getMovies(),playNext);
         } catch (MoviesException me) {
             this.error = true;
             this.exceptionMessage = me.getMessage();
@@ -242,9 +249,14 @@ public class MainViewController implements Initializable {
     }
 
     public void playPreviousMovie(ActionEvent event) {
+        model.setObservablePlayPropertyValue(true);
+        playerCommander.processOperation(Operations.PLAY_PREVIOUS);
     }
 
+
     public void playNextMovie(ActionEvent event) {
+    model.setObservablePlayPropertyValue(true);
+    playerCommander.processOperation(Operations.PLAY_NEXT);
     }
 
 
