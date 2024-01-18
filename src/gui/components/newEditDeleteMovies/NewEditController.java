@@ -6,8 +6,6 @@ import javafx.stage.Stage;
 import utility.ExceptionHandler;
 import utility.InformationalMessages;
 
-
-
 public abstract class NewEditController {
     private MovieReloadable reloadable;
     private final FileChooser fileChooser = new FileChooser();
@@ -76,84 +74,4 @@ public abstract class NewEditController {
     public void  closeStage(Stage stage ){
         stage.close();
     }
-
-
-
-
-
-
-
-
-
-
-//    Salma code
-
-
-
-//
-//    @Override
-//    public MediaViewReloader getReloadable() {
-//        return null;
-//    }
-//
-//    @Override
-//    public void getUpdatedMedia(MediaPlayer instance) {
-//
-//    }
-//
-//    @Override
-//    public void saveMovieEdit(ActionEvent event) {
-//        String title = getMovieTitle().getText();
-//        if (movieModel.checkTitle(title)) {
-//            showTitleError();
-//        } else {
-//            reloadMovies();
-//            closeCurrentStage(event);
-//        }
-//    }
-//
-//    public void closeCurrentStage(ActionEvent event) {
-//    }
-//
-//    @Override
-//    public void cancelMovieEdit(ActionEvent event) {
-//        closeCurrentStage(event);
-//    }
-//
-//    public void setOnChangeListener(TextField textField, Label label) {
-//        textField.textProperty().addListener((obs, oldValue, newValue) -> {
-//            if (label.isVisible()) {
-//                label.setVisible(false);
-//            }
-//        });
-//    }
-//
-//    public void showTitleError() {
-//        getInformation().setText(InformationalMessages.NO_EMPTY_TITLE.getValue());
-//        getInformation().setVisible(true);
-//    }
-//
-//    public Stage getCurrentStage(ActionEvent event) {
-//        return (Stage) ((Node) event.getSource()).getScene().getWindow();
-//    }
-//
-//
-//    public TextField getMovieTitle() {
-//        return movieTitle;
-//    }
-//
-//    public Label getInformation() {
-//        return information;
-//    }
-//
-//    public Button getSaveUpdateButton() {
-//        return saveUpdateButton;
-//    }
-//
-//    @Override
-//    public void reloadMovies() {
-//
-//    }
-
-
 }

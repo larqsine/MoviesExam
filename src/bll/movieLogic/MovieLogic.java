@@ -104,11 +104,5 @@ public class MovieLogic implements MovieLogicAPI {
     public List<String> oldMovies() throws MoviesException {
      return movieDao.getOldVisualizedMovies();
     }
-
-
-    //used to insert genres into the database
-//   public void insertGenres(List<String> genres){
-//        this.movieDao.insertGenres(genres);
-//   }
 }
 
