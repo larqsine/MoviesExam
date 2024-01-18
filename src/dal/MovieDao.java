@@ -198,7 +198,7 @@ public class MovieDao implements IMovieDao {
 
     @Override
     public boolean updateMovie(Movie movie, String movieTitle) throws MoviesException {
-        String sql = "UPDATE Movie SET name=?, rating=?, file_link=?, last_view=?, personal_rating=? WHERE name=?";
+        String sql = "UPDATE Movie SET name=?, rating=?, filelink=?, lastview=?, personalRating=?";
         Connection conn = null;
 
         try {
