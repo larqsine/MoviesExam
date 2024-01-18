@@ -21,6 +21,7 @@ public class MoviesTable extends TableView<Movie> {
         this.playerCommander=playerCommander;
         setupColumns();
         this.setHeight(defaultHeight);
+        this.setStyle("-fx-background-color: #000000; -fx-effect: dropshadow(gaussian, #C0C0C0, 30, 0, 6, 6)");
     }
 
     private void setupColumns() {

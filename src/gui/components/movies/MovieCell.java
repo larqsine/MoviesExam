@@ -12,12 +12,14 @@ public abstract class MovieCell<T> extends TableCell<T,T> {
     public MovieCell(int width,int height, Duration duration) {
         this.setCellHeight(height);
         this.setCellWidth(width);
+        this.setStyle("-fx-background-color: #000000");
         if (duration != null) {
             this.setDelayDuration(duration);
         }
     }
     public Label createMovieCell(String item){
         Label label = new Label(item);
+        label.setStyle("-fx-text-fill: white");
         label.setWrapText(true);
         label.setTextAlignment(TextAlignment.LEFT);
         label.setPrefWidth(this.getCellWidth());

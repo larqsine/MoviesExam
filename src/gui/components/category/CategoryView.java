@@ -16,6 +16,7 @@ public class CategoryView extends ListView<Category> {
         });
         this.setHeight(defaultHeight);
         this.setWidth(defaultWidth);
+        this.setStyle("-fx-effect: dropshadow(gaussian, #494849, 15, 0, 8, 8); -fx-border-color: #000000");
     }
 
     public void setCategories(ObservableList<Category> songs) {

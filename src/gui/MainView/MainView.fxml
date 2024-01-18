@@ -11,29 +11,41 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainView.MainViewController">
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="1010.0" style="-fx-background-color: #000000;" stylesheets="@../css/MainView.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainView.MainViewController">
    <children>
       <VBox prefHeight="715.0" prefWidth="150.0">
          <children>
-            <Label prefHeight="34.0" prefWidth="58.0" text="Category">
+            <Label id="lblCatMov" prefHeight="30.0" prefWidth="85.0" stylesheets="@../css/MainView.css" text="Category">
                <font>
                   <Font size="13.0" />
                </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="30.0" top="15.0" />
+               </VBox.margin>
             </Label>
-            <Pane fx:id="categoryContainer" prefHeight="514.0" prefWidth="166.0">
+            <Pane fx:id="categoryContainer" prefHeight="529.0" prefWidth="189.0">
                <VBox.margin>
                   <Insets left="5.0" right="5.0" />
                </VBox.margin></Pane>
-            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="TOP_CENTER" prefHeight="122.0" prefWidth="150.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#addNewCategory" text="Add" />
-                  <Button mnemonicParsing="false" onAction="#editCategory" text="Edit" />
-                  <Button mnemonicParsing="false" onAction="#deleteCategory" style="-fx-background-color: #272F6D; -fx-fill: #F26F63;" text="Delete" />
+                  <Button id="btn" mnemonicParsing="false" onAction="#addNewCategory" stylesheets="@../css/MainView.css" text="Add">
+                     <HBox.margin>
+                        <Insets top="20.0" />
+                     </HBox.margin></Button>
+                  <Button id="btn" mnemonicParsing="false" onAction="#editCategory" stylesheets="@../css/MainView.css" text="Edit">
+                     <HBox.margin>
+                        <Insets left="5.0" top="20.0" />
+                     </HBox.margin></Button>
+                  <Button id="btn" mnemonicParsing="false" onAction="#deleteCategory" stylesheets="@../css/MainView.css" text="Delete">
+                     <HBox.margin>
+                        <Insets left="5.0" top="20.0" />
+                     </HBox.margin></Button>
                </children>
             </HBox>
          </children>
       </VBox>
-      <VBox alignment="CENTER" prefHeight="715.0" prefWidth="500.0">
+      <VBox alignment="CENTER" prefHeight="715.0" prefWidth="458.0">
          <children>
             <HBox fx:id="mediaContainer" alignment="CENTER" prefHeight="330.0" prefWidth="486.0">
                <VBox.margin>
@@ -52,21 +64,27 @@
                               <Slider fx:id="timeSlider" prefHeight="25.0" prefWidth="386.0" />
                               <HBox prefHeight="10.0" prefWidth="50.0">
                                  <children>
-                                    <Label fx:id="timeElapsed" alignment="CENTER_RIGHT" prefWidth="50.0" text="0.0" />
+                                    <Label id="lbl" fx:id="timeElapsed" alignment="CENTER_RIGHT" prefWidth="50.0" stylesheets="@../css/MainView.css" text="0.0" />
                                     <Label text="/" />
                                     <Label fx:id="totalTime" prefWidth="50.0" />
                                  </children>
                               </HBox>
                               <HBox fx:id="playbackContainer" alignment="CENTER" prefHeight="75.0" prefWidth="410.0">
                                  <children>
-                                    <Button fx:id="playPrevious" mnemonicParsing="false" onAction="#playPreviousMovie" prefHeight="58.0" prefWidth="92.0" text="&lt;&lt;">
+                                    <Button id="btnMedia" fx:id="playPrevious" mnemonicParsing="false" onAction="#playPreviousMovie" prefHeight="50.0" prefWidth="60.0" text="&lt;&lt;">
                                        <font>
-                                          <Font size="24.0" />
-                                       </font></Button>
-                                    <Button fx:id="playNext" mnemonicParsing="false" onAction="#playNextMovie" prefHeight="58.0" prefWidth="92.0" text="&gt;&gt;">
+                                          <Font size="22.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets right="5.0" />
+                                       </HBox.margin></Button>
+                                    <Button id="btnMedia" fx:id="playNext" mnemonicParsing="false" onAction="#playNextMovie" prefHeight="50.0" prefWidth="60.0" stylesheets="@../css/MainView.css" text="&gt;&gt;">
                                        <font>
-                                          <Font size="24.0" />
-                                       </font></Button>
+                                          <Font size="22.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin></Button>
                                     <Slider fx:id="volumeSlider" orientation="VERTICAL" prefHeight="75.0" prefWidth="52.0" />
                                  </children>
                               </HBox>
@@ -80,10 +98,13 @@
       </VBox>
       <VBox alignment="TOP_CENTER" prefHeight="715.0" prefWidth="360.0">
          <children>
-            <Label prefHeight="36.0" prefWidth="42.0" text="Movies">
+            <Label id="lblCatMov" prefHeight="27.0" prefWidth="76.0" stylesheets="@../css/MainView.css" text="Movies">
                <font>
                   <Font size="13.0" />
                </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
             </Label>
             <HBox fx:id="filterContainer" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
@@ -91,18 +112,27 @@
                   <Button fx:id="searchButton" mnemonicParsing="false" onAction="#applyFilter" />
                </children></HBox>
             <Label fx:id="infoEmptyLabel" text="Filter is Empty!" visible="false" />
-            <Pane fx:id="moviesView" prefHeight="439.0" prefWidth="387.0" />
-            <HBox alignment="TOP_CENTER" prefHeight="170.0" prefWidth="260.0">
+            <Pane fx:id="moviesView" prefHeight="431.0" prefWidth="291.0">
+               <VBox.margin>
+                  <Insets right="5.0" />
+               </VBox.margin></Pane>
+            <HBox alignment="TOP_CENTER" prefHeight="135.0" prefWidth="360.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#addNewMovie" text="Add">
+                  <Button id="btn" mnemonicParsing="false" onAction="#addNewMovie" stylesheets="@../css/MainView.css" text="Add">
                      <HBox.margin>
-                        <Insets right="30.0" />
-                     </HBox.margin></Button>
-                  <Button mnemonicParsing="false" onAction="#editMovie" text="Edit">
+                        <Insets right="30.0" top="20.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding></Button>
+                  <Button id="btn" mnemonicParsing="false" onAction="#editMovie" stylesheets="@../css/MainView.css" text="Edit">
                      <HBox.margin>
-                        <Insets right="30.0" />
+                        <Insets right="30.0" top="20.0" />
                      </HBox.margin></Button>
-                  <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteMovie" text="Delete" />
+                  <Button id="btn" fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteMovie" stylesheets="@../css/MainView.css" text="Delete">
+                     <HBox.margin>
+                        <Insets top="20.0" />
+                     </HBox.margin></Button>
                </children>
             </HBox>
          </children>

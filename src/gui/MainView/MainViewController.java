@@ -101,7 +101,7 @@ public class MainViewController implements Initializable {
             uiInitializer.initializeTimeSlider(timeSlider, model);
             playerCommander = new PlayerCommander(dataHandler, playerControl);
 
-            customPlayButton = new PlaybackButton(92, 52, playerCommander, model);
+            customPlayButton = new PlaybackButton(60, 50, playerCommander, model);
             playbackContainer.getChildren().add(1, customPlayButton);
 
             //initialize the category list view

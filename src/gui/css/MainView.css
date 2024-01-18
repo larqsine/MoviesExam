@@ -1,0 +1,44 @@
+#btnMedia {
+    -fx-background-color: #F26F63;
+    -fx-background-radius: 30;
+    -fx-effect: innershadow(gaussian, #8C2F2F, 10, 0, 5, 5);;
+    -fx-text-fill: white;
+    -fx-transition: background-color 0.3s, -fx-effect 0.3s, -fx-scale-x 0.3s, -fx-scale-y 0.3s;
+}
+
+#btnMedia:hover {
+    -fx-effect: innershadow(gaussian, #8C2F2F, 15, 0, 8, 8);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+#btn {
+    -fx-padding: 5px 10px;
+    -fx-font-size: 12px;
+    -fx-text-fill: #fff;
+    -fx-background-radius: 20px;
+    -fx-background-color: #272F6D;
+    -fx-cursor: hand;
+    -fx-effect: innershadow(gaussian, #3498DBCC, 10, 0, 5, 5);
+    -fx-background-insets: 0, 0 1 1 0, 1 1 1 1, 1 2 2 1, 2 2 2 2;
+    -fx-background-radius: 20px;
+
+    -fx-transition: background-color 0.3s, -fx-effect 0.3s, -fx-scale-x 0.3s, -fx-scale-y 0.3s;
+}
+
+#btn:hover {
+    -fx-background-color: #35478C;
+    -fx-effect: innershadow(gaussian, #3498DBCC, 15, 0, 8, 8);
+    -fx-scale-x: 1.2;
+    -fx-scale-y: 1.2;
+}
+
+#lblCatMov {
+    -fx-text-fill: #3498DBCC;
+    -fx-font-size: 28;
+    -fx-font-family: "Haettenschweiler";
+}
+
+#lbl{
+    -fx-text-fill: white;
+}

@@ -4,9 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="deleted some commented code">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utility/InformationalMessages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/InformationalMessages.java" afterDir="false" />
+    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="edit movie fixed with validation">
+      <change afterPath="$PROJECT_DIR$/src/gui/css/MainView.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dal/CategoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/CategoryDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/PlaybackButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/PlaybackButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/category/CategoryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/category/CategoryView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/category/TitleCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/category/TitleCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/confirmationWindow/ConfirmationWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/confirmationWindow/ConfirmationWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/confirmationWindow/ConfirmationWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/confirmationWindow/ConfirmationWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/movies/ButtonCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/movies/ButtonCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/movies/MovieCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/movies/MovieCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/movies/MoviesTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/movies/MoviesTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/NewCategoryView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteCategory/NewCategoryView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/AddViewMovie.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/AddViewMovie.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,6 +148,22 @@
       <workItem from="1705427664975" duration="3116000" />
       <workItem from="1705497803856" duration="4844000" />
       <workItem from="1705571293420" duration="1372000" />
+    </task>
+    <task id="LOCAL-00016" summary="movies data displayed into the table plus categorie per movie">
+      <option name="closed" value="true" />
+      <created>1704636907843</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1704636907843</updated>
+    </task>
+    <task id="LOCAL-00017" summary="movies data displayed into the table plus categorie per movie">
+      <option name="closed" value="true" />
+      <created>1704639703862</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1704639703862</updated>
     </task>
     <task id="LOCAL-00018" summary="implemented MovieReader, for reading files from local storage">
       <option name="closed" value="true" />
@@ -512,23 +541,7 @@
       <option name="project" value="LOCAL" />
       <updated>1705612320144</updated>
     </task>
-    <task id="LOCAL-00065" summary="Deletw warning implemented">
-      <option name="closed" value="true" />
-      <created>1705620296193</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1705620296193</updated>
-    </task>
-    <task id="LOCAL-00066" summary="deleted some commented code">
-      <option name="closed" value="true" />
-      <created>1705620561813</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1705620561813</updated>
-    </task>
-    <option name="localTasksCounter" value="67" />
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -546,6 +559,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="movie creation bussines logic" />
+    <MESSAGE value="movie creation implemented, it is saving movies to the database" />
     <MESSAGE value="Reload movies from the database when new movie is created implemented" />
     <MESSAGE value="Play movie from the button implemented" />
     <MESSAGE value="Play movie from the table implemented" />
@@ -569,9 +584,7 @@
     <MESSAGE value="edit fixed" />
     <MESSAGE value="edit movie fixed" />
     <MESSAGE value="edit movie fixed with validation" />
-    <MESSAGE value="Deletw warning implemented" />
-    <MESSAGE value="deleted some commented code" />
-    <option name="LAST_COMMIT_MESSAGE" value="deleted some commented code" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit movie fixed with validation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
