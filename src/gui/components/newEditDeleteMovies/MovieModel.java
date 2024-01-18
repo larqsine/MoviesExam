@@ -120,6 +120,10 @@ public class MovieModel {
         return this.categories;
     }
 
+    public boolean validateRatingValue(double value) {
+        return movieCreation.validateRatingValue(value);
+    }
+
 
     /*
       Used  to insert movie genres into the database

@@ -60,4 +60,8 @@ public class MovieCreation {
     public boolean deleteMovie(Movie movie) throws MoviesException {
         return this.movieDao.deleteMovieFromLocalAndDB(movie);
     }
+
+    public boolean validateRatingValue(double value) {
+        return value>=0 && value<=10;
+    }
 }

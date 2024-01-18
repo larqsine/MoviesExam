@@ -1,5 +1,4 @@
 package dal;
-
 import be.Category;
 import be.Genre;
 import be.Movie;
@@ -7,7 +6,6 @@ import exceptions.MoviesException;
 import javafx.beans.property.SimpleStringProperty;
 import utility.ExceptionHandler;
 import utility.ExceptionsMessages;
-
 import java.sql.*;
 import java.util.*;
 import java.util.stream.Collectors;

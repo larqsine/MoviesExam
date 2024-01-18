@@ -4,18 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="modified filter to display an information message when no movies are opened, otherwise it will give an NullPointerException">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="edit movie fixed">
       <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieCreation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieCreation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dal/IMovieDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/IMovieDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dal/MovieDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/MovieDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/AddMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/AddMovieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/AddViewMovie.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/AddViewMovie.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/MovieModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/MovieModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/NewEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/NewEditController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,14 +136,6 @@
       <workItem from="1705427664975" duration="3116000" />
       <workItem from="1705497803856" duration="4844000" />
       <workItem from="1705571293420" duration="1372000" />
-    </task>
-    <task id="LOCAL-00014" summary="movies data displayed into the table">
-      <option name="closed" value="true" />
-      <created>1704574606923</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1704574606923</updated>
     </task>
     <task id="LOCAL-00015" summary="movies data displayed into the table plus categorie per movie">
       <option name="closed" value="true" />
@@ -536,7 +521,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705530034752</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="edit movie fixed">
+      <option name="closed" value="true" />
+      <created>1705610854305</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1705610854305</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -554,7 +547,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Check if a category movies a re opened" />
     <MESSAGE value="check movie path an location" />
     <MESSAGE value="movie creation bussines logic" />
     <MESSAGE value="movie creation implemented, it is saving movies to the database" />
@@ -579,7 +571,8 @@
     <MESSAGE value="add movie changed to acept multiple categories" />
     <MESSAGE value="modified filter to display an information message when no movies are opened, otherwise it will give an NullPointerException" />
     <MESSAGE value="edit fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit fixed" />
+    <MESSAGE value="edit movie fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit movie fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

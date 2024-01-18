@@ -4,13 +4,10 @@ import be.Movie;
 import exceptions.MoviesException;
 import gui.MainView.MainModel;
 import gui.components.listeners.MovieReloadable;
-import gui.components.newEditDeleteMovies.genreView.MultipleChoiceView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import utility.ExceptionHandler;
 import utility.ExceptionsMessages;
@@ -19,7 +16,6 @@ import utility.Utility;
 
 import java.io.File;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class EditMovieController extends NewEditController implements Initializable {
@@ -43,11 +39,16 @@ public class EditMovieController extends NewEditController implements Initializa
         double personalRatingValue = 0;
         String newTitle = "";
         String newFileLocation = "";
-        if(!validateRating(personalRating)&& !validateInputs(movieTitle.getText(), fileLocation.getText(), this.model)){
+        if(!validateRatingFormat(personalRating)&& !validateInputs(movieTitle.getText(), fileLocation.getText(), this.model)){
+            return;
+        }
+        personalRatingValue = Double.parseDouble(personalRating.getText());
+        if(!validateRatingValue(personalRatingValue)){
             return;
         }
 
-            personalRatingValue = Double.parseDouble(personalRating.getText());
+
+
             newTitle = movieTitle.getText();
             newFileLocation = fileLocation.getText();
         try {
@@ -112,7 +113,7 @@ public class EditMovieController extends NewEditController implements Initializa
     }
 
 
-    private boolean validateRating(TextField textField) {
+    private boolean validateRatingFormat(TextField textField) {
         try {
             Double.parseDouble(personalRating.getText());
             return true;
@@ -121,6 +122,17 @@ public class EditMovieController extends NewEditController implements Initializa
             return false;
         }
     }
+
+    private  boolean validateRatingValue(double value){
+       if(model.validateRatingValue(value)){
+           return true;
+       }else {
+           ExceptionHandler.displayInformationAlert("Value off rating must be between 0 and 10","Wrong value");
+           return false;
+       }
+    }
+
+
 
     public void getMovieToEdit(Movie selectedMovie) {
         System.out.println(selectedMovie);
