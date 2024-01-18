@@ -3,6 +3,7 @@ import be.Category;
 import be.Movie;
 import bll.categoryLogic.CategoryLogic;
 import bll.categoryLogic.CategoryLogicAPI;
+import bll.movieLogic.MovieCreation;
 import bll.movieLogic.MovieLogic;
 import bll.movieLogic.MovieLogicAPI;
 import exceptions.MoviesException;
@@ -19,6 +20,7 @@ public class MainModel {
 
     private final CategoryLogicAPI categoryLogic;
     private final MovieLogicAPI movieLogic;
+    private final MovieCreation movieCreation;
     private static MainModel instance;
     private final ObservableList<Category> categories;
     private final ObservableList<Movie> movies;
@@ -27,12 +29,14 @@ public class MainModel {
     private final IntegerProperty currentMovieSelected = new SimpleIntegerProperty();
     private final SimpleStringProperty playButtonFromTableId = new SimpleStringProperty();
     /**
-     * holds the total duration off the movie*/
+     * holds the total duration off the movie
+     */
     private final DoubleProperty totalTime = new SimpleDoubleProperty();
 
-    /** Contains all the observers off the play propriety*/
+    /**
+     * Contains all the observers off the play propriety
+     */
     private final List<PlaybackObserver> playbackObservers;
-
 
 
     /**
@@ -40,15 +44,17 @@ public class MainModel {
      */
     private final SimpleBooleanProperty observablePlayProperty = new SimpleBooleanProperty(false);
 
-    private  final SimpleIntegerProperty currentOpenedCategory = new SimpleIntegerProperty();
+    private final SimpleIntegerProperty currentOpenedCategory = new SimpleIntegerProperty();
 
     /**
      * holds the current volume off the appliation
      */
-    private final  DoubleProperty volumeLevel = new SimpleDoubleProperty(100);
+    private final DoubleProperty volumeLevel = new SimpleDoubleProperty(100);
 
-    /** current Index off the movie being played*/
-    private  final IntegerProperty currentIndex = new SimpleIntegerProperty(0);
+    /**
+     * current Index off the movie being played
+     */
+    private final IntegerProperty currentIndex = new SimpleIntegerProperty(0);
 
 
     /**
@@ -62,6 +68,7 @@ public class MainModel {
         this.categories = FXCollections.observableArrayList();
         this.movies = FXCollections.observableArrayList();
         this.playbackObservers = new ArrayList<>();
+        this.movieCreation= new MovieCreation();
         initializeCategories();
         addChangeListener(observablePlayProperty);
     }
@@ -100,17 +107,20 @@ public class MainModel {
 
 
     /**
-     * retrieves the next movie to be played when the next button is played*/
+     * retrieves the next movie to be played when the next button is played
+     */
     public Media getNextMovie() throws MoviesException {
-        currentIndex.set(movieLogic.processIndexUpp(currentIndex.get(),movies.size()));
-       return movieLogic.getMediaAtIndex(currentIndex.get(),movies);
+        currentIndex.set(movieLogic.processIndexUpp(currentIndex.get(), movies.size()));
+        return movieLogic.getMediaAtIndex(currentIndex.get(), movies);
 
     }
+
     /**
-     * retrieves the previous movie to be played when the next button is played*/
-    public Media getPreviousMovie()  throws MoviesException{
-        currentIndex.set(movieLogic.processIndexDown(currentIndex.get(),movies.size()));
-        return movieLogic.getMediaAtIndex(currentIndex.get(),movies);
+     * retrieves the previous movie to be played when the next button is played
+     */
+    public Media getPreviousMovie() throws MoviesException {
+        currentIndex.set(movieLogic.processIndexDown(currentIndex.get(), movies.size()));
+        return movieLogic.getMediaAtIndex(currentIndex.get(), movies);
     }
 
     private void getMediaFromLocal(int movieId, Map<Integer, Movie> movies) throws MoviesException {
@@ -178,8 +188,6 @@ public class MainModel {
     }
 
 
-
-
 //    maybe remove them , i need to try a different approach
 
 
@@ -219,12 +227,16 @@ public class MainModel {
     }
 
 
-    /** used to control the playback functionality*/
+    /**
+     * used to control the playback functionality
+     */
     public boolean getObservablePlayPropertyValue() {
         return observablePlayProperty.get();
     }
 
-    /** used to control the playback functionality*/
+    /**
+     * used to control the playback functionality
+     */
     public void setObservablePlayPropertyValue(boolean observablePlayProperty) {
         System.out.println(observablePlayProperty + "from model");
         this.observablePlayProperty.set(observablePlayProperty);
@@ -234,26 +246,50 @@ public class MainModel {
     /**
      * Checks if the category for deletion is open
      */
-    public  boolean checkOpenCategory(Category categoryToDelete){
-        return this.categoryLogic.checkOpenCategory(this.currentOpenedCategory, categoryToDelete.getId());  }
+    public boolean checkOpenCategory(Category categoryToDelete) {
+        return this.categoryLogic.checkOpenCategory(this.currentOpenedCategory, categoryToDelete.getId());
+    }
 
 
-
-    /**total time duration off the movie*/
+    /**
+     * total time duration off the movie
+     */
     public double getTotalTime() {
         return totalTime.get();
     }
-    /**total time duration off the movie*/
+
+    /**
+     * total time duration off the movie
+     */
     public DoubleProperty totalTimeProperty() {
         return totalTime;
     }
 
-    /**total time duration off the movie*/
+    /**
+     * total time duration off the movie
+     */
     public void setTotalTime(double totalTime) {
         this.totalTime.set(totalTime);
     }
 
     public boolean isMoviePlaying(Movie selectedMovie) {
-        return movieLogic.checkIfMovieIsPlaying(selectedMovie.getId(),this.currentMovieSelected.get());
+        return movieLogic.checkIfMovieIsPlaying(selectedMovie.getId(), this.currentMovieSelected.get());
     }
+
+
+    /**Updates the movie last view date when the play button is pressed
+     * @param id movie that is currently played*/
+    public void verifyViewDate(int id) throws MoviesException {
+        boolean isCurrentDateEqualWithLastView =movieCreation.compareCurrentDateWithMovieLastViewDate(movieObjects.get(id).getLastView());
+        if(isCurrentDateEqualWithLastView){
+            return ;
+        }
+        movieCreation.saveCurrentViewDate(id);
+    }
+
+
+
 }
+
+
+

@@ -38,6 +38,16 @@ public class Utility {
         return newSongStage;
     }
 
+    public static Stage createModal(Stage mainStage, Scene scene, String name, int popWidth) {
+        Stage newSongStage = new Stage();
+        newSongStage.setTitle(name);
+        newSongStage.setScene(scene);
+        newSongStage.initModality(Modality.WINDOW_MODAL);
+        newSongStage.initOwner(mainStage);
+        return newSongStage;
+    }
+
+
 
 
 

@@ -4,11 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="edit movie fixed">
+    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="edit movie fixed with validation">
+      <change afterPath="$PROJECT_DIR$/src/gui/components/oldMoviesWarning/OldMoviesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/components/oldMoviesWarning/OldMoviesModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieCreation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieCreation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogicAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogicAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dal/IMovieDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/IMovieDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dal/MovieDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/MovieDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/movies/ButtonCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/movies/ButtonCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/components/movies/MoviesTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/movies/MoviesTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/MovieModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/MovieModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utility/ExceptionsMessages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/ExceptionsMessages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utility/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/Utility.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +101,7 @@
       <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src\dal" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src\gui\components\oldMoviesWarning" />
       <recent name="D:\computer_science\sco\MediPlayer\MoviesExam\src\gui\components\newEditDeleteMovies" />
       <recent name="D:\computer_science\sco\MediPlayer\MoviesExam" />
     </key>
@@ -136,14 +149,6 @@
       <workItem from="1705427664975" duration="3116000" />
       <workItem from="1705497803856" duration="4844000" />
       <workItem from="1705571293420" duration="1372000" />
-    </task>
-    <task id="LOCAL-00015" summary="movies data displayed into the table plus categorie per movie">
-      <option name="closed" value="true" />
-      <created>1704612757074</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1704612757074</updated>
     </task>
     <task id="LOCAL-00016" summary="movies data displayed into the table plus categorie per movie">
       <option name="closed" value="true" />
@@ -529,7 +534,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705610854305</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="edit movie fixed with validation">
+      <option name="closed" value="true" />
+      <created>1705612320144</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1705612320144</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -547,7 +560,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="check movie path an location" />
     <MESSAGE value="movie creation bussines logic" />
     <MESSAGE value="movie creation implemented, it is saving movies to the database" />
     <MESSAGE value="Reload movies from the database when new movie is created implemented" />
@@ -572,7 +584,8 @@
     <MESSAGE value="modified filter to display an information message when no movies are opened, otherwise it will give an NullPointerException" />
     <MESSAGE value="edit fixed" />
     <MESSAGE value="edit movie fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit movie fixed" />
+    <MESSAGE value="edit movie fixed with validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit movie fixed with validation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

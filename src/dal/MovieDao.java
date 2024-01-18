@@ -115,7 +115,6 @@ public class MovieDao implements IMovieDao {
 
     @Override
     public boolean createMovie(Movie movie, List<Category> categories) throws MoviesException {
-        System.out.println(movie);
         String sql = "INSERT INTO Movie values(?,?,?,?,?)";
         Connection conn = null;
         try {
@@ -275,10 +274,29 @@ public class MovieDao implements IMovieDao {
     }
 
     @Override
+    public void updateCurrentViewDate(int movieId) throws MoviesException {
+        System.out.println(movieId);
+        String sql = "UPDATE  Movie SET lastview=? WHERE id=?";
+        try (Connection connection = CONNECTION_MANAGER.getConnection()) {
+            try (PreparedStatement psmtDate = connection.prepareStatement(sql)) {
+                psmtDate.setDate(1,convertDateToSqlDate(new Date()));
+                psmtDate.setInt(2,movieId);
+                psmtDate.execute();
+            }
+        } catch (SQLException e) {
+            throw new MoviesException(ExceptionsMessages.DATE_UPDATE_FAILED, e);
+        }
+        
+    }
+
+    private static java.sql.Date convertDateToSqlDate(Date date) {
+        return new java.sql.Date(date.getTime());
+    }
+
+    @Override
     public boolean deleteMovieFromDB(Movie movie) throws MoviesException {
         String sqlDeleteMovie = "DELETE FROM Movie WHERE id=?";
         try (Connection connection = CONNECTION_MANAGER.getConnection()) {
-            connection.setAutoCommit(false);
             try (PreparedStatement psmtDelete = connection.prepareStatement(sqlDeleteMovie)) {
                 psmtDelete.setInt(1, movie.getId());
                 psmtDelete.execute();
@@ -287,6 +305,22 @@ public class MovieDao implements IMovieDao {
         } catch (SQLException e) {
             throw new MoviesException(ExceptionsMessages.NO_DATABASE_CONNECTION, e);
         }
+    }
+
+    public List<String>   getOldVisualizedMovies() throws MoviesException {
+        String sql = "SELECT m.name FROM Movie m WHERE m.lastview < DATEADD(YEAR, -2, GETDATE()) AND m.personalRating <=6";
+        List<String> oldMoviesNames =  new ArrayList<>();
+        try(Connection conn = CONNECTION_MANAGER.getConnection()){
+           try(Statement smt = conn.createStatement()){
+               ResultSet rs =smt.executeQuery(sql);
+               while(rs.next()){
+                   oldMoviesNames.add(rs.getString(1));
+               }
+           }
+        } catch (SQLException e) {
+            throw new MoviesException(e.getMessage());
+        }
+        return oldMoviesNames;
     }
 }
 

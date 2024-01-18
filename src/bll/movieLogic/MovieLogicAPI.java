@@ -20,6 +20,7 @@ public interface MovieLogicAPI {
     int processIndexUpp(int toCheck,int listSize);
     int processIndexDown(int toCheck,int listSize);
     Media getMediaAtIndex(int index,List<Movie> movies) throws MoviesException;
+    List<String> oldMovies() throws MoviesException;
 
 
 

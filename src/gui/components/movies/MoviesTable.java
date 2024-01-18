@@ -2,6 +2,7 @@ package gui.components.movies;
 import be.Genre;
 import be.Movie;
 import gui.MainView.MainModel;
+import gui.components.newEditDeleteMovies.MovieModel;
 import gui.components.player.PlayerCommander;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;

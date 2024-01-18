@@ -1,6 +1,7 @@
 package gui.components.movies;
 
 import be.Movie;
+import exceptions.MoviesException;
 import gui.MainView.MainModel;
 import gui.components.player.PlayerCommander;
 import javafx.beans.value.ChangeListener;
@@ -11,6 +12,7 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.SVGPath;
+import utility.ExceptionHandler;
 import utility.Operations;
 
 
@@ -30,6 +32,11 @@ public class ButtonCell extends TableCell<Movie, String> {
         button.setOnAction(event -> {
             Movie movie = getTableView().getItems().get(getIndex());
             model.setCurrentPlayingMovie(movie.getId());
+            try {
+                model.verifyViewDate(movie.getId());
+            } catch (MoviesException e) {
+                ExceptionHandler.displayErrorAlert(e.getMessage(),"Date can not be updated");
+            }
             model.setObservablePlayPropertyValue(true);
             model.setPlayButtonFromTableId(button.getId());
             playerCommander.processOperation(Operations.PLAY_CURRENT);

@@ -1,4 +1,5 @@
 package gui.MainView;
+
 import be.Category;
 import be.Movie;
 import exceptions.MoviesException;
@@ -12,6 +13,8 @@ import gui.components.newEditDeleteCategory.*;
 import gui.components.newEditDeleteMovies.AddMovieController;
 import gui.components.newEditDeleteMovies.EditMovieController;
 import gui.components.newEditDeleteMovies.MovieReloader;
+import gui.components.oldMoviesWarning.OldMoviesController;
+import gui.components.oldMoviesWarning.OldMoviesModel;
 import gui.components.player.*;
 import gui.components.newEditDeleteMovies.DeleteMovieController;
 import gui.playOperations.PlayOperations;
@@ -30,14 +33,15 @@ import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 import gui.filterSongs.FilterManager;
 import utility.*;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
 public class MainViewController implements Initializable {
     private final int POPUP_WIDTH = 420;
     private MainModel model;
+    private OldMoviesModel oldMoviesModel;
     private boolean error = false;
     private String exceptionMessage;
     @FXML
@@ -75,6 +79,7 @@ public class MainViewController implements Initializable {
     private Button playPrevious;
 
 
+
     @FXML
     private void applyFilter(ActionEvent event) {
         FilterManager filterManager = new FilterManager(this.model, isearchGraphic, infoEmptyLabel, searchButton, searchValue);
@@ -86,6 +91,7 @@ public class MainViewController implements Initializable {
         UIInitializer uiInitializer = new UIInitializer();
         try {
             model = MainModel.getInstance();
+            oldMoviesModel = OldMoviesModel.getInstance();
 
             //initialize application playback
             PlayOperations playOperations = PlayOperationsHandler.getInstance(model);
@@ -95,7 +101,6 @@ public class MainViewController implements Initializable {
             uiInitializer.initializeTimeSlider(timeSlider, model);
             playerCommander = new PlayerCommander(dataHandler, playerControl);
 
-            // mediaViewPlayer.setMediaPlayer(playerControl.getMediaPlayer());
             customPlayButton = new PlaybackButton(92, 52, playerCommander, model);
             playbackContainer.getChildren().add(1, customPlayButton);
 
@@ -122,6 +127,7 @@ public class MainViewController implements Initializable {
             // initialize the buttons
             uiInitializer.addMovieOpenedListener(model.getMovies(), playPrevious);
             uiInitializer.addMovieOpenedListener(model.getMovies(), playNext);
+            //initialize the window that will display the old movies
         } catch (MoviesException me) {
             this.error = true;
             this.exceptionMessage = me.getMessage();
@@ -270,7 +276,7 @@ public class MainViewController implements Initializable {
         }
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(resourcePath));
-            EditMovieController editMovie =  new EditMovieController();
+            EditMovieController editMovie = new EditMovieController();
             editMovie.getMovieToEdit(selectedMovie);
             loader.setController(editMovie);
             Parent root = loader.load();
@@ -309,4 +315,27 @@ public class MainViewController implements Initializable {
             ExceptionHandler.displayErrorAlert(InformationalMessages.OPERATION_FAILED, null);
         }
     }
+
+
+    @FXML
+    public void initializeOldListView(Stage stage) {
+        if (oldMoviesModel.isListEmpty()) {
+            System.out.println("i am here");
+            return;
+        }
+        try {
+            String resource = "../components/oldMoviesWarning/DeleteOldMovieWarning.fxml";
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(resource));
+            Parent parent = loader.load();
+            OldMoviesController oldMoviesController = loader.getController();
+            Scene scene = new Scene(parent);
+            Stage oldMovieStage = Utility.createPopupStage(stage, scene, "Old movies", POPUP_WIDTH);
+            oldMoviesController.setStage(oldMovieStage);
+            oldMovieStage.show();
+        } catch (IOException e) {
+            ExceptionHandler.displayErrorAlert(e.getMessage(), "View error");
+        }
+    }
+
+
 }

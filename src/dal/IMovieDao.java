@@ -19,6 +19,7 @@ public interface IMovieDao {
     boolean deleteMovieFromDB(Movie movie) throws MoviesException;
 
     boolean deleteMovieFromCategory(Movie movie , Category category) throws MoviesException;
-
+    void updateCurrentViewDate(int movieId) throws MoviesException;
+    List<String> getOldVisualizedMovies() throws MoviesException;
 
 }

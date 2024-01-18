@@ -1,5 +1,4 @@
 package gui.components.newEditDeleteMovies;
-
 import be.Movie;
 import exceptions.MoviesException;
 import gui.MainView.MainModel;
@@ -13,7 +12,6 @@ import utility.ExceptionHandler;
 import utility.ExceptionsMessages;
 import utility.MovieFormat;
 import utility.Utility;
-
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -131,8 +129,6 @@ public class EditMovieController extends NewEditController implements Initializa
            return false;
        }
     }
-
-
 
     public void getMovieToEdit(Movie selectedMovie) {
         System.out.println(selectedMovie);

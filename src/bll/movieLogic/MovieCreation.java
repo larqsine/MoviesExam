@@ -7,6 +7,10 @@ import exceptions.MoviesException;
 import utility.MovieFormat;
 
 import java.io.File;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 
 public class MovieCreation {
@@ -64,4 +68,17 @@ public class MovieCreation {
     public boolean validateRatingValue(double value) {
         return value>=0 && value<=10;
     }
+
+    public boolean compareCurrentDateWithMovieLastViewDate(Date lastView) {
+        LocalDate currentDate = LocalDate.now();
+        LocalDate lastViewConverted = Instant.ofEpochMilli(lastView.getTime())
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate();
+        return currentDate.equals(lastViewConverted);
+    }
+
+    public void saveCurrentViewDate(int movieId) throws MoviesException {
+        movieDao.updateCurrentViewDate(movieId);
+    }
 }
+

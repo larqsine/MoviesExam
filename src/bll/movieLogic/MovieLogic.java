@@ -100,6 +100,11 @@ public class MovieLogic implements MovieLogicAPI {
             return this.movieReader.getMedia(path);
     }
 
+    @Override
+    public List<String> oldMovies() throws MoviesException {
+     return movieDao.getOldVisualizedMovies();
+    }
+
 
     //used to insert genres into the database
 //   public void insertGenres(List<String> genres){
