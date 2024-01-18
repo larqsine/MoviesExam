@@ -8,17 +8,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="420.0" style="-fx-background-color: f1eaff;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="420.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <Label text="Add Movie">
+        <Label id="lbl" stylesheets="@../../css/MainView.css" text="Add Movie">
             <VBox.margin>
-                <Insets top="5.0" />
+                <Insets bottom="15.0" />
             </VBox.margin>
         </Label>
-        <Line endX="420.0" layoutX="420.0" />
+        <Line endX="420.0" layoutX="420.0" stroke="WHITE" />
         <HBox alignment="CENTER" prefHeight="35.0" prefWidth="200.0">
             <children>
-                <Label alignment="CENTER_RIGHT" prefWidth="60.0" text=" Title">
+                <Label id="lbl" alignment="CENTER_RIGHT" prefWidth="60.0" stylesheets="@../../css/MainView.css" text=" Title">
                     <HBox.margin>
                         <Insets right="7.0" />
                     </HBox.margin>
@@ -32,7 +32,7 @@
         </HBox>
         <HBox alignment="CENTER" prefHeight="35.0" prefWidth="200.0">
             <children>
-                <Label alignment="CENTER_RIGHT" prefWidth="60.0" text="File">
+                <Label id="lbl" alignment="CENTER_RIGHT" prefWidth="60.0" stylesheets="@../../css/MainView.css" text="File">
                     <HBox.margin>
                         <Insets right="7.0" />
                     </HBox.margin>
@@ -42,7 +42,7 @@
                         <Insets right="5.0" />
                     </HBox.margin>
                 </TextField>
-                <Button alignment="CENTER" mnemonicParsing="false" onAction="#openFileChooser" prefWidth="60.0" style="-fx-background-color: dfbbf5;" text="Choose">
+                <Button id="btn" alignment="CENTER" mnemonicParsing="false" onAction="#openFileChooser" prefWidth="60.0" stylesheets="@../../css/MainView.css" text="Choose">
                     <HBox.margin>
                         <Insets right="23.0" />
                     </HBox.margin>
@@ -54,7 +54,10 @@
         </HBox>
       <HBox alignment="CENTER" prefHeight="29.0" prefWidth="420.0">
          <children>
-            <Label text="PersonalRating" />
+            <Label id="lbl" stylesheets="@../../css/MainView.css" text="PersonalRating">
+               <HBox.margin>
+                  <Insets right="2.0" />
+               </HBox.margin></Label>
             <TextField fx:id="personalRating">
                <HBox.margin>
                   <Insets right="94.0" />
@@ -63,18 +66,18 @@
       </HBox>
         <HBox alignment="CENTER" prefHeight="35.0" prefWidth="200.0">
             <children>
-                <Button fx:id="createButton" alignment="CENTER" mnemonicParsing="false" onAction="#saveAddEditMovie" prefWidth="60.0" style="-fx-background-color: a076f9;" text="Save">
+                <Button id="btn" fx:id="createButton" alignment="CENTER" mnemonicParsing="false" onAction="#saveAddEditMovie" prefWidth="60.0" stylesheets="@../../css/MainView.css" text="Save">
                     <HBox.margin>
                         <Insets left="134.0" right="5.0" />
                     </HBox.margin>
                 </Button>
-                <Button alignment="CENTER" layoutX="194.0" layoutY="15.0" mnemonicParsing="false" onAction="#cancelAddEditMovie" prefWidth="60.0" style="-fx-background-color: a076f9;" text="Cancel" />
+                <Button id="btn" alignment="CENTER" layoutX="194.0" layoutY="15.0" mnemonicParsing="false" onAction="#cancelAddEditMovie" prefWidth="60.0" stylesheets="@../../css/MainView.css" text="Cancel" />
             </children>
          <VBox.margin>
             <Insets top="5.0" />
          </VBox.margin>
         </HBox>
-        <Line endX="420.0">
+        <Line endX="420.0" stroke="#fcfcfc">
             <VBox.margin>
                 <Insets bottom="20.0" top="10.0" />
             </VBox.margin>

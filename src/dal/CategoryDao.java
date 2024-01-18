@@ -96,30 +96,4 @@ public class CategoryDao implements ICategoryDao {
         }
     }
 
-
-    /**@Override
-    public boolean de(Category category) throws MoviesException {
-        System.out.println(category.getName());
-        System.out.println(category.getId());
-        String sqlDeleteCategory = "DELETE FROM Category WHERE id=?";
-        try (Connection connection = CONNECTION_MANAGER.getConnection()) {
-            connection.setAutoCommit(false);
-            try (PreparedStatement psmtDelete = connection.prepareStatement(sqlDeleteCategory)) {
-                psmtDelete.setInt(1, category.getId());
-                int rows = psmtDelete.executeUpdate();
-                FileHandler fileHandler = FileHandler.getInstance();
-//                if (!fileHandler.deleteSongLocal(movie.getFileLink())) {
-//                    connection.rollback();
-//                    return false;
-//                }
-                connection.commit();
-                return true;
-            } catch (SQLException e) {
-                connection.rollback();
-                throw new MoviesException(ExceptionsMessages.TRANSACTION_FAILED, e);
-            }
-        } catch (SQLException e) {
-            throw new MoviesException(ExceptionsMessages.NO_DATABASE_CONNECTION, e);
-        }
-    }*/
 }

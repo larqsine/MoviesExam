@@ -4,6 +4,7 @@ import gui.components.listeners.CategorySelection;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.Tooltip;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 
@@ -23,6 +24,7 @@ public class TitleCell extends ListCell<Category> {
     }
     public TitleCell(int width, Duration duration){
         this.cellWidth=width;
+        this.setStyle("-fx-background-color: #080808; -fx-effect: dropshadow(gaussian, #C0C0C0, 5, 0, 2, 2);");
         if(duration!=null){
             this.deelayDuration=duration;
         }
@@ -32,22 +34,24 @@ public class TitleCell extends ListCell<Category> {
     private Label createCell(be.Category item){
         Label label = new Label(item.getName());
         label.setPrefWidth(cellWidth);
+        label.setStyle("-fx-text-fill: white");
         longDescription.setText(item.getName());
         longDescription.setShowDelay(this.deelayDuration);
          setOnMouseEnterAction(label);
-       setOnMouseExitAction(label);
+         setOnMouseExitAction(label);
        return label;
-
     }
 
     private void setOnMouseEnterAction(Label label){
         label.setOnMouseEntered(event->
                 Tooltip.install(this,longDescription));
+        label.setOnMouseEntered(e -> label.setStyle("-fx-text-fill: #3498DBCC;"));
     }
 
     private void setOnMouseExitAction(Label label)
     {
         label.setOnMouseExited(event -> Tooltip.uninstall(this,longDescription));
+        label.setOnMouseExited(e -> label.setStyle("-fx-text-fill: white;"));
     }
 
     public void setOnMouseClick(CategorySelection listener){
@@ -57,7 +61,7 @@ public class TitleCell extends ListCell<Category> {
             }
         });
 
-    };
+    }
     }
 
 

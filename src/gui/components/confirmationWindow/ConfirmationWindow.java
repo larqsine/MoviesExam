@@ -50,6 +50,7 @@ public class ConfirmationWindow {
 
     public void setOperationInformation(String title) {
         this.operationInformation.setText(title);
+        operationInformation.setStyle("-fx-text-fill: white");
     }
 
 

@@ -27,6 +27,7 @@ public class ButtonCell extends TableCell<Movie, String> {
         this.setPrefWidth(width);
         this.setPrefHeight(height);
         this.model = model;
+        this.setStyle("-fx-background-color: #000000");
         button = new Button();
         button.setGraphic(playSvg());
         button.setOnAction(event -> {
