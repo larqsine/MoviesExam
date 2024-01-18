@@ -1,19 +1,14 @@
 package gui.components.newEditDeleteMovies;
-import be.Category;
-import be.Movie;
 import gui.components.listeners.MovieReloadable;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import utility.ExceptionHandler;
 import utility.InformationalMessages;
 
-import java.util.List;
 
 
-public abstract class NewEditController  {
+public abstract class NewEditController {
     private MovieReloadable reloadable;
     private final FileChooser fileChooser = new FileChooser();
     private int openedCategory;

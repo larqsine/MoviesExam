@@ -63,7 +63,6 @@ public class MovieDao implements IMovieDao {
         if (movieIds.isEmpty()) {
             return Collections.emptyMap();
         }
-
         String inSql = movieIds.stream()
                 .map(String::valueOf)
                 .collect(Collectors.joining(","));
@@ -134,7 +133,7 @@ public class MovieDao implements IMovieDao {
                 psmt.execute();
                 ResultSet rs = psmt.getGeneratedKeys();
                 if (rs.next()) {
-                    insertMovieCategory( rs.getInt(1),categories, conn);
+                    insertMovieCategory(rs.getInt(1), categories, conn);
                     insertMovieGenres(rs.getInt(1), movie.getGenres(), conn);
                 }
             }
@@ -197,31 +196,25 @@ public class MovieDao implements IMovieDao {
     }
 
     @Override
-    public boolean updateMovie(Movie movie, String movieTitle) throws MoviesException {
-        String sql = "UPDATE Movie SET name=?, rating=?, filelink=?, lastview=?, personalRating=?";
+    public boolean updateMovie(Movie movie) throws MoviesException {
+        String sql1 = "UPDATE Movie SET name=?, rating=?, filelink=?,lastview=?, personalRating=? WHERE id=?";
         Connection conn = null;
 
         try {
             conn = CONNECTION_MANAGER.getConnection();
             conn.setAutoCommit(false);
 
-            try (PreparedStatement psmt = conn.prepareStatement(sql)) {
+            try (PreparedStatement psmt = conn.prepareStatement(sql1)) {
                 psmt.setString(1, movie.getName());
                 psmt.setDouble(2, movie.getRating());
                 psmt.setString(3, movie.getFileLink());
                 java.sql.Date sqlDate = new java.sql.Date(movie.getLastView().getTime());
                 psmt.setDate(4, sqlDate);
                 psmt.setDouble(5, movie.getPersonalRating());
-                psmt.setString(6, movieTitle);
-
+                psmt.setInt(6, movie.getId());
                 int rowsAffected = psmt.executeUpdate();
-                if (rowsAffected > 0) {
-
-                    conn.commit();
-                    return true;
-                } else {
-                    return false;
-                }
+                conn.commit();
+                return rowsAffected > 0;
             }
         } catch (SQLException e) {
             System.err.println("SQL Exception: " + e.getMessage());

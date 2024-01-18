@@ -23,18 +23,14 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class EditMovieController extends NewEditController implements Initializable {
-    public Button createButton;
     private MovieModel model;
     @FXML
     private TextField fileLocation;
     @FXML
-    private MultipleChoiceView genreList;
-    @FXML
-    private HBox genresContainer;
-    @FXML
     private TextField movieTitle;
     @FXML
     private TextField personalRating;
+    private Movie movie;
 
 
     @Override
@@ -44,26 +40,28 @@ public class EditMovieController extends NewEditController implements Initializa
 
     @Override
     public void saveAddEditMovie(ActionEvent event) {
-        double rating = 0;
-        String title = movieTitle.getText();
-    if (validateRating(personalRating)) {
-        rating = Double.parseDouble(personalRating.getText());
-        if (validateInputs(title, fileLocation.getText(), this.model)) {
+        double personalRatingValue = 0;
+        String newTitle = "";
+        String newFileLocation = "";
+        if(!validateRating(personalRating)&& !validateInputs(movieTitle.getText(), fileLocation.getText(), this.model)){
             return;
         }
-//        List<String> genres = this.genreList.getSelectedGenres();
+
+            personalRatingValue = Double.parseDouble(personalRating.getText());
+            newTitle = movieTitle.getText();
+            newFileLocation = fileLocation.getText();
         try {
-//            boolean isSuccess = model.saveMovie(title, String.valueOf(rating));
-//            if (!isSuccess) {
-//                ExceptionHandler.displayErrorAlert(ExceptionsMessages.DB_UNSUCCESFULL.getValue(), "Unsuccessful operation");
-//            }
+            boolean isSuccess = model.updateMovie(movie.getId(),newTitle,movie.getRating(),newFileLocation,movie.getLastView(),personalRatingValue,movie.getGenres());
+            if (!isSuccess) {
+                ExceptionHandler.displayErrorAlert(ExceptionsMessages.DB_UNSUCCESFULL.getValue(), "Unsuccessful operation");
+            }
             this.getReloadableController().reloadMovies();
             closeStage(Utility.getCurrentStage(event));
         } catch (MoviesException e) {
             ExceptionHandler.displayErrorAlert(ExceptionsMessages.DB_UNSUCCESFULL.getValue(), "Unsuccessful operation");
             closeStage(Utility.getCurrentStage(event));
         }
-}
+
     }
 
     @Override
@@ -72,9 +70,8 @@ public class EditMovieController extends NewEditController implements Initializa
         File selectedFile = getFileChooser().showOpenDialog(newMovieStage);
         if (selectedFile != null) {
             try {
-                System.out.println(selectedFile);
                 MovieFormat movieformat = setMovieFormat(selectedFile);
-//                this.fileLocation.setText(selectedFile.getPath());
+                this.fileLocation.setText(selectedFile.getPath());
             } catch (MoviesException e) {
                 ExceptionHandler.displayErrorAndWait(e.getMessage(), "Format unsupported");
             }
@@ -85,9 +82,9 @@ public class EditMovieController extends NewEditController implements Initializa
     public void initialize(URL location, ResourceBundle resources) {
         try {
             model = MovieModel.getInstance();
-            genreList = new MultipleChoiceView();
-            genreList.setElements(model.getGenres());
-            genresContainer.getChildren().add(genreList);
+            setTextMovieTitle(this.movie.getName());
+            setFileLocation(this.movie.getFileLink());
+            setPersonalRating(this.movie.getPersonalRating());
         } catch (MoviesException e) {
             ExceptionHandler.displayErrorAlert(e.getExceptionsMessages(), "Add movie error");
         }
@@ -97,11 +94,6 @@ public class EditMovieController extends NewEditController implements Initializa
         MovieReloadable movieReloadable = new MovieReloader(model);
         this.setReloadableController(movieReloadable);
     }
-
-    public void getCurrentOpenedCategory(int currentOpenedCategory) {
-        this.setOpenedCategory(currentOpenedCategory);
-    }
-
     private MovieFormat setMovieFormat(File file) throws MoviesException {
         return model.getFormat(file.getName());
     }
@@ -111,17 +103,14 @@ public class EditMovieController extends NewEditController implements Initializa
         movieTitle.setText(text);
     }
 
-    public void setPersonalRating(double rating){
+    public void setPersonalRating(double rating) {
         this.personalRating.setText(String.valueOf(rating));
     }
 
-    public void setFileLocation(String location){
+    public void setFileLocation(String location) {
         this.fileLocation.setText(location);
     }
 
-    public void setMovie(Movie movie){
-        this.model.setCurrentSelectedMovie(movie);
-    }
 
     private boolean validateRating(TextField textField) {
         try {
@@ -133,4 +122,8 @@ public class EditMovieController extends NewEditController implements Initializa
         }
     }
 
+    public void getMovieToEdit(Movie selectedMovie) {
+        System.out.println(selectedMovie);
+        this.movie = selectedMovie;
+    }
 }

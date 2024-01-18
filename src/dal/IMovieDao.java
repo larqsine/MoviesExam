@@ -12,7 +12,7 @@ public interface IMovieDao {
 
     boolean createMovie(Movie movie, List<Category> categories) throws MoviesException;
 
-    boolean updateMovie(Movie movie, String movieTitle) throws MoviesException;
+    boolean updateMovie(Movie movie) throws MoviesException;
 
     boolean deleteMovieFromLocalAndDB(Movie movie) throws MoviesException;
 
@@ -20,7 +20,5 @@ public interface IMovieDao {
 
     boolean deleteMovieFromCategory(Movie movie , Category category) throws MoviesException;
 
-//used to insert genres into the database
-    //    void insertGenres(List<String> genres);
 
 }

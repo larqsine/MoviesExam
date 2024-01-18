@@ -230,6 +230,7 @@ public class MainViewController implements Initializable {
         String resourcePath = "../components/newEditDeleteMovies/AddViewMovie.fxml";
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(resourcePath));
+            loader.setController(new AddMovieController());
             Parent root = loader.load();
             AddMovieController adMovie = loader.getController();
             adMovie.getCurrentOpenedCategory(model.getCurrentOpenedCategory());
@@ -269,15 +270,13 @@ public class MainViewController implements Initializable {
         }
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(resourcePath));
+            EditMovieController editMovie =  new EditMovieController();
+            editMovie.getMovieToEdit(selectedMovie);
+            loader.setController(editMovie);
             Parent root = loader.load();
-            EditMovieController editMovie = loader.getController();
-            editMovie.getCurrentOpenedCategory(model.getCurrentOpenedCategory());
-            editMovie.setModel(this.model);
-            editMovie.setMovie(selectedMovie);
-            editMovie.setTextMovieTitle(selectedMovie.getName());
-            editMovie.setPersonalRating(selectedMovie.getPersonalRating());
-            editMovie.setFileLocation(selectedMovie.getFileLink());
-
+            EditMovieController editMovieController = loader.getController();
+            editMovieController.setModel(this.model);
+            System.out.println(loader.getController().getClass().getName());
             Scene scene = new Scene(root);
             Stage mainStage = Utility.getCurrentStage(event);
             Stage newCategoryStage = Utility.createPopupStage(mainStage, scene, Titles.ADD_NEW_MOVIE.getValue(), POPUP_WIDTH);

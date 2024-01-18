@@ -49,8 +49,8 @@ public class MovieCreation {
         return file.exists() && !file.isDirectory();
     }
 
-    public boolean updateMovie(Movie movie, String movieTitle) throws MoviesException {
-        return this.movieDao.updateMovie(movie,movieTitle);
+    public boolean updateMovie(Movie movie) throws MoviesException {
+        return this.movieDao.updateMovie(movie);
     }
 
     public boolean saveMovie(Movie movie, List<Category> categories) throws MoviesException {

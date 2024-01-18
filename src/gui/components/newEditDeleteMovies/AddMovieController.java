@@ -24,7 +24,7 @@ public class AddMovieController extends NewEditController implements Initializab
     @FXML
     private TextField movieTitle;
     @FXML
-    private Button createButton;
+    private Button addMovie;
     @FXML
     private TextField fileLocation;
     private MovieModel model;
@@ -46,6 +46,7 @@ public class AddMovieController extends NewEditController implements Initializab
             categorySelectionView=new MultipleChoiceView();
             categorySelectionView.setElements(model.getCategories());
             categoryContainer.getChildren().add(categorySelectionView);
+
         } catch (MoviesException e) {
             ExceptionHandler.displayErrorAlert(e.getExceptionsMessages(), "Add movie error");
         }
@@ -69,7 +70,6 @@ public class AddMovieController extends NewEditController implements Initializab
             ExceptionHandler.displayInformationAlert(InformationalMessages.NO_CATEGORY_CHECKED.getValue(),"Data incomplete");
             return;
         }
-
         try {
             boolean isSuccess = model.saveMovie(title, path, genres, categories,this.getOpenedCategory());
             if (!isSuccess) {
@@ -95,9 +95,6 @@ public class AddMovieController extends NewEditController implements Initializab
             }
         }
     }
-
-
-
 
     public void getCurrentOpenedCategory(int currentOpenedCategory) {
         this.setOpenedCategory(currentOpenedCategory);

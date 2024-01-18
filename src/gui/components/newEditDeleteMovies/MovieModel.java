@@ -14,6 +14,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import utility.MovieFormat;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -25,11 +26,6 @@ public class MovieModel {
     private MovieLogicAPI movieLogic;
     private GenreLogicApi genreLogic;
     private MovieCreation movieCreation;
-
-
-    private Movie currentSelectedMovie;
-
-
     private static MovieModel instance;
 
     public static MovieModel getInstance() throws MoviesException {
@@ -67,24 +63,9 @@ public class MovieModel {
         this.categoriesObjects = genreLogic.getCategories();
     }
 
-    public void cancelUpdateMovie() {
-    }
 
-    public void setCurrentSelectedMovie(Movie currentSelectedMovie) {
-        this.currentSelectedMovie = currentSelectedMovie;
-    }
-    /** retrieve the current selected movie for editing*/
-    public Movie getCurrentSelectedMovie() {
-        return currentSelectedMovie;
-    }
 
-    public boolean updateMovie(String title) throws Exception {
-        return false;
-    }
 
-    public boolean checkTitle(String title) {
-        return false;
-    }
 
     public ObservableList<String> getGenres() {
         return genres;
@@ -97,7 +78,6 @@ public class MovieModel {
      * @param name it is the name off the file that is being processed
      */
     public MovieFormat getFormat(String name) throws MoviesException {
-        System.out.println("I am here");
         return movieCreation.extractFormat(name);
     }
 
@@ -109,12 +89,20 @@ public class MovieModel {
         return movieCreation.checkFilePath(path);
     }
 
+
+    /**
+     * save a new movie to the database*/
     public boolean saveMovie(String title, String path, List<String> genres,List<String>categories, int categoryId) throws MoviesException {
         List<Genre> genreObjects = genreLogic.convertStringsToGenre(this.genresObjects, genres);
         List<Category> catObjects = genreLogic.convertStringsToCategory(this.categoriesObjects,categories);
         Movie movie = new Movie(title, null, path, null, null, genreObjects);
-
         return movieCreation.saveMovie(movie, catObjects);
+    }
+
+/**edit movie from the database*/
+    public boolean updateMovie(int movieId,String title, Double rating, String path, Date lastView,Double personalRating, List<Genre> genres) throws MoviesException {
+        Movie movie = new Movie(movieId,title,rating,path,lastView,personalRating,genres);
+        return movieCreation.updateMovie(movie);
     }
 
     /**
