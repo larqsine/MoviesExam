@@ -2,7 +2,6 @@ package gui.components.newEditDeleteMovies;
 
 import exceptions.MoviesException;
 import gui.MainView.MainModel;
-import gui.components.category.CategoryView;
 import gui.components.listeners.MovieReloadable;
 import gui.components.newEditDeleteMovies.genreView.MultipleChoiceView;
 import javafx.event.ActionEvent;

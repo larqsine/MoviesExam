@@ -123,13 +123,4 @@ public class MovieModel {
     public boolean validateRatingValue(double value) {
         return movieCreation.validateRatingValue(value);
     }
-
-
-    /*
-      Used  to insert movie genres into the database
-      */
-//    public void insertGenres(){
-//        List<String> genres = Arrays.stream(MovieGenre.values()).map(MovieGenre::getDisplayName).toList();
-//        this.movieLogic.insertGenres(genres);
-//    }
 }
