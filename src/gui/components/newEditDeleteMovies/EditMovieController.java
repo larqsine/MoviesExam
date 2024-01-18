@@ -48,15 +48,15 @@ public class EditMovieController extends NewEditController implements Initializa
         String title = movieTitle.getText();
     if (validateRating(personalRating)) {
         rating = Double.parseDouble(personalRating.getText());
-        if (validateInputs(title, String.valueOf(rating), this.model)) {
+        if (validateInputs(title, fileLocation.getText(), this.model)) {
             return;
         }
-        List<String> genres = this.genreList.getSelectedGenres();
+//        List<String> genres = this.genreList.getSelectedGenres();
         try {
-            boolean isSuccess = model.saveMovie(title, String.valueOf(rating), genres, this.getOpenedCategory());
-            if (!isSuccess) {
-                ExceptionHandler.displayErrorAlert(ExceptionsMessages.DB_UNSUCCESFULL.getValue(), "Unsuccessful operation");
-            }
+//            boolean isSuccess = model.saveMovie(title, String.valueOf(rating));
+//            if (!isSuccess) {
+//                ExceptionHandler.displayErrorAlert(ExceptionsMessages.DB_UNSUCCESFULL.getValue(), "Unsuccessful operation");
+//            }
             this.getReloadableController().reloadMovies();
             closeStage(Utility.getCurrentStage(event));
         } catch (MoviesException e) {
@@ -74,7 +74,7 @@ public class EditMovieController extends NewEditController implements Initializa
             try {
                 System.out.println(selectedFile);
                 MovieFormat movieformat = setMovieFormat(selectedFile);
-                this.fileLocation.setText(selectedFile.getPath());
+//                this.fileLocation.setText(selectedFile.getPath());
             } catch (MoviesException e) {
                 ExceptionHandler.displayErrorAndWait(e.getMessage(), "Format unsupported");
             }

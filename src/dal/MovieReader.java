@@ -14,7 +14,6 @@ public class MovieReader implements IMovieReader {
             mediaUri = new File(path).toURI();
             return new Media(mediaUri.toString());
         } catch (NullPointerException | MediaException | IllegalArgumentException | UnsupportedOperationException e) {
-            //System.out.println(e.getCause().toString());
             throw new MoviesException(ExceptionsMessages.READING_MOVIE_LOCAL, e.getCause());
         }
     }

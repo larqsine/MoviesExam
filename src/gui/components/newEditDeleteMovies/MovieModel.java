@@ -26,11 +26,7 @@ public class MovieModel {
     private GenreLogicApi genreLogic;
     private MovieCreation movieCreation;
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> ce49350e540ba11c5306724d68c60ab0224f9390
     private Movie currentSelectedMovie;
 
 
@@ -101,7 +97,7 @@ public class MovieModel {
      * @param name it is the name off the file that is being processed
      */
     public MovieFormat getFormat(String name) throws MoviesException {
-
+        System.out.println("I am here");
         return movieCreation.extractFormat(name);
     }
 
@@ -131,13 +127,11 @@ public class MovieModel {
         return movieCreation.deleteMovie(movieToDelete);
     }
 
-<<<<<<< HEAD
 
-=======
     public ObservableList<String> getCategories() {
         return this.categories;
     }
->>>>>>> ce49350e540ba11c5306724d68c60ab0224f9390
+
 
     /*
       Used  to insert movie genres into the database

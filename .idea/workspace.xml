@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="add movie changed to acept multiple categories">
+    <list default="true" id="bec012ba-7dea-4916-a671-68f67ee6671f" name="Changes" comment="modified filter to display an information message when no movies are opened, otherwise it will give an NullPointerException">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dal/MovieReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/MovieReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/EditMovieController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/MovieModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/components/newEditDeleteMovies/MovieModel.java" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogicAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/movieLogic/MovieLogicAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainView/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/filterSongs/FilterManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/filterSongs/FilterManager.java" afterDir="false" />
->>>>>>> ce49350e540ba11c5306724d68c60ab0224f9390
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -554,7 +546,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Get genres for addMovie form database" />
     <MESSAGE value="Add new movie view" />
     <MESSAGE value="Check if a category movies a re opened" />
     <MESSAGE value="check movie path an location" />
@@ -579,7 +570,8 @@
     <MESSAGE value="validate rating" />
     <MESSAGE value="play next and play previous functionalities implemented" />
     <MESSAGE value="add movie changed to acept multiple categories" />
-    <option name="LAST_COMMIT_MESSAGE" value="add movie changed to acept multiple categories" />
+    <MESSAGE value="modified filter to display an information message when no movies are opened, otherwise it will give an NullPointerException" />
+    <option name="LAST_COMMIT_MESSAGE" value="modified filter to display an information message when no movies are opened, otherwise it will give an NullPointerException" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
