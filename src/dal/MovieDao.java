@@ -198,7 +198,50 @@ public class MovieDao implements IMovieDao {
 
     @Override
     public boolean updateMovie(Movie movie, String movieTitle) throws MoviesException {
-        return false;
+        String sql = "UPDATE Movie SET name=?, rating=?, file_link=?, last_view=?, personal_rating=? WHERE name=?";
+        Connection conn = null;
+
+        try {
+            conn = CONNECTION_MANAGER.getConnection();
+            conn.setAutoCommit(false);
+
+            try (PreparedStatement psmt = conn.prepareStatement(sql)) {
+                psmt.setString(1, movie.getName());
+                psmt.setDouble(2, movie.getRating());
+                psmt.setString(3, movie.getFileLink());
+                java.sql.Date sqlDate = new java.sql.Date(movie.getLastView().getTime());
+                psmt.setDate(4, sqlDate);
+                psmt.setDouble(5, movie.getPersonalRating());
+                psmt.setString(6, movieTitle);
+
+                int rowsAffected = psmt.executeUpdate();
+                if (rowsAffected > 0) {
+
+                    conn.commit();
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("SQL Exception: " + e.getMessage());
+            try {
+                conn.rollback();
+            } catch (SQLException ex) {
+                System.err.println("Rollback Exception: " + ex.getMessage());
+                ExceptionHandler.displayErrorAndWait(ex.getMessage(), "Database operation error");
+            }
+            return false;
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    System.err.println("Close Connection Exception: " + ex.getMessage());
+                    ExceptionHandler.displayErrorAndWait(ex.getMessage(), "Database operation error");
+                }
+            }
+        }
     }
 
     @Override
