@@ -30,7 +30,7 @@ public class Utility {
     public static Stage createPopupStage(Stage mainStage, Scene scene, String name, int popWidth) {
         Stage newSongStage = new Stage();
         newSongStage.setX(Utility.calculateMidPoint(mainStage.getX(), mainStage.getWidth(), popWidth));
-        newSongStage.setY(mainStage.getHeight() / 2);
+        newSongStage.setY(mainStage.getHeight() / 3);
         newSongStage.setTitle(name);
         newSongStage.setScene(scene);
         newSongStage.initModality(Modality.WINDOW_MODAL);
