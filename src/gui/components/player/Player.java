@@ -204,6 +204,7 @@ public class Player implements PlayerControl {
     @Override
     public void bindTotalMediaToScreen(Label label) {
         label.textProperty().bind(totalTime);
+        label.setStyle("-fx-text-fill: white");
     }
     @Override
     public void bindTotalDurationToModel(DoubleProperty totalDuration) {

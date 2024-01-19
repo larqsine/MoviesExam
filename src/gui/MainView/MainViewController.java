@@ -31,7 +31,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
-import gui.filterSongs.FilterManager;
+import gui.filterMovies.FilterManager;
 import utility.*;
 
 import java.io.IOException;

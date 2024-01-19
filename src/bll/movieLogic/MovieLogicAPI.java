@@ -22,9 +22,4 @@ public interface MovieLogicAPI {
     Media getMediaAtIndex(int index,List<Movie> movies) throws MoviesException;
     List<String> oldMovies() throws MoviesException;
 
-
-
-
-//used to insert genres into the database
-    //    void insertGenres(List<String> genres);
 }

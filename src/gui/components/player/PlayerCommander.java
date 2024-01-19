@@ -36,10 +36,6 @@ public class PlayerCommander {
         }
     }
 
-    public Duration getCurrentTime() {
-        return playerControl.getCurrentTime();
-    }
-
     public void bindMediaTimeToScreen(Label label) {
         playerControl.bindMediaTimeToScreen(label);
     }
