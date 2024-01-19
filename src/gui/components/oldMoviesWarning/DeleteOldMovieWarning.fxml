@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.components.oldMoviesWarning.OldMoviesController">
+   <children>
+      <Label text="Remember to delete old movies" />
+      <ListView fx:id="oldMoviesList" maxHeight="200.0" maxWidth="200.0" prefHeight="200.0" prefWidth="200.0" />
+      <Button mnemonicParsing="false" onAction="#closeWindow" text="Close" />
+   </children>
+</VBox>

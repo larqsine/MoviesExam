@@ -29,7 +29,6 @@ public class Main extends Application {
         }
 
     }
-
     private static void initializeStage(Stage primaryStage, Parent root, MainViewController controller) {
         primaryStage.showingProperty().addListener(((observable, oldValue, newValue) -> {
             PauseTransition pause = new PauseTransition(Duration.seconds(1));
@@ -41,8 +40,6 @@ public class Main extends Application {
             pause.play();
         }
         ));
-
-
         Scene scene = new Scene(root);
         primaryStage.setTitle("Movies app");
         primaryStage.setScene(scene);
