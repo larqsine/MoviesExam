@@ -12,9 +12,9 @@ public enum InformationalMessages implements Messages {
     CATEGORY_IN_USE("The category that you are trying to delete is in use"),
     MOVIE_IN_USE("The movie that you want to delete is in use"),
     DELETE_SUCCEEDED("Deleted with success"),
-    DELETE_QUESTION("Are you sure that you want to delete this song"),
+    DELETE_QUESTION("Are you sure that you want to delete this movie"),
     NO_FILE("No file, returned by your path!\nPlease check again"),
-    DELETE_CATEGORY_QUESTION("Are you sure that you want to delete this playlist " + "\n"),
+    DELETE_CATEGORY_QUESTION("Are you sure that you want to delete this category " + "\n"),
     NO_EMPTY_TITLE("Title can not be empty!"),
     NO_CATEGORY_CHECKED("Please mark a category"),
     INITIALIZING_ERROR("Application initialization error");
