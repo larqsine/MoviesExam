@@ -1,4 +1,4 @@
-package gui.filterSongs;
+package gui.filterMovies;
 
 import exceptions.MoviesException;
 import gui.MainView.MainModel;

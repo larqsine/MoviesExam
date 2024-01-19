@@ -27,6 +27,7 @@ public class OldMoviesController implements Initializable {
         try {
             model = OldMoviesModel.getInstance();
             oldMoviesList.setItems(model.getOldMovies());
+            oldMoviesList.setStyle("-fx-effect: dropshadow(gaussian, #494849, 15, 0, 8, 8); -fx-border-color: #000000");
         } catch (MoviesException e) {
             ExceptionHandler.displayErrorAlert(e.getMessage(), "Data error");
             windowStage.close();

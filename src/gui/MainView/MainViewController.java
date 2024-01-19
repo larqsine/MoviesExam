@@ -31,7 +31,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
-import gui.filterSongs.FilterManager;
+import gui.filterMovies.FilterManager;
 import utility.*;
 
 import java.io.IOException;
@@ -320,7 +320,6 @@ public class MainViewController implements Initializable {
     @FXML
     public void initializeOldListView(Stage stage) {
         if (oldMoviesModel.isListEmpty()) {
-            System.out.println("i am here");
             return;
         }
         try {

@@ -1,6 +1,5 @@
 package be;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -30,10 +29,10 @@ public class Movie {
         this.fileLink = fileLink;
         this.lastView = lastView;
         this.personalRating = personalRating;
-        intializeGenres(genres);
+        initializeGenres(genres);
     }
 
-    private void intializeGenres(List<Genre> genres) {
+    private void initializeGenres(List<Genre> genres) {
         if (genres == null) {
             this.genres = new ArrayList<>();
         } else {
@@ -47,7 +46,7 @@ public class Movie {
         this.fileLink = fileLink;
         this.lastView = setDefaultDate(lastView);
         this.personalRating = setDefaultRating(personalRating);
-        intializeGenres(genres);
+        initializeGenres(genres);
     }
 
 
