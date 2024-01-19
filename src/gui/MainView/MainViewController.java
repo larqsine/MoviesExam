@@ -320,7 +320,6 @@ public class MainViewController implements Initializable {
     @FXML
     public void initializeOldListView(Stage stage) {
         if (oldMoviesModel.isListEmpty()) {
-            System.out.println("i am here");
             return;
         }
         try {
