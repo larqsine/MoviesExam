@@ -187,7 +187,7 @@ public class MainModel {
         this.setMovieObservableList(this.currentOpenedCategory.get());
     }
 
-    
+
 
 
     /**
@@ -211,8 +211,7 @@ public class MainModel {
         this.playButtonFromTableId.set(playButtonFromTableId);
     }
 
-
-    //    the new approach with the observable design pattern
+    
     public void addObserver(PlaybackObserver playbackObserver) {
         playbackObservers.add(playbackObserver);
     }
