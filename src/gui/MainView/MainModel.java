@@ -187,8 +187,7 @@ public class MainModel {
         this.setMovieObservableList(this.currentOpenedCategory.get());
     }
 
-
-//    maybe remove them , i need to try a different approach
+    
 
 
     /**
