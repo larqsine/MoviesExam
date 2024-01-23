@@ -243,10 +243,7 @@ public class MovieDao implements IMovieDao {
                 psmtDelete.setInt(1, movie.getId());
                 int rows = psmtDelete.executeUpdate();
                 FileHandler fileHandler = FileHandler.getInstance();
-//                if (!fileHandler.deleteSongLocal(movie.getFileLink())) {
-//                    connection.rollback();
-//                    return false;
-//                }
+
                 connection.commit();
                 return true;
             } catch (SQLException e) {

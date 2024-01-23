@@ -80,9 +80,7 @@ public class Player implements PlayerControl {
         mediaPlayer.statusProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue == MediaPlayer.Status.READY) {
                 mediaViewReloader.updateMediaView(mediaPlayer);
-//                Platform.runLater(()->{
-//                    mediaViewReloader.updateMediaView(mediaPlayer);
-//                });
+
             }
         });
     }
