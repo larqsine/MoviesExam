@@ -21,7 +21,7 @@ public class MovieCreation {
     }
 
     /**
-     * extract format off the song, in order to know the file format
+     * extract format off the movie, in order to know the file format
      */
     public MovieFormat extractFormat(String name) throws MoviesException {
         MovieFormat movieFormat = null;
