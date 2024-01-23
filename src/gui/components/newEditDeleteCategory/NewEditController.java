@@ -112,6 +112,4 @@ public abstract class NewEditController implements Initializable {
         categoryModel.setCurrentSelectedCategory(category);
         this.categoryTitle.setText(category.getName());
     }
-
-
 }

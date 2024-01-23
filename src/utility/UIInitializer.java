@@ -3,7 +3,6 @@ package utility;
 import be.Movie;
 
 import gui.MainView.MainModel;
-
 import gui.components.player.PlayerCommander;
 import gui.searchButton.ISearchGraphic;
 import gui.searchButton.SearchGraphic;

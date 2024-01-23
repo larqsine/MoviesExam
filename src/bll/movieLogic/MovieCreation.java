@@ -24,7 +24,7 @@ public class MovieCreation {
      * extract format off the song, in order to know the file format
      */
     public MovieFormat extractFormat(String name) throws MoviesException {
-        MovieFormat songFormat = null;
+        MovieFormat movieFormat = null;
         int index = name.lastIndexOf('.');
         String format = "";
         if (index > 0 && index < name.length() - 1) {
@@ -33,13 +33,13 @@ public class MovieCreation {
         MovieFormat[] movieFormats = MovieFormat.values();
         for (MovieFormat elem : movieFormats) {
             if (elem.getValue().equalsIgnoreCase(format)) {
-                songFormat = elem;
+                movieFormat = elem;
             }
         }
-        if (songFormat == null) {
+        if (movieFormat == null) {
             throw new MoviesException("Format not supported.Supported files:MP4,MPEG4!");
         }
-        return songFormat;
+        return movieFormat;
     }
     /**
      * checks if title or path are empty*/

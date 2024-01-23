@@ -27,7 +27,6 @@ public class MovieReader implements IMovieReader {
     public Media getInitialMedia() throws MoviesException {
         String path= "D:\\computer_science\\sco\\MediPlayer\\MoviesExam\\data\\default.mp4";
         Media media= getMedia(path);
-        System.out.println(media);
         return media;
     }
 
