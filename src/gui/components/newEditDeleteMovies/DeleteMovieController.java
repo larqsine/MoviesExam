@@ -68,8 +68,8 @@ public class DeleteMovieController implements ConfirmationController, Initializa
         confirmationWindow.setConfirmationController(confirmationController);
         confirmationWindow.setOperationTitle(Titles.DELETE_MOVIE.getValue());
         String message = InformationalMessages.DELETE_QUESTION.getValue() + "\n";
-        String songName = "\"" + movieToDelete.getName() + "\"?";
-        confirmationWindow.setOperationInformation(message + songName);
+        String movieName = "\"" + movieToDelete.getName() + "\"?";
+        confirmationWindow.setOperationInformation(message + movieName);
     }
 
     public void setReloadable(MovieReloadable reloadable) {
